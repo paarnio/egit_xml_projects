@@ -1,0 +1,1 @@
+tiedoston binding.xjb pitäisi olla projektin juuressa?
