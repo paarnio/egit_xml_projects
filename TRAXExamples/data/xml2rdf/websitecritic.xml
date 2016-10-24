@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<websitecritic><!-- from: http://stackoverflow.com/questions/10499281/using-jena-for-creating-rdf-from-xml-file -->
+<person>
+<name>Joe</name>
+<website url="www.example1.com">contact1</website >
+<vote>20</vote>
+</person>
+<person>
+ <name>Anna</name>
+<website url="www.example2.com">contact2</website>
+ <vote>80</vote>
+ </person>
+ </websitecritic>
