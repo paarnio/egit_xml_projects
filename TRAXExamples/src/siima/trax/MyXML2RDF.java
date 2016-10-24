@@ -1,7 +1,9 @@
 /*
- * Files from: 
+ * Source Files from: 
  * http://stackoverflow.com/questions/10499281/using-jena-for-creating-rdf-from-xml-file
  * 
+ * See also GRDDL:
+ * https://www.w3.org/TR/grddl-primer/
  */
 package siima.trax;
 
