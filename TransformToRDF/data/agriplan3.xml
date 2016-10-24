@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CroppingPlan xmlns="http://www.siima.org/ns/2012/">
+    <Farm> 
+        <Name>Saarenpaa</Name>
+        <Address>Iisalmi</Address>
+        <Enterprise>BackwardBrewery</Enterprise>
+        <Description>Tilan perustietojen kasittely</Description>
+    </Farm>
+    <Land>
+        <Name>Salmijarvi</Name>
+        <Acreage>500</Acreage>
+        <Location>Suontaka</Location>
+        <Field>
+            <Location>SuontakaRinne</Location>
+            <Lenght>50</Lenght>
+            <Breath>25</Breath>
+            <Shape>Oval</Shape>
+            <Area>50</Area>
+            <FieldStatus>
+                <Status>good</Status>
+                <Characteristics>sand and low ph</Characteristics>
+            </FieldStatus>
+            <PlannedFieldStatus>
+                <Period>Q2</Period>
+                <Value>10000</Value>
+            </PlannedFieldStatus>
+            <ObservedFieldStatus>
+                <Time>Q2</Time>
+                <Value>10000</Value>
+            </ObservedFieldStatus>
+            <Crop type="barley">
+                <CropDescription>Viljeltavat kasvit ja lajikkeet</CropDescription>
+                <SeedVariety>Peltotuki-ohjelma</SeedVariety>
+                <Fertilizer>Lannoitteet</Fertilizer>
+                <Protectant>Kasvinsuojeluaineet</Protectant>
+                <CroppingMethod>
+                    <Method>distributed</Method>
+                    <Operations>sticking</Operations>
+                    <ImplementationPeriod>Q4</ImplementationPeriod>            
+                </CroppingMethod>
+                <CropStatus>
+                    <Status>good</Status>
+                    <Characteristics>dimm</Characteristics>               
+                </CropStatus>
+                <PlannedCropStatus>
+                    <Period>Q2</Period>
+                    <Value>10000</Value>
+                </PlannedCropStatus>
+                <ObservedCropStatus>
+                    <Time>Q2</Time>
+                    <Value>10000</Value>
+                </ObservedCropStatus>
+                <Operation type="fertilation">
+                    <WorkMethod></WorkMethod>
+                    <PlannedOperation period="Q3" duration="3">
+                        Kaytettavat tapahtumalajit
+                    </PlannedOperation>
+                    <ImplementedOperation period="Q4" duration="4"></ImplementedOperation>
+                </Operation>
+            </Crop>
+            <Crop type="wheat">
+                <CropDescription>Toinen viljeltava kasvi</CropDescription>
+                <SeedVariety>Seed variety</SeedVariety>
+                <Fertilizer>Valittu lannoite</Fertilizer>
+                <Protectant>Kasvinsuojeluaine</Protectant>
+                <CroppingMethod>
+                    <Method>distributed</Method>
+                    <Operations>sticking</Operations>
+                    <ImplementationPeriod>Q3</ImplementationPeriod>            
+                </CroppingMethod>
+                <CropStatus>
+                    <Status>excellent</Status>
+                    <Characteristics>dimm</Characteristics>               
+                </CropStatus>
+                <PlannedCropStatus>
+                    <Period>Q1</Period>
+                    <Value>2000</Value>
+                </PlannedCropStatus>
+                <ObservedCropStatus>
+                    <Time>Q2</Time>
+                    <Value>10000</Value>
+                </ObservedCropStatus>
+                <Operation type="fertilation">
+                    <WorkMethod></WorkMethod>
+                    <PlannedOperation period="Q3" duration="3">
+                        Kaytettavat tapahtumalajit
+                    </PlannedOperation>
+                    <ImplementedOperation period="Q4" duration="4"></ImplementedOperation>
+                </Operation>
+            </Crop>            
+        </Field>   
+    </Land>
+    <Comment>Tiedot keratty dokumentista</Comment>
+</CroppingPlan>

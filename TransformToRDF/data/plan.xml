@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CroppingPlan>
+    <Farm> 
+        <Name>Saarenpaa</Name>
+        <Address>Iisalmi</Address>
+        <Enterprise>BackwardBrewery</Enterprise>
+        <Description>Tilan perustietojen käsittely (s14)
+            Tilan perustietojen käsittely tapahtuu toiminnolla Perustiedot/Tilan perustiedot. 
+            Ensimmäisellä välilehdellä käsitellään maatilan perustiedot. 
+            Toisella välilehdellä ovat tukien laskentaan vaikuttavat tiedot. 
+            Kolmannella välilehdellä ovat ravinnelaskennan perusteet. Neljännellä välilehdellä 
+            ovat vanhan järjestelmän asetukset (vuodet 2000-2006). 
+            Ohjelman miniversio ei sisällä Tukitiedot-välilehteä</Description>
+    </Farm>
+    <Land>
+        <Name>Salmijarvi</Name>
+        <Acreage>500</Acreage>
+        <Location>Suontaka</Location>
+        <Field>
+            <Location>SuontakaRinne</Location>
+            <Lenght>50</Lenght>
+            <Breath>25</Breath>
+            <Shape>Oval</Shape>
+            <Area>50</Area>
+            <FieldStatus>
+                <Status>good</Status>
+                <Characteristics>sand and low ph</Characteristics>
+            </FieldStatus>
+            <PlannedFieldStatus>
+                <Period>Q2</Period>
+                <Value>10000</Value>
+            </PlannedFieldStatus>
+            <ObservedFieldStatus>
+                <Time>Q2</Time>
+                <Value>10000</Value>
+            </ObservedFieldStatus>
+            <Crop type="barley">
+                <CropDescription>Viljeltävät kasvit ja lajikkeet (s16)
+                    Tällä näytöllä määritellään tilalla viljeltävät kasvilajit ja lajikkeet. 
+                    Tällä tavalla saadaan kasvinvalintanäytöllä olevat kasvinvalintalistat ja 
+                    lajikelistat lyhyemmiksi ja siten helpommiksi ja nopeammaksi käyttää. 
+                    Yleensä kannattaa ottaa ensin kaikki kasvit ja lajikkeet pois käytöstä 
+                    painikkeella Poista kaikki lajikkeet ja kasvit käytöstä. 
+                    Sen jälkeen puumaisessa rakenteessa rastitetaan ne kasvit ja lajikkeet, 
+                    joita tilalla käytetään. 
+                    Etsi lajike -painikkeella voidaan hakea lajike esille nimen perusteella.</CropDescription>
+                <SeedVariety>Peltotuki-ohjelma sisältää kattavan rekisterin markkinoilla olevista 
+                    siemenlajikkeista. (s.16)Tarvittaessa käyttäjä voi lisätä uuden lajikkeen rekisteriin 
+                    esim. jos se on niin uusi, ettei ohjelma vielä tunne sitä. Lisäys suoritetaan 
+                    siten, että ensin näytön vasemmanpuoleisesta osasta valitaan kasvi, 
+                    johon lajike halutaan lisätä. Tämän jälkeen pääruudun yläreunassa näkyvän 
+                    painikepalkin Lisää uusi-painikkeella ( painikkeessa) luodaan tyhjä lomake 
+                    lajikkeen tietojen antamiseksi. Lajikkeen nimeä napsauttamalla voidaan 
+                    Muokkaus-välilehdellä muuttaa lajikkeen kylvötiheystietoja, 1000 siemenen painoa, 
+                    itävyysprosenttia sekä siemenen hintaa. Lajikkeelle on myös määritelty 
+                    Ph-luokkavaatimus, jota voidaan tarvittaessa muuttaa. Huom! Ph-luokka tarkoittaa 
+                    viljavuusluokkaa, ei suoraan Ph-arvoa. Normisato tarkoittaa lajikkeelle 
+                    tyypillistä satotasoa, joka tulee ehdotuksena lohkon kasvinvalinassa. 
+                    Omat viljelykokemukset-kenttään voidaan kirjoittaa talteen mm. omia 
+                    kokemuksia tästä lajikkeesta. Jos tilalla käytetään ravinteita sisältävää ns. 
+                    iSeed-siementä, rastitetaan kohta iSeed-siemen. Tällöin ohjelma laskee 
+                    siemenessä olevan fosforin ja kaliumin määrän lannoitustapahtumien lisäksi. 
+                    Huom! ohjelma ei automaattisesti päivitä olemassa olevia siementapahtumia 
+                    lohkoilla iSeed-siemenen ravinnemäärillä, vaan käyttäjän täytyy käydä 
+                    Lohkotietojen käsittelyn Suunnittelu- tai Toteutunut-välilehdellä, 
+                    valita siementapahtuma ja painaa Muuta-painiketta. Ominaisuudet-välilehdellä 
+                    on useimmista lajikkeista jalostajan tai markkinoijan antamia ominaisuustietoja. 
+                    Ominaisuustietoja ei ole ohjelman miniversiossa.</SeedVariety>
+                <Fertilizer>Lannoitteet (s17)
+                    Peltotuki Pro sisältää tiedot mm. Yaran lannoitteista. Muokkaus-kielekkeellä 
+                    voidaan muuttaa lannoitteen tonnihintaa. Omat käyttökokemukset -kohtaan voidaan 
+                    kirjata ylös lisätietoja lannoitteesta. Ohjelmassa valmiina olevien lannoitteiden 
+                    ravinnetietoja käyttäjä ei pääse muuttamaan. Normaalisti ohjelma näyttää 
+                    valmistajan/markkinoijan nykyisessä valikoimassa olevat lannoitteet. 
+                    Jos tarvitaan jotain erikoisempaa tai vanhempaa lannoitetta, otetaan rasti 
+                    pois kohdasta Näytä nykyvalikoima. Tämä valinta vaikuttaa vain tämän näytön 
+                    näkymään, ei lannoitteiden käytössä-merkintöihin. Jos ohjelmasta ei löydy 
+                    itsellä käytössä olevaa lannoitetta, voidaan lannoitteisiin OMA1, OMA2, OMA3 
+                    ja OMA4 antaa itse ravinnetiedot. Viljelysuunnitelmaa tehtäessä valintalistoille 
+                    tulevat näkyviin vain ne lannoitteet, jotka on tällä näytöllä merkitty käytössä 
+                    oleviksi. Jos lannoite on merkitty soveltuvaksi perunalle, tulevat ainoastaan 
+                    nämä lannoitteet valintalistoille kasvin ollessa peruna. Vastaavasti, jos 
+                    lannoite merkitty soveltuvaksi sokerijuurikkaalle. Hivenlannoite-merkinnällä 
+                    olevat lannoitteet ovat käytettävissä hivenlannoitus-tapahtumissa.
+                </Fertilizer>
+                <Protectant>Kasvinsuojeluaineet (s19)
+                    Ohjelmassa on Eviran (Elintarviketurvallisuusvirasto) ylläpitämää 
+                    kasvinsuojeluainerekisteriä vastaava tietokanta torjunta-aineista. 
+                    Eviran aineiden lisäksi ohjelmassa ovat mukana mm. kiinniteaineet, jotka eivät 
+                    tarvitse rekisteröintilupaa. HUOM! Ohjelmaan on pyritty ottamaan ohjelman 
+                    tekohetkellä voimassa olevat Eviran tiedot sellaisenaan, mm. valmisteen nimi 
+                    ja rajoitukset. Softsalo Oy tai ohjelman tekijät eivät kuitenkaan vastaa 
+                    tietojen oikeellisuudesta. Käyttäjä voi vapaasti muuttaa aineiden 
+                    käyttörajoitustietoja. Aineet näkyvät puumaisessa rakenteessa aineiden 
+                    käyttötarkoituksen mukaisesti ryhmiteltynä. Etsi valmiste -painikkeella 
+                    voidaan ainetta etsiä valmisteen nimellä.</Protectant>
+                <CroppingMethod>
+                    <Method>distributed</Method>
+                    <Operations>sticking</Operations>
+                    <ImplementationPeriod>Q4</ImplementationPeriod>            
+                </CroppingMethod>
+                <CropStatus>
+                    <Status>good</Status>
+                    <Characteristics>dimm</Characteristics>               
+                </CropStatus>
+                <PlannedCropStatus>
+                    <Period>Q2</Period>
+                    <Value>10000</Value>
+                </PlannedCropStatus>
+                <ObservedCropStatus>
+                    <Time>Q2</Time>
+                    <Value>10000</Value>
+                </ObservedCropStatus>
+                <Operation type="fertilation">
+                    <WorkMethod></WorkMethod>
+                    <PlannedOperation period="Q3" duration="3">
+                        Käytettävät tapahtumalajit (s15)
+                        Tällä näytöllä määritellään ne tapahtumalajit, jotka halutaan olevan käytössä tehtäessä viljelysuunnitelmaa ja 
+                        lohkokohtaista kirjanpitoa. Samalla voidaan määritellä oletusyksikkö tapahtumalle, 
+                        oletusmäärä, oletushinta,kysytäänkö säätötietoja tapahtuman tallennuksen yhteydessä sekä näytetäänkö tapahtuma karttaohjelmassa. Tuloste-sarakkeessa voidaan valita tapahtumalajit, 
+                        jotka halutaan kylvö- ja lannoitustapahtumat -tulosteeseen.
+                    </PlannedOperation>
+                    <ImplementedOperation period="Q4" duration="4"></ImplementedOperation>
+                </Operation>
+            </Crop>       
+        </Field>   
+    </Land>
+    <Comment>Tiedot kerätty dokumentista: </Comment>
+</CroppingPlan>
