@@ -24,7 +24,7 @@ public class MyXML2RDF {
 	        Source xsl = new StreamSource("data/xml2rdf/websitecritic.xsl");
 	        Transformer transformer = factory.newTransformer(xsl);
 	        Source xml = new StreamSource("data/xml2rdf/websitecritic.xml");
-	        Result result = new StreamResult("data/xml2rdf/websitecritic.rdf");
+	        Result result = new StreamResult("data/xml2rdf/results/websitecritic.rdf");
 
 	        /*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	        System.out.println("Input min salary:");
