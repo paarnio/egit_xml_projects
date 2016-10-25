@@ -37,7 +37,7 @@ public class XMLToRDF {
 		RDFWriter wr=rdfmod.getWriter();
 		//System.out.println("RESULT:\n" + wr.toString());
 		try {
-		FileWriter fr = new FileWriter(new File("./data/agriplan3.rdf"));
+		FileWriter fr = new FileWriter(new File("./data/results/agriplan3.rdf"));
 		wr.write(rdfmod, fr, null);
 		} catch(Exception ex){
 			ex.printStackTrace();
