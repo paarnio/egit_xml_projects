@@ -1,149 +1,149 @@
 <?xml version="1.0" encoding="windows-1252"?>
 <rdf:RDF
     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-    xmlns:agri="http://www.siima.org/ns/2012/" > 
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ImplementedOperation13654496dab45">
+    xmlns:agri="http://www.siima.org/ns/2012/"
+    xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" > 
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CropStatus157fb197a0123">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CropStatus"/>
+    <agri:Characteristics>dimm</agri:Characteristics>
+    <agri:Status>good</agri:Status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingPlan157fb1979f71">
+    <agri:Comment>Tiedot keratty dokumentista</agri:Comment>
+    <agri:has_Land rdf:resource="http://www.siima.org/ns/2012/Land157fb1979ff7"/>
+    <agri:has_Farm rdf:resource="http://www.siima.org/ns/2012/Farm157fb1979f82"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingMethod157fb197a0435">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CroppingMethod"/>
+    <agri:ImplementationPeriod>Q3</agri:ImplementationPeriod>
+    <agri:Operations>sticking</agri:Operations>
+    <agri:Method>distributed</agri:Method>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Operation157fb197a0542">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Operation"/>
+    <agri:PlannedOperation>
+                        Kaytettavat tapahtumalajit</agri:PlannedOperation>
+    <agri:type>fertilation</agri:type>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Land157fb1979ff7">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Land"/>
+    <agri:has_Field rdf:resource="http://www.siima.org/ns/2012/Field157fb1979ffb"/>
+    <agri:Location>Suontaka</agri:Location>
+    <agri:Acreage>500</agri:Acreage>
+    <agri:Name>Salmijarvi</agri:Name>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ImplementedOperation157fb197a022f">
     <agri:duration>4</agri:duration>
     <agri:period>Q4</agri:period>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Farm13654496da02">
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedOperation157fb197a022e">
+    <agri:duration>3</agri:duration>
+    <agri:period>Q3</agri:period>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedFieldStatus157fb197a0017">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/ObservedFieldStatus"/>
+    <agri:Value>10000</agri:Value>
+    <agri:Time>Q2</agri:Time>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedCropStatus157fb197a053f">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus"/>
+    <agri:Value>10000</agri:Value>
+    <agri:Time>Q2</agri:Time>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/FieldStatus157fb197a0011">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/FieldStatus"/>
+    <agri:Characteristics>sand and low ph</agri:Characteristics>
+    <agri:Status>good</agri:Status>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Crop157fb197a001a">
+    <agri:type>barley</agri:type>
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Crop"/>
+    <agri:has_CroppingMethod rdf:resource="http://www.siima.org/ns/2012/CroppingMethod157fb197a011f"/>
+    <agri:has_Operation rdf:resource="http://www.siima.org/ns/2012/Operation157fb197a022c"/>
+    <agri:has_ObservedCropStatus rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus157fb197a0229"/>
+    <agri:Protectant>Kasvinsuojeluaineet</agri:Protectant>
+    <agri:SeedVariety>Peltotuki-ohjelma</agri:SeedVariety>
+    <agri:Fertilizer>Lannoitteet</agri:Fertilizer>
+    <agri:CropDescription>Viljeltavat kasvit ja lajikkeet</agri:CropDescription>
+    <agri:has_PlannedCropStatus rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus157fb197a0126"/>
+    <agri:has_CropStatus rdf:resource="http://www.siima.org/ns/2012/CropStatus157fb197a0123"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Operation157fb197a022c">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Operation"/>
+    <agri:PlannedOperation>
+                        Kaytettavat tapahtumalajit</agri:PlannedOperation>
+    <agri:type>fertilation</agri:type>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingMethod157fb197a011f">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CroppingMethod"/>
+    <agri:ImplementationPeriod>Q4</agri:ImplementationPeriod>
+    <agri:Operations>sticking</agri:Operations>
+    <agri:Method>distributed</agri:Method>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedCropStatus157fb197a0126">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus"/>
+    <agri:Value>10000</agri:Value>
+    <agri:Period>Q2</agri:Period>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Farm157fb1979f82">
     <rdf:type rdf:resource="http://www.siima.org/ns/2012/Farm"/>
     <agri:Description>Tilan perustietojen kasittely</agri:Description>
     <agri:Enterprise>BackwardBrewery</agri:Enterprise>
     <agri:Address>Iisalmi</agri:Address>
     <agri:Name>Saarenpaa</agri:Name>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Operation13654496da82c">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Operation"/>
-    <agri:PlannedOperation>
-                        Kaytettavat tapahtumalajit</agri:PlannedOperation>
-    <agri:type>fertilation</agri:type>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Operation13654496dab42">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Operation"/>
-    <agri:PlannedOperation>
-                        Kaytettavat tapahtumalajit</agri:PlannedOperation>
-    <agri:type>fertilation</agri:type>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedCropStatus13654496dab3c">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus"/>
-    <agri:Value>2000</agri:Value>
-    <agri:Period>Q1</agri:Period>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Land13654496da67">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Land"/>
-    <agri:has_Field rdf:resource="http://www.siima.org/ns/2012/Field13654496da7b"/>
-    <agri:Location>Suontaka</agri:Location>
-    <agri:Acreage>500</agri:Acreage>
-    <agri:Name>Salmijarvi</agri:Name>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedCropStatus13654496dab3f">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus"/>
-    <agri:Value>10000</agri:Value>
-    <agri:Time>Q2</agri:Time>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ImplementedOperation13654496da92f">
-    <agri:duration>4</agri:duration>
-    <agri:period>Q4</agri:period>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CropStatus13654496daa39">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CropStatus"/>
-    <agri:Characteristics>dimm</agri:Characteristics>
-    <agri:Status>excellent</agri:Status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedOperation13654496da92e">
-    <agri:duration>3</agri:duration>
-    <agri:period>Q3</agri:period>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingPlan13654496d9f1">
-    <agri:Comment>Tiedot keratty dokumentista</agri:Comment>
-    <agri:has_Land rdf:resource="http://www.siima.org/ns/2012/Land13654496da67"/>
-    <agri:has_Farm rdf:resource="http://www.siima.org/ns/2012/Farm13654496da02"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Field13654496da7b">
-    <agri:has_PlannedFieldStatus rdf:resource="http://www.siima.org/ns/2012/PlannedFieldStatus13654496da714"/>
-    <agri:Shape>Oval</agri:Shape>
-    <agri:has_Crop rdf:resource="http://www.siima.org/ns/2012/Crop13654496da71a"/>
-    <agri:Breath>25</agri:Breath>
-    <agri:Area>50</agri:Area>
-    <agri:has_ObservedFieldStatus rdf:resource="http://www.siima.org/ns/2012/ObservedFieldStatus13654496da717"/>
-    <agri:Lenght>50</agri:Lenght>
-    <agri:Location>SuontakaRinne</agri:Location>
-    <agri:has_FieldStatus rdf:resource="http://www.siima.org/ns/2012/FieldStatus13654496da711"/>
-    <agri:has_Crop rdf:resource="http://www.siima.org/ns/2012/Crop13654496daa30"/>
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Field"/>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Crop13654496daa30">
-    <agri:has_ObservedCropStatus rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus13654496dab3f"/>
-    <agri:has_CroppingMethod rdf:resource="http://www.siima.org/ns/2012/CroppingMethod13654496daa35"/>
-    <agri:CropDescription>Toinen viljeltava kasvi</agri:CropDescription>
-    <agri:SeedVariety>Seed variety</agri:SeedVariety>
-    <agri:has_CropStatus rdf:resource="http://www.siima.org/ns/2012/CropStatus13654496daa39"/>
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Crop"/>
-    <agri:has_PlannedCropStatus rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus13654496dab3c"/>
-    <agri:has_Operation rdf:resource="http://www.siima.org/ns/2012/Operation13654496dab42"/>
-    <agri:Protectant>Kasvinsuojeluaine</agri:Protectant>
-    <agri:Fertilizer>Valittu lannoite</agri:Fertilizer>
-    <agri:type>wheat</agri:type>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingMethod13654496daa35">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CroppingMethod"/>
-    <agri:ImplementationPeriod>Q3</agri:ImplementationPeriod>
-    <agri:Operations>sticking</agri:Operations>
-    <agri:Method>distributed</agri:Method>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedFieldStatus13654496da714">
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedFieldStatus157fb197a0014">
     <rdf:type rdf:resource="http://www.siima.org/ns/2012/PlannedFieldStatus"/>
     <agri:Value>10000</agri:Value>
     <agri:Period>Q2</agri:Period>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CroppingMethod13654496da81f">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CroppingMethod"/>
-    <agri:ImplementationPeriod>Q4</agri:ImplementationPeriod>
-    <agri:Operations>sticking</agri:Operations>
-    <agri:Method>distributed</agri:Method>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CropStatus157fb197a0439">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CropStatus"/>
+    <agri:Characteristics>dimm</agri:Characteristics>
+    <agri:Status>excellent</agri:Status>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedFieldStatus13654496da717">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/ObservedFieldStatus"/>
-    <agri:Value>10000</agri:Value>
-    <agri:Time>Q2</agri:Time>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedCropStatus157fb197a043c">
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus"/>
+    <agri:Value>2000</agri:Value>
+    <agri:Period>Q1</agri:Period>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Crop13654496da71a">
-    <agri:CropDescription>Viljeltavat kasvit ja lajikkeet</agri:CropDescription>
-    <agri:has_CropStatus rdf:resource="http://www.siima.org/ns/2012/CropStatus13654496da823"/>
-    <agri:Protectant>Kasvinsuojeluaineet</agri:Protectant>
-    <agri:type>barley</agri:type>
-    <agri:SeedVariety>Peltotuki-ohjelma</agri:SeedVariety>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Crop157fb197a0430">
+    <agri:has_Operation rdf:resource="http://www.siima.org/ns/2012/Operation157fb197a0542"/>
+    <agri:CropDescription>Toinen viljeltava kasvi</agri:CropDescription>
+    <agri:Fertilizer>Valittu lannoite</agri:Fertilizer>
     <rdf:type rdf:resource="http://www.siima.org/ns/2012/Crop"/>
-    <agri:has_Operation rdf:resource="http://www.siima.org/ns/2012/Operation13654496da82c"/>
-    <agri:Fertilizer>Lannoitteet</agri:Fertilizer>
-    <agri:has_CroppingMethod rdf:resource="http://www.siima.org/ns/2012/CroppingMethod13654496da81f"/>
-    <agri:has_ObservedCropStatus rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus13654496da829"/>
-    <agri:has_PlannedCropStatus rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus13654496da826"/>
+    <agri:has_CroppingMethod rdf:resource="http://www.siima.org/ns/2012/CroppingMethod157fb197a0435"/>
+    <agri:has_ObservedCropStatus rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus157fb197a053f"/>
+    <agri:SeedVariety>Seed variety</agri:SeedVariety>
+    <agri:type>wheat</agri:type>
+    <agri:has_PlannedCropStatus rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus157fb197a043c"/>
+    <agri:has_CropStatus rdf:resource="http://www.siima.org/ns/2012/CropStatus157fb197a0439"/>
+    <agri:Protectant>Kasvinsuojeluaine</agri:Protectant>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedCropStatus13654496da829">
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ImplementedOperation157fb197a0545">
+    <agri:duration>4</agri:duration>
+    <agri:period>Q4</agri:period>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedOperation157fb197a0544">
+    <agri:duration>3</agri:duration>
+    <agri:period>Q3</agri:period>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/ObservedCropStatus157fb197a0229">
     <rdf:type rdf:resource="http://www.siima.org/ns/2012/ObservedCropStatus"/>
     <agri:Value>10000</agri:Value>
     <agri:Time>Q2</agri:Time>
   </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedOperation13654496dab44">
-    <agri:duration>3</agri:duration>
-    <agri:period>Q3</agri:period>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/FieldStatus13654496da711">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/FieldStatus"/>
-    <agri:Characteristics>sand and low ph</agri:Characteristics>
-    <agri:Status>good</agri:Status>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/PlannedCropStatus13654496da826">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/PlannedCropStatus"/>
-    <agri:Value>10000</agri:Value>
-    <agri:Period>Q2</agri:Period>
-  </rdf:Description>
-  <rdf:Description rdf:about="http://www.siima.org/ns/2012/CropStatus13654496da823">
-    <rdf:type rdf:resource="http://www.siima.org/ns/2012/CropStatus"/>
-    <agri:Characteristics>dimm</agri:Characteristics>
-    <agri:Status>good</agri:Status>
+  <rdf:Description rdf:about="http://www.siima.org/ns/2012/Field157fb1979ffb">
+    <agri:has_Crop rdf:resource="http://www.siima.org/ns/2012/Crop157fb197a001a"/>
+    <agri:has_FieldStatus rdf:resource="http://www.siima.org/ns/2012/FieldStatus157fb197a0011"/>
+    <agri:Location>SuontakaRinne</agri:Location>
+    <agri:has_Crop rdf:resource="http://www.siima.org/ns/2012/Crop157fb197a0430"/>
+    <rdf:type rdf:resource="http://www.siima.org/ns/2012/Field"/>
+    <agri:has_PlannedFieldStatus rdf:resource="http://www.siima.org/ns/2012/PlannedFieldStatus157fb197a0014"/>
+    <agri:Breath>25</agri:Breath>
+    <agri:Area>50</agri:Area>
+    <agri:has_ObservedFieldStatus rdf:resource="http://www.siima.org/ns/2012/ObservedFieldStatus157fb197a0017"/>
+    <agri:Lenght>50</agri:Lenght>
+    <agri:Shape>Oval</agri:Shape>
   </rdf:Description>
 </rdf:RDF>
