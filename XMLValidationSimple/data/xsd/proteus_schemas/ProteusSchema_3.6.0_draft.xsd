@@ -1,0 +1,3992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Adrian Laud (Noumenon Consulting Ltd) -->
+<!--version 3.6.0 darft  Adrian Laud   July 2013 edits for discussion re DEXPI and OGI issues-->
+<!--version 3.5.5 Adrian Laud   Apr 2013 Add Default optional attribute to GenericAttribute-->
+<!--version 3.5.4 Adrian Laud   Jan 2013 TrimmedCurve and PEllipse -->
+<!--version 3.5.3 Adrian Laud   Nov 2012 PCoordinate is a parametric coordinate . Rename existing PCoordinate to UVCoordinate-->
+<!--version 3.5.2 Adrian Laud   Jul 2012 change PipeSupport to Support-->
+<!--version 3.5.1 Chau Lee    Jun 2012 added Slab,Staircase,Handrail,LadderAssembly to StructuralFramework -->
+<!--version 3.5.1 Adrian Laud May 2012 added Staircase, Ladder and Handrail-->
+<!--version 3.4.4 Adrian Laud Jan 2012- Add PipeSupport to PipingNetworkSystem, -->
+<!--version 3.4.x Adrian Laud May 2010 - Make changes for Cats and Specs added new class for AEC interoperability, remove Annotation Element (keep Type), add ScopeBubble to ShapeCatalogue, Symbol to Drawing and ShapeCatalogue -->
+<!--version 3.3.3 Adrian Laud Feb 2009 - Make changes discussed in IDS-ADI Matrix Project 1 - corrections-->
+<!--version 3.3.2 Adrian Laud Jan 2009 - Make changes discussed in IDS-ADI Matrix Project 1 - additional AnnotationItems-->
+<!--version 3.3.1 Adrian Laud Jan 2009 - Make changes discussed in IDS-ADI Matrix Project 1-->
+<!--version 3.3.1 Adrian Laud Jan 2009 - Make changes discussed in IDS-ADI Matrix Project 1-->
+<!--version 3.3.0 Adrian Laud - Change structure of InstrumentLoop and SignalLine-->
+<!--version 3.3.0 Adrian Laud - Change structure of InstrumentLoop and SignalLine-->
+<!--version 3.2.6 Adrian Laud - Change genericAttributes to use Element GenericAttribute - from 3.2.2 Apr 2008-->
+<!--version 3.2.5 Adrian Laud - Change Steel section to alow for all cases Mar 2008-->
+<!--version 3.2.0 Adrian Laud - Pipeline name changed to PipingNetworkSystem, PipingSegment to PipingNetworkSegment-->
+<!--version 3.1.2 Adrian Laud - add CrossPage Connection, UnitsOfMeasure  remove Drawings-->
+<!--version 3.1.1 9th October2006 Adrian Laud - corrected a dual use of Weight - in Bsplines this is now ControlPointWeight-->
+<!--version 3.1.0 24th August 2006 Adrian Laud - Alignment of Class names with ISO 15926-4. Catalogue refers to vendor document ShapeCatalogue is the geometric definition collection-->
+<!--version 3.0.3 17th July 2006 Adrian Laud - add allow PipeSupport in PipingSegment (for upwards compatibility)-->
+<!--version 3.0.2 11st June 2006 Adrian Laud - add Component into InstrumentComponent-->
+<!--version 3.0.0 12th December 2005 Adrian Laud - add Parametric PipingComponent and Parametric Primitives - expand SpecificationEntry for ParametricComponents - remove Annotation-->
+<!--version 2.8.0 1st July 2005 Adrian Laud - add Document, DocumentPart and DocumentCell-->
+<!--version 2.7.5 7th June 2005 add Equipment for Catalogue, History and Transaction-->
+<!-- version 2.7.4 21st April 2005 Adrian Laud - add PipeBend and PipeTube for Catalogue and StockNumber to SpecificationEntry-->
+<!-- version 2.7.3 7th April 2005 Adrian Laud - add OperatorType for Piping and Instrument Components -->
+<!-- version 2.7.2 1st April 2005 Adrian Laud - add Filled attribute -->
+<!-- version 2.7.1 18th March 2005 Adrian Laud - Minor fixes for XML Spy 2005 complaints -->
+<!-- version 2.7.0 12th February 2005 Adrian Laud - Fix for curves and XML Spy 2005-->
+<!-- version 2.6.8 28th January Adrian Laud - add Equipment to PipingSegment to support inline equipment-->
+<!-- version 2.6.7 10th January 2005 Adrian Laud - Refine Ctas and Specs-->
+<!-- version 2.6.6 23rd December 2004 Adrian Laud - Add Point object-->
+<!-- version 2.6.5 27th October 2004 Adrian Laud - alloPlantInforw multiple GenericAttributes Text, PolyLine and CenterL:ine-->
+<!-- version 2.6.4 14th October 2004 Adrian Laud - allow component in PipeTube (insulation) - InnerDiameter -> InsideDiameter-->
+<!-- version 2.6.4 14th October 2004 Adrian Laud - allow component in PipeTube (insulation) - InnerDiameter -> InsideDiameter-->
+<!-- version 2.6.2 22nd July 2004 Adrian Laud - change Type to NozzleType and make mandatory -->
+<!-- version 2.6.1 16th July 2004 Adrian Laud - Add Wall element -->
+<!-- version 2.6.0 23rd June 2004 Adrian Laud - Expand Specification and add Specification Element -->
+<!-- version 2.5.2 2nd Junel 2004 Adrian Laud - add annotations and Trimmed Nurb curves and surfaces  -->
+<!-- version 2.5.1 12th Mayl 2004 Adrian Laud - correct Profile and Edge curve definitions -->
+<!-- version 2.4.5 19th April 2004 Adrian Laud - Add Plant - Top of Asset hierarchy -->
+<!-- version 2.4.4 6th April 2004 Adrian Laud - change default Extrusion type to Linear from Normal -->
+<!-- version 2.4.3 8th March 2004 Adrian Laud - add Association types -->
+<!-- version 2.42 2rd March 2004 Adrian Laud - correct instrument hierarchy -->
+<!-- version 2.4.0 5th January 2004 Adrian Laud - additional Instrument definitions -->
+<!-- version 2.3.0 10th December 2003 Adrian Laud - Tidy structural add PipeWeld-->
+<!-- version 2.2.5 25th September 2003 Adrian Laud - Add Annotation and allow multi-line text-->
+<!-- version 2.2.4 12th September 2003 Adrian Laud - ComponentClass moved to  + minor edits-->
+<!-- version 2.2.3 4th July 2003 Adrian Laud - expand Association-->
+<!-- version 2.2.2 9th May 2003 Adrian Laud - add Component for Framework, Plate ans StructuralSection-->
+<!-- version 2.2.1 11th April 2003 Adrian Laud - add Scale for Component moved some Attributes to Elements-->
+<!-- version 2.2.0 10th January 2003 Adrian Laud - release-->
+<!-- Draft for version 2.2.0 15th October Adrian Laud - add Catalogue and Specification-->
+<!-- Draft for version 2.2.0 22nd August - Adrian Laud - add additional option attributes -->
+<!-- version 2.1.7 29th July- Adrian Laud change restriction technique to default to unbounded and individually restrict so validation works ! -->
+<!-- version 2.1.6 11th July- Adrian Laud/ Chau Lee minor corrections -->
+<!-- version 2.1.5 11th July- Adrian Laud - Extrude Curve contains Line not type Line-->
+<!-- version 2.1.4 28th June - Adrian Laud - leave constraints on Units to ERDL UOM - separate namespace -->
+<!-- version 2.1.3 21st June - Adrian Laud Minor add Unclassified -->
+<!-- version 2.1.2 18th June - Adrian Laud Minor corrections -->
+<!-- version 2.1.1 17th June - Michael Toomey, make schema deterministic removing xsd:any from PlantItem and using substitutonGroup attribute -->
+<!-- version 2.0.0 10th June - PlantItem, Curve, Surface, Solid are abstract, corrections to Attribute names andGeneric Attribute handling  -->
+<!-- version 1.8.3 5th May remove Label from Connection - use Tag instead -->
+<!-- version 1.8.2 25th April minor correction to CenterLine Add FacetRep definition-->
+<!-- version 1.8 14th April minor correction - add restrictions-->
+<!-- version 1.7.1 2nd April minor correction - add restrictions-->
+<!-- version 1.7 28th MArch Capitalise Classes and Attributes-->
+<!-- version 1.6 12th MArch Capitalise Classes and Attributes-->
+<!-- version 1.5.4 11th MArch Minor corrections-->
+<!-- version 1.5.3 4th MArch remove nested choice in Solid -->
+<!-- draft for version XMpLant schema version 1.5.2 th Feb 2002 add pipe_tee -->
+<!-- version 1.5.1 20th Feb 2002 corretced attributes for PlantItem-->
+<xsd:schema xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xsd="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xsd:annotation>
+		<xsd:documentation>Schema Name: XMpLant</xsd:documentation>
+	</xsd:annotation>
+	<!-- ItemAttribute definitions - these relate to engineering attributes of Plant Items -->
+	<!-- Basic Attributes -->
+	<xsd:attribute name="Format">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:NMTOKEN">
+				<xsd:enumeration value="string"/>
+				<xsd:enumeration value="byte"/>
+				<xsd:enumeration value="short"/>
+				<xsd:enumeration value="integer"/>
+				<xsd:enumeration value="long"/>
+				<xsd:enumeration value="ulong"/>
+				<xsd:enumeration value="float"/>
+				<xsd:enumeration value="double"/>
+				<xsd:enumeration value="anyURI"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:attribute name="Units" type="xsd:string">
+		<xsd:annotation>
+			<xsd:documentation>This reference the EPISTLE Reference Data Library (ERDL) Units of measure </xsd:documentation>
+		</xsd:annotation>
+	</xsd:attribute>
+	<!-- Basic types -->
+	<xsd:complexType name="Integer">
+		<xsd:attribute name="Value" type="xsd:integer" use="optional"/>
+		<xsd:attribute ref="Units" use="optional"/>
+		<xsd:attribute name="ValueURI" type="xsd:anyURI" use="optional"/>
+		<xsd:attribute name="UnitsURI" type="xsd:anyURI" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="Double">
+		<xsd:attribute name="Value" type="xsd:double" use="optional"/>
+		<xsd:attribute ref="Units" use="optional"/>
+		<xsd:attribute name="ValueURI" type="xsd:anyURI" use="optional"/>
+		<xsd:attribute name="UnitsURI" type="xsd:anyURI" use="optional"/>
+	</xsd:complexType>
+	<xsd:complexType name="String">
+		<xsd:attribute name="Value" type="xsd:string" use="optional"/>
+		<xsd:attribute ref="Units" use="optional"/>
+		<xsd:attribute name="ValueURI" type="xsd:anyURI" use="optional"/>
+		<xsd:attribute name="UnitsURI" type="xsd:anyURI" use="optional"/>
+	</xsd:complexType>
+	<!--"Curve" Type  -->
+	<xsd:complexType name="Curve"/>
+	<!-- UV coordinate for Bsplines -->
+	<xsd:complexType name="UVCoordinate">
+		<xsd:attribute name="U" type="xsd:double" use="required"/>
+		<xsd:attribute name="V" type="xsd:double" use="required"/>
+	</xsd:complexType>
+	<!-- UV Parametric curve for Bsplines -->
+	<xsd:complexType name="Pcurve">
+		<xsd:annotation>
+			<xsd:documentation>A Pcurve is a 2D parametric curve defined in the UV space of the Surface to Which it belongs.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Curve">
+				<xsd:choice>
+					<xsd:element name="UVCoordinate" type="UVCoordinate" minOccurs="3" maxOccurs="unbounded"/>
+				</xsd:choice>
+				<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger" use="required"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Pcurve" type="Pcurve" substitutionGroup="Curve"/>
+	<!-- List of Control Points -->
+	<xsd:complexType name="ControlPoints">
+		<xsd:sequence>
+			<xsd:element ref="Coordinate" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- List of list of control points -->
+	<xsd:complexType name="ControlPointArray">
+		<xsd:sequence>
+			<xsd:element name="ControlPoints" type="ControlPoints" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- List of Knot Multiplicities -->
+	<xsd:complexType name="KnotMultiplicities">
+		<xsd:sequence>
+			<xsd:element name="Multiplicity" type="xsd:nonNegativeInteger" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- List of Knot location in parametric space -->
+	<xsd:complexType name="Knots">
+		<xsd:sequence>
+			<xsd:element name="Knot" maxOccurs="unbounded">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:double">
+						<xsd:minInclusive value="0.0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- List of Weights - one per control point for Rational curves and surfaces -->
+	<xsd:complexType name="WeightsData">
+		<xsd:sequence>
+			<xsd:element ref="ControlPointWeight" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<!-- List of WeightsData - a 2d array ( WeightsData is a an array) -->
+	<xsd:complexType name="Weights">
+		<xsd:sequence>
+			<xsd:element name="WeightsData" type="WeightsData" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="TransactionType">
+		<xsd:restriction base="xsd:token">
+			<xsd:enumeration value="to approve"/>
+			<xsd:enumeration value="to check"/>
+			<xsd:enumeration value="to copy"/>
+			<xsd:enumeration value="to create"/>
+			<xsd:enumeration value="to modify"/>
+			<xsd:enumeration value="to request"/>
+			<xsd:enumeration value="to release"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="LengthUnitsType">
+		<xsd:annotation>
+			<xsd:documentation>These Length units are from the ISO 15926 Reference Data Library (RDL) Units of measure</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:NMTOKEN">
+			<xsd:enumeration value="mm"/>
+			<xsd:enumeration value="cm"/>
+			<xsd:enumeration value="dm"/>
+			<xsd:enumeration value="m"/>
+			<xsd:enumeration value="km"/>
+			<xsd:enumeration value="in"/>
+			<xsd:enumeration value="ft"/>
+			<xsd:enumeration value="yd"/>
+			<xsd:enumeration value="Millimetre"/>
+			<xsd:enumeration value="Centimetre"/>
+			<xsd:enumeration value="Decimetre"/>
+			<xsd:enumeration value="Metre"/>
+			<xsd:enumeration value="Kilometre"/>
+			<xsd:enumeration value="Inch"/>
+			<xsd:enumeration value="Yard"/>
+			<xsd:enumeration value="Mile"/>
+			<xsd:enumeration value="Foot"/>
+			<xsd:enumeration value="Picometre"/>
+			<xsd:enumeration value="Micrometre"/>
+			<xsd:enumeration value="Megametre"/>
+			<xsd:enumeration value="Nanometre"/>
+			<xsd:enumeration value="Femtometre"/>
+			<xsd:enumeration value="Fathom"/>
+			<xsd:enumeration value="Mil"/>
+			<xsd:enumeration value="Parsec"/>
+			<xsd:enumeration value="Angstrom"/>
+			<xsd:enumeration value="TenthOfAnInch"/>
+			<xsd:enumeration value="NauticalMile"/>
+			<xsd:enumeration value="16thOfAnInch"/>
+			<xsd:enumeration value="32ndOfAnInch"/>
+			<xsd:enumeration value="64thOfAnInch"/>
+			<xsd:enumeration value="ImperialYard"/>
+			<xsd:enumeration value="ImperialFoot"/>
+			<xsd:enumeration value="UsSurveyInch"/>
+			<xsd:enumeration value="UsSurveyFoot"/>
+			<xsd:enumeration value="UsSurveyMile"/>
+			<xsd:enumeration value="UsSurveyChain"/>
+			<xsd:enumeration value="UsSurveyLink"/>
+			<xsd:enumeration value="ClarkeChain"/>
+			<xsd:enumeration value="ClarkeLink"/>
+			<xsd:enumeration value="ClarkeYard"/>
+			<xsd:enumeration value="SearsChain"/>
+			<xsd:enumeration value="SearsLink"/>
+			<xsd:enumeration value="SearsFoot"/>
+			<xsd:enumeration value="SearsYard"/>
+			<xsd:enumeration value="GermanLegalMetre"/>
+			<xsd:enumeration value="GoldCoastFoot"/>
+			<xsd:enumeration value="ModifiedAmericanFoot"/>
+			<xsd:enumeration value="IndianGeodeticFoot"/>
+			<xsd:enumeration value="IndianYard"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<!-- Basic Elements -->
+	<xsd:element name="UnitsOfMeasure">
+		<xsd:annotation>
+			<xsd:documentation>These are from the ISO 15926 Reference Data Library (RDL) Units of measure. This Element dfefines the allowable sets of values for the various measurement units. This construct is not intended to allow parser validation of the values, it is intended for validation using XMpLant and also documentation. </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="Distance" type="LengthUnitsType" default="Millimetre">
+				<xsd:annotation>
+					<xsd:documentation>These Distance units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+			</xsd:attribute>
+			<xsd:attribute name="Angle" default="Degree-angle">
+				<xsd:annotation>
+					<xsd:documentation>These angle units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="rad"/>
+						<xsd:enumeration value="deg"/>
+						<xsd:enumeration value="Radian"/>
+						<xsd:enumeration value="Degree-angle"/>
+						<xsd:enumeration value="CentesimalSecond"/>
+						<xsd:enumeration value="CentesimalMinute"/>
+						<xsd:enumeration value="Second-angle"/>
+						<xsd:enumeration value="Minute-angle"/>
+						<xsd:enumeration value="Microradian"/>
+						<xsd:enumeration value="Milliradian"/>
+						<xsd:enumeration value="Kiloradian"/>
+						<xsd:enumeration value="Megaradian"/>
+						<xsd:enumeration value="Gigaradian"/>
+						<xsd:enumeration value="Mil_6400Radian"/>
+						<xsd:enumeration value="Cycle"/>
+						<xsd:enumeration value="Iso2041Cycle"/>
+						<xsd:enumeration value="DecimalDegree"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Area" default="MetreSquared">
+				<xsd:annotation>
+					<xsd:documentation>These Area units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="sq mm"/>
+						<xsd:enumeration value="sq cm"/>
+						<xsd:enumeration value="sq dm"/>
+						<xsd:enumeration value="sq m"/>
+						<xsd:enumeration value="sq km"/>
+						<xsd:enumeration value="sq in"/>
+						<xsd:enumeration value="sq ft"/>
+						<xsd:enumeration value="sq yd"/>
+						<xsd:enumeration value="MillimetreSquared"/>
+						<xsd:enumeration value="CentimetreSquared"/>
+						<xsd:enumeration value="DecimetreSquared"/>
+						<xsd:enumeration value="MetreSquared"/>
+						<xsd:enumeration value="KilometreSquared"/>
+						<xsd:enumeration value="InchSquared"/>
+						<xsd:enumeration value="FootSquared"/>
+						<xsd:enumeration value="YardSquared"/>
+						<xsd:enumeration value="MileSquared"/>
+						<xsd:enumeration value="Barn"/>
+						<xsd:enumeration value="MicrometreSquared"/>
+						<xsd:enumeration value="Are"/>
+						<xsd:enumeration value="Hectare"/>
+						<xsd:enumeration value="Acre"/>
+						<xsd:enumeration value="HundredFootSquared"/>
+						<xsd:enumeration value="UsSurveyMileSquared"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Volume" default="MetreCubed">
+				<xsd:annotation>
+					<xsd:documentation>These Volume units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="cc"/>
+						<xsd:enumeration value="MicrometreSquaredMetre"/>
+						<xsd:enumeration value="MillimetreCubed"/>
+						<xsd:enumeration value="CentimetreCubed"/>
+						<xsd:enumeration value="DecimetreCubed"/>
+						<xsd:enumeration value="MetreCubed"/>
+						<xsd:enumeration value="StandardMetreCubed"/>
+						<xsd:enumeration value="KilometreCubed"/>
+						<xsd:enumeration value="MillionMetreCubed"/>
+						<xsd:enumeration value="Millilitre"/>
+						<xsd:enumeration value="Centilitre"/>
+						<xsd:enumeration value="Decilitre"/>
+						<xsd:enumeration value="Litre"/>
+						<xsd:enumeration value="Hectolitre"/>
+						<xsd:enumeration value="InchCubed"/>
+						<xsd:enumeration value="StandardFootCubed"/>
+						<xsd:enumeration value="FootCubed"/>
+						<xsd:enumeration value="HundredFootCubed"/>
+						<xsd:enumeration value="ThousandFootCubed"/>
+						<xsd:enumeration value="MillionFootCubed"/>
+						<xsd:enumeration value="BillionFootCubed"/>
+						<xsd:enumeration value="YardCubed"/>
+						<xsd:enumeration value="MileCubed"/>
+						<xsd:enumeration value="AcreFoot"/>
+						<xsd:enumeration value="UkBushel"/>
+						<xsd:enumeration value="UkFluidOunce"/>
+						<xsd:enumeration value="UkGallon"/>
+						<xsd:enumeration value="ThousandUkGallon"/>
+						<xsd:enumeration value="UkPint"/>
+						<xsd:enumeration value="UkQuart"/>
+						<xsd:enumeration value="UsBarrel"/>
+						<xsd:enumeration value="UsBushel"/>
+						<xsd:enumeration value="UsDryBarrel"/>
+						<xsd:enumeration value="UsDryPint"/>
+						<xsd:enumeration value="UsFluidOunce"/>
+						<xsd:enumeration value="UsGallon"/>
+						<xsd:enumeration value="ThousandUsGallon"/>
+						<xsd:enumeration value="UsLiquidPint"/>
+						<xsd:enumeration value="UsPint"/>
+						<xsd:enumeration value="UsQuart"/>
+						<xsd:enumeration value="Barrel"/>
+						<xsd:enumeration value="ThousandBarrel"/>
+						<xsd:enumeration value="MillionBarrel"/>
+						<xsd:enumeration value="Cubem"/>
+						<xsd:enumeration value="HectareMetre"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Temperature" default="DegreeCelsius">
+				<xsd:annotation>
+					<xsd:documentation>These Temperature units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="degC"/>
+						<xsd:enumeration value="degF"/>
+						<xsd:enumeration value="degK"/>
+						<xsd:enumeration value="K"/>
+						<xsd:enumeration value="DegreeCelsius"/>
+						<xsd:enumeration value="DegreeRankine"/>
+						<xsd:enumeration value="DegreeFahrenheit"/>
+						<xsd:enumeration value="Kelvin"/>
+						<xsd:enumeration value="MilliKelvin"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Pressure" default="Bar">
+				<xsd:annotation>
+					<xsd:documentation>These Pressure units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="bar"/>
+						<xsd:enumeration value="bara"/>
+						<xsd:enumeration value="bara"/>
+						<xsd:enumeration value="barg"/>
+						<xsd:enumeration value="mPa"/>
+						<xsd:enumeration value="Pa"/>
+						<xsd:enumeration value="kPa"/>
+						<xsd:enumeration value="MPa"/>
+						<xsd:enumeration value="at"/>
+						<xsd:enumeration value="atm"/>
+						<xsd:enumeration value="psi"/>
+						<xsd:enumeration value="Kilopascal"/>
+						<xsd:enumeration value="Gigapascal"/>
+						<xsd:enumeration value="Micropascal"/>
+						<xsd:enumeration value="Megapascal"/>
+						<xsd:enumeration value="Picopascal"/>
+						<xsd:enumeration value="Bar"/>
+						<xsd:enumeration value="Pascal"/>
+						<xsd:enumeration value="Millipascal"/>
+						<xsd:enumeration value="Kilobar"/>
+						<xsd:enumeration value="Hectobar"/>
+						<xsd:enumeration value="KilonewtonPerMetreSquared"/>
+						<xsd:enumeration value="NewtonPerMetreSquared"/>
+						<xsd:enumeration value="NewtonPerMillimetreSquared"/>
+						<xsd:enumeration value="BarGauge"/>
+						<xsd:enumeration value="BarAbsolute"/>
+						<xsd:enumeration value="PascalGauge"/>
+						<xsd:enumeration value="MegapascalGauge"/>
+						<xsd:enumeration value="Hectopascal"/>
+						<xsd:enumeration value="KilogramForcePerCentimetreSquared"/>
+						<xsd:enumeration value="KilogramForcePerMillimetreSquared"/>
+						<xsd:enumeration value="KilopoundPerInchSquared"/>
+						<xsd:enumeration value="MetreLiquidColumn"/>
+						<xsd:enumeration value="MegapoundPerInchSquared"/>
+						<xsd:enumeration value="MicropoundPerSquareInch"/>
+						<xsd:enumeration value="PoundalPerInchSquared"/>
+						<xsd:enumeration value="PoundalPerFootSquared"/>
+						<xsd:enumeration value="MillibarGauge"/>
+						<xsd:enumeration value="Millibar"/>
+						<xsd:enumeration value="Microbar"/>
+						<xsd:enumeration value="KilogramForcePerCentimetreSquared"/>
+						<xsd:enumeration value="KilogramForcePerMetreSquared"/>
+						<xsd:enumeration value="StandardAtmosphere"/>
+						<xsd:enumeration value="PhysicalAtmosphere"/>
+						<xsd:enumeration value="TechnicalAtmosphere"/>
+						<xsd:enumeration value="PoundForcePerInchSquared"/>
+						<xsd:enumeration value="PoundForcePerInchSquaredGauge"/>
+						<xsd:enumeration value="PoundForcePerInchSquaredAbsolute"/>
+						<xsd:enumeration value="PoundForcePerFootSquared"/>
+						<xsd:enumeration value="UsTonForcePerInchSquared"/>
+						<xsd:enumeration value="UsTonForcePerFootSquared"/>
+						<xsd:enumeration value="Torr"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Weight" default="Kilogram">
+				<xsd:annotation>
+					<xsd:documentation>These Weight units are from the ISO 15926 Reference Data Library (RDL) Units of measure </xsd:documentation>
+				</xsd:annotation>
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="mg"/>
+						<xsd:enumeration value="g"/>
+						<xsd:enumeration value="kg"/>
+						<xsd:enumeration value="Mg"/>
+						<xsd:enumeration value="lb"/>
+						<xsd:enumeration value="oz"/>
+						<xsd:enumeration value="Microgram"/>
+						<xsd:enumeration value="Milligram"/>
+						<xsd:enumeration value="Gram"/>
+						<xsd:enumeration value="Kilogram"/>
+						<xsd:enumeration value="Megagram"/>
+						<xsd:enumeration value="PoundMass"/>
+						<xsd:enumeration value="OunceMass"/>
+						<xsd:enumeration value="Attogram"/>
+						<xsd:enumeration value="MillionPoundMass"/>
+						<xsd:enumeration value="OunceTroy"/>
+						<xsd:enumeration value="UkHundredweight"/>
+						<xsd:enumeration value="UnifiedAtomicMassUnit"/>
+						<xsd:enumeration value="KilopoundMass"/>
+						<xsd:enumeration value="UsHundredweight"/>
+						<xsd:enumeration value="94PoundSack"/>
+						<xsd:enumeration value="AvoirdupoisOunce"/>
+						<xsd:enumeration value="UkTon"/>
+						<xsd:enumeration value="Tonne"/>
+						<xsd:enumeration value="OunceMassAv"/>
+						<xsd:enumeration value="Grain"/>
+						<xsd:enumeration value="UsTon"/>
+						<xsd:enumeration value="Carat"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Associations">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Association" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:complexType name="Association">
+		<xsd:annotation>
+			<xsd:documentation>An Association references other objects either by ID or Tag. If it is by ID that object needs to be in the scope of the XML file a Tag need not be</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="Type" use="required">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:token">
+					<xsd:enumeration value="is about"/>
+					<xsd:enumeration value="is a subject of"/>
+					<xsd:enumeration value="is associated with"/>
+					<xsd:enumeration value="is a boundary of"/>
+					<xsd:enumeration value="refers to"/>
+					<xsd:enumeration value="is referenced by"/>
+					<xsd:enumeration value="is referenced in"/>
+					<xsd:enumeration value="describes"/>
+					<xsd:enumeration value="is described in"/>
+					<xsd:enumeration value="indirectly describes"/>
+					<xsd:enumeration value="is indirectly described in"/>
+					<xsd:enumeration value="defines"/>
+					<xsd:enumeration value="is defined in"/>
+					<xsd:enumeration value="is defined by"/>
+					<xsd:enumeration value="contains"/>
+					<xsd:enumeration value="is contained in"/>
+					<xsd:enumeration value="indirectly defines"/>
+					<xsd:enumeration value="is indirectly defined in"/>
+					<xsd:enumeration value="is connected to"/>
+					<xsd:enumeration value="is logically connected to"/>
+					<xsd:enumeration value="is involved with role in"/>
+					<xsd:enumeration value="is an activity with role involving"/>
+					<xsd:enumeration value="is fulfilled by"/>
+					<xsd:enumeration value="fulfills"/>
+					<xsd:enumeration value="is a part of"/>
+					<xsd:enumeration value="is an assembly including"/>
+					<xsd:enumeration value="is a component of"/>
+					<xsd:enumeration value="is a composition including"/>
+					<xsd:enumeration value="is an element of"/>
+					<xsd:enumeration value="is a collection including"/>
+					<xsd:enumeration value="is identified by"/>
+					<xsd:enumeration value="is an identifier for"/>
+					<xsd:enumeration value="is a template including"/>
+					<xsd:enumeration value="is a component of template"/>
+					<xsd:enumeration value="is a template that refers to"/>
+					<xsd:enumeration value="is a reference in template"/>
+					<xsd:enumeration value="is classified as"/>
+					<xsd:enumeration value="is incidentally classified as"/>
+					<xsd:enumeration value="has dataset"/>
+					<xsd:enumeration value="is a dataset of"/>
+					<xsd:enumeration value="is a comment referring to"/>
+					<xsd:enumeration value="is referenced in comment"/>
+					<xsd:enumeration value="has document"/>
+					<xsd:enumeration value="is a document for"/>
+					<xsd:enumeration value="is the location of"/>
+					<xsd:enumeration value="is located in"/>
+					<xsd:enumeration value="is upstream of"/>
+					<xsd:enumeration value="is downstream of"/>
+					<xsd:enumeration value="is the responsibility of"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attributeGroup ref="ItemReferenceGroup"/>
+	</xsd:complexType>
+	<xsd:element name="Association" type="Association"/>
+	<xsd:attributeGroup name="ItemReferenceGroup">
+		<xsd:attribute name="ItemID" type="xsd:IDREF" use="optional"/>
+		<xsd:attribute name="TagName" type="xsd:string" use="optional"/>
+		<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+		<xsd:attribute name="ItemURI" type="xsd:anyURI" use="optional"/>
+		<xsd:attribute name="PersistentIDIdentifier" type="xsd:string" use="optional"/>
+		<xsd:attribute name="PersistentIDContext" type="xsd:string" use="optional"/>
+	</xsd:attributeGroup>
+	<xsd:element name="PersistentID" type="PersistentID"/>
+	<xsd:complexType name="PersistentID">
+		<xsd:annotation>
+			<xsd:documentation>This Element holds the persistent Identifier for a PlantItem. There can be more than one PersistentID and if so the Context must be used so that they can be separately identified</xsd:documentation>
+		</xsd:annotation>
+		<xsd:attribute name="Identifier" type="xsd:string" use="required"/>
+		<xsd:attribute name="Context" type="xsd:string" use="optional"/>
+	</xsd:complexType>
+	<xsd:element name="IdentifierElement">
+		<xsd:annotation>
+			<xsd:documentation>If this IdentifierElement is an Attribute of a PlantItem then instead of a value a reference to theAttribute is by the ID of the  PlantItem and the name of the Attribute b. Value is not required					</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="Name" type="xsd:string" use="required"/>
+			<xsd:attribute name="Value" type="xsd:string" use="optional"/>
+			<xsd:attribute name="ItemID" type="xsd:IDREF"/>
+			<xsd:attribute name="DependantAttribute" type="xsd:string"/>
+			<xsd:attribute ref="DependantAttributeContents"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Identifier">
+		<xsd:annotation>
+			<xsd:documentation>An Identifier is an object that can be used to capture the structure of an identifier such as a Tag. It references the indeividual attributes the make up the Identifier including any fixed strings such as sparators (eg '-') </xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="IdentifierElement" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Purpose" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="CrossPageConnection">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element name="LinkedPersistentID" type="PersistentID" minOccurs="0"/>
+			</xsd:choice>
+			<xsd:attribute name="DrawingName" type="xsd:string" use="optional"/>
+			<xsd:attribute name="LinkLabel" type="xsd:string" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Area" type="Double"/>
+	<xsd:element name="Angle" type="Double"/>
+	<xsd:element name="StartAngle" type="Double"/>
+	<xsd:element name="EndAngle" type="Double"/>
+	<xsd:element name="BendAngle" type="Double"/>
+	<xsd:element name="SweepAngle" type="Double"/>
+	<xsd:element name="Height" type="Double"/>
+	<xsd:element name="FaceToFaceDimension" type="Double"/>
+	<xsd:element name="BranchEndPreparation" type="Double"/>
+	<xsd:element name="InterCenterDimension" type="Double"/>
+	<xsd:element name="FaceDiameter" type="Double"/>
+	<xsd:element name="FaceThickness" type="Double"/>
+	<xsd:element name="FlangeDiameter" type="Double"/>
+	<xsd:element name="FlangeThickness" type="Double"/>
+	<xsd:element name="ProfileFlangeThickness" type="Double"/>
+	<xsd:element name="Length" type="Double"/>
+	<xsd:element name="Width" type="Double"/>
+	<xsd:element name="Depth" type="Double"/>
+	<xsd:element name="NominalDiameter" type="Double"/>
+	<xsd:element name="InsideDiameter" type="Double"/>
+	<xsd:element name="OutsideDiameter" type="Double"/>
+	<xsd:element name="LargeOutsideDiameter" type="Double"/>
+	<xsd:element name="SmallOutsideDiameter" type="Double"/>
+	<xsd:element name="CompressedThickness" type="Double"/>
+	<xsd:element name="HandleLength" type="Double"/>
+	<xsd:element name="HandWheelHeight" type="Double"/>
+	<xsd:element name="HandWheelDiameter" type="Double"/>
+	<xsd:element name="StartDiameter" type="Double"/>
+	<xsd:element name="EndDiameter" type="Double"/>
+	<xsd:element name="LargeDiameter" type="Double"/>
+	<xsd:element name="SmallDiameter" type="Double"/>
+	<xsd:element name="BranchDiameter" type="Double"/>
+	<xsd:element name="ShoulderHeight" type="Double"/>
+	<xsd:element name="WeldDiameter" type="Double"/>
+	<xsd:element name="PitchCircleDiameter" type="Double"/>
+	<xsd:element name="BoltPitchX" type="Double"/>
+	<xsd:element name="BoltPitchY" type="Double"/>
+	<xsd:element name="Radius" type="Double"/>
+	<xsd:element name="HoopRadius" type="Double"/>
+	<xsd:element name="HoopFlareRadius" type="Double"/>
+	<xsd:element name="Thickness" type="Double"/>
+	<xsd:element name="ScheduleThickness" type="String"/>
+	<xsd:element name="EndPreparation" type="String"/>
+	<xsd:element name="FluidType" type="String"/>
+	<xsd:element name="NozzleType">
+		<xsd:complexType>
+			<xsd:attribute name="Value" default="Flanged">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Welded"/>
+						<xsd:enumeration value="Flanged"/>
+						<xsd:enumeration value="Elbow"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OperatorType" type="String"/>
+	<xsd:element name="Rating" type="String"/>
+	<xsd:element name="GasketGap" type="Double"/>
+	<xsd:element name="InsertionDepth" type="Double"/>
+	<xsd:element name="FabricationCategory" type="String"/>
+	<xsd:element name="Insulation" type="String"/>
+	<xsd:element name="Tracing" type="String"/>
+	<xsd:element name="Lining" type="String"/>
+	<xsd:element name="ConnectionType" type="String">
+		<xsd:annotation>
+			<xsd:documentation>Physical connection type for a component</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="WeldType" type="String">
+		<xsd:annotation>
+			<xsd:documentation>Physical connection type for a component</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:element name="Discipline">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:NMTOKEN">
+				<xsd:enumeration value="Electrical"/>
+				<xsd:enumeration value="Mechanical"/>
+				<xsd:enumeration value="Process"/>
+				<xsd:enumeration value="HVAC"/>
+				<xsd:enumeration value="Telecomms"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:element>
+	<xsd:element name="Description" type="xsd:string"/>
+	<xsd:element name="Grade" type="String"/>
+	<xsd:element name="Family" type="String"/>
+	<xsd:element name="ISOSymbol" type="String"/>
+	<xsd:element name="Material" type="xsd:string"/>
+	<xsd:element name="MaterialDescription" type="xsd:string"/>
+	<xsd:element name="MaterialOfConstruction" type="String"/>
+	<xsd:element name="Standard" type="String"/>
+	<xsd:element name="SurfaceTreatment" type="String"/>
+	<xsd:element name="Offset" type="Double"/>
+	<!--some Normal, Minimum and Maximum classes are deprecated - valid but should use Nominal, LowerLimit and UpperLimit-->
+	<xsd:element name="NormalDesignPressure" type="Double"/>
+	<xsd:element name="MinimumDesignPressure" type="Double"/>
+	<xsd:element name="MaximumDesignPressure" type="Double"/>
+	<xsd:element name="NormalDesignTemperature" type="Double"/>
+	<xsd:element name="MinimumDesignTemperature" type="Double"/>
+	<xsd:element name="MaximumDesignTemperature" type="Double"/>
+	<xsd:element name="MinimumAmbientTemperature" type="Double"/>
+	<xsd:element name="MaximumAmbientTemperature" type="Double"/>
+	<xsd:element name="MinimumRelativeHumidity" type="Double"/>
+	<xsd:element name="MaximumRelativeHumidity" type="Double"/>
+	<xsd:element name="MinimumOperatingPressure" type="Double"/>
+	<xsd:element name="MaximumOperatingPressure" type="Double"/>
+	<xsd:element name="MinimumOperatingTemperature" type="Double"/>
+	<xsd:element name="MaximumOperatingTemperature" type="Double"/>
+	<!--End of Deprecated Classes-->
+	<xsd:element name="NominalDesignPressure" type="Double"/>
+	<xsd:element name="LowerLimitDesignPressure" type="Double"/>
+	<xsd:element name="UpperLimitDesignPressure" type="Double"/>
+	<xsd:element name="NominalDesignTemperature" type="Double"/>
+	<xsd:element name="LowerLimitDesignTemperature" type="Double"/>
+	<xsd:element name="UpperLimitDesignTemperature" type="Double"/>
+	<xsd:element name="LowerLimitAmbientTemperature" type="Double"/>
+	<xsd:element name="UpperLimitAmbientTemperature" type="Double"/>
+	<xsd:element name="LowerLimitRelativeHumidity" type="Double"/>
+	<xsd:element name="UpperLimitRelativeHumidity" type="Double"/>
+	<xsd:element name="AverageBarometricPressure" type="Double"/>
+	<xsd:element name="NormalOperatingPressure" type="Double"/>
+	<xsd:element name="LowerLimitOperatingPressure" type="Double"/>
+	<xsd:element name="UpperLimitOperatingPressure" type="Double"/>
+	<xsd:element name="TestPressure" type="Double"/>
+	<xsd:element name="NormalOperatingTemperature" type="Double"/>
+	<xsd:element name="LowerLimitOperatingTemperature" type="Double"/>
+	<xsd:element name="UpperLimitOperatingTemperature" type="Double"/>
+	<xsd:element name="WallThickness" type="String"/>
+	<xsd:element name="Volume" type="Double"/>
+	<xsd:element name="Weight" type="Double"/>
+	<xsd:element name="ProfileSectionWidth" type="Double"/>
+	<xsd:element name="ProfileSectionHeight" type="Double"/>
+	<xsd:element name="ProfileWebThickness" type="Double"/>
+	<xsd:element name="ProfileFlangeWebRadius" type="Double"/>
+	<xsd:element name="ProfileConstantThicknessWebHeight" type="Double"/>
+	<xsd:element name="ProfileInsideCornerRadius" type="Double"/>
+	<xsd:element name="ProfileOutsideCornerRadius" type="Double"/>
+	<xsd:element name="ProfileFlangeSlope" type="Double"/>
+	<xsd:element name="RotationAboutPlacement" type="Double"/>
+	<xsd:element name="WeldThickness" type="Double"/>
+	<xsd:element name="WeldHeight" type="Double"/>
+	<xsd:element name="PlacementCurve">
+		<!--The Placement curve defines the matching curve for placement (eg TopOfSteel). iF it is multipleSection then it must be a CompositeCurve - only smooth curves are expected eg, linear, arc or Bspline.-->
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="OrientationVector">
+		<!--The OrientationVector defines the direction of the local Y axis of the section profile in the 3D space of the model. This combined with the placement line defines and Axis2Placement (Position). Rotation is then with respect to this Vector. -->
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--ControlPointWeight is the weight factor for a control point in a rational curve or surface - values are 0-1. WeightType should be an enumeration -->
+	<!-- <xsd:element name="ControlPointWeight">
+		<xsd:complexType>
+			<xsd:attribute name="Value" type="xsd:double"/>
+		</xsd:complexType>
+	</xsd:element> -->
+	<xsd:element name="ControlPointWeight" type="xsd:double"/>
+	<!-- Fixed Elements -->
+	<!-- Annotation element  -->
+	<xsd:complexType name="AnnotationItem">
+		<xsd:annotation>
+			<xsd:documentation>Defines aspects common to all Annotation items</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="Presentation" minOccurs="0"/>
+			<xsd:element ref="Extent"/>
+			<xsd:element ref="PersistentID"/>
+			<xsd:element ref="Position"/>
+			<xsd:element ref="Scale"/>
+			<xsd:element ref="Curve" maxOccurs="unbounded"/>
+			<xsd:element ref="Symbol" maxOccurs="unbounded"/>
+			<xsd:element ref="ConnectionPoints"/>
+			<xsd:element ref="Text"/>
+			<xsd:element ref="Description"/>
+			<xsd:element ref="GenericAttributes" maxOccurs="unbounded"/>
+			<xsd:element ref="History"/>
+			<xsd:element ref="Association" maxOccurs="unbounded"/>
+		</xsd:choice>
+		<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="ComponentClass" type="xsd:string"/>
+		<xsd:attribute name="ComponentClassURI" type="xsd:anyURI"/>
+		<xsd:attribute name="ComponentName" type="xsd:string"/>
+		<xsd:attribute name="ComponentType">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="Normal"/>
+					<xsd:enumeration value="Explicit"/>
+					<xsd:enumeration value="Parametric"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="Revision" type="xsd:string"/>
+		<xsd:attribute name="RevisionURI" type="xsd:anyURI"/>
+		<xsd:attribute name="Status">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="Current"/>
+					<xsd:enumeration value="Deleted"/>
+					<xsd:enumeration value="Modified"/>
+					<xsd:enumeration value="New"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="StatusURI" type="xsd:anyURI"/>
+	</xsd:complexType>
+	<!--"Axis" element  -->
+	<xsd:element name="Axis">
+		<xsd:annotation>
+			<xsd:documentation>Axis is a normalised vector defining the direction in Global space of the local Z axis of the object it is contained in</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Block" element  -->
+	<xsd:element name="Block" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Xlen" type="xsd:double" use="required"/>
+			<xsd:attribute name="Ylen"/>
+			<xsd:attribute name="Zlen"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- A general Nurb curve -->
+	<xsd:element name="BsplineCurve" type="BsplineCurve" substitutionGroup="Curve"/>
+	<xsd:complexType name="BsplineCurve">
+		<xsd:annotation>
+			<xsd:documentation>A BsplineCurve is general form of Rational or polynomial curve represented by control points, basis fuinctions and possibly weights.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Curve">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="Presentation" minOccurs="0"/>
+					<xsd:element ref="Extent"/>
+					<xsd:element name="ControlPoints" type="ControlPoints"/>
+					<xsd:element name="KnotMultiplicities" type="KnotMultiplicities" minOccurs="0"/>
+					<xsd:element name="Knots" type="Knots" minOccurs="0"/>
+					<xsd:element name="WeightsData" type="WeightsData" minOccurs="0"/>
+					<xsd:element ref="GenericAttributes" minOccurs="0"/>
+				</xsd:choice>
+				<xsd:attribute name="Degree" type="xsd:integer" use="required"/>
+				<xsd:attribute name="CurveType" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:NMTOKEN">
+							<xsd:enumeration value="BsplineCurve"/>
+							<xsd:enumeration value="BsplineCurveWithKnots"/>
+							<xsd:enumeration value="RationalBsplineCurve"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="CurveForm" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:NMTOKEN">
+							<xsd:enumeration value="PolyLine"/>
+							<xsd:enumeration value="CircularArc"/>
+							<xsd:enumeration value="EllipticArc"/>
+							<xsd:enumeration value="ParabolicArc"/>
+							<xsd:enumeration value="HyperbolicArc"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="NumControlPoints" type="xsd:nonNegativeInteger" use="required"/>
+				<xsd:attribute name="NumKnots" type="xsd:nonNegativeInteger" use="optional"/>
+				<xsd:attribute name="Closed" type="xsd:boolean" use="optional"/>
+				<xsd:attribute name="SelfIntersect" type="xsd:boolean" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!-- A general Nurb surface -->
+	<xsd:element name="BsplineSurface" type="BsplineSurface" substitutionGroup="Surface"/>
+	<xsd:complexType name="BsplineSurface">
+		<xsd:annotation>
+			<xsd:documentation>A BsplineSurface is general form of Rational or polynomial surface represented by control points, basis fuinctions and possibly weights.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="Surface">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="Presentation" minOccurs="0"/>
+					<xsd:element ref="Extent"/>
+					<xsd:element name="ControlPointArray" type="ControlPointArray"/>
+					<xsd:element name="KnotMultiplicitiesU" type="KnotMultiplicities" minOccurs="0"/>
+					<xsd:element name="KnotMultiplicitiesV" type="KnotMultiplicities" minOccurs="0"/>
+					<xsd:element name="KnotsU" type="Knots" minOccurs="0"/>
+					<xsd:element name="KnotsV" type="Knots" minOccurs="0"/>
+					<xsd:element name="Weights" type="Weights" minOccurs="0"/>
+					<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:choice>
+				<xsd:attribute name="DegreeU" type="xsd:integer" use="required"/>
+				<xsd:attribute name="DegreeV" type="xsd:integer" use="required"/>
+				<xsd:attribute name="SurfaceType" use="required">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:NMTOKEN">
+							<xsd:enumeration value="BsplineSurface"/>
+							<xsd:enumeration value="BsplineSurfaceWithKnots"/>
+							<xsd:enumeration value="RationalBsplineSurface"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="SurfaceForm" use="optional">
+					<xsd:simpleType>
+						<xsd:restriction base="xsd:NMTOKEN">
+							<xsd:enumeration value="Plane"/>
+							<xsd:enumeration value="Cylindrical"/>
+							<xsd:enumeration value="Conical"/>
+							<xsd:enumeration value="Spherical"/>
+							<xsd:enumeration value="Toroidal"/>
+							<xsd:enumeration value="SurfaceOfRevolution"/>
+							<xsd:enumeration value="RuledSurface"/>
+							<xsd:enumeration value="GeneralisedCone"/>
+							<xsd:enumeration value="Quadratic"/>
+							<xsd:enumeration value="SurfaceOfLinearExtrusion"/>
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:attribute>
+				<xsd:attribute name="NumControlPointsU" type="xsd:nonNegativeInteger" use="required"/>
+				<xsd:attribute name="NumControlPointsV" type="xsd:nonNegativeInteger" use="required"/>
+				<xsd:attribute name="NumKnotsU" type="xsd:nonNegativeInteger" use="optional"/>
+				<xsd:attribute name="NumKnotsV" type="xsd:nonNegativeInteger" use="optional"/>
+				<xsd:attribute name="ClosedU" type="xsd:boolean" use="optional"/>
+				<xsd:attribute name="ClosedV" type="xsd:boolean" use="optional"/>
+				<xsd:attribute name="SelfIntersect" type="xsd:boolean" use="optional"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--"CenterLine" element  -->
+	<xsd:element name="CenterLine" type="CenterLine">
+		<xsd:annotation>
+			<xsd:documentation>This is the locus of the CenterLine for a PipingSegment. For 2D (PID Pipelines and Instrument Signal lines) There will be one CenterLine for each graphical segment.
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="CenterLine">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element ref="Presentation" minOccurs="0"/>
+			<xsd:element ref="Extent"/>
+			<xsd:element ref="Coordinate" maxOccurs="unbounded"/>
+			<xsd:element ref="PersistentID" minOccurs="0"/>
+			<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			<xsd:element ref="Symbol" minOccurs="0"/>
+		</xsd:choice>
+		<xsd:attribute name="ID" type="xsd:ID" use="optional"/>
+		<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger" use="required"/>
+	</xsd:complexType>
+	<!--"Circle" element  -->
+	<xsd:element name="Circle" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Position"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="Radius" type="xsd:double" use="required"/>
+					<xsd:attribute name="Filled">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Solid"/>
+								<xsd:enumeration value="Hatch"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"CompositeCurve" element  -->
+	<xsd:element name="CompositeCurve" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Curve" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Cone" element  -->
+	<xsd:element name="Cone" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position" maxOccurs="2"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Height" type="xsd:double" use="required"/>
+			<xsd:attribute name="BaseRadius" type="xsd:double" use="required"/>
+			<xsd:attribute name="TopRadius" type="xsd:double" use="required"/>
+			<xsd:attribute name="Type" default="RightCone">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="RightCone"/>
+						<xsd:enumeration value="SkewedCone"/>
+						<xsd:enumeration value="TrimmedCone"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Connnection" element  -->
+	<xsd:element name="Connection">
+		<xsd:complexType>
+			<xsd:attribute name="ToID" type="xsd:string"/>
+			<xsd:attribute name="ToNode" type="xsd:positiveInteger" use="optional"/>
+			<xsd:attribute name="FromID" type="xsd:string"/>
+			<xsd:attribute name="FromNode" type="xsd:positiveInteger" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"ConnectionPoints" element  -->
+	<xsd:element name="ConnectionPoints">
+		<xsd:annotation>
+			<xsd:documentation>An ordered set of Nodes for the object containing this ConnectionPoints object. The first Node (0) is coincident with the origing of the containing object. The next two (1and 2) are the main flow and all others are secondary flows. Flowin and Flowout reference the Nodes indexed from 0 ie main flow is 1 and 2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent" minOccurs="0"/>
+				<xsd:element ref="Node" maxOccurs="unbounded"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger" use="required"/>
+			<xsd:attribute name="FlowIn" type="xsd:positiveInteger" use="optional" default="1"/>
+			<xsd:attribute name="FlowOut" type="xsd:positiveInteger" use="optional" default="2"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Control point list for Bsplines -->
+	<xsd:element name="ControlPoints">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Coordinate" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- list of Control point lists for Bsplines -->
+	<xsd:element name="ControlPointArray">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ControlPoints" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Coordinate" element  -->
+	<xsd:element name="Coordinate">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Curve Element -->
+	<xsd:element name="Curve" type="Curve"/>
+	<!--"Cylinder" element  -->
+	<xsd:element name="Cylinder" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position" maxOccurs="2"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Height" type="xsd:double" use="required"/>
+			<xsd:attribute name="Radius" type="xsd:double" use="required"/>
+			<xsd:attribute name="Type" default="RightCylinder">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="RightCylinder"/>
+						<xsd:enumeration value="SkewedCylinder"/>
+						<xsd:enumeration value="TrimmedCylinder"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Curve bounded Surface is one that is trimmed with freeform curve boundaries -->
+	<xsd:element name="CurveBoundedSurface" substitutionGroup="Surface">
+		<xsd:annotation>
+			<xsd:documentation>A CurveBoundedSurface is a parametric surface with curved boundaries defined by one or more boundary curves. One may be the outer boundary with several inner boundaries..</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:sequence>
+						<xsd:element name="BasisSurface" type="Surface"/>
+						<xsd:element ref="OuterBoundary" minOccurs="0"/>
+						<xsd:element ref="InnerBoundary" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--An Engineering Drawing -->
+	<xsd:element name="Drawing">
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Presentation"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Curve" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Surface" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Text" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="DrawingBorder"/>
+				<xsd:element ref="Symbol"/>
+				<xsd:element ref="InsulationSymbol"/>
+				<xsd:element ref="ScopeBubble"/>
+				<xsd:element ref="PropertyBreak"/>
+				<xsd:element ref="Label" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PipeFlowArrow"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string" use="required"/>
+			<xsd:attribute name="Type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="PFD"/>
+						<xsd:enumeration value="PID"/>
+						<xsd:enumeration value="ISO"/>
+						<xsd:enumeration value="SLD"/>
+						<xsd:enumeration value="GA"/>
+						<xsd:enumeration value="Datasheet"/>
+						<xsd:enumeration value="ElectricalSchematic"/>
+						<xsd:enumeration value="LoopDiagram"/>
+						<xsd:enumeration value="LoadSchedule"/>
+						<xsd:enumeration value="InstrumentSchedule"/>
+						<xsd:enumeration value="ValveSchedule"/>
+						<xsd:enumeration value="EquipmentList"/>
+						<xsd:enumeration value="General"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Revision" type="xsd:string"/>
+			<xsd:attribute name="RevisionURI" type="xsd:anyURI"/>
+			<xsd:attribute name="Title" type="xsd:string"/>
+			<xsd:attribute name="Size" type="xsd:string"/>
+			<xsd:attribute name="SizeURI" type="xsd:anyURI"/>
+			<xsd:attribute name="Orientation">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:string">
+						<xsd:enumeration value="Portrait"/>
+						<xsd:enumeration value="Landscape"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Drawing Border element -->
+	<xsd:element name="DrawingBorder">
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Presentation"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Curve" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Surface"/>
+				<xsd:element ref="Text" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Label" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string"/>
+			<xsd:attribute name="Size" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"EdgeCurve" element  -->
+	<xsd:element name="EdgeCurve">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Curve" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Ellipse" element  -->
+	<xsd:element name="Ellipse" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Position"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="PrimaryAxis" type="xsd:double" use="required"/>
+					<xsd:attribute name="SecondaryAxis" type="xsd:double" use="required"/>
+					<xsd:attribute name="Filled">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Solid"/>
+								<xsd:enumeration value="Hatch"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Extent" element  -->
+	<xsd:element name="Extent">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Min"/>
+				<xsd:element ref="Max"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"ExtrudeCurve" element  -->
+	<xsd:element name="ExtrudeCurve">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Line"/>
+				<xsd:element ref="PolyLine"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Face" element - a planar facet-->
+	<xsd:element name="Face">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Loop" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumLoops" type="xsd:nonNegativeInteger" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Faces" element - Faces of the solid-->
+	<xsd:element name="Faces">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Face" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumFaces" type="xsd:nonNegativeInteger" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"FacetRep" element - a simple facetted BREP-->
+	<xsd:element name="FacetRep" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position" minOccurs="0"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Vertices"/>
+				<xsd:element ref="Faces" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"GeometricPrimitives" element  -->
+	<xsd:element name="GeometricPrimitives">
+		<xsd:annotation>
+			<xsd:documentation>Container for all the geometry of a Catalogue item</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Solid"/>
+				<xsd:element ref="Surface"/>
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+			<xsd:attribute name="NumPrimitives" type="xsd:nonNegativeInteger"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"GenericAttributes" element  -->
+	<xsd:element name="GenericAttributes">
+		<xsd:annotation>
+			<xsd:documentation>Handles user defined Attributes of any name</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:choice>
+				<xsd:element ref="GenericAttribute" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Number" type="xsd:nonNegativeInteger" use="required"/>
+			<xsd:attribute name="Set" type="xsd:string" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="GenericAttribute">
+		<xsd:annotation>
+			<xsd:documentation>A GenericAttribute can be any Name but this should also match the RDL</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="Name" type="xsd:string" use="required"/>
+			<xsd:attribute name="Value" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Default" type="xsd:string" use="optional"/>
+			<xsd:attribute ref="Units" use="optional"/>
+			<xsd:attribute name="Format" type="xsd:string" use="optional"/>
+			<xsd:attribute name="AttributeURI" type="xsd:anyURI" use="optional"/>
+			<xsd:attribute name="ValueURI" type="xsd:anyURI" use="optional"/>
+			<xsd:attribute name="UnitsURI" type="xsd:anyURI" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--History Elemet holds information on the use of a model and the transactions that occur-->
+	<xsd:element name="History">
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Transaction"/>
+			</xsd:choice>
+			<xsd:attribute name="NumTransactions" type="xsd:nonNegativeInteger"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Index" element  -->
+	<xsd:element name="Index">
+		<xsd:annotation>
+			<xsd:documentation>see Loop</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType mixed="true">
+			<xsd:attribute name="Num" type="xsd:nonNegativeInteger" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- An Inner Boundary (hole) for a Curve Bounded Surface -->
+	<xsd:element name="InnerBoundary">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="InnerBoundaryCurve">
+		<xsd:complexType>
+			<xsd:choice minOccurs="1" maxOccurs="unbounded">
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Line" element  -->
+	<xsd:element name="Line" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Coordinate" minOccurs="2" maxOccurs="2"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Location" element  -->
+	<xsd:element name="Location">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Loop" element - defines the boundary and normal of a planar facet Face-->
+	<xsd:element name="Loop">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Index" minOccurs="3" maxOccurs="unbounded"/>
+				<xsd:element ref="Axis" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumIndices" type="xsd:nonNegativeInteger" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- "Max" element-->
+	<xsd:element name="Max">
+		<xsd:annotation>
+			<xsd:documentation>Maximun extents of Plant item</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double" default="0.0"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Min" element  -->
+	<xsd:element name="Min">
+		<xsd:annotation>
+			<xsd:documentation>Minimum extents of Plant item</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double" default="0.0"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Node" element  -->
+	<xsd:element name="Node">
+		<xsd:annotation>
+			<xsd:documentation>A Node is an connection point for a component and is an Element within a ConnectionPoints Element.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Position"/>
+				<xsd:element ref="PersistentID"/>
+				<xsd:element ref="NominalDiameter" minOccurs="0"/>
+				<xsd:element ref="InsideDiameter" minOccurs="0"/>
+				<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+				<xsd:element ref="EndPreparation" minOccurs="0"/>
+				<xsd:element ref="GasketGap" minOccurs="0"/>
+				<xsd:element ref="Rating" minOccurs="0"/>
+				<xsd:element ref="ScheduleThickness" minOccurs="0"/>
+				<xsd:element ref="ConnectionType" minOccurs="0"/>
+				<xsd:element ref="WeldType" minOccurs="0"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Type" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="process"/>
+						<xsd:enumeration value="signal"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Function" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="primary"/>
+						<xsd:enumeration value="secondary"/>
+						<xsd:enumeration value="tap"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Flow" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="in"/>
+						<xsd:enumeration value="out"/>
+						<xsd:enumeration value="both"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- The outer boundary of a Curve Bounded Surface -->
+	<xsd:element name="OuterBoundary">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="Curve"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Plane" element - an unbounded planar surface defined by a Position. only the Location and Axis are important-->
+	<xsd:element name="Plane" substitutionGroup="Surface">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Position"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"PlantInformation" element  -->
+	<xsd:element name="PlantInformation">
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="UnitsOfMeasure"/>
+			</xsd:choice>
+			<xsd:attribute name="SchemaVersion" type="xsd:string" default="3.6.0"/>
+			<xsd:attribute name="OriginatingSystem" type="xsd:string" use="required"/>
+			<xsd:attribute name="ModelName" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Date" type="xsd:date" use="required"/>
+			<xsd:attribute name="ProjectName" type="xsd:string" use="optional"/>
+			<xsd:attribute name="ProjectCode" type="xsd:string" use="optional"/>
+			<xsd:attribute name="ProjectDescription" type="xsd:string" use="optional"/>
+			<xsd:attribute name="CompanyName" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Time" type="xsd:time" use="optional"/>
+			<xsd:attribute name="Is3D" use="required">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="no"/>
+						<xsd:enumeration value="yes"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Units" type="xsd:string" use="required"/>
+			<xsd:attribute name="Discipline" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"PlantItem" element  -->
+	<xsd:element name="PlantItem" type="PlantItem" abstract="true"/>
+	<xsd:complexType name="PlantItem">
+		<xsd:annotation>
+			<xsd:documentation>Defines aspects common to all Plant items</xsd:documentation>
+		</xsd:annotation>
+		<xsd:choice minOccurs="0" maxOccurs="unbounded">
+			<xsd:element ref="Presentation"/>
+			<xsd:element ref="Extent"/>
+			<xsd:element ref="PersistentID"/>
+			<xsd:element ref="Position"/>
+			<xsd:element ref="Scale"/>
+			<xsd:element ref="Solid"/>
+			<xsd:element ref="Surface"/>
+			<xsd:element ref="Curve"/>
+			<xsd:element ref="GeometricPrimitives"/>
+			<xsd:element ref="ConnectionPoints"/>
+			<xsd:element ref="PConnectionPoints"/>
+			<xsd:element ref="Label"/>
+			<xsd:element ref="Text"/>
+			<xsd:element ref="Identifier"/>
+			<xsd:element ref="Drawing"/>
+			<xsd:element ref="Description"/>
+			<xsd:element ref="Weight"/>
+			<xsd:element ref="Material"/>
+			<xsd:element ref="MaterialOfConstruction"/>
+			<xsd:element ref="MaterialDescription"/>
+			<xsd:element name="ModelNumber" type="xsd:string"/>
+			<xsd:element name="Supplier" type="xsd:string"/>
+			<xsd:element name="Manufacturer" type="xsd:string"/>
+			<xsd:element ref="GenericAttributes" maxOccurs="unbounded"/>
+			<xsd:element ref="Association" maxOccurs="unbounded"/>
+			<xsd:element ref="History"/>
+		</xsd:choice>
+		<xsd:attribute name="ID" type="xsd:ID" use="required"/>
+		<xsd:attribute name="TagName" type="xsd:string"/>
+		<xsd:attribute name="Specification" type="xsd:string"/>
+		<xsd:attribute name="SpecificationURI" type="xsd:anyURI"/>
+		<xsd:attribute name="StockNumber" type="xsd:string"/>
+		<xsd:attribute name="ComponentClass" type="xsd:string"/>
+		<xsd:attribute name="ComponentClassURI" type="xsd:anyURI"/>
+		<xsd:attribute name="ComponentName" type="xsd:string"/>
+		<xsd:attribute name="ComponentType">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="Normal"/>
+					<xsd:enumeration value="Explicit"/>
+					<xsd:enumeration value="Parametric"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="Revision" type="xsd:string"/>
+		<xsd:attribute name="StandardURI" type="xsd:anyURI"/>
+		<xsd:attribute name="RevisionURI" type="xsd:anyURI"/>
+		<xsd:attribute name="Status">
+			<xsd:simpleType>
+				<xsd:restriction base="xsd:NMTOKEN">
+					<xsd:enumeration value="Current"/>
+					<xsd:enumeration value="Deleted"/>
+					<xsd:enumeration value="Modified"/>
+					<xsd:enumeration value="New"/>
+				</xsd:restriction>
+			</xsd:simpleType>
+		</xsd:attribute>
+		<xsd:attribute name="StatusURI" type="xsd:anyURI"/>
+	</xsd:complexType>
+	<!--"PlantModel" element  -->
+	<xsd:element name="PlantModel">
+		<xsd:annotation>
+			<xsd:documentation>Handle for a collection of Plant objects</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="PlantInformation"/>
+				<xsd:element ref="Extent"/>
+				<xsd:any namespace="##targetNamespace" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Polyline" element  -->
+	<xsd:element name="PolyLine" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Coordinate" minOccurs="2" maxOccurs="unbounded"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Position" element  - class is axis2_placement-->
+	<xsd:element name="Position">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Location"/>
+				<xsd:element ref="Axis"/>
+				<xsd:element ref="Reference"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Presentation" element  -->
+	<xsd:element name="Presentation">
+		<xsd:complexType>
+			<xsd:attribute name="Layer" type="xsd:string"/>
+			<xsd:attribute name="Color" type="xsd:string"/>
+			<xsd:attribute name="LineType" type="xsd:string"/>
+			<xsd:attribute name="LineWeight" type="xsd:string"/>
+			<xsd:attribute name="R">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:double">
+						<xsd:minInclusive value="0.0"/>
+						<xsd:maxInclusive value="1.0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="G">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:double">
+						<xsd:minInclusive value="0.0"/>
+						<xsd:maxInclusive value="1.0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="B">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:double">
+						<xsd:minInclusive value="0.0"/>
+						<xsd:maxInclusive value="1.0"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"ProfileCurve" element  -->
+	<xsd:complexType name="ProfileCurve">
+		<xsd:choice maxOccurs="unbounded">
+			<xsd:element ref="Curve" maxOccurs="unbounded"/>
+			<xsd:element ref="InnerBoundaryCurve" maxOccurs="unbounded"/>
+		</xsd:choice>
+	</xsd:complexType>
+	<xsd:element name="ProfileCurve" type="ProfileCurve"/>
+	<xsd:element name="RDLService">
+		<xsd:complexType>
+			<xsd:sequence/>
+			<xsd:attribute name="ServiceAddress" type="xsd:anyURI"/>
+			<xsd:attribute name="QueryParameter" type="xsd:string" use="optional" default="query"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Reference" element  - class is x_axis_reference -->
+	<xsd:element name="Reference">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Scale -->
+	<xsd:element name="Scale">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:double" use="required"/>
+			<xsd:attribute name="Y" type="xsd:double" use="required"/>
+			<xsd:attribute name="Z" type="xsd:double" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Shape" element  -->
+	<xsd:element name="Shape" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="Presentation"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Coordinate" maxOccurs="unbounded"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger" use="required"/>
+					<xsd:attribute name="Filled">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Solid"/>
+								<xsd:enumeration value="Hatch"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Solid" element  -->
+	<xsd:element name="Solid" abstract="true"/>
+	<!--"SolidOfExtrusion" element  -->
+	<xsd:element name="SolidOfExtrusion" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element ref="ExtrudeCurve" minOccurs="0"/>
+				<xsd:element ref="ProfileCurve" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="EdgeCurve" minOccurs="0"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="Block"/>
+						<xsd:enumeration value="Cone"/>
+						<xsd:enumeration value="Cylinder"/>
+						<xsd:enumeration value="Linear"/>
+						<xsd:enumeration value="Pyramid"/>
+						<xsd:enumeration value="Prism"/>
+						<xsd:enumeration value="MultiSection"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"SolidOfRevolution" element  -->
+	<xsd:element name="SolidOfRevolution" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element ref="ProfileCurve" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="EdgeCurve" minOccurs="0"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="SweepAngle" type="xsd:double"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Sphere" element  -->
+	<xsd:element name="Sphere" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Radius" type="xsd:double" use="required"/>
+			<xsd:attribute name="Type" default="Sphere">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="Sphere"/>
+						<xsd:enumeration value="Hemisphere"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"SURFACE" element  -->
+	<xsd:element name="Surface" type="Surface" abstract="true"/>
+	<xsd:complexType name="Surface"/>
+	<!--"SurfaceOfExtrusion" element  -->
+	<xsd:element name="SurfaceOfExtrusion" substitutionGroup="Surface">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:sequence>
+						<xsd:element ref="Presentation" minOccurs="0"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Position"/>
+						<xsd:element ref="ExtrudeCurve"/>
+						<xsd:element ref="ProfileCurve" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="EdgeCurve" minOccurs="0"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="Type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Cone"/>
+								<xsd:enumeration value="Cylinder"/>
+								<xsd:enumeration value="Linear"/>
+								<xsd:enumeration value="Pyramid"/>
+								<xsd:enumeration value="Prism"/>
+								<xsd:enumeration value="MultiSection"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"SurfaceOfRevolution" element  -->
+	<xsd:element name="SurfaceOfRevolution" substitutionGroup="Surface">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:sequence>
+						<xsd:element ref="Presentation" minOccurs="0"/>
+						<xsd:element ref="Extent"/>
+						<xsd:element ref="Position"/>
+						<xsd:element ref="ProfileCurve" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="EdgeCurve"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="SweepAngle" type="xsd:double"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Text" element  -->
+	<xsd:element name="Text">
+		<xsd:annotation>
+			<xsd:documentation>If this Text item is the presentation of the value of an Attribute of a PlantItem then, a reference to theAttribute is made by the ID of the  PlantItem and the name of the Attribute. string is not required.				If the text string is only one line then the string is in the Attribute String and the NumLines attribute is not required. If the string is Multi-line the each Line is a String Element and NumLines defines how many String Elements there are
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Presentation"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element name="String">
+					<xsd:complexType mixed="true">
+						<xsd:sequence/>
+						<xsd:attribute name="Value" type="xsd:string" use="optional"/>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element ref="TextStringFormatSpecification"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="NumLines" type="xsd:nonNegativeInteger" use="optional"/>
+			<xsd:attribute name="String" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Font" type="xsd:string" use="required"/>
+			<xsd:attribute name="Justification" use="optional" default="LeftBottom">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="LeftTop"/>
+						<xsd:enumeration value="LeftCenter"/>
+						<xsd:enumeration value="LeftBottom"/>
+						<xsd:enumeration value="CenterTop"/>
+						<xsd:enumeration value="CenterCenter"/>
+						<xsd:enumeration value="CenterBottom"/>
+						<xsd:enumeration value="RightTop"/>
+						<xsd:enumeration value="RightCenter"/>
+						<xsd:enumeration value="RightBottom"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Width" type="xsd:double" use="required"/>
+			<xsd:attribute name="Height" type="xsd:double" use="required"/>
+			<xsd:attribute name="TextAngle" type="xsd:double"/>
+			<xsd:attribute name="SlantAngle" type="xsd:double"/>
+			<xsd:attribute name="ItemID" type="xsd:IDREF"/>
+			<xsd:attribute name="Set" type="xsd:string"/>
+			<xsd:attribute name="DependantAttribute" type="xsd:string"/>
+			<xsd:attribute ref="DependantAttributeContents" use="optional" default="ValueAndUnits"/>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:attribute name="DependantAttributeContents">
+		<xsd:simpleType>
+			<xsd:restriction base="xsd:string">
+				<xsd:enumeration value="Value"/>
+				<xsd:enumeration value="Units"/>
+				<xsd:enumeration value="ValueAndUnits"/>
+			</xsd:restriction>
+		</xsd:simpleType>
+	</xsd:attribute>
+	<xsd:element name="TextStringFormatSpecification">
+		<xsd:annotation>
+			<xsd:documentation>If this Text item is the presentation of the value of an Attribute of a PlantItem then, a reference to theAttribute is made by the ID of the PlantItem and the name of the Attribute. string is not required.				If the text string is only one line then the string is in the Attribute String and the NumLines attribute is not required. If the string is Multi-line the each Line is a String Element and NumLines defines how many String Elements there are
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="ObjectAttributesReference"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="ObjectAttributesReference">
+		<xsd:complexType mixed="true">
+			<xsd:choice minOccurs="0"/>
+			<xsd:attribute name="DependantAttribute" type="xsd:string" use="required"/>
+			<xsd:attributeGroup ref="ItemReferenceGroup"/>
+			<xsd:attribute ref="DependantAttributeContents" use="optional" default="ValueAndUnits"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Torus" element  -->
+	<xsd:element name="Torus" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent"/>
+				<xsd:element ref="Position"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="MajorRadius" type="xsd:double" use="required"/>
+			<xsd:attribute name="MinorRadius" type="xsd:double" use="required"/>
+			<xsd:attribute name="SweepAngle" type="xsd:double"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Transaction Element details an operation on model-->
+	<xsd:element name="Transaction">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="Remark" type="xsd:string" maxOccurs="unbounded"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Type" type="TransactionType"/>
+			<xsd:attribute name="Date" type="xsd:date"/>
+			<xsd:attribute name="Time" type="xsd:time"/>
+			<xsd:attribute name="CompanyName" type="xsd:string"/>
+			<xsd:attribute name="Person" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"TrimmedCurve" element  -->
+	<xsd:element name="TrimmedCurve" substitutionGroup="Curve">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:choice>
+							<xsd:element ref="Circle"/>
+							<xsd:element ref="PCircle"/>
+							<xsd:element ref="Ellipse"/>
+							<xsd:element ref="PEllipse"/>
+						</xsd:choice>
+						<xsd:element ref="GenericAttributes" minOccurs="0"/>
+					</xsd:sequence>
+					<xsd:attribute name="StartAngle" type="xsd:double" use="required"/>
+					<xsd:attribute name="EndAngle" type="xsd:double" use="required"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Vertices">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Coordinate" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumVertices" type="xsd:nonNegativeInteger" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- List of weights for a Rational Nurb curve or surface - one per control point -->
+	<xsd:element name="Weights">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="ControlPointWeight" maxOccurs="unbounded"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Parametric objects  - basic objects then the primitives  -Note that Extents are not relevant  ***************-->
+	<!--"Parametric Axis" element  - values can be expressions -->
+	<xsd:element name="PAxis">
+		<xsd:annotation>
+			<xsd:documentation>Axis is a normalised vector defining the direction in Global space of the local Z axis of the object it is contained in</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:string" use="required"/>
+			<xsd:attribute name="Y" type="xsd:string" use="required"/>
+			<xsd:attribute name="Z" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Location" element - values can be expressions -->
+	<xsd:element name="PLocation">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:string" use="required"/>
+			<xsd:attribute name="Y" type="xsd:string" use="required"/>
+			<xsd:attribute name="Z" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parameteric Reference" element - values can be expressions  -->
+	<xsd:element name="PReference">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:string" use="required"/>
+			<xsd:attribute name="Y" type="xsd:string" use="required"/>
+			<xsd:attribute name="Z" type="xsd:string" use="required"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Position" element   - values can be expressions  -->
+	<xsd:element name="PPosition">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="PLocation"/>
+				<xsd:element ref="PAxis"/>
+				<xsd:element ref="PReference"/>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Node" element  -->
+	<xsd:element name="PNode">
+		<xsd:annotation>
+			<xsd:documentation>A PNode is an connection point for a parametric component and is an Element within a PConnectioPoints Element.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="PPosition"/>
+				<xsd:element ref="NominalDiameter" minOccurs="0"/>
+				<xsd:element ref="EndPreparation" minOccurs="0"/>
+				<xsd:element ref="GasketGap" minOccurs="0"/>
+				<xsd:element ref="Rating" minOccurs="0"/>
+				<xsd:element ref="ScheduleThickness" minOccurs="0"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Type" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="process"/>
+						<xsd:enumeration value="signal"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Function" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="primary"/>
+						<xsd:enumeration value="secondary"/>
+						<xsd:enumeration value="tap"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Flow" use="optional">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="unspecified"/>
+						<xsd:enumeration value="in"/>
+						<xsd:enumeration value="out"/>
+						<xsd:enumeration value="both"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric ConnectionPoints" element - values can be expressions  -->
+	<xsd:element name="PConnectionPoints">
+		<xsd:annotation>
+			<xsd:documentation>An ordered set of Nodes for the object containing this ConnectionPoints object. The first Node (0) is coincident with the origing of the containing object. The next two (1and 2) are the main flow and all others are secondary flows. Flowin and Flowout reference the Nodes indexed from 0 ie main flow is 1 and 2</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="Extent" minOccurs="0"/>
+				<xsd:element ref="PNode" maxOccurs="unbounded"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger" use="required"/>
+			<xsd:attribute name="FlowIn">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="FlowOut">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:integer">
+						<xsd:minInclusive value="1"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parameteric Block" element  - values can be expressions -->
+	<xsd:element name="PBlock" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Xlen" type="xsd:string" use="required"/>
+			<xsd:attribute name="Ylen" type="xsd:string"/>
+			<xsd:attribute name="Zlen" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Cone" element  - values can be expressions -->
+	<xsd:element name="PCone" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition" maxOccurs="2"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Height" type="xsd:string" use="required"/>
+			<xsd:attribute name="BaseRadius" type="xsd:string" use="required"/>
+			<xsd:attribute name="TopRadius" type="xsd:string" use="required"/>
+			<xsd:attribute name="Type" default="RightCone">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="RightCone"/>
+						<xsd:enumeration value="SkewedCone"/>
+						<xsd:enumeration value="TrimmedCone"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Cylinder" element   - values can be expressions-->
+	<xsd:element name="PCylinder" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition" maxOccurs="2"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Height" type="xsd:string" use="required"/>
+			<xsd:attribute name="Radius" type="xsd:string" use="required"/>
+			<xsd:attribute name="Type" default="RightCylinder">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="RightCylinder"/>
+						<xsd:enumeration value="SkewedCylinder"/>
+						<xsd:enumeration value="TrimmedCylinder"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Sphere" element   - values can be expression -->
+	<xsd:element name="PSphere" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="Radius" type="xsd:string" use="required"/>
+			<xsd:attribute name="Type" default="Sphere">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="Sphere"/>
+						<xsd:enumeration value="Hemisphere"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Torus" element - values can be expression  -->
+	<xsd:element name="PTorus" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="MajorRadius" type="xsd:string" use="required"/>
+			<xsd:attribute name="MinorRadius" type="xsd:string" use="required"/>
+			<xsd:attribute name="SweepAngle" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric SolidOfExtrusion" element  -->
+	<xsd:element name="PSolidOfExtrusion" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:choice maxOccurs="unbounded">
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition" minOccurs="0"/>
+				<xsd:element ref="PExtrudeCurve" minOccurs="0"/>
+				<xsd:element ref="PProfileCurve"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Type">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:NMTOKEN">
+						<xsd:enumeration value="Block"/>
+						<xsd:enumeration value="Cone"/>
+						<xsd:enumeration value="Cylinder"/>
+						<xsd:enumeration value="Linear"/>
+						<xsd:enumeration value="Pyramid"/>
+						<xsd:enumeration value="Prism"/>
+						<xsd:enumeration value="MultiSection"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric SolidOfRevolution" element  -->
+	<xsd:element name="PSolidOfRevolution" substitutionGroup="Solid">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element ref="Presentation" minOccurs="0"/>
+				<xsd:element ref="PPosition"/>
+				<xsd:element ref="PProfileCurve"/>
+				<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:sequence>
+			<xsd:attribute name="SweepAngle" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric SurfaceOfExtrusion" element  -->
+	<xsd:element name="PSurfaceOfExtrusion" substitutionGroup="Surface">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Presentation" minOccurs="0"/>
+						<xsd:element ref="PPosition" minOccurs="0"/>
+						<xsd:element ref="PExtrudeCurve" minOccurs="0"/>
+						<xsd:element ref="PProfileCurve"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+					<xsd:attribute name="Type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Block"/>
+								<xsd:enumeration value="Cone"/>
+								<xsd:enumeration value="Cylinder"/>
+								<xsd:enumeration value="Linear"/>
+								<xsd:enumeration value="Pyramid"/>
+								<xsd:enumeration value="Prism"/>
+								<xsd:enumeration value="MultiSection"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric SurfaceOfRevolution" element  -->
+	<xsd:element name="PSurfaceOfRevolution" substitutionGroup="Surface">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Surface">
+					<xsd:sequence>
+						<xsd:element ref="Presentation" minOccurs="0"/>
+						<xsd:element ref="PPosition"/>
+						<xsd:element ref="PProfileCurve"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="SweepAngle" type="xsd:string"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric ExtrudeCurve" element  -->
+	<xsd:element name="PExtrudeCurve">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="PPolyLine" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric ProfileCurve" element  -->
+	<xsd:element name="PProfileCurve">
+		<xsd:complexType>
+			<xsd:choice>
+				<xsd:element ref="PPolyLine" maxOccurs="unbounded"/>
+				<xsd:element ref="TrimmedCurve" maxOccurs="unbounded"/>
+			</xsd:choice>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Polyline" element  -->
+	<xsd:element name="PPolyLine">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="PCoordinate" minOccurs="2" maxOccurs="unbounded"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="NumPoints" type="xsd:nonNegativeInteger"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Ellipse" element  -->
+	<xsd:element name="PCircle">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="PPosition"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="Radius" type="xsd:string" use="required"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Ellipse" element  -->
+	<xsd:element name="PEllipse">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="Curve">
+					<xsd:sequence>
+						<xsd:element ref="PPosition"/>
+						<xsd:element ref="GenericAttributes" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:sequence>
+					<xsd:attribute name="PrimaryAxis" type="xsd:string" use="required"/>
+					<xsd:attribute name="SecondaryAxis" type="xsd:string" use="required"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Parametric Coordinate" element  -->
+	<xsd:element name="PCoordinate">
+		<xsd:complexType>
+			<xsd:attribute name="X" type="xsd:string" use="required"/>
+			<xsd:attribute name="Y" type="xsd:string" use="required"/>
+			<xsd:attribute name="Z" type="xsd:string"/>
+			<xsd:attribute name="Radius" type="xsd:string"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Plant item classes start here  ************************************************   -->
+	<!--"Area" element  -->
+	<xsd:element name="PlantArea">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="PlantArea" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" maxOccurs="unbounded"/>
+						<xsd:element ref="CableTray" maxOccurs="unbounded"/>
+						<xsd:element ref="CableTraySection" maxOccurs="unbounded"/>
+						<xsd:element ref="Ceiling" maxOccurs="unbounded"/>
+						<xsd:element ref="Floor" maxOccurs="unbounded"/>
+						<xsd:element ref="Door" maxOccurs="unbounded"/>
+						<xsd:element ref="Equipment" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="HVAC" maxOccurs="unbounded"/>
+						<xsd:element ref="HVACSegment" maxOccurs="unbounded"/>
+						<xsd:element ref="InstrumentLoop" maxOccurs="unbounded"/>
+						<xsd:element ref="SignalCable" maxOccurs="unbounded"/>
+						<xsd:element ref="ProcessInstrument" maxOccurs="unbounded"/>
+						<xsd:element ref="InstrumentPanel" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingAssembly" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingNetworkSystem" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingNetworkSegment" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="PipeSpool" maxOccurs="unbounded"/>
+						<xsd:element ref="Support" maxOccurs="unbounded"/>
+						<xsd:element ref="LadderAssembly" maxOccurs="unbounded"/>
+						<xsd:element ref="Ladder" maxOccurs="unbounded"/>
+						<xsd:element ref="Handrail" maxOccurs="unbounded"/>
+						<xsd:element ref="Staircase" maxOccurs="unbounded"/>
+						<xsd:element ref="FrameStructure" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralMember" maxOccurs="unbounded"/>
+						<xsd:element ref="Beam" maxOccurs="unbounded"/>
+						<xsd:element ref="Brace" maxOccurs="unbounded"/>
+						<xsd:element ref="Column" maxOccurs="unbounded"/>
+						<xsd:element ref="Plate" maxOccurs="unbounded"/>
+						<xsd:element ref="Slab" maxOccurs="unbounded"/>
+						<xsd:element ref="Wall" maxOccurs="unbounded"/>
+						<!-- temp probably not allowed -->
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Assembly" type="Assembly"/>
+	<xsd:complexType name="Assembly">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element ref="Assembly" maxOccurs="unbounded"/>
+					<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="Length"/>
+					<xsd:element ref="Width"/>
+					<xsd:element ref="Height"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--BoltingAssembly defines the Bolts, Nuts and washers for a component-->
+	<xsd:element name="BoltingAssembly">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Bolt" maxOccurs="unbounded"/>
+						<xsd:element ref="Washer" maxOccurs="unbounded"/>
+						<xsd:element ref="Nut" minOccurs="0"/>
+						<xsd:element ref="Hole" minOccurs="0"/>
+						<xsd:element ref="Grade" minOccurs="0"/>
+						<xsd:element ref="PitchCircleDiameter" minOccurs="0"/>
+						<xsd:element ref="BoltPitchX" minOccurs="0"/>
+						<xsd:element ref="BoltPitchY" minOccurs="0"/>
+					</xsd:choice>
+					<xsd:attribute name="BoltArrangement" use="optional" default="Circular">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:token">
+								<xsd:enumeration value="Circular"/>
+								<xsd:enumeration value="Rectangular"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="NumBolts" type="xsd:nonNegativeInteger" use="optional"/>
+					<xsd:attribute name="NumBoltsX" type="xsd:nonNegativeInteger" use="optional"/>
+					<xsd:attribute name="NumBoltsY" type="xsd:nonNegativeInteger" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Bolt">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter"/>
+						<xsd:element ref="Length"/>
+					</xsd:choice>
+					<xsd:attribute name="BoltType" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Washer">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter"/>
+						<xsd:element ref="Thickness"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Nut">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Thickness"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Hole">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Building objects BuidingPremises, BuildingStory,-->
+	<!--BuildingComponent is an ifcBuildingElementProxy - a generic object to represent any component that does not match a standard object (eg. Concrete Beam with Rebars-->
+	<xsd:element name="BuildingComponent">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--BuildingElement is an ifcBuildingElement - an functional part of a building -eg Foundations, Ground Floor etc-->
+	<xsd:element name="BuildingElement">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BuildingComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="BuildingElement" maxOccurs="unbounded"/>
+						<xsd:element ref="Beam" maxOccurs="unbounded"/>
+						<xsd:element ref="Brace" maxOccurs="unbounded"/>
+						<xsd:element ref="Column" maxOccurs="unbounded"/>
+						<xsd:element ref="Ceiling" maxOccurs="unbounded"/>
+						<xsd:element ref="Floor" maxOccurs="unbounded"/>
+						<xsd:element ref="Door" maxOccurs="unbounded"/>
+						<xsd:element ref="Plate" maxOccurs="unbounded"/>
+						<xsd:element ref="Slab" maxOccurs="unbounded"/>
+						<xsd:element ref="Wall" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Building in ISO 15926 is an activity BuildingPremises is the artefact-->
+	<xsd:element name="BuildingPremises">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BuildingComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="BuildingElement" maxOccurs="unbounded"/>
+						<xsd:element ref="BuildingStorey" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="BuildingStorey">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BuildingComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="BuildingElement" maxOccurs="unbounded"/>
+						<xsd:element ref="Beam" maxOccurs="unbounded"/>
+						<xsd:element ref="Brace" maxOccurs="unbounded"/>
+						<xsd:element ref="Column" maxOccurs="unbounded"/>
+						<xsd:element ref="Ceiling" maxOccurs="unbounded"/>
+						<xsd:element ref="Floor" maxOccurs="unbounded"/>
+						<xsd:element ref="Door" maxOccurs="unbounded"/>
+						<xsd:element ref="Plate" maxOccurs="unbounded"/>
+						<xsd:element ref="Slab" maxOccurs="unbounded"/>
+						<xsd:element ref="Wall" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Beam" element  -->
+	<xsd:element name="Beam" type="StructuralMember"/>
+	<!--"Brace" element  -->
+	<xsd:element name="Brace" type="StructuralMember"/>
+	<!--"CableTray" element  -->
+	<xsd:element name="CableTray">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="CableTraySection" maxOccurs="unbounded"/>
+						<xsd:element ref="CableTrayComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"CableTrayBend" element  -->
+	<xsd:element name="CableTrayBend">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Width" minOccurs="0"/>
+						<xsd:element ref="Depth" minOccurs="0"/>
+						<xsd:element ref="Length" minOccurs="0"/>
+						<xsd:element ref="Thickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"CableTrayComponent" element  -->
+	<xsd:element name="CableTrayComponent">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Width" minOccurs="0"/>
+						<xsd:element ref="Depth" minOccurs="0"/>
+						<xsd:element ref="Length" minOccurs="0"/>
+						<xsd:element ref="Thickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"CableTraySection" element  -->
+	<xsd:element name="CableTraySection">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="CableTrayBend" maxOccurs="unbounded"/>
+						<xsd:element ref="CableTrayStraight" maxOccurs="unbounded"/>
+						<xsd:element ref="CableTrayComponent" maxOccurs="unbounded"/>
+						<xsd:element ref="Connection" minOccurs="0"/>
+						<xsd:element ref="Width" minOccurs="0"/>
+						<xsd:element ref="Depth" minOccurs="0"/>
+						<xsd:element ref="Length" minOccurs="0"/>
+						<xsd:element ref="Thickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"CableTrayStraight" element  -->
+	<xsd:element name="CableTrayStraight">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Width" minOccurs="0"/>
+						<xsd:element ref="Depth" minOccurs="0"/>
+						<xsd:element ref="Length" minOccurs="0"/>
+						<xsd:element ref="Thickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Ceiling element -->
+	<xsd:element name="Ceiling">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Component"/>
+						<xsd:element ref="StructuralMember"/>
+						<xsd:element ref="Plate"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Column" element  -->
+	<xsd:element name="Column" type="StructuralMember"/>
+	<!--component" element  - used as a generic collection of objects for which the purpose is unknown - it is used to retain the structure-->
+	<xsd:element name="Component">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--ComponentParameters - the parameters that define the geometry for a component-->
+	<xsd:element name="ComponentParameters">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="SmallDiameter" minOccurs="0"/>
+						<xsd:element ref="LargeDiameter" minOccurs="0"/>
+						<xsd:element ref="EndPreparation" minOccurs="0"/>
+						<xsd:element ref="Radius"/>
+						<xsd:element ref="SweepAngle"/>
+						<xsd:element ref="FaceToFaceDimension"/>
+						<xsd:element ref="BranchEndPreparation"/>
+						<xsd:element ref="InsertionDepth"/>
+						<xsd:element ref="FaceDiameter"/>
+						<xsd:element ref="FaceThickness"/>
+						<xsd:element ref="FlangeDiameter"/>
+						<xsd:element ref="FlangeThickness"/>
+						<xsd:element ref="CompressedThickness"/>
+						<xsd:element ref="OutsideDiameter"/>
+						<xsd:element ref="LargeOutsideDiameter"/>
+						<xsd:element ref="SmallOutsideDiameter"/>
+						<xsd:element ref="BranchDiameter"/>
+						<xsd:element ref="WeldDiameter"/>
+						<xsd:element ref="HandleLength"/>
+						<xsd:element ref="HandWheelHeight"/>
+						<xsd:element ref="HandWheelDiameter"/>
+						<xsd:element ref="Offset"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"cutout" element  -->
+	<xsd:element name="Cutout">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:sequence>
+						<xsd:element ref="ProfileCurve" maxOccurs="unbounded"/>
+						<xsd:element ref="Thickness"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Document - a general document - implemented as the generic container PlantItem -->
+	<xsd:element name="Document">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="DocumentPart"/>
+						<xsd:element ref="DocumentCell"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="required"/>
+					<xsd:attribute name="Type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="RFQ"/>
+								<xsd:enumeration value="Order"/>
+								<xsd:enumeration value="Datasheet"/>
+								<xsd:enumeration value="EquipmentList"/>
+								<xsd:enumeration value="General"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="Title" type="xsd:string"/>
+					<xsd:attribute name="Subject" type="xsd:string"/>
+					<xsd:attribute name="Size" type="xsd:string"/>
+					<xsd:attribute ref="Units"/>
+					<xsd:attribute name="Date" type="xsd:date" use="required"/>
+					<xsd:attribute name="Time" type="xsd:time" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- DocumentPart - a contained part of a document - implemented as the generic container PlantItem -->
+	<xsd:element name="DocumentPart">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="DocumentPart"/>
+						<xsd:element ref="DocumentCell"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Title" type="xsd:string"/>
+					<xsd:attribute name="Subject" type="xsd:string"/>
+					<xsd:attribute name="Size" type="xsd:string"/>
+					<xsd:attribute ref="Units"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- DocumentCell - a single unit of a DocumentPart - implemented as the generic container PlantItem. For Type="PlantItem" the contained PlantItem specialisation will be linked by an Association "has dataset" and the reverse Association "is a dataset of".-->
+	<xsd:element name="DocumentCell">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Component"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Type">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Number"/>
+								<xsd:enumeration value="String"/>
+								<xsd:enumeration value="Attribute"/>
+								<xsd:enumeration value="Formula"/>
+								<xsd:enumeration value="PlantItem"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+					<xsd:attribute name="Address" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Value" type="xsd:string" use="optional"/>
+					<xsd:attribute ref="Units"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Door">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"equipment" element  -->
+	<xsd:element name="Equipment">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Discipline" minOccurs="0"/>
+						<xsd:element ref="MinimumDesignPressure"/>
+						<xsd:element ref="MaximumDesignPressure"/>
+						<xsd:element ref="MinimumDesignTemperature"/>
+						<xsd:element ref="MaximumDesignTemperature"/>
+						<xsd:element ref="LowerLimitDesignPressure"/>
+						<xsd:element ref="UpperLimitDesignPressure"/>
+						<xsd:element ref="LowerLimitDesignTemperature"/>
+						<xsd:element ref="UpperLimitDesignTemperature"/>
+						<xsd:element ref="Equipment"/>
+						<xsd:element ref="Nozzle"/>
+						<xsd:element ref="Plate"/>
+						<xsd:element ref="StructuralMember"/>
+						<xsd:element ref="Component"/>
+					</xsd:choice>
+					<xsd:attribute name="ProcessArea" type="xsd:string"/>
+					<xsd:attribute name="Purpose" type="xsd:string"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Floor element -->
+	<xsd:complexType name="Floor">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="StructuralComponent"/>
+					<xsd:element ref="Component"/>
+					<xsd:element ref="StructuralMember"/>
+					<xsd:element ref="Plate"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Floor" type="Floor"/>
+	<!--"Frame structure" element  -->
+	<xsd:element name="FrameStructure">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="FrameStructure"/>
+						<xsd:element ref="StructuralFramework"/>
+						<xsd:element ref="Plate"/>
+						<xsd:element ref="StructuralComponent"/>
+						<xsd:element ref="Component"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--A Handrail is a general assembly usually horrizontal or along the side of a flight of stairs. It has posts, a Top Rail, one or more Middle Rails and a Bottom rail.-->
+	<xsd:element name="Handrail">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="CenterLine" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Post" maxOccurs="unbounded"/>
+						<xsd:element ref="Rail" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Angle"/>
+					</xsd:choice>
+					<xsd:attribute name="Side" type="xsd:string"/>
+					<xsd:attribute name="NumberOfPosts" type="xsd:nonNegativeInteger"/>
+					<xsd:attribute name="NumberOfMiddleRails" type="xsd:nonNegativeInteger"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"HVAC" element  -->
+	<xsd:element name="HVAC">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:sequence>
+						<xsd:element ref="HVACSegment" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"hvac_bend" element  -->
+	<xsd:element name="HVACBend">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="HVACComponent">
+					<xsd:sequence>
+						<xsd:element ref="Radius" minOccurs="0"/>
+					</xsd:sequence>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"hvac_component" element  -->
+	<xsd:element name="HVACComponent" type="HVACComponent"/>
+	<xsd:complexType name="HVACComponent">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="NominalDiameter" minOccurs="0"/>
+					<xsd:element ref="Width" minOccurs="0"/>
+					<xsd:element ref="Depth" minOccurs="0"/>
+					<xsd:element ref="Length" minOccurs="0"/>
+					<xsd:element ref="Thickness" minOccurs="0"/>
+					<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+					<xsd:element ref="WallThickness" minOccurs="0"/>
+					<xsd:element ref="LargeDiameter" minOccurs="0"/>
+					<xsd:element ref="SmallDiameter" minOccurs="0"/>
+					<xsd:element ref="FabricationCategory" minOccurs="0"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--"hvac_duct" element a straight piece of duct -->
+	<xsd:element name="HVACDuct">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="Width" minOccurs="0"/>
+						<xsd:element ref="Depth" minOccurs="0"/>
+						<xsd:element ref="Length" minOccurs="0"/>
+						<xsd:element ref="Thickness" minOccurs="0"/>
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+						<xsd:element ref="LargeDiameter" minOccurs="0"/>
+						<xsd:element ref="SmallDiameter" minOccurs="0"/>
+						<xsd:element ref="FabricationCategory" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"HVAC_Section" element  -->
+	<xsd:element name="HVACSegment">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="HVACBend"/>
+						<xsd:element ref="HVACComponent"/>
+						<xsd:element ref="HVACDuct"/>
+						<xsd:element ref="Connection"/>
+						<xsd:element ref="CenterLine"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--An InstrumentConnection is a special symbol that locates the connection point for an junction for a small bore segment to connect to an instrument.-->
+	<xsd:element name="InstrumentConnection">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--An InstrumentComponent is one that is not part of or connected to the process-->
+	<xsd:element name="InstrumentComponent">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="InstrumentComponent" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="InsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OperatorType" minOccurs="0"/>
+						<xsd:element ref="ISOSymbol" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--An instrument that is part of or connected to a process line-->
+	<xsd:element name="ProcessInstrument">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="ProcessInstrument" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="InsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OperatorType" minOccurs="0"/>
+						<xsd:element ref="ISOSymbol" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--An InstrumentLoop is a collection of InstrumentsComponents and ProcessInstruments by Association and can contain a SignalLine-->
+	<xsd:element name="InstrumentLoop">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="SignalConnectorSymbol"/>
+						<xsd:element ref="SignalLine"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Instrument Panel element  -->
+	<xsd:element name="InstrumentPanel" type="JunctionBox"/>
+	<!--Junction Box element - general can be for Cables or Signal wires-->
+	<xsd:element name="JunctionBox" type="JunctionBox"/>
+	<xsd:complexType name="JunctionBox">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="TerminalStrip"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="LadderAssembly">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Ladder" maxOccurs="unbounded"/>
+						<xsd:element ref="SafetyCage" minOccurs="0"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Angle"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Ladder">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="LadderRung" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="LadderFrame" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Angle"/>
+					</xsd:choice>
+					<xsd:attribute name="NumberOfSteps" type="xsd:nonNegativeInteger"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LadderFrame">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="LadderRung">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SafetyCage">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="SafetyCageHoop" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="SafetyCageStrap" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SafetyCageHoop">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="HoopRadius"/>
+						<xsd:element ref="HoopFlareRadius"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="SafetyCageStrap">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Representation context - from ISO 16739 (IFC) -->
+	<xsd:element name="RepresentationContext">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:attribute name="RepresentationType" type="xsd:string"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"nozzle" element  -->
+	<xsd:element name="Nozzle">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NozzleType"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="Height" minOccurs="0"/>
+						<xsd:element ref="Rating" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"piping_assembly" - a piping system designed and mounted on a machine or equipment in order to perform a certain auxilary function. Dependent on if the pipework is made of large diameter rigid tubes or small diameter tubing, this is termed respectively "Piping" and "Tubing".-->
+	<xsd:element name="PipingAssembly">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"pipe_bend" an artefact intended to change piping direction with a non-standard Radius, Normally fabricated from pipe by bending.-->
+	<xsd:element name="PipeBend">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PipingComponent">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BendAngle" minOccurs="0"/>
+						<xsd:element ref="Radius" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"pipe_component" element  -->
+	<xsd:element name="PipingComponent" type="PipingComponent"/>
+	<xsd:complexType name="PipingComponent">
+		<xsd:annotation>
+			<xsd:documentation>PipingComponet covers all bought components. For Complex components they may have subcomponents that are either mechanical or piping. Component is used for mechanical items such as Valve Topworks.
+		</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="PipingComponent"/>
+					<xsd:element ref="Component"/>
+					<xsd:element ref="NominalDiameter" minOccurs="0"/>
+					<xsd:element ref="LargeDiameter" minOccurs="0"/>
+					<xsd:element ref="SmallDiameter" minOccurs="0"/>
+					<xsd:element ref="InsideDiameter" minOccurs="0"/>
+					<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+					<xsd:element ref="ConnectionType" minOccurs="0"/>
+					<xsd:element ref="Rating" minOccurs="0"/>
+					<xsd:element ref="OperatorType" minOccurs="0"/>
+					<xsd:element ref="WallThickness" minOccurs="0"/>
+					<xsd:element ref="ISOSymbol" minOccurs="0"/>
+					<xsd:element ref="FabricationCategory" minOccurs="0"/>
+					<xsd:element ref="BoltingAssembly" minOccurs="0"/>
+				</xsd:choice>
+				<xsd:attribute name="Standard" type="xsd:string"/>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<!--"Piping Network System " which consists of one or more succeeding piping segments. typically identified by a process Units and a Line id" 
+ -->
+	<xsd:element name="PipingNetworkSystem">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter"/>
+						<xsd:element ref="InsideDiameter"/>
+						<xsd:element ref="OutsideDiameter"/>
+						<xsd:element ref="StartDiameter"/>
+						<xsd:element ref="EndDiameter"/>
+						<xsd:element ref="NormalDesignPressure"/>
+						<xsd:element ref="MinimumDesignPressure"/>
+						<xsd:element ref="MaximumDesignPressure"/>
+						<xsd:element ref="NormalDesignTemperature"/>
+						<xsd:element ref="MinimumDesignTemperature"/>
+						<xsd:element ref="MaximumDesignTemperature"/>
+						<xsd:element ref="MinimumOperatingPressure"/>
+						<xsd:element ref="MaximumOperatingPressure"/>
+						<xsd:element ref="MinimumOperatingTemperature"/>
+						<xsd:element ref="MaximumOperatingTemperature"/>
+						<xsd:element ref="NominalDesignPressure"/>
+						<xsd:element ref="LowerLimitDesignPressure"/>
+						<xsd:element ref="UpperLimitDesignPressure"/>
+						<xsd:element ref="NominalDesignTemperature"/>
+						<xsd:element ref="LowerLimitDesignTemperature"/>
+						<xsd:element ref="UpperLimitDesignTemperature"/>
+						<xsd:element ref="NormalOperatingPressure"/>
+						<xsd:element ref="LowerLimitOperatingPressure"/>
+						<xsd:element ref="UpperLimitOperatingPressure"/>
+						<xsd:element ref="TestPressure"/>
+						<xsd:element ref="NormalOperatingTemperature"/>
+						<xsd:element ref="LowerLimitOperatingTemperature"/>
+						<xsd:element ref="UpperLimitOperatingTemperature"/>
+						<xsd:element ref="WallThickness"/>
+						<xsd:element ref="PipingNetworkSegment"/>
+						<xsd:element ref="Support"/>
+						<xsd:element ref="PropertyBreak"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"PipingSegment is an assembly of piping components which scope is defined by certain constant attributes along the segment as shown as part of the Line Label. renamed in RDL alignment-->
+	<xsd:element name="PipingNetworkSegment">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="InsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="StartDiameter" minOccurs="0"/>
+						<xsd:element ref="EndDiameter" minOccurs="0"/>
+						<xsd:element ref="NormalDesignPressure"/>
+						<xsd:element ref="MinimumDesignPressure"/>
+						<xsd:element ref="MaximumDesignPressure"/>
+						<xsd:element ref="NormalDesignTemperature"/>
+						<xsd:element ref="MinimumDesignTemperature"/>
+						<xsd:element ref="MaximumDesignTemperature"/>
+						<xsd:element ref="MinimumOperatingPressure"/>
+						<xsd:element ref="MaximumOperatingPressure"/>
+						<xsd:element ref="MinimumOperatingTemperature"/>
+						<xsd:element ref="MaximumOperatingTemperature"/>
+						<xsd:element ref="NominalDesignPressure" minOccurs="0"/>
+						<xsd:element ref="LowerLimitDesignPressure" minOccurs="0"/>
+						<xsd:element ref="UpperLimitDesignPressure" minOccurs="0"/>
+						<xsd:element ref="NominalDesignTemperature" minOccurs="0"/>
+						<xsd:element ref="LowerLimitDesignTemperature" minOccurs="0"/>
+						<xsd:element ref="UpperLimitDesignTemperature" minOccurs="0"/>
+						<xsd:element ref="NormalOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="LowerLimitOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="UpperLimitOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="TestPressure" minOccurs="0"/>
+						<xsd:element ref="NormalOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="LowerLimitOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="UpperLimitOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+						<xsd:element ref="Connection" minOccurs="0"/>
+						<xsd:element ref="CenterLine" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Equipment" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PipeBend" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingComponent" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="ProcessInstrument" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="InstrumentConnection" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PipeConnectorSymbol" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="InsulationSymbol" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Pipe" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PipeFlowArrow" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Support" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Weld" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+					<xsd:attribute name="DualFlow" type="xsd:boolean" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="PipeSpool">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="FabricationCategory" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Support element - a simple object or an assembly for Hangers and supports-->
+	<xsd:element name="Support">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Support"/>
+						<xsd:element ref="Component"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--" pipe" a circular hollow Section_name, defined by a noMinal size and intended for communicating fluid or pressure. -->
+	<xsd:element name="Pipe">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Component"/>
+						<xsd:element ref="Length"/>
+						<xsd:element ref="NominalDiameter" minOccurs="0"/>
+						<xsd:element ref="InsideDiameter" minOccurs="0"/>
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="WallThickness" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"weld" element   - was PipeWeld but this is more general-->
+	<xsd:element name="Weld">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="OutsideDiameter" minOccurs="0"/>
+						<xsd:element ref="WeldThickness" minOccurs="0"/>
+						<xsd:element ref="WeldHeight" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"plate" element  -->
+	<xsd:element name="Plate">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="StructuralComponent"/>
+						<xsd:element ref="Component" minOccurs="0"/>
+						<xsd:element ref="ProfileCurve" minOccurs="0"/>
+						<xsd:element ref="BoltingAssembly"/>
+						<xsd:element ref="Length"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Thickness"/>
+						<xsd:element ref="Cutout" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Grade"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Plant" element  The Top of the Asset tree-->
+	<xsd:element name="Plant">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Site" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PlantArea" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Port - A device which is a point of interface by which a device communicates with another functional unit or system.-->
+	<xsd:element name="Port">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Node" minOccurs="0"/>
+					</xsd:choice>
+					<xsd:attribute name="DirectionOfFlow" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Post is an upright object fixed at its base used to secure other objects to-->
+	<xsd:element name="Post">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--A Rail is a general assembly usually as part of a HandRail  it can represent aTop Rail, one or more Middle Rails and a Bottom rail. It can be defined as a StructuralMenmeber, a framework or a spefic shape defined by geometry (as a Component)-->
+	<xsd:element name="Rail">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+					<xsd:attribute name="RailRole">
+						<xsd:simpleType>
+							<xsd:restriction base="xsd:NMTOKEN">
+								<xsd:enumeration value="Top"/>
+								<xsd:enumeration value="Middle"/>
+								<xsd:enumeration value="Bottom"/>
+								<xsd:enumeration value="KickPlate"/>
+							</xsd:restriction>
+						</xsd:simpleType>
+					</xsd:attribute>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Reinforcing Bar for concrete members-->
+	<xsd:element name="ReinforcingBar" type="StructuralMember"/>
+	<!-- ShapeCatalogue - a container for Compoents or Piping Component definitions-->
+	<xsd:element name="ShapeCatalogue">
+		<xsd:annotation>
+			<xsd:documentation>XMpLant Catalogue for 2D symbols or 3D models</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Equipment" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Nozzle" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PipingComponent" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ProcessInstrument" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="InstrumentComponent" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PipeConnectorSymbol" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="SignalConnectorSymbol" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Symbol" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="InsulationSymbol" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PropertyBreak" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ScopeBubble" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="Label" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="PipeFlowArrow" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string" use="required"/>
+			<xsd:attribute name="Type" use="optional" default="Internal">
+				<xsd:simpleType>
+					<xsd:restriction base="xsd:token">
+						<xsd:enumeration value="Internal"/>
+						<xsd:enumeration value="External"/>
+					</xsd:restriction>
+				</xsd:simpleType>
+			</xsd:attribute>
+			<xsd:attribute name="Version" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Units" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Date" type="xsd:date" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Signal Cable element  - renamed from InstrumentCable in RDL alignment-->
+	<xsd:element name="SignalCable">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="SignalWireSet"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Signal Wire set element  - A collection of wires in a Instrument Cable  - renamed from InstrumentWireSet in RDL alignment-->
+	<xsd:element name="SignalWireSet">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="SignalWire" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Signal Wire element  renamed from InstrumentWire in RDL alignment-->
+	<xsd:element name="SignalWire">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--A SignalLine is the graphical line between Instruments on a P&ID - it may contain components for complex graphics-->
+	<xsd:element name="SignalLine">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Connection" minOccurs="0"/>
+						<xsd:element ref="CenterLine"/>
+						<xsd:element ref="Component"/>
+						<xsd:element ref="SignalConnectorSymbol"/>
+						<xsd:element ref="Symbol"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Site element -->
+	<xsd:element name="Site">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BuildingPremises"/>
+						<xsd:element ref="PlantArea"/>
+						<xsd:element ref="Stream"/>
+						<xsd:element ref="AverageBarometricPressure"/>
+						<xsd:element ref="MinimumAmbientTemperature"/>
+						<xsd:element ref="MaximumAmbientTemperature"/>
+						<xsd:element ref="MinimumRelativeHumidity"/>
+						<xsd:element ref="MaximumRelativeHumidity"/>
+						<xsd:element ref="LowerLimitAmbientTemperature"/>
+						<xsd:element ref="UpperLimitAmbientTemperature"/>
+						<xsd:element ref="LowerLimitRelativeHumidity"/>
+						<xsd:element ref="UpperLimitRelativeHumidity"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Slab">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="ProfileCurve" minOccurs="0"/>
+						<xsd:element ref="Length"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Thickness"/>
+						<xsd:element ref="Cutout" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="Staircase">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="StairFlight" maxOccurs="unbounded"/>
+						<xsd:element ref="StairLanding" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Handrail" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Angle"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="StairFlight">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="StairStep" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="StairFrame" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Angle"/>
+					</xsd:choice>
+					<xsd:attribute name="NumberOfSteps" type="xsd:nonNegativeInteger"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="StairFrame">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice maxOccurs="unbounded">
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="StructuralFramework" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="StairLanding">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="StructuralFramework"/>
+						<xsd:element ref="Slab" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Plate" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Length"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<xsd:element name="StairStep">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="StructuralMember" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Width"/>
+						<xsd:element ref="Height"/>
+						<xsd:element ref="Depth"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Specifications a root element for Specifications-->
+	<xsd:element name="Specifications">
+		<xsd:complexType>
+			<xsd:choice minOccurs="0" maxOccurs="unbounded">
+				<xsd:element ref="Specification" minOccurs="0" maxOccurs="unbounded"/>
+				<xsd:element ref="ShapeCatalogue" minOccurs="0" maxOccurs="unbounded"/>
+			</xsd:choice>
+			<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Units" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Version" type="xsd:string" use="optional"/>
+			<xsd:attribute name="Date" type="xsd:date" use="optional"/>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Specification-->
+	<xsd:element name="Specification">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="SpecificationEntry" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="PipingComponent" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+						<xsd:element ref="Standard" minOccurs="0"/>
+						<xsd:element ref="Family" minOccurs="0"/>
+						<xsd:element ref="Rating" minOccurs="0"/>
+						<xsd:element ref="FluidType" minOccurs="0"/>
+						<xsd:element ref="FabricationCategory" minOccurs="0"/>
+						<xsd:element ref="SurfaceTreatment" minOccurs="0"/>
+						<xsd:element ref="Lining" minOccurs="0"/>
+						<xsd:element ref="Insulation" minOccurs="0"/>
+						<xsd:element ref="Tracing" minOccurs="0"/>
+						<xsd:element ref="MinimumOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="MaximumOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="MinimumOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="MaximumOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="NormalOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="LowerLimitOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="UpperLimitOperatingTemperature" minOccurs="0"/>
+						<xsd:element ref="NormalOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="LowerLimitOperatingPressure" minOccurs="0"/>
+						<xsd:element ref="UpperLimitOperatingPressure" minOccurs="0"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="required"/>
+					<xsd:attribute name="Units" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Version" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Date" type="xsd:date" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"SpecificationEntry" element  - there will be one Element for each NominalDiameter for each ComponentClass-->
+	<xsd:element name="SpecificationEntry">
+		<xsd:annotation>
+			<xsd:documentation>Large and Small Diameter applies to Reducers. BranchDiameters refers to Tees Wyes and Crosses - there can be more than one BranchDiameter- order is by Node number.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="NominalDiameter"/>
+						<xsd:element ref="LargeDiameter"/>
+						<xsd:element ref="SmallDiameter"/>
+						<xsd:element ref="OutsideDiameter"/>
+						<xsd:element ref="BranchDiameter" maxOccurs="unbounded"/>
+						<xsd:element ref="Rating" minOccurs="0"/>
+						<xsd:element ref="ISOSymbol" minOccurs="0"/>
+						<xsd:element ref="FluidType" minOccurs="0"/>
+						<xsd:element ref="FabricationCategory" minOccurs="0"/>
+						<xsd:element ref="SurfaceTreatment" minOccurs="0"/>
+						<xsd:element ref="Lining" minOccurs="0"/>
+						<xsd:element ref="Insulation" minOccurs="0"/>
+						<xsd:element ref="ConnectionType"/>
+						<xsd:element ref="ComponentParameters" minOccurs="0"/>
+						<xsd:element ref="BoltingAssembly" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Element for a Stream -->
+	<xsd:element name="Stream">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"framework" element  -->
+	<xsd:element name="StructuralFramework">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="StructuralFramework"/>
+						<xsd:element ref="Beam"/>
+						<xsd:element ref="Brace"/>
+						<xsd:element ref="Column"/>
+						<xsd:element ref="StructuralMember"/>
+						<xsd:element ref="StructuralJoint"/>
+						<xsd:element ref="Wall"/>
+						<xsd:element ref="Floor"/>
+						<xsd:element ref="Ceiling"/>
+						<xsd:element ref="StructuralComponent"/>
+						<xsd:element ref="Plate"/>
+						<xsd:element ref="Slab"/>
+						<xsd:element ref="Staircase"/>
+						<xsd:element ref="Handrail"/>
+						<xsd:element ref="LadderAssembly"/>
+						<xsd:element ref="StructuralNode"/>
+						<xsd:element ref="Component"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Section" element  - Structural member-->
+	<xsd:complexType name="StructuralMember">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element name="ProfileCurve" type="Curve" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="StartProfileCurve" type="Curve" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="EndProfileCurve" type="Curve" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="ObstructionProfileCurve" type="Curve" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element name="FireproofProfileCurve" type="Curve" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="PlacementCurve"/>
+					<xsd:element ref="RotationAboutPlacement"/>
+					<xsd:element ref="OrientationVector"/>
+					<xsd:element ref="ProfileSectionWidth"/>
+					<xsd:element ref="ProfileSectionHeight"/>
+					<xsd:element ref="ProfileFlangeThickness"/>
+					<xsd:element ref="ProfileWebThickness"/>
+					<xsd:element ref="ProfileFlangeWebRadius"/>
+					<xsd:element ref="ProfileConstantThicknessWebHeight"/>
+					<xsd:element ref="ProfileInsideCornerRadius"/>
+					<xsd:element ref="ProfileOutsideCornerRadius"/>
+					<xsd:element ref="ProfileFlangeSlope"/>
+					<xsd:element ref="BoltingAssembly"/>
+					<xsd:element ref="NominalDiameter"/>
+					<xsd:element ref="InsideDiameter"/>
+					<xsd:element ref="OutsideDiameter"/>
+					<xsd:element ref="Area"/>
+					<xsd:element ref="Radius"/>
+					<xsd:element ref="Volume"/>
+					<xsd:element ref="Thickness"/>
+					<xsd:element ref="Grade"/>
+					<xsd:element ref="Cutout" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="Connection"/>
+					<xsd:element ref="StructuralComponent"/>
+					<xsd:element ref="Component"/>
+					<xsd:element ref="Length"/>
+				</xsd:choice>
+				<xsd:attribute name="SectionName" type="xsd:string" use="optional"/>
+				<xsd:attribute name="SectionProfileType" type="xsd:string" use="optional"/>
+				<xsd:attribute name="Standard" type="xsd:string" use="optional"/>
+				<xsd:attribute name="CardinalPoint" type="xsd:string" use="optional"/>
+			</xsd:extension>
+			<!--CardinalPoint is the position on the profile that the PlacementCurve is located - also called CardinalPoint-->
+		</xsd:complexContent>
+		<!--There will be one Profile Curve for each change of section profile. The section shape will be interpolalated between each pair of section profiles. The Scetion profile coordinates are wrt the neutral axis of the section and the Z value will be 0. The Position Element will locate each profile and will also define the orientation of the Profile -allowing for twisted sections. Unless it is a standard section the there must be at least one ProfileCurve even if Start and EndProfiles are specified. The optional StartProfileCurve and EndProfileCurve allow the definition of trimmed ends-->
+	</xsd:complexType>
+	<xsd:element name="StructuralMember" type="StructuralMember"/>
+	<!--"Section" element  - Structural Node-->
+	<xsd:element name="StructuralNode">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"Section" element  - Structural Joint-->
+	<xsd:element name="StructuralJoint">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="BoltingAssembly" minOccurs="0"/>
+						<xsd:element ref="Plate" minOccurs="0"/>
+						<xsd:element ref="Component"/>
+						<xsd:element ref="Grade"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Structural component-->
+	<xsd:element name="StructuralComponent">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Component"/>
+						<xsd:element ref="StructuralMember"/>
+						<xsd:element ref="Plate"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Terminal element  - renamed from InstrumentTerminal in RDL alignment-->
+	<xsd:element name="Terminal">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Terminal strip element  - renamed from InstrumentTerminalStrip in RDL alignment-->
+	<xsd:element name="TerminalStrip">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Terminal" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- Wall element -->
+	<xsd:complexType name="Wall">
+		<xsd:complexContent>
+			<xsd:extension base="PlantItem">
+				<xsd:choice minOccurs="0" maxOccurs="unbounded">
+					<xsd:element ref="ProfileCurve" minOccurs="0"/>
+					<xsd:element ref="Component"/>
+					<xsd:element ref="StructuralMember"/>
+					<xsd:element ref="StructuralComponent"/>
+					<xsd:element ref="Length"/>
+					<xsd:element ref="Thickness"/>
+					<xsd:element ref="Height"/>
+					<xsd:element ref="Cutout" minOccurs="0" maxOccurs="unbounded"/>
+					<xsd:element ref="Plate"/>
+				</xsd:choice>
+			</xsd:extension>
+		</xsd:complexContent>
+	</xsd:complexType>
+	<xsd:element name="Wall" type="Wall"/>
+	<xsd:element name="Window">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice>
+						<xsd:element ref="Component" minOccurs="0" maxOccurs="unbounded"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!-- "Catchall Unclassified element -->
+	<xsd:element name="Unclassified">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="Component"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--****************************     AnnotationItems start here-->
+	<!--"pipe_connector" element - On / Off page connector for P&ID-->
+	<xsd:element name="PipeConnectorSymbol">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem">
+					<xsd:choice>
+						<xsd:element ref="CrossPageConnection" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"pipe_flow_arrow" element  -->
+	<xsd:element name="PipeFlowArrow">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--"spec_break" element  - change to PropertyBreak-->
+	<xsd:element name="PropertyBreak">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Signal connector Symbol element  renamed from InstrumentConnector in RDL alignment  - On / Off page connector for P&ID-->
+	<xsd:element name="SignalConnectorSymbol">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem">
+					<xsd:choice>
+						<xsd:element ref="CrossPageConnection" minOccurs="0"/>
+					</xsd:choice>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--InsulationSymbol is a special symbol to denote insulation which can be associated with a given PipingNetworkSegment-->
+	<xsd:element name="InsulationSymbol">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--ScopeBubble - a cloud drawn to surround a number of items on a P&ID to group plant items for a particualr purpose-->
+	<xsd:element name="ScopeBubble">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--A PipeSlope Symbol is one where the annotation for the required inclination of a pipe is shown (angle from Vertical)-->
+	<xsd:element name="PipeSlopeSymbol">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Symbol is a container for a representation of something on a diagram-->
+	<xsd:element name="Symbol">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--Label an Annotation items for text identifiers that can be referenced-->
+	<xsd:element name="Label">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="AnnotationItem"/>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+	<!--****************************     Activity classes start here-->
+	<!--Project is a "Business process consisting of a set of coherent activities intended for a specific purpose and managed as a whole"-->
+	<xsd:element name="Project">
+		<xsd:complexType>
+			<xsd:complexContent>
+				<xsd:extension base="PlantItem">
+					<xsd:choice minOccurs="0" maxOccurs="unbounded">
+						<xsd:element ref="RepresentationContext" maxOccurs="unbounded"/>
+					</xsd:choice>
+					<xsd:attribute name="Name" type="xsd:string" use="optional"/>
+					<xsd:attribute name="Phase" type="xsd:string" use="optional"/>
+				</xsd:extension>
+			</xsd:complexContent>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
