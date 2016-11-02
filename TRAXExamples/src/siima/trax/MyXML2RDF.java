@@ -21,10 +21,12 @@ public class MyXML2RDF {
 
 	   public static void main(String[] args) throws Exception {
 	        TransformerFactory factory = TransformerFactory.newInstance();
-	        Source xsl = new StreamSource("data/xml2rdf/websitecritic.xsl");
+	        //Source xsl = new StreamSource("data/xml2rdf/websitecritic.xsl"); //proteus_sample_to_rdf.xsl
+	        Source xsl = new StreamSource("data/xml2rdf/proteus/proteus_sample_to_rdf.xsl"); //proteus_sample_to_rdf.xsl
 	        Transformer transformer = factory.newTransformer(xsl);
-	        Source xml = new StreamSource("data/xml2rdf/websitecritic.xml");
-	        Result result = new StreamResult("data/xml2rdf/results/websitecritic.rdf");
+	        //Source xml = new StreamSource("data/xml2rdf/websitecritic.xml");
+	        Source xml = new StreamSource("data/xml2rdf/proteus/proteus_sample.xml");
+	        Result result = new StreamResult("data/xml2rdf/results/proteus_sample.rdf");
 
 	        /*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	        System.out.println("Input min salary:");
