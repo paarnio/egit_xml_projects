@@ -4,6 +4,10 @@
  * 
  * See also GRDDL:
  * https://www.w3.org/TR/grddl-primer/
+ * 
+ * See Openlink virtuoso RDFIzer code from Github:
+ * https://github.com/openlink
+ * 
  */
 package siima.trax;
 

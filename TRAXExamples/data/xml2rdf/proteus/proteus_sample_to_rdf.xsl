@@ -6,7 +6,7 @@
             xmlns:foaf="http://xmlns.com/foaf/spec/"
             xmlns:foo="http://example.com/foo#"
             xmlns:siima="http://siima.net/test/">
-<xsl:output method="xml"/>
+<xsl:output method="xml" indent="yes"/>
 <xsl:template match="/">
     <rdf:RDF>
             <xsl:apply-templates/>
