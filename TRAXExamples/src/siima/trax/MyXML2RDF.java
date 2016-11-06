@@ -29,8 +29,8 @@ public class MyXML2RDF {
 	        Source xsl = new StreamSource("data/xml2rdf/proteus/proteus_sample_to_rdf.xsl"); //proteus_sample_to_rdf.xsl
 	        Transformer transformer = factory.newTransformer(xsl);
 	        //Source xml = new StreamSource("data/xml2rdf/websitecritic.xml");
-	        Source xml = new StreamSource("data/xml2rdf/proteus/proteus_sample.xml");
-	        Result result = new StreamResult("data/xml2rdf/results/proteus_sample.rdf");
+	        Source xml = new StreamSource("data/xml2rdf/proteus/proteus_sample_cut.xml");
+	        Result result = new StreamResult("data/xml2rdf/results/proteus_sample_cut.rdf");
 
 	        /*BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	        System.out.println("Input min salary:");

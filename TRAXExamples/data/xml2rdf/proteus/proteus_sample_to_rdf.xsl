@@ -7,17 +7,43 @@
             xmlns:foo="http://example.com/foo#"
             xmlns:siima="http://siima.net/test/">
 <xsl:output method="xml" indent="yes"/>
-<xsl:template match="/">
-    <rdf:RDF>
-            <xsl:apply-templates/>
-    </rdf:RDF>
+<xsl:template match="/">  
+            <xsl:apply-templates select="PlantModel"/>
+</xsl:template>
+
+<xsl:template match="PlantModel">
+	 <rdf:RDF>
+	 	<xsl:comment>VPA: XML2RDF Translation result using proteus_sample_rdf.xsl</xsl:comment>
+	 	<xsl:comment>VPA: Check this by RDF Validator: https://www.w3.org/RDF/Validator/rdfval</xsl:comment>
+	<rdf:Description rdf:about="http://siima.net/test/PlantModel">
+        <rdf:type rdf:resource="http://siima.net/test/PlantModelClass"/><!-- VPA: tässä ei toimi?? -->
+        <siima:hasInformation>
+           <xsl:apply-templates select="./PlantInformation"/>
+        </siima:hasInformation>
+        <xsl:for-each select="./Equipment"> 
+         <siima:hasEquipment>
+           <xsl:apply-templates select="."/>
+        </siima:hasEquipment>
+        </xsl:for-each>
+		<xsl:apply-templates select="GenericAttributes/GenericAttribute"/>
+    </rdf:Description>
+      </rdf:RDF>
+</xsl:template>
+
+<xsl:template match="PlantInformation">
+		<xsl:variable name="origin"><xsl:value-of select="@OriginatingSystem"/></xsl:variable> 
+		<rdf:Description rdf:about="http://siima.net/test/PlantInformation/{$origin}">
+			<rdf:type rdf:resource="http://siima.net/test/PlantInformation"/>		
+		</rdf:Description>
 </xsl:template>
 
 <xsl:template match="Equipment">
-<xsl:variable name="component"><xsl:value-of select="@ComponentName"/></xsl:variable>
-<xsl:variable name="compclass"><xsl:value-of select="@ComponentClass"/></xsl:variable>
-    <rdf:Description rdf:about="http://siima.net/test/{$component}">
-        <rdf:type rdf:resource="http://siima.net/test/{$compclass}"/><!-- VPA: tässä ei toimi?? -->
+	<xsl:variable name="component"><xsl:value-of select="@ComponentName"/></xsl:variable>
+	<xsl:variable name="hcompclass"><xsl:value-of select="@ComponentClass"/></xsl:variable>
+    <rdf:Description rdf:about="http://siima.net/test/Equipment/{$component}">
+    	<!-- VPA: tässä seuraavassa ei toimi var name: compclass?? 
+    	Ilmeisesti koska 4 ekaa kirjainta olisivat samoja edeltävän var. kanssa-->
+        <rdf:type rdf:resource="http://siima.net/test/Equipment/{$hcompclass}"/>
         <siima:name>
             <!-- <xsl:value-of select="@ComponentName"/> -->
 			<xsl:value-of select="$component"/>
@@ -27,7 +53,7 @@
 </xsl:template>
 
 <xsl:template match="GenericAttribute">
-<xsl:variable name="attr"><xsl:value-of select="@Name"/></xsl:variable>
-<xsl:element name="siima:{$attr}"><xsl:value-of select="@Name"/></xsl:element>
+	<xsl:variable name="attr"><xsl:value-of select="@Name"/></xsl:variable>
+	<xsl:element name="siima:{$attr}"><xsl:value-of select="@Name"/></xsl:element>
 </xsl:template>
 </xsl:stylesheet>

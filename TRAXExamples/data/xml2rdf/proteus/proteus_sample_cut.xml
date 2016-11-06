@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+VPA: Elements ShapeCatalog and Drawings deleted.
+Remaining structure
+PlantModel
+	PlantInformation
+	Extent
+	Equipment 43
+		Presentation
+		Extend
+		Position
+		Scale
+		PersistentID
+		GenericAttributes
+			GenericAttribute
+		Equipment
+			GenericAttributes
+				GenericAttribute
+			Nozzle
+		Equipment
+	Equipment 160
+	Equipment
+	PipingNetworkSystem 372
+	...
+vpa
+
+dexpi_best_practice.proteus.xml
+Version 0.10.1 - preliminary
+
+This is a preliminary version of the DEXPI best practive file for version 0.10.1 of the DEXPI specification.
+
+Known issues in this file:
+
+- for several <Node> elements: <Position> is not yet correct
+
+- a <Text> with a <DependantAttribute> refers to "[TODO]".
+The corresponding attribute is not yet defined. This will be fixed in the next version of the equipment model.
+
+- the modifications for nominal diameters are not yet included:
+  - old representation as length (e.g., 25 mm) still present
+  - new string representations not yet used
+-->
+<!-- VPA: removed xsi:noNamespaceSchemaLocation="../XMpLantPIDProfileSchema_3.6.0_draft.xsd" -->
+<PlantModel xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<PlantInformation SchemaVersion="3.6.0" OriginatingSystem="DEXPI"  ProjectName="DEXPI" CompanyName="DEXPI" Date="2013-11-21" Time="13:34:01" Is3D="no" Units="mm" Discipline="PID">
+		<UnitsOfMeasure Area="MetreSquared" Angle="deg" Distance="Millimetre" Temperature="DegreeCelsius" Pressure="Bar" Volume="MetreCubed" Weight="Kilogram"/>
+	</PlantInformation>
+	<Extent>
+		<Min X="0" Y="0" />
+		<Max X="595" Y="421" />
+	</Extent>
+	<Equipment ID="P_02" TagName="P4712" ComponentName="P_02" ComponentClass="CentrifugalPump"  ComponentClassURI="http://data.posccaesar.org/rdl/RDS416834">
+		<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+		<Extent>
+			<Min X="72.2" Y="172.5" />
+			<Max X="92.2" Y="192.5" />
+		</Extent>
+		<Position>
+			<Location X="82.5" Y="182.5" />
+			<Axis X="0" Y="0" Z="1" /> 
+			<Reference X="1" Y="0" Z="0" /> 
+		</Position>
+		<Scale X="1" Y="1" Z="1" />
+		<PersistentID Identifier="855"/>
+		<GenericAttributes Number="8" Set="DexpiAttributes">
+			<GenericAttribute Name="TagNamePrefixAssignmentClass" Value="P" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNamePrefixAssignmentClass" />
+			<GenericAttribute Name="TagNameSequenceNumberAssignmentClass" Value="4712" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSequenceNumberAssignmentClass" />
+			<GenericAttribute Name="TagNameSuffixAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSuffixAssignmentClass" />
+			<GenericAttribute Name="FunctionalObjectDescriptionAssignmentClass" Value="Process Pump" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2101566251" />
+			<GenericAttribute Name="DesignVolumeFlowRate" Value="200" Format="double" Units="MetreCubedPerHour" AttributeURI="http://data.posccaesar.org/rdl/RDS14286227" UnitsURI="http://data.posccaesar.org/rdl/RDS1321064"/>
+			<GenericAttribute Name="DesignPressureHead" Value="10" Format="double" Units="Metre" AttributeURI="http://sandbox.dexpi.org/rdl/DesignPressureHead" UnitsURI="http://data.posccaesar.org/rdl/RDS1332674"/>
+			<GenericAttribute Name="DesignRotationalSpeed" Value="600" Format="double" Units="RevolutionPerMinute" AttributeURI="http://sandbox.dexpi.org/rdl/DesignRotationalSpeed" UnitsURI="http://data.posccaesar.org/rdl/RDS1342304" />
+			<GenericAttribute Name="UpperLimitDesignPower" Value="60" Format="double" Units="Kilowatt" AttributeURI="http://sandbox.dexpi.org/rdl/UpperLimitDesignPower" UnitsURI="http://data.posccaesar.org/rdl/RDS1330919"/>
+		</GenericAttributes>
+		<Equipment ID="P_02_CASING" ComponentName="P_02_CASING" ComponentClass="PumpCasing" ComponentClassURI="http://data.posccaesar.org/rdl/RDS461204">
+			<GenericAttributes Number="6" Set="DexpiAttributes">
+				<GenericAttribute Name="SubequipmentIdAssignmentClass" Value="Casing" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubequipmentIdAssignmentClass" />
+				<GenericAttribute Name="UpperLimitDesignPressure" Value="60" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+				<GenericAttribute Name="LowerLimitDesignPressure" Value="-0.5" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+				<GenericAttribute Name="UpperLimitDesignTemperature" Value="80" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="LowerLimitDesignTemperature" Value="-45" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4306" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+			</GenericAttributes>
+		</Equipment>
+		<Equipment ID="P_02_IMPELLER" ComponentName="P_02_IMPELLER" ComponentClass="Impeller" ComponentClassURI="http://data.posccaesar.org/rdl/RDS414539">
+			<GenericAttributes Number="3" Set="DexpiAttributes">
+				<GenericAttribute Name="SubequipmentIdAssignmentClass" Value="Impeller" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubequipmentIdAssignmentClass" />
+				<GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4308" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+				<GenericAttribute Name="DesignDiameterWheel" Value="0.7" Format="double" Units="Metre" AttributeURI="http://sandbox.dexpi.org/rdl/DesignDiameterWheel"  UnitsURI="http://data.posccaesar.org/rdl/RDS1332674" />
+			</GenericAttributes>
+		</Equipment>
+		<Nozzle ID="P_02_N1" ComponentName="NOZ_01" TagName="N1" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="66.65" Y="180" />
+				<Max X="72" Y="185" />
+			</Extent>
+			<Position>
+				<Location X="72" Y="182.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="-1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="849"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+							</GenericAttributes>
+		  <ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="P4712-N1-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn80" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn80"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>                            
+		</Nozzle>   
+		<Nozzle ID="P_02_N2" ComponentName="NOZ_01" TagName="N2" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="92" Y="180" />
+				<Max X="97.35" Y="185" />
+			</Extent>
+			<Position>
+				<Location X="92" Y="182.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="852"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+			</GenericAttributes>
+			<ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="P4712-N2-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn80" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn80"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>         
+		</Nozzle>
+	</Equipment>
+	<Equipment ID="HEX_03" TagName="H1008" ComponentName="HEX_03" ComponentClass="PlateAndShellHeatExchanger"  ComponentClassURI="http://data.posccaesar.org/rdl/RDS441719">
+		<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+		<Extent>
+			<Min X="127.5" Y="180" />
+			<Max X="137.5" Y="210" />
+		</Extent>
+		<Position>
+			<Location X="132.5" Y="195" />
+			<Axis X="0" Y="0" Z="1" />
+			<Reference X="0" Y="1" Z="0" />
+		</Position>
+		<Scale X="1" Y="1" Z="1" />
+		<PersistentID Identifier="908" />
+		<GenericAttributes Number="9" Set="DexpiAttributes">
+			<GenericAttribute Name="TagNamePrefixAssignmentClass" Value="H" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNamePrefixAssignmentClass" />
+			<GenericAttribute Name="TagNameSequenceNumberAssignmentClass" Value="1008" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSequenceNumberAssignmentClass" />
+			<GenericAttribute Name="TagNameSuffixAssignmentClass" Value="" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSuffixAssignmentClass" />
+			<GenericAttribute Name="FunctionalObjectDescriptionAssignmentClass" Value="Prozessgaskühler" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2101566251" />
+			<GenericAttribute Name="DesignHeatFlowRate" Value="313" Format="double" Units="Kilowatt" AttributeURI="http://sandbox.dexpi.org/rdl/DesignHeatFlowRate" UnitsURI="http://data.posccaesar.org/rdl/RDS1330919" />
+			<GenericAttribute Name="DesignHeatTransferArea" Value="46.8" Format="double" Units="MetreSquared" AttributeURI="http://sandbox.dexpi.org/rdl/DesignHeatTransferArea" UnitsURI="http://data.posccaesar.org/rdl/RDS1358009" />
+			<GenericAttribute Name="MaterialOfConstructionCodeAssignmentClass" Value="1.4306" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS1460719741" />
+			<GenericAttribute Name="PlateHeight" Value="850" Format="double" Units="Millimetre" AttributeURI="http://sandbox.dexpi.org/rdl/PlateHeight" UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+			<GenericAttribute Name="PlateWidth" Value="1100" Format="double" Units="Millimetre" AttributeURI="http://sandbox.dexpi.org/rdl/PlateWidth" UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>							
+		</GenericAttributes>
+		<Equipment ID="HEX_03_chamber_01" ComponentName="HEX_03_chamber_01" ComponentClass="Chamber" ComponentClassURI="http://data.posccaesar.org/rdl/RDS903151421">
+			<GenericAttributes Number="7" Set="DexpiAttributes">
+				<GenericAttribute Name="SubequipmentIdAssignmentClass" Value="Chambers" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubequipmentIdAssignmentClass" />
+			<GenericAttribute Name="FunctionalObjectDescriptionAssignmentClass" Value="Process" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2101566251" />                
+				<GenericAttribute Name="UpperLimitDesignPressure" Value="60" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+				<GenericAttribute Name="LowerLimitDesignPressure" Value="-1" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+				<GenericAttribute Name="UpperLimitDesignTemperature" Value="100" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="LowerLimitDesignTemperature" Value="-45" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="NominalCapacityVolume" Value="7.2" Format="double" Units="MetreCubed" AttributeURI="http://sandbox.dexpi.org/rdl/NominalCapacityVolume" UnitsURI="http://data.posccaesar.org/rdl/RDS1349099" />
+			</GenericAttributes>
+		</Equipment>
+		<Equipment ID="HEX_03_chamber_02" ComponentName="HEX_03_chamber_02" ComponentClass="Chamber" ComponentClassURI="http://data.posccaesar.org/rdl/RDS903151421">
+			<GenericAttributes Number="7" Set="DexpiAttributes">
+				<GenericAttribute Name="SubequipmentIdAssignmentClass" Value="Chambers" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/SubequipmentIdAssignmentClass" />
+			    <GenericAttribute Name="FunctionalObjectDescriptionAssignmentClass" Value="Cooling" Format="string" AttributeURI="http://data.posccaesar.org/rdl/RDS2101566251" />                   
+				<GenericAttribute Name="UpperLimitDesignPressure" Value="30" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS1470835011" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+				<GenericAttribute Name="LowerLimitDesignPressure" Value="-1" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS360674" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+				<GenericAttribute Name="UpperLimitDesignTemperature" Value="100" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360449" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="LowerLimitDesignTemperature" Value="-45" Format="double" Units="DegreeCelsius" AttributeURI="http://data.posccaesar.org/rdl/RDS360494" UnitsURI="http://data.posccaesar.org/rdl/RDS1322684"/>
+				<GenericAttribute Name="NominalCapacityVolume" Value="9.4" Format="double" Units="MetreCubed" AttributeURI="http://sandbox.dexpi.org/rdl/NominalCapacityVolume" UnitsURI="http://data.posccaesar.org/rdl/RDS1349099" />
+			</GenericAttributes>
+		</Equipment>
+		<Nozzle ID="HEX_03_N2" ComponentName="NOZ_01" TagName="N2" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="137.5" Y="205" />
+				<Max X="142.5" Y="210" />
+			</Extent>
+			<Position>
+				<Location X="137.5" Y="207.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="897"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+			</GenericAttributes>
+		<ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="H1008-N2-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 80" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn80" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn80"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>         
+		</Nozzle>
+		<Nozzle ID="HEX_03_N3" ComponentName="NOZ_01" TagName="N3" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="122.5" Y="205" />
+				<Max X="127.5" Y="210" />
+			</Extent>
+			<Position>
+				<Location X="127.5" Y="207.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="-1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="899"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+			</GenericAttributes>
+		<ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="H1008-N3-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn50" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn50"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>         
+		</Nozzle>
+		<Nozzle ID="HEX_03_N4" ComponentName="NOZ_01" TagName="N4" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="137.5" Y="180" />
+				<Max X="142.5" Y="185" />
+			</Extent>
+			<Position>
+				<Location X="137.5" Y="182.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="902"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874" />
+			</GenericAttributes>
+	<ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="H1008-N4-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn50" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn50"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>         
+		</Nozzle>
+		<Nozzle ID="HEX_03_N1" ComponentName="NOZ_01" TagName="N1" ComponentClass="Nozzle" ComponentClassURI="http://data.posccaesar.org/rdl/RDS415214" >
+			<Presentation Layer="Equipment" Color="256" LineType="Solid" LineWeight="0.25" R="0" G="1" B="0" />
+			<Extent>
+				<Min X="122.5" Y="180" />
+				<Max X="127.5" Y="185" />
+			</Extent>
+			<Position>
+				<Location X="127.5" Y="182.5" />
+				<Axis X="0" Y="0" Z="1" />
+				<Reference X="-1" Y="0" Z="0" />
+			</Position>
+			<Scale X="1" Y="1" Z="1" />
+			<PersistentID Identifier="905"/>
+			<GenericAttributes Number="1" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalPressure" Value="50" Format="double" Units="barg" AttributeURI="http://data.posccaesar.org/rdl/RDS6949380" UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+			</GenericAttributes>
+		<ConnectionPoints NumPoints = "2">
+            <!-- TODO: Position/Location of ALL Nodes! -->
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+              <PersistentID Context="in-file-identifier" Identifier="H1008-N1-1"/>
+	          <GenericAttributes Number="4" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameterNumericalValueRepresentationAssignmentClass" Value="50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterNumericalValueRepresentationAssignmentClass" />
+				<GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Value="DN 50" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass" />			
+                <GenericAttribute Name="NominalDiameterTypeRepresentationAssignmentClass" Value="DN" Format="string" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterTypeRepresentationAssignmentClass" />                
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Format="anyURI" AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn50" ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn50"/>              
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>         
+		</Nozzle>
+	</Equipment>
+    <PipingNetworkSystem 
+        ID = "PIPE_47125"
+        TagName = "47125" 
+        ComponentClass = "PipingNetworkSystem"
+        ComponentClassURI = "http://data.posccaesar.org/rdl/RDS270359">
+	  <GenericAttributes Number="6" Set="DexpiAttributes">
+	    <GenericAttribute Name="LineNumberAssignmentClass" Value="47125" Format="string" 
+	        AttributeURI="http://sandbox.dexpi.org/rdl/LineNumberAssignmentClass"/>	  
+	    <GenericAttribute Name="FluidCodeAssignmentClass" Value="MNc" Format="string" 
+	        AttributeURI="http://sandbox.dexpi.org/rdl/FluidCodeAssignmentClass"/>
+	    <GenericAttribute Name="PipingClassCodeAssignmentClass" Value="73HG12" Format="string" 
+	        AttributeURI="http://sandbox.dexpi.org/rdl/PipingClassCodeAssignmentClass"/>
+   	    <GenericAttribute Name="NominalDiameter" Value="25" Format="double" 
+	        Units="Millimetre" AttributeURI="http://data.posccaesar.org/rdl/RDS366794"
+	        UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+	    <GenericAttribute Name="InsulationThickness" Format="double"
+		    AttributeURI="http://data.posccaesar.org/rdl/RDS4238040"/>
+		<GenericAttribute Name="InsulationTypeAssignmentClass" Format="string"
+		    AttributeURI="http://sandbox.dexpi.org/rdl/InsulationTypeAssignmentClass"/>
+	  </GenericAttributes>
+
+	  <PipingNetworkSegment 
+	      ID = "PIPE_47125_S1" 
+	      ComponentClass = "PipingNetworkSegment"
+	      ComponentClassURI = "http://data.posccaesar.org/rdl/RDS267704"
+	      DualFlow = "false">
+	    <GenericAttributes Number="9" Set="DexpiAttributes">
+          <GenericAttribute Name="SegmentNumberAssignmentClass" Value="S1" Format="string"
+              AttributeURI="http://sandbox.dexpi.org/rdl/SegmentNumberAssignmentClass"/>    
+	      <GenericAttribute Name="FluidCodeAssignmentClass" Value="MNc" Format="string" 
+	          AttributeURI="http://sandbox.dexpi.org/rdl/FluidCodeAssignmentClass"/>
+	      <GenericAttribute Name="PipingClassCodeAssignmentClass" Value="73HG12" Format="string" 
+	          AttributeURI="http://sandbox.dexpi.org/rdl/PipingClassCodeAssignmentClass"/>
+		  <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628-X8156-A01" Format="string" 
+		      AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />    
+	      <GenericAttribute Name="NominalDiameter" Value="25" Format="double" 
+	          Units="Millimetre" AttributeURI="http://data.posccaesar.org/rdl/RDS366794"
+	          UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+          <GenericAttribute Name="NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn25"
+              AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization"
+              ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn25" Format="anyURI"/>
+	      <GenericAttribute Name="InsulationThickness" Format="double"
+		      AttributeURI="http://data.posccaesar.org/rdl/RDS4238040"/>
+	  	  <GenericAttribute Name="InsulationTypeAssignmentClass" Format="string"
+		      AttributeURI="http://sandbox.dexpi.org/rdl/InsulationTypeAssignmentClass"/>
+	  	  <GenericAttribute Name="SlopeSpecialization" Format="double"
+		      AttributeURI="http://sandbox.dexpi.org/rdl/SlopeSpecialization"/>		      
+	    </GenericAttributes>
+
+		<CenterLine 
+		    ID = "PIPE_47125_S1_CL1"
+		    NumPoints = "2">
+		  <Presentation R="0.5" G="0.5" B="1" LineWeight="0.4" LineType="solid" />
+		  <Extent>
+			<Min X="295.5" Y="193.5" />
+			<Max X="295.5" Y="263.000000425345" />
+		  </Extent>	
+		  <Coordinate X="295.5" Y="193.5" />
+		  <Coordinate X="295.5" Y="262.500000425345" />
+		</CenterLine>	
+    
+		<PipingComponent
+		    ID = "SV_104.01"
+		    TagName = "SV 104.01"
+		    ComponentClass = "SpringLoadedAngleGlobeSafetyValve"
+		    ComponentClassURI = "http://sandbox.dexpi.org/rdl/SpringLoadedAngleGlobeSafetyValve"
+		    ComponentName = "SafetyReliefValve">
+   
+		  <Position>
+		    <Location X="295.5" Y="265.000000425345" Z="0" />
+		    <Axis X="0" Y="0" Z="1" />
+		    <Reference X="1" Y="0" Z="0" />
+		  </Position>
+		  <Scale X="0.5" Y="0.5" Z="1"/>
+          <Extent>
+            <Min X="293" Y="262.500000425345" />
+            <Max X="296.75" Y="271.250000425345" />
+          </Extent>
+		  <ConnectionPoints 
+		      NumPoints = "3"
+		      FlowIn = "1"
+		      FlowOut = "2">
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="295.5" Y="262.500000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+	          <GenericAttributes Number="2" Set="DexpiAttributes">
+	            <GenericAttribute Name="NominalDiameter" Value="25" Format="double" 
+	                Units="Millimetre" AttributeURI="http://data.posccaesar.org/rdl/RDS366794"
+	                UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn25"
+                    AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization"
+                    ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn25" Format="anyURI"/>                 
+              </GenericAttributes>
+		    </Node>
+		    <Node>
+		      <Position>
+		        <Location X="293" Y="265.000000425345" Z="0" />
+		        <Axis X="0" Y="0" Z="1" />
+		        <Reference X="1" Y="0" Z="0" />
+		      </Position>
+		      <GenericAttributes Number="2" Set="DexpiAttributes">
+				<GenericAttribute Name="NominalDiameter" Value="50" Format="double" 
+                                Units="Millimetre" AttributeURI="http://data.posccaesar.org/rdl/RDS366794"
+                                UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+                <GenericAttribute Name="NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn50"
+                    AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization"
+                    ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn50" Format="anyURI"/>                 
+              </GenericAttributes>
+		    </Node>
+	      </ConnectionPoints>
+	      <GenericAttributes Number="5" Set="DexpiAttributes">
+			<GenericAttribute Name="TagNamePrefixAssignmentClass" Value="SV" Format="string" 
+			    AttributeURI="http://sandbox.dexpi.org/rdl/TagNamePrefixAssignmentClass" />
+			<GenericAttribute Name="TagNameSequenceNumberAssignmentClass" Value="104.01" Format="string" 
+			    AttributeURI="http://sandbox.dexpi.org/rdl/TagNameSequenceNumberAssignmentClass" />
+	        <GenericAttribute Name="FluidCodeAssignmentClass" Value="MNc" Format="string" 
+	            AttributeURI="http://sandbox.dexpi.org/rdl/FluidCodeAssignmentClass"/>
+	        <GenericAttribute Name="SetPressureLow" Value="6" Format="double" 
+	            AttributeURI="http://sandbox.dexpi.org/rdl/SetPressureLow"
+	            Units="barg" 
+	            UnitsURI="http://data.posccaesar.org/rdl/RDS1348874"/>
+	        <GenericAttribute Name="NominalDiameterRepresentationAssignmentClass" Format="string" 
+	            AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterRepresentationAssignmentClass"
+                Value="DN = 25/50" />
+	      </GenericAttributes>
+	    </PipingComponent>
+        <Connection ToID="PIPE_47125_PROPERTY_BREAK"
+            FromID="PIPE_47126_B2" FromNode="3"/>
+	  </PipingNetworkSegment>
+
+      <PipingNetworkSegment 
+	      ID = "PIPE_47125_S2" 
+	      ComponentClass = "PipingNetworkSegment"
+	      ComponentClassURI = "http://data.posccaesar.org/rdl/RDS267704"
+	      DualFlow = "true">
+	    <GenericAttributes Number="10" Set="DexpiAttributes">
+          <GenericAttribute Name="SegmentNumberAssignmentClass" Value="S2" Format="string"
+              AttributeURI="http://sandbox.dexpi.org/rdl/SegmentNumberAssignmentClass"/>   
+	      <GenericAttribute Name="FluidCodeAssignmentClass" Value="MNc" Format="string" 
+	          AttributeURI="http://sandbox.dexpi.org/rdl/FluidCodeAssignmentClass"/>
+	      <GenericAttribute Name="PipingClassCodeAssignmentClass" Value="75HB13" Format="string" 
+	          AttributeURI="http://sandbox.dexpi.org/rdl/PipingClassCodeAssignmentClass"/>
+		  <GenericAttribute Name="SymbolRegistrationNumberAssignmentClass" Value="ISO10628-X8156-A01" Format="string" 
+		      AttributeURI="http://sandbox.dexpi.org/rdl/SymbolRegistrationNumberAssigmentClass" />
+	      <GenericAttribute Name="NominalDiameter" Value="50" Format="double" 
+	          Units="Millimetre" AttributeURI="http://data.posccaesar.org/rdl/RDS366794"
+	          UnitsURI="http://data.posccaesar.org/rdl/RDS1357739"/>
+          <GenericAttribute Name="NominalDiameterStandardSpecialization" Value="Iso6708ObjectDn50"
+              AttributeURI="http://sandbox.dexpi.org/rdl/NominalDiameterStandardSpecialization"
+              ValueURI="http://sandbox.dexpi.org/rdl/Iso6708ObjectDn50" Format="anyURI"/>              
+	      <GenericAttribute Name="InsulationThickness" Format="double"
+		      AttributeURI="http://data.posccaesar.org/rdl/RDS4238040"/>
+	  	  <GenericAttribute Name="InsulationTypeAssignmentClass" Format="string"
+		      AttributeURI="http://sandbox.dexpi.org/rdl/InsulationTypeAssignmentClass"/>
+          <GenericAttribute Name="SlopeSpecialization" Value="SlopedPipingNetworkSegment"
+              AttributeURI="http://sandbox.dexpi.org/rdl/SlopeSpecialization"
+              ValueURI="http://sandbox.dexpi.org/rdl/SlopedPipingNetworkSegment" Format="anyURI"/>                
+	  	  <GenericAttribute Name="Inclination" Format="double"
+		      AttributeURI="http://data.posccaesar.org/rdl/RDS17688057"/>		      
+	    </GenericAttributes>
+	    
+		<CenterLine 
+		    ID = "PIPE_47125_S2_CL1"
+		    NumPoints = "2">
+		  <Presentation R="0.5" G="0.5" B="1" LineWeight="0.4" LineType="solid" />
+		  <Extent>
+			<Min X="293" Y="265.000000425345" />
+			<Max X="237.999999290053" Y="265.000000425345" />
+		  </Extent>	
+		  <Coordinate X="293" Y="265.000000425345" />
+		  <Coordinate X="237.999999290053" Y="265.000000425345" />
+		</CenterLine>
+
+        <Connection 
+          FromID="PIPE_47125_PROPERTY_BREAK"
+          ToID="V_02_N5" />
+   
+		<PipeSlopeSymbol ID="PIPE_47125_S2_SLOPE_SYMBOL_1"
+		      ComponentClass = "PipeSlopeSymbol"
+		      ComponentClassURI = "http://sandbox.dexpi.org/rdl/PipeSlopeSymbol"
+		      ComponentName = "PipeSlopeSymbol">
+		  <Position>
+		    <Location X="285" Y="266" Z="0" />
+		    <Axis X="0" Y="0" Z="-1" />
+		    <Reference X="1" Y="0" Z="0" />
+		  </Position>
+		  <Scale X="0.5" Y="0.5" Z="1"/>
+          <Extent>
+            <Min X="282.5" Y="266" />
+            <Max X="287.5" Y="267.25" />
+          </Extent>
+		</PipeSlopeSymbol>	          
+
+		<PipeFlowArrow ID="PIPE_47125_S2_FLOW_ARROW_1"
+		      ComponentClass = "PipeFlowArrow"
+		      ComponentClassURI = "http://sandbox.dexpi.org/rdl/PipeFlowArrow"
+		      ComponentName = "PipeFlowArrow">
+		  <Position>
+		    <Location X="242" Y="265.000000425345" Z="0" />
+		    <Axis X="0" Y="0" Z="1" />
+		    <Reference X="-1" Y="0" Z="0" />
+		  </Position>
+		  <Scale X="0.5" Y="0.5" Z="1"/>
+          <Extent>
+            <Min X="242" Y="263.750000425345" />
+            <Max X="243.25" Y="266.250000425345" />
+          </Extent>
+		</PipeFlowArrow>		
+		          	    	
+	  </PipingNetworkSegment>
+
+      <PropertyBreak
+          ID = "PIPE_47125_PROPERTY_BREAK"
+          ComponentClass = "PropertyBreak"
+          ComponentClassURI = "http://sandbox.dexpi.org/rdl/PropertyBreak"
+          ComponentName = "PropertyBreak">
+        <Presentation R="0.5" G="0.5" B="1" LineWeight="0.2" LineType="solid" />
+        <Extent>
+            <Min X="290" Y="265.500000425345" />
+            <Max X="293" Y="277.500000425345" />
+        </Extent>
+	    <Position>
+	      <Location X="293" Y="265.000000425345" Z="0" />
+	      <Axis X="0" Y="0" Z="1" />
+	      <Reference X="1" Y="0" Z="0" />
+	    </Position>
+	    <Scale X="0.5" Y="0.5" Z="1" />
+      </PropertyBreak>
+
+    </PipingNetworkSystem>	
+
+</PlantModel>
