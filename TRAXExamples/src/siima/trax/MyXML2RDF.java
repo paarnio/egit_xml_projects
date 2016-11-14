@@ -38,6 +38,7 @@ public class MyXML2RDF {
 	        transformer.setParameter("MinSalary", minSalary);
 	        */
 	        transformer.transform(xml, result);
+	        System.out.println("MyXML2RDF: ---- Transformation done: See results-folder. ----");
 	   }
 	
 	

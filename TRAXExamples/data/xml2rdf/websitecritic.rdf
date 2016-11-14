@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:foo="http://example.com/foo#" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:foaf="http://xmlns.com/foaf/spec/"><rdf:Description rdf:about="http://www.example.com/xml">
-<foo:hasCritic><rdf:Description rdf:about="http://www.example.com/critic/Joe"><foaf:name>Joe</foaf:name><foaf:homepage><rdf:Description rdf:about="http://www.example1.com"><rdfs:label>contact1</rdfs:label></rdf:Description></foaf:homepage></rdf:Description></foo:hasCritic>
-<foo:hasCritic><rdf:Description rdf:about="http://www.example.com/critic/Anna"><foaf:name>Anna</foaf:name><foaf:homepage><rdf:Description rdf:about="http://www.example2.com"><rdfs:label>contact2</rdfs:label></rdf:Description></foaf:homepage></rdf:Description></foo:hasCritic>
- </rdf:Description></rdf:RDF>
