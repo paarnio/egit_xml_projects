@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SparqlConfiguration><!-- sparqlconnectorconfig2 -->
+	<DescriptionClassName>siima.colibri.model.ValveCaseDescription</DescriptionClassName>
+	<SolutionClassName>siima.colibri.model.ValveCaseSolution</SolutionClassName>
+<!-- NEW 2013-11-04 Similarity method set -->
+	<SimMethodSet>method2</SimMethodSet>
+	<MainComponentMappings>
+		<MainComponent>ValveCaseDescription</MainComponent><!-- class simple name -->
+		<QueryNum>1</QueryNum>
+		<ComponentMappings>
+		<!-- MAIN COMPONENTS filled by MAIN QUERY -->
+			<!-- DO NOT USE IN MAIN COMPONENTS <ChangeAttributeNum>0</ChangeAttributeNum> -->
+			<Map>Casename</Map>
+			<Map>Caseid</Map>
+			<Map>Deviceid</Map>
+			<Map>Devicename</Map>
+			<Map>Casetypeid</Map>
+			<Map>Casetypename</Map>
+		</ComponentMappings>
+		<SubComponentMappings>
+			<SubComponent>vpaParameters</SubComponent><!-- sub components attribute name in maincomponent -->
+			<QueryNum>2</QueryNum><!-- NEW ELEMENT 2013-10-20 order of the subquery
+			in sparqlconnectorconfig.xml that returns the values for this subcomponent -->
+			<ComponentMappings>
+				<ChangeAttributeNum>2</ChangeAttributeNum>
+				<Map>mcase</Map>
+				<Map>mcaseId</Map>
+				<Map>dummy</Map>
+				<Map>dummy</Map>
+				<Map>gate_parameterIds</Map>
+				<Map>gate_parameters</Map>
+			</ComponentMappings>
+		</SubComponentMappings>
+	</MainComponentMappings>
+	<MainComponentMappings>
+		<MainComponent>ValveCaseSolution</MainComponent><!-- class simple name -->
+		<QueryNum>1</QueryNum>
+		<ComponentMappings>
+		<!-- MAIN COMPONENTS filled by MAIN QUERY -->
+			<!-- vaihdettu 2013-09-27 <Map>solutionid</Map> same as Casename in Description-->
+			<Map>dummy</Map>
+			<Map>solutionid</Map><!-- vaihdettu 2013-09-27  same as Caseid in Description-->
+			<Map>dummy</Map>
+			<Map>dummy</Map>
+			<Map>casetypeid</Map>
+			<Map>casetype</Map>
+			<!--  <Map>weights</Map> -->
+		</ComponentMappings>
+	  	<SubComponentMappings>
+			<SubComponent>weights</SubComponent><!-- sub components attribute name in maincomponent -->
+			<QueryNum>3</QueryNum><!-- NEW ELEMENT 2013-10-20 order of the subquery
+			in sparqlconnectorconfig.xml that returns the values for this subcomponent -->
+			<ComponentMappings>
+				<ChangeAttributeNum>1</ChangeAttributeNum>
+				<MainCompMatchAttribute>casetypeid</MainCompMatchAttribute><!-- Defines which attribute in upper component 
+				(if not idattribute) should match with the idattribute of this sub component -->
+				<Map>paramlistId</Map><!-- same as casetypeid in Solution-->
+				<Map>gate_parameterIds</Map>
+				<Map>gate_parameters</Map>
+				<Map>gate_scalemins</Map>
+				<Map>gate_scalemaxs</Map>
+			</ComponentMappings>
+		</SubComponentMappings>
+	</MainComponentMappings>
+</SparqlConfiguration>

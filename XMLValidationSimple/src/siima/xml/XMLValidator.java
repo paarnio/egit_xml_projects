@@ -68,13 +68,16 @@ public class XMLValidator {
 		try {
 			parser = DocumentBuilderFactory.newInstance().newDocumentBuilder();
 		
-	    Document document = parser.parse(new File("data/xml/proteus/dexpi_best_practice.proteus.xml"));
+	    //1)Document document = parser.parse(new File("data/xml/proteus/dexpi_best_practice.proteus.xml"));
+	    Document document = parser.parse(new File("data/xml/cbr-tool_configs/sparqlconnectorconfig_transport_test1.xml")); 
+	    //sparqlconnectorconfig_transport_test1.xml  sparqlconnectorconfig2.xml
 
 	    // create a SchemaFactory capable of understanding WXS schemas
 	    SchemaFactory factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
 
 	    // load a WXS schema, represented by a Schema instance
-	    Source schemaFile = new StreamSource(new File("data/xsd/proteus_schemas/ProteusP&IDProfileSchema_3.6.0draft.xsd"));
+	    //1)Source schemaFile = new StreamSource(new File("data/xsd/proteus_schemas/ProteusP&IDProfileSchema_3.6.0draft.xsd"));
+	    Source schemaFile = new StreamSource(new File("data/xsd/cbr-tool_schemas/cbr-tool_config_schema.xsd"));
 	    Schema schema = factory.newSchema(schemaFile);
 
 	    // create a Validator instance, which can be used to validate an instance document

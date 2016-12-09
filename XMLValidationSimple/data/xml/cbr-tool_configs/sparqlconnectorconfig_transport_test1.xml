@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SparqlConfiguration>
+<!-- sparqlconnectorconfig_transport_test1.xml -->
+<!-- NEW 2016-12-07 -->
+	<DescriptionClassName>siima.colibri.model.tests.TransportationCaseDescription</DescriptionClassName>
+	<!-- SolutionClassName></SolutionClassName -->
+	<!-- Similarity method set  -->
+	<SimMethodSet>method_2016</SimMethodSet>
+	<!-- NEW 2016 Element MainSimilarityClassName -->
+	<MainSimilarityClassName>siima.colibri.similarity.tests.TransportationSimConfigSimilarity</MainSimilarityClassName>
+	<ConceptHierarchyOntologyFile>configuration/ontology/transportation_siima_1_rdfxml_mod.owl</ConceptHierarchyOntologyFile>
+	<MainComponentMappings>
+		<MainComponent>TransportationCaseDescription</MainComponent><!-- class simple name -->
+		<QueryNum>1</QueryNum>
+		<ComponentMappings>
+		<!-- MAIN COMPONENTS filled by MAIN QUERY -->
+			<!-- DO NOT USE IN MAIN COMPONENTS <ChangeAttributeNum>0</ChangeAttributeNum> -->
+			<!-- SELECT ?caseid ?indname ?individual ?class ?drive ?power -->
+			<Map>CaseID</Map>
+			<Map>CaseName</Map>
+			<Map>IndividualURI</Map>
+			<Map>ClassURI</Map>
+			<Map>DriveWheels</Map>
+			<Map>EnginePower</Map>
+		</ComponentMappings>
+		<!--SubComponentMappings></SubComponentMappings-->
+	</MainComponentMappings>
+</SparqlConfiguration>
