@@ -1,0 +1,2220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<amlclassinfo from="view-source:http://data.ifs.tuwien.ac.at/aml/ontology">
+<!-- 2017-04-06 VPA: Gleaned html source to make it well-formed -->
+  <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-b2402db1a9846b7139ea46749cecfe03" about="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute">
+ <h3 id="anchor-1164045010"> <a id="Attribute">
+</a><span class="parrot-element-title parrot-class-title">Attribute
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for attribute definitions.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Attribute
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attribute"> attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attributeDataType"> attributeDataType
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#constraint"> constraint
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#defaultValue"> defaultValue
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refSemantic"> refSemantic
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#unit"> unit
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#value"> value
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-ec6a3cd25318b2b57427aa0fbbf8c245" about="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeNameMapping">
+ <h3 id="anchor-1136887981"> <a id="AttributeNameMapping">
+</a><span class="parrot-element-title parrot-class-title">AttributeNameMapping
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#AttributeNameMapping
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attributeNameMapping"> attributeNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleAttributeName"> roleAttributeName
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitAttributeName"> systemUnitAttributeName
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-13d75db7060930af058201366aef58a6" about="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement">
+ <h3 id="anchor143109472"> <a id="AttributeValueRequirement">
+</a><span class="parrot-element-title parrot-class-title">AttributeValueRequirement
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for definition of value requirements of an attribute.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#constraint"> constraint
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#name"> name
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#nominalScaledType"> nominalScaledType
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#ordinalScaledType"> ordinalScaledType
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#unknownType"> unknownType
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-fe5725f06e97c0ef05716231bf8dd8f4" about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">
+ <h3 id="anchor-886498514"> <a id="CAEXBasicObject">
+</a><span class="parrot-element-title parrot-class-title">CAEXBasicObject
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">CAEX basis object that comprises a basic set of attributes and header information which exist for all CAEX elements.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a super class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeNameMapping">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeNameMapping"> AttributeNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement"> AttributeValueRequirement
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"> CAEXFile
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalReference">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalReference"> ExternalReference
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceNameMapping">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceNameMapping"> InterfaceNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping"> Mapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RefSemantic">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RefSemantic"> RefSemantic
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#Revision">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#Revision"> Revision
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements"> RoleRequirements
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass"> SupportedRoleClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#additionalInformation"> additionalInformation
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#changeMode"> changeMode
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#copyright"> copyright
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#description"> description
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#revision"> revision
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#version"> version
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-4cd0d16a4943b9f1df86c34154629913" about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile">
+ <h3 id="anchor1149911513"> <a id="CAEXFile">
+</a><span class="parrot-element-title parrot-class-title">CAEXFile
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#caexFile"> cAEXFile
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalReference"> externalReference
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#fileName"> fileName
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#instanceHierarchy"> instanceHierarchy
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClassLib"> interfaceClassLib
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleClassLib"> roleClassLib
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#schemaVersion"> schemaVersion
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClassLib"> systemUnitClassLib
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-5b55be26189d6cbf0c91d47973c849" about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">
+ <h3 id="anchor1509480476"> <a id="CAEXObject">
+</a><span class="parrot-element-title parrot-class-title">CAEXObject
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">CAEX basis object derived from CAEXBasicObject, augmented by
+Name (required) and ID (optional).
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+ <tr>
+ <td>This class is a super class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute"> Attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy"> InstanceHierarchy
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"> InterfaceClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib"> InterfaceClassLib
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink"> InternalLink
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass"> RoleClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib"> RoleClassLib
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"> SystemUnitClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib"> SystemUnitClassLib
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#iD"> iD
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#name"> name
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-55c658d6d97ac43385295010840c2aa9" about="http://data.ifs.tuwien.ac.at/aml/ontology#Copyright">
+ <h3 id="anchor345759321"> <a id="Copyright">
+</a><span class="parrot-element-title parrot-class-title">Copyright
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Copyright
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#changeMode"> changeMode
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#copyright"> copyright
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#value"> value
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-9a066a4103427ddbe511139838cf7431" about="http://data.ifs.tuwien.ac.at/aml/ontology#Description">
+ <h3 id="anchor924523982"> <a id="Description">
+</a><span class="parrot-element-title parrot-class-title">Description
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Description
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#changeMode"> changeMode
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#description"> description
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#value"> value
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-160a4c139471b59da89e82b29b1a7a64" about="http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot">
+ <h3 id="anchor-956474007"> <a id="DocumentRoot">
+</a><span class="parrot-element-title parrot-class-title">DocumentRoot
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#caexFile"> cAEXFile
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#mixed"> mixed
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#xMLNSPrefixMap"> xMLNSPrefixMap
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#xSISchemaLocation"> xSISchemaLocation
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-551154d6d1ddf231b294c5ad99d2990d" about="http://www.eclipse.org/emf/2002/Ecore#EStringToStringMapEntry">
+ <h3 id="anchor1944691093"> <a id="EStringToStringMapEntry">
+</a><span class="parrot-element-title parrot-class-title">EStringToStringMapEntry
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://www.eclipse.org/emf/2002/Ecore#EStringToStringMapEntry
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#xMLNSPrefixMap"> xMLNSPrefixMap
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#xSISchemaLocation"> xSISchemaLocation
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-8603ac75db6099084f0a5eadc7d9e917" about="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalInterface">
+ <h3 id="anchor1804895552"> <a id="ExternalInterface">
+</a><span class="parrot-element-title parrot-class-title">ExternalInterface
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#ExternalInterface
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"> InterfaceClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface"> externalInterface
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-551032b0f0e4c7c98820d1a2878ece04" about="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalReference">
+ <h3 id="anchor377116498"> <a id="ExternalReference">
+</a><span class="parrot-element-title parrot-class-title">ExternalReference
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#ExternalReference
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#alias"> alias
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalReference"> externalReference
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#path"> path
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-78d89e51374abc1a165dab90702610b" about="http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy">
+ <h3 id="anchor-975323982"> <a id="InstanceHierarchy">
+</a><span class="parrot-element-title parrot-class-title">InstanceHierarchy
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#instanceHierarchy"> instanceHierarchy
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#internalElement"> internalElement
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-8dce1f4922297ab021dcaf0e472483d4" about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass">
+ <h3 id="anchor1516686667"> <a id="InterfaceClass">
+</a><span class="parrot-element-title parrot-class-title">InterfaceClass
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Shall be used for InterfaceClass definition, provides base structures for an interface class definition.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+ <tr>
+ <td>This class is a super class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalInterface">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalInterface"> ExternalInterface
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily"> InterfaceFamily
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attribute"> attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface"> externalInterface
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceLibPath"> interface Lib Path
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseClassPath"> refBaseClassPath
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-67bb6392f9acd0f5935a87d9feccaf96" about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib">
+ <h3 id="anchor555695576"> <a id="InterfaceClassLib">
+</a><span class="parrot-element-title parrot-class-title">InterfaceClassLib
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClass"> interfaceClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClassLib"> interfaceClassLib
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-81446e622121810034a981f971bf8537" about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily">
+ <h3 id="anchor-151278001"> <a id="InterfaceFamily">
+</a><span class="parrot-element-title parrot-class-title">InterfaceFamily
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for a hierarchical InterfaceClass tree. The hierarchical structure of an interface library has organizational character only.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"> InterfaceClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClass"> interfaceClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-8d00b8f26e1e48d2ec4463f993962d69" about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceNameMapping">
+ <h3 id="anchor-399253354"> <a id="InterfaceNameMapping">
+</a><span class="parrot-element-title parrot-class-title">InterfaceNameMapping
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceNameMapping
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceNameMapping"> interfaceNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleInterfaceName"> roleInterfaceName
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitInterfaceName"> systemUnitInterfaceName
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-fec1a1ed1192fb13fd9d2b8412297e97" about="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement">
+ <h3 id="anchor-461710895"> <a id="InternalElement">
+</a><span class="parrot-element-title parrot-class-title">InternalElement
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"> SystemUnitClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#internalElement"> internalElement
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#mappingObject"> mappingObject
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseSystemUnitPath"> refBaseSystemUnitPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideA"> refPartnerSideA
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideB"> refPartnerSideB
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleRequirements"> roleRequirements
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-a5ec36ac05d5e700da748ca511e0f2c8" about="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink">
+ <h3 id="anchor436592931"> <a id="InternalLink">
+</a><span class="parrot-element-title parrot-class-title">InternalLink
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#internalLink"> internalLink
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideA"> refPartnerSideA
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideB"> refPartnerSideB
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-141ef9dca5fbe6e7811589ee6e5f1fc8" about="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping">
+ <h3 id="anchor724599840"> <a id="Mapping">
+</a><span class="parrot-element-title parrot-class-title">Mapping
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Base element for AttributeNameMapping and InterfaceNameMapping.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Mapping
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attributeNameMapping"> attributeNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceNameMapping"> interfaceNameMapping
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#mappingObject"> mappingObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-cda8baad3a32ab9963c6cb8fa4d2589c" about="http://data.ifs.tuwien.ac.at/aml/ontology#NominalScaled">
+ <h3 id="anchor450279784"> <a id="NominalScaled">
+</a><span class="parrot-element-title parrot-class-title">NominalScaled
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#NominalScaled
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#nominalScaledType"> nominalScaledType
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#requiredValue"> requiredValue
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-4a944b66031a07692ae3926a6c558d6" about="http://data.ifs.tuwien.ac.at/aml/ontology#OrdinalScaled">
+ <h3 id="anchor-463182019"> <a id="OrdinalScaled">
+</a><span class="parrot-element-title parrot-class-title">OrdinalScaled
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#OrdinalScaled
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#ordinalScaledType"> ordinalScaledType
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#requiredMaxValue"> requiredMaxValue
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#requiredMinValue"> requiredMinValue
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#requiredValue"> requiredValue
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-97daa39c3b2a225e9d026198f21659ef" about="http://data.ifs.tuwien.ac.at/aml/ontology#RefSemantic">
+ <h3 id="anchor-1403199157"> <a id="RefSemantic">
+</a><span class="parrot-element-title parrot-class-title">RefSemantic
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#RefSemantic
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#correspondingAttributePath"> correspondingAttributePath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refSemantic"> refSemantic
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-dcb861b585d3fdaf24d438ce4c131ba9" about="http://data.ifs.tuwien.ac.at/aml/ontology#Revision">
+ <h3 id="anchor532525863"> <a id="Revision">
+</a><span class="parrot-element-title parrot-class-title">Revision
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Revision
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#authorName"> authorName
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#comment"> comment
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#newVersion"> newVersion
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#oldVersion"> oldVersion
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#revision"> revision
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#revisionDate"> revisionDate
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-d3bfd1cdb3e7ff045ee3a5533dbfd201" about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass">
+ <h3 id="anchor-867205836"> <a id="RoleClass">
+</a><span class="parrot-element-title parrot-class-title">RoleClass
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Shall be used for RoleClass definition, provides base structures for a role class definition.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+ <tr>
+ <td>This class is a super class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily"> RoleFamily
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attribute"> attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface"> externalInterface
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseClassPath"> refBaseClassPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleLibPath"> role Lib Path
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#rolePath"> role Path
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-e357c493f6f3702ffce43e06f1f9599c" about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib">
+ <h3 id="anchor-701621937"> <a id="RoleClassLib">
+</a><span class="parrot-element-title parrot-class-title">RoleClassLib
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleClass"> roleClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleClassLib"> roleClassLib
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-4e36ad1b303ca972ed750839876b660" about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily">
+ <h3 id="anchor-1037501562"> <a id="RoleFamily">
+</a><span class="parrot-element-title parrot-class-title">RoleFamily
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for a hierarchical RoleClass tree. The hierarchical structure of a role library has organizational character only.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass"> RoleClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleClass"> roleClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-472e727f54cb13c33be1b833919be462" about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements">
+ <h3 id="anchor96337522"> <a id="RoleRequirements">
+</a><span class="parrot-element-title parrot-class-title">RoleRequirements
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attribute"> attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface"> externalInterface
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseRoleClassPath"> refBaseRoleClassPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleRequirements"> roleRequirements
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-f2714887ec7a4bdd1a42c6be65986b62" about="http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass">
+ <h3 id="anchor-1634637664"> <a id="SupportedRoleClass">
+</a><span class="parrot-element-title parrot-class-title">SupportedRoleClass
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"> CAEXBasicObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#mappingObject"> mappingObject
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refRoleClassPath"> refRoleClassPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#supportedRoleClass"> supportedRoleClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-d378e8fff4eba6cccf5cc46b444c5667" about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass">
+ <h3 id="anchor1967680823"> <a id="SystemUnitClass">
+</a><span class="parrot-element-title parrot-class-title">SystemUnitClass
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for a SystemUnit class definition.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+ <tr>
+ <td>This class is a super class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement"> InternalElement
+</a>
+</span>
+ <span class="parrot-element-ref parrot-class-ref" rev="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily"> SystemUnitFamily
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#attribute"> attribute
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface"> externalInterface
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#internalElement"> internalElement
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#internalLink"> internalLink
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseSystemUnitPath"> refBaseSystemUnitPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#roleLibPath"> role Lib Path
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#supportedRoleClass"> supportedRoleClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-6e98a451d411b81a4db430dff25e87b" about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib">
+ <h3 id="anchor1464895084"> <a id="SystemUnitClassLib">
+</a><span class="parrot-element-title parrot-class-title">SystemUnitClassLib
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"> CAEXObject
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClass"> systemUnitClass
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClassLib"> systemUnitClassLib
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-37c1779a2cd3012ef578b4896d7a7d4d" about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily">
+ <h3 id="anchor944638947"> <a id="SystemUnitFamily">
+</a><span class="parrot-element-title parrot-class-title">SystemUnitFamily
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+  <p class="description">Defines base structures for a hierarchical SystemUnitClass tree. The hierarchical structure of a SystemUnit library has organizational character only.
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily
+</code>
+</span>
+</p>
+<table>
+ <tbody><tr>
+ <td>This class is a sub class of
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-class-ref" rel="rdfs:subClassOf" href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"> SystemUnitClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseClassPath"> refBaseClassPath
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClass"> systemUnitClass
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-ef937a45d6ad28e64da53ef972da6d80" about="http://data.ifs.tuwien.ac.at/aml/ontology#UnknownType">
+ <h3 id="anchor-26209162"> <a id="UnknownType">
+</a><span class="parrot-element-title parrot-class-title">UnknownType
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#UnknownType
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#requirements"> requirements
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#unknownType"> unknownType
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+ <div class="details classes" style="border-radius: 10px;">
+<div class="term" id="md5-3338827d46a9561f41d58d12bdd52378" about="http://data.ifs.tuwien.ac.at/aml/ontology#Version">
+ <h3 id="anchor238651434"> <a id="Version">
+</a><span class="parrot-element-title parrot-class-title">Version
+</span>
+<span rel="rdf:type" href="http://www.w3.org/2002/07/owl#Class">(OWL Class)
+</span>
+ <span class="menu">
+ <span class="ti-menu active" style="border-radius: 10px;">Definition
+</span>  <span class="inuse-menu" style="border-radius: 10px;">In use
+</span>
+</span>
+</h3>
+ <p><em>{{No description available}}
+</em> <img class="sometext" src="some.png" alt="someinfo"/>
+</p>
+ <div>
+ <div class="ti" style="border-radius: 10px; display: block;">
+ <h4>Definition
+</h4>
+<p>The <strong>URI
+</strong> of this class is <span><code>http://data.ifs.tuwien.ac.at/aml/ontology#Version
+</code>
+</span>
+</p>
+
+</div>
+ <div class="inuse" style="border-radius: 10px;">
+ <h4>In use
+</h4>
+ <table>
+ <tbody><tr>
+ <td>This class is used in
+</td>
+ <td>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#changeMode"> changeMode
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#value"> value
+</a>
+</span>
+ <span class="parrot-element-ref parrot-property-ref">  <a href="http://data.ifs.tuwien.ac.at/aml/ontology#version"> version
+</a>
+</span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+</div>
+</div>
+</div>
+</amlclassinfo>
