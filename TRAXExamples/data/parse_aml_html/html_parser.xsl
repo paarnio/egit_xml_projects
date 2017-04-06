@@ -23,13 +23,22 @@
  <xsl:choose>
 	<xsl:when test="@class='term'">
 		<xsl:element name="siima:amlclass">
-		<xsl:value-of select="@about"/>
+			<xsl:value-of select="@about"/>
+		</xsl:element>
+		<xsl:element name="siima:amlclassID">
+			<xsl:value-of select="@id"/>
+		</xsl:element>
+		<xsl:element name="siima:description">
+			<xsl:value-of select="./p[@class='description']"/>
+		</xsl:element>
+		<xsl:element name="siima:amlclasslabel">
+			<xsl:value-of select="./h3/span[@class='parrot-element-title parrot-class-title']"/>
 		</xsl:element>
 		<xsl:element name="siima:type">
-		<xsl:apply-templates select="./h3/span[@rel='rdf:type']"/>
+			<xsl:apply-templates select="./h3/span[@rel='rdf:type']"/>
 		</xsl:element>
 		<xsl:element name="siima:subclassof">
-		<xsl:apply-templates select="./div/div/table/tbody/tr/td/span[@rel='rdfs:subClassOf']"/>
+			<xsl:apply-templates select="./div/div/table/tbody/tr/td/span[@rel='rdfs:subClassOf']"/>
 		</xsl:element>
 	</xsl:when>
 	<xsl:otherwise>VPA:DIV:not term</xsl:otherwise>
