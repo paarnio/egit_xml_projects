@@ -16,12 +16,12 @@ public class AML_html2owl {
 	public static void main(String[] args) throws TransformerException {
 		 TransformerFactory factory = TransformerFactory.newInstance();
 	        
-	        Source xsl = new StreamSource("data/parse_aml_html/html_parser.xsl"); 
+	        Source xsl = new StreamSource("data/parse_aml_html/html_parser_2.xsl"); 
 	        Transformer transformer = factory.newTransformer(xsl);
 	        //Source xml 
 	        Source xml = new StreamSource("data/parse_aml_html/aml_html_classes_p1.xml");
 	        
-	        Result result = new StreamResult("data/parse_aml_html/parse_results.xml");
+	        Result result = new StreamResult("data/parse_aml_html/parse_results_2.xml");
 	        
 	        transformer.transform(xml, result);
 	        System.out.println("HTML PARSING: ---- Transformation done: See parse_aml_html-folder. ----");
