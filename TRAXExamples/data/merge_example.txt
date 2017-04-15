@@ -1,0 +1,28 @@
+From:
+
+http://stackoverflow.com/questions/1510688/xslt-a-simple-way-to-merge-xml-files
+--------
+
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xsl:transform version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:output method="xml" version="1.0" encoding="ISO-8859-1" indent="yes" />
+  <xsl:variable name="with" select="'File2.xml'" />
+
+  <xsl:template match="@*|node()">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+    </xsl:copy>
+  </xsl:template>
+
+  <xsl:template match="scene">
+    <xsl:copy>
+      <xsl:apply-templates select="@*|node()" />
+      <xsl:variable name="info" select="document($with)/catalog/data[myid=current()/myid]/." />
+      <xsl:for-each select="$info/*">
+        <xsl:if test="name()!='myid'">
+          <xsl:copy-of select="." />
+        </xsl:if>
+      </xsl:for-each>
+    </xsl:copy>
+  </xsl:template>
+</xsl:transform>
