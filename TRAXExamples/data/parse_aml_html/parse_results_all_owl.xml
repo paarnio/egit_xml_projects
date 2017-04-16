@@ -1,0 +1,820 @@
+<?xml version="1.0" encoding="UTF-8"?><rdf:RDF xml:base="http://data.ifs.tuwien.ac.at/aml/ontology" xmlns="http://data.ifs.tuwien.ac.at/aml/ontology#" xmlns:siima="http://siima.net/ontologies/2017/test/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:xsd="http://www.w3.org/2001/XMLSchema#" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:amlont="http://data.ifs.tuwien.ac.at/aml/ontology#" xmlns:foaf="http://xmlns.com/foaf/spec/">
+<!--VPA: HTML2OWL Translation result using html_parser_all_owl.xsl-->
+<owl:Ontology rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology"/>
+<!--- - - -owl:Classes- - - - - -->
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>Attribute
+</rdfs:label>
+<rdfs:comment>ID:md5-b2402db1a9846b7139ea46749cecfe03</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for attribute definitions.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeNameMapping">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>AttributeNameMapping
+</rdfs:label>
+<rdfs:comment>ID:md5-ec6a3cd25318b2b57427aa0fbbf8c245</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>AttributeValueRequirement
+</rdfs:label>
+<rdfs:comment>ID:md5-13d75db7060930af058201366aef58a6</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for definition of value requirements of an attribute.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>CAEXBasicObject
+</rdfs:label>
+<rdfs:comment>ID:md5-fe5725f06e97c0ef05716231bf8dd8f4</rdfs:comment>
+<rdfs:comment>Description:CAEX basis object that comprises a basic set of attributes and header information which exist for all CAEX elements.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>CAEXFile
+</rdfs:label>
+<rdfs:comment>ID:md5-4cd0d16a4943b9f1df86c34154629913</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>CAEXObject
+</rdfs:label>
+<rdfs:comment>ID:md5-5b55be26189d6cbf0c91d47973c849</rdfs:comment>
+<rdfs:comment>Description:CAEX basis object derived from CAEXBasicObject, augmented by
+Name (required) and ID (optional).
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Copyright">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>Copyright
+</rdfs:label>
+<rdfs:comment>ID:md5-55c658d6d97ac43385295010840c2aa9</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Description">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>Description
+</rdfs:label>
+<rdfs:comment>ID:md5-9a066a4103427ddbe511139838cf7431</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>DocumentRoot
+</rdfs:label>
+<rdfs:comment>ID:md5-160a4c139471b59da89e82b29b1a7a64</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://www.eclipse.org/emf/2002/Ecore#EStringToStringMapEntry">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>EStringToStringMapEntry
+</rdfs:label>
+<rdfs:comment>ID:md5-551154d6d1ddf231b294c5ad99d2990d</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalInterface">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"/>
+<rdfs:label>ExternalInterface
+</rdfs:label>
+<rdfs:comment>ID:md5-8603ac75db6099084f0a5eadc7d9e917</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#ExternalReference">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>ExternalReference
+</rdfs:label>
+<rdfs:comment>ID:md5-551032b0f0e4c7c98820d1a2878ece04</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>InstanceHierarchy
+</rdfs:label>
+<rdfs:comment>ID:md5-78d89e51374abc1a165dab90702610b</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>InterfaceClass
+</rdfs:label>
+<rdfs:comment>ID:md5-8dce1f4922297ab021dcaf0e472483d4</rdfs:comment>
+<rdfs:comment>Description:Shall be used for InterfaceClass definition, provides base structures for an interface class definition.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>InterfaceClassLib
+</rdfs:label>
+<rdfs:comment>ID:md5-67bb6392f9acd0f5935a87d9feccaf96</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"/>
+<rdfs:label>InterfaceFamily
+</rdfs:label>
+<rdfs:comment>ID:md5-81446e622121810034a981f971bf8537</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for a hierarchical InterfaceClass tree. The hierarchical structure of an interface library has organizational character only.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceNameMapping">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>InterfaceNameMapping
+</rdfs:label>
+<rdfs:comment>ID:md5-8d00b8f26e1e48d2ec4463f993962d69</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+<rdfs:label>InternalElement
+</rdfs:label>
+<rdfs:comment>ID:md5-fec1a1ed1192fb13fd9d2b8412297e97</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>InternalLink
+</rdfs:label>
+<rdfs:comment>ID:md5-a5ec36ac05d5e700da748ca511e0f2c8</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>Mapping
+</rdfs:label>
+<rdfs:comment>ID:md5-141ef9dca5fbe6e7811589ee6e5f1fc8</rdfs:comment>
+<rdfs:comment>Description:Base element for AttributeNameMapping and InterfaceNameMapping.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#NominalScaled">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>NominalScaled
+</rdfs:label>
+<rdfs:comment>ID:md5-cda8baad3a32ab9963c6cb8fa4d2589c</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#OrdinalScaled">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>OrdinalScaled
+</rdfs:label>
+<rdfs:comment>ID:md5-4a944b66031a07692ae3926a6c558d6</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#RefSemantic">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>RefSemantic
+</rdfs:label>
+<rdfs:comment>ID:md5-97daa39c3b2a225e9d026198f21659ef</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Revision">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>Revision
+</rdfs:label>
+<rdfs:comment>ID:md5-dcb861b585d3fdaf24d438ce4c131ba9</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>RoleClass
+</rdfs:label>
+<rdfs:comment>ID:md5-d3bfd1cdb3e7ff045ee3a5533dbfd201</rdfs:comment>
+<rdfs:comment>Description:Shall be used for RoleClass definition, provides base structures for a role class definition.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>RoleClassLib
+</rdfs:label>
+<rdfs:comment>ID:md5-e357c493f6f3702ffce43e06f1f9599c</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass"/>
+<rdfs:label>RoleFamily
+</rdfs:label>
+<rdfs:comment>ID:md5-4e36ad1b303ca972ed750839876b660</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for a hierarchical RoleClass tree. The hierarchical structure of a role library has organizational character only.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>RoleRequirements
+</rdfs:label>
+<rdfs:comment>ID:md5-472e727f54cb13c33be1b833919be462</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+<rdfs:label>SupportedRoleClass
+</rdfs:label>
+<rdfs:comment>ID:md5-f2714887ec7a4bdd1a42c6be65986b62</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>SystemUnitClass
+</rdfs:label>
+<rdfs:comment>ID:md5-d378e8fff4eba6cccf5cc46b444c5667</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for a SystemUnit class definition.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXObject"/>
+<rdfs:label>SystemUnitClassLib
+</rdfs:label>
+<rdfs:comment>ID:md5-6e98a451d411b81a4db430dff25e87b</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily">
+<rdfs:subClassOf rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+<rdfs:label>SystemUnitFamily
+</rdfs:label>
+<rdfs:comment>ID:md5-37c1779a2cd3012ef578b4896d7a7d4d</rdfs:comment>
+<rdfs:comment>Description:Defines base structures for a hierarchical SystemUnitClass tree. The hierarchical structure of a SystemUnit library has organizational character only.
+</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#UnknownType">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>UnknownType
+</rdfs:label>
+<rdfs:comment>ID:md5-ef937a45d6ad28e64da53ef972da6d80</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<owl:Class rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#Version">
+<rdfs:subClassOf rdf:resource=""/>
+<rdfs:label>Version
+</rdfs:label>
+<rdfs:comment>ID:md5-3338827d46a9561f41d58d12bdd52378</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:(OWL Class)
+</rdfs:comment>
+</owl:Class>
+<!--- - - -owl:Properties- - - - - -->
+VPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not termVPA:DIV:not term<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#additionalInformation">
+<rdfs:label>additionalInformation</rdfs:label>
+<rdfs:comment>ID:md5-3b92ca06fe039dfecc3e8da65f28eba7</rdfs:comment>
+<rdfs:comment>Description:Optional auxiliary field that may contain any additional information about a CAEX object.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#alias">
+<rdfs:label>alias</rdfs:label>
+<rdfs:comment>ID:md5-c862739e61160930c2f29a7d6fa610f</rdfs:comment>
+<rdfs:comment>Description:Describes the alias name of an external CAEX file to enable referencing elements of the external CAEX file.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#attribute">
+<rdfs:label>attribute</rdfs:label>
+<rdfs:comment>ID:md5-a51390aaf9d0e3930b7a0cee570140c4</rdfs:comment>
+<rdfs:comment>Description:Characterizes properties of the SystemUnitClass.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClass"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#attributeDataType">
+<rdfs:label>attributeDataType</rdfs:label>
+<rdfs:comment>ID:md5-69961d0fd6df72eeabc049b2e2c870e0</rdfs:comment>
+<rdfs:comment>Description:Describes the data type of the attribute using XML notation.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#attributeNameMapping">
+<rdfs:label>attributeNameMapping</rdfs:label>
+<rdfs:comment>ID:md5-4aad3e5ae34c281236fef538c5e3b05a</rdfs:comment>
+<rdfs:comment>Description:Allows the definition of the mapping between attribute names of corresponding RoleClasses and SystemUnitClasses. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#authorName">
+<rdfs:label>authorName</rdfs:label>
+<rdfs:comment>ID:md5-3200d5dd2a67a3ffbf1bee510984085f</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#broader">
+<rdfs:label>broader</rdfs:label>
+<rdfs:comment>ID:md5-9f17fcc61f87f9692f33bab42323734</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#caexFile">
+<rdfs:label>cAEXFile</rdfs:label>
+<rdfs:comment>ID:md5-4892d38325316f28f2193e994b2d6c47</rdfs:comment>
+<rdfs:comment>Description:Root-element of the CAEX schema. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#changeMode">
+<rdfs:label>changeMode</rdfs:label>
+<rdfs:comment>ID:md5-4f0977d10d06d23aac9ecb531b075a11</rdfs:comment>
+<rdfs:comment>Description:Optionally describes the change state of an CAEX object. If used, the ChangeMode shall have the following value range: state, create, delete and change. This information should be used for further change management applications.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#comment">
+<rdfs:label>comment</rdfs:label>
+<rdfs:comment>ID:md5-bd131d58f4a50d4501609810104b9dae</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#constraint">
+<rdfs:label>constraint</rdfs:label>
+<rdfs:comment>ID:md5-7b369789bca74c90a404a42579c3dd6c</rdfs:comment>
+<rdfs:comment>Description:Element to restrict the range of validity of a defined attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#copyright">
+<rdfs:label>copyright</rdfs:label>
+<rdfs:comment>ID:md5-75630e71030c81156bb25846999ef9ec</rdfs:comment>
+<rdfs:comment>Description:Organizational information about copyright.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#correspondingAttributePath">
+<rdfs:label>correspondingAttributePath</rdfs:label>
+<rdfs:comment>ID:md5-d13940811f6fa687ccd1e399b65a9fef</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#defaultValue">
+<rdfs:label>defaultValue</rdfs:label>
+<rdfs:comment>ID:md5-b6ea34c55efda6ead582f4bc0a64f59c</rdfs:comment>
+<rdfs:comment>Description:A predefined default value for an attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#description">
+<rdfs:label>description</rdfs:label>
+<rdfs:comment>ID:md5-17a67ab1fd5cc82d4d25127ecaebb57a</rdfs:comment>
+<rdfs:comment>Description:Textual description for CAEX objects.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#externalInterface">
+<rdfs:label>externalInterface</rdfs:label>
+<rdfs:comment>ID:md5-c9e277f0d5a3cb6919ff50e6d3cfd5b2</rdfs:comment>
+<rdfs:comment>Description:Description of an external interface.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClass"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleRequirements"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#externalReference">
+<rdfs:label>externalReference</rdfs:label>
+<rdfs:comment>ID:md5-ec595dbfe41488894e17d8bb147b2945</rdfs:comment>
+<rdfs:comment>Description:Container element for the alias definition of external CAEX files.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#fileName">
+<rdfs:label>fileName</rdfs:label>
+<rdfs:comment>ID:md5-e0bc836491551d95863f8484f9221d95</rdfs:comment>
+<rdfs:comment>Description:Describes the name of the CAEX file.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#iD">
+<rdfs:label>iD</rdfs:label>
+<rdfs:comment>ID:md5-b2bcbc0242a116b3dbe3068d48a8cfa1</rdfs:comment>
+<rdfs:comment>Description:Optional attribute that describes a unique identifier of the CAEX object.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#instanceHierarchy">
+<rdfs:label>instanceHierarchy</rdfs:label>
+<rdfs:comment>ID:md5-df5cb3e1dfd2079149479f4ab2e7f15b</rdfs:comment>
+<rdfs:comment>Description:Root element for a system hierarchy of object instances.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceLibPath">
+<rdfs:label>interface Lib Path</rdfs:label>
+<rdfs:comment>ID:md5-e40cb8728cfd845f041ef64e6289838</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#interfacePath">
+<rdfs:label>interface Path</rdfs:label>
+<rdfs:comment>ID:md5-774d4915bfc2de4e5d3fec8701cb0172</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClass">
+<rdfs:label>interfaceClass</rdfs:label>
+<rdfs:comment>ID:md5-42799c4d9a891a6cb7425545a1a41f19</rdfs:comment>
+<rdfs:comment>Description:Element that allows definition of child InterfaceClasses within the class hierarchy. The parent child relation between two InterfaceClasses has no semantic.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceClassLib"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InterfaceFamily"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceClassLib">
+<rdfs:label>interfaceClassLib</rdfs:label>
+<rdfs:comment>ID:md5-3836d66fe00c9c0ac39baa7cfca9bc11</rdfs:comment>
+<rdfs:comment>Description:Container element for a hierarchy of InterfaceClass definitions. It shall contain any interface class definitions. CAEX supports multiple interface libraries..</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#interfaceNameMapping">
+<rdfs:label>interfaceNameMapping</rdfs:label>
+<rdfs:comment>ID:md5-e7cd994ff0f718689d511eaba77fc884</rdfs:comment>
+<rdfs:comment>Description:Mapping of interface names of corresponding RoleClasses and SystemUnitClasses.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#Mapping"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#internalElement">
+<rdfs:label>internalElement</rdfs:label>
+<rdfs:comment>ID:md5-228c7b89a3e1fe3ce031f0b5dffeec3</rdfs:comment>
+<rdfs:comment>Description:Shall be used in order to define nested objects inside of a SystemUnitClass or another InternalElement. Allows description of the internal structure of an CAEX object.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InstanceHierarchy"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#internalLink">
+<rdfs:label>internalLink</rdfs:label>
+<rdfs:comment>ID:md5-dff36dfdbb4fd4b170df89ecaaec8f0f</rdfs:comment>
+<rdfs:comment>Description:Shall be used in order to define the relationships between internal interfaces of InternalElements.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#mappingObject">
+<rdfs:label>mappingObject</rdfs:label>
+<rdfs:comment>ID:md5-932f481f8ddc565247c24e3dae478326</rdfs:comment>
+<rdfs:comment>Description:Host element for AttributeNameMapping and InterfaceNameMapping.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SupportedRoleClass"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#mixed">
+<rdfs:label>mixed</rdfs:label>
+<rdfs:comment>ID:md5-b3d5b666c6e653c650a5e0e72bb555b5</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#name">
+<rdfs:label>name</rdfs:label>
+<rdfs:comment>ID:md5-8f5bcea84cd9744457eda8da4c4b6f95</rdfs:comment>
+<rdfs:comment>Description:Describes the name of the CAEX object.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#narrower">
+<rdfs:label>narrower</rdfs:label>
+<rdfs:comment>ID:md5-b314d2d6e3881d73a5a8f9292a04f7f1</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#newVersion">
+<rdfs:label>newVersion</rdfs:label>
+<rdfs:comment>ID:md5-c085fc8708c012dae2dac40c4553d478</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#nominalScaledType">
+<rdfs:label>nominalScaledType</rdfs:label>
+<rdfs:comment>ID:md5-ca4e2d22111cb0216f3600b5ab9f4e88</rdfs:comment>
+<rdfs:comment>Description:Element of to define constraints of nominal scaled attribute values.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#oldVersion">
+<rdfs:label>oldVersion</rdfs:label>
+<rdfs:comment>ID:md5-a11ac3541db252e7677b8f265ce8e384</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#ordinalScaledType">
+<rdfs:label>ordinalScaledType</rdfs:label>
+<rdfs:comment>ID:md5-85190e366ffb28a5ddd05bcc2c6f600f</rdfs:comment>
+<rdfs:comment>Description:Element of to define constraints of ordinal scaled attribute values.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#path">
+<rdfs:label>path</rdfs:label>
+<rdfs:comment>ID:md5-c32fddda397b8cd50cd7dc8d2f945255</rdfs:comment>
+<rdfs:comment>Description:Describes the path of the external CAEX file. Absolute and relative paths are allowed.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseClassPath">
+<rdfs:label>refBaseClassPath</rdfs:label>
+<rdfs:comment>ID:md5-3353af06d34236b94ebb30ea5193672b</rdfs:comment>
+<rdfs:comment>Description:Stores the reference of a class to its base class. References contain the full path to the refered class object.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseRoleClassPath">
+<rdfs:label>refBaseRoleClassPath</rdfs:label>
+<rdfs:comment>ID:md5-3c4f2b42a15348c678c2615409f81601</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refBaseSystemUnitPath">
+<rdfs:label>refBaseSystemUnitPath</rdfs:label>
+<rdfs:comment>ID:md5-177d1111371ab95678796ff9cbe6510b</rdfs:comment>
+<rdfs:comment>Description:Stores the reference of an InternalElement to a class or instance definition. References contain the full path information. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideA">
+<rdfs:label>refPartnerSideA</rdfs:label>
+<rdfs:comment>ID:md5-9f1d2072eeca8bedfb8d64a426bd038b</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refPartnerSideB">
+<rdfs:label>refPartnerSideB</rdfs:label>
+<rdfs:comment>ID:md5-3b181de31feabb39be37f1aca4bd7c0b</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InternalLink"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refRoleClassPath">
+<rdfs:label>refRoleClassPath</rdfs:label>
+<rdfs:comment>ID:md5-6b3ae129701ac19afc6329fdd21db218</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#refSemantic">
+<rdfs:label>refSemantic</rdfs:label>
+<rdfs:comment>ID:md5-b50497c0a3843d2ad8e3357bdbc306e3</rdfs:comment>
+<rdfs:comment>Description:A reference to a definition of a defined attribute, e. g. to an attribute in a standardized library, this allows the semantic definition of the attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#Attribute"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#requiredMaxValue">
+<rdfs:label>requiredMaxValue</rdfs:label>
+<rdfs:comment>ID:md5-553d7ded88f2382696b5ccf06492ec71</rdfs:comment>
+<rdfs:comment>Description:Element to define a maximum value of an attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#requiredMinValue">
+<rdfs:label>requiredMinValue</rdfs:label>
+<rdfs:comment>ID:md5-a61b0d4d5f0e1e95565ea8044308aba</rdfs:comment>
+<rdfs:comment>Description:Element to define a minimum value of an attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#requiredValue">
+<rdfs:label>requiredValue</rdfs:label>
+<rdfs:comment>ID:md5-dbaba4d74e2dd7fa8190451086bd2233</rdfs:comment>
+<rdfs:comment>Description:Element to define a required value of an attribute. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#requirements">
+<rdfs:label>requirements</rdfs:label>
+<rdfs:comment>ID:md5-c49cb327a18dc2492ec9ea8b976c3449</rdfs:comment>
+<rdfs:comment>Description:Defines informative requirements as a constraint for an attribute value.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#revision">
+<rdfs:label>revision</rdfs:label>
+<rdfs:comment>ID:md5-675f107ae4198360444fe749562ef91e</rdfs:comment>
+<rdfs:comment>Description:Organizational information about the state of the revision.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#revisionDate">
+<rdfs:label>revisionDate</rdfs:label>
+<rdfs:comment>ID:md5-7241a69f24aff120837f60ac6742256b</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleLibPath">
+<rdfs:label>role Lib Path</rdfs:label>
+<rdfs:comment>ID:md5-76fa99891057c23b63a9ca37b42f1d81</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#rolePath">
+<rdfs:label>role Path</rdfs:label>
+<rdfs:comment>ID:md5-7ff6c25faff61a6dfc6fd44a3a504580</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleAttributeName">
+<rdfs:label>roleAttributeName</rdfs:label>
+<rdfs:comment>ID:md5-b5fd418ae733362809184a36cd164d78</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleClass">
+<rdfs:label>roleClass</rdfs:label>
+<rdfs:comment>ID:md5-e306f21a92cbbd997b641d45cf1e0c8a</rdfs:comment>
+<rdfs:comment>Description:Element that allows definition of child RoleClasses within the class hierarchy. The parent child relation between two RoleClasses has no semantic.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleClassLib"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#RoleFamily"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleClassLib">
+<rdfs:label>roleClassLib</rdfs:label>
+<rdfs:comment>ID:md5-7dbfd259b7619cb6e08c1afb083a1860</rdfs:comment>
+<rdfs:comment>Description:Container element for a hierarchy of RoleClass definitions. It shall contain any RoleClass definitions. CAEX supports multiple role libraries.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleInterfaceName">
+<rdfs:label>roleInterfaceName</rdfs:label>
+<rdfs:comment>ID:md5-2d6150036acc15c1e8471e1b79d45164</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#roleRequirements">
+<rdfs:label>roleRequirements</rdfs:label>
+<rdfs:comment>ID:md5-563aad3833bb9bd35ae64e76af86288d</rdfs:comment>
+<rdfs:comment>Description:Describes role requirements of an InternalElement. It allows the definition of a reference to a RoleClass and the specification of role requirements like required attributes and required interfaces. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#InternalElement"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#schemaVersion">
+<rdfs:label>schemaVersion</rdfs:label>
+<rdfs:comment>ID:md5-50949f4e551b23e3c185d70a20f6792c</rdfs:comment>
+<rdfs:comment>Description:Describes the version of the schema. Each CAEX document must specify which CAEX version it requires. The version number of a CAEX document must fit to the version number specified in the CAEX schema file. </rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#sucLibPath">
+<rdfs:label>suc Lib Path</rdfs:label>
+<rdfs:comment>ID:md5-31136fe6a5cc47dd5a92699759f84a24</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#sucPath">
+<rdfs:label>suc Path</rdfs:label>
+<rdfs:comment>ID:md5-b2a6c48fecfc83e1c6d81f318662d91f</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#supportedRoleClass">
+<rdfs:label>supportedRoleClass</rdfs:label>
+<rdfs:comment>ID:md5-c778dcaed9e92a81654708a652aa965c</rdfs:comment>
+<rdfs:comment>Description:Allows the association to a RoleClass which this SystemUnitClass can play. A SystemUnitClass may reference multiple roles.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClass"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitAttributeName">
+<rdfs:label>systemUnitAttributeName</rdfs:label>
+<rdfs:comment>ID:md5-a367d0499a7716d20c47d503eb9b1162</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClass">
+<rdfs:label>systemUnitClass</rdfs:label>
+<rdfs:comment>ID:md5-dadd4b25fa8b8e38963c9e5e894e0820</rdfs:comment>
+<rdfs:comment>Description:Element that allows definition of child SystemUnitClasses within the class hierarchy. The parent child relation between two SystemUnitClasses has no semantic.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitClassLib"/>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#SystemUnitFamily"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitClassLib">
+<rdfs:label>systemUnitClassLib</rdfs:label>
+<rdfs:comment>ID:md5-b436dcb9a2d8f3314ee27382c5e5d0e8</rdfs:comment>
+<rdfs:comment>Description:Container element for a hierarchy of SystemUnitClass definitions. It shall contain any SystemunitClass definitions. CAEX supports multiple SystemUnitClass libraries.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXFile"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#systemUnitInterfaceName">
+<rdfs:label>systemUnitInterfaceName</rdfs:label>
+<rdfs:comment>ID:md5-923f9098b984ccd9b184c71e0ca110cd</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#unit">
+<rdfs:label>unit</rdfs:label>
+<rdfs:comment>ID:md5-aa8c92727cdd38caa5dc5579fbb5c252</rdfs:comment>
+<rdfs:comment>Description:Describes the unit of the attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#unknownType">
+<rdfs:label>unknownType</rdfs:label>
+<rdfs:comment>ID:md5-294a8d735a645ba86fd71f25c92a03d4</rdfs:comment>
+<rdfs:comment>Description:Element to define constraints for attribute values of an unknown scale type.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#AttributeValueRequirement"/>
+</owl:ObjectProperty>
+<owl:DatatypeProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#value">
+<rdfs:label>value</rdfs:label>
+<rdfs:comment>ID:md5-1e15924a3508fae8663c22fd36d843eb</rdfs:comment>
+<rdfs:comment>Description:Element describing the value of an attribute.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#DatatypeProperty</rdfs:comment>
+<rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+</owl:DatatypeProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#version">
+<rdfs:label>version</rdfs:label>
+<rdfs:comment>ID:md5-31b81143eca1af40ed3e88156f5d48c4</rdfs:comment>
+<rdfs:comment>Description:Organizational information about the state of the version.</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#CAEXBasicObject"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#xMLNSPrefixMap">
+<rdfs:label>xMLNSPrefixMap</rdfs:label>
+<rdfs:comment>ID:md5-dafc7df814c0c7fbcc46ce24896ab661</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot"/>
+</owl:ObjectProperty>
+<owl:ObjectProperty rdf:about="http://data.ifs.tuwien.ac.at/aml/ontology#xSISchemaLocation">
+<rdfs:label>xSISchemaLocation</rdfs:label>
+<rdfs:comment>ID:md5-b58af27a65ab2bbee5272d24baa6b72e</rdfs:comment>
+<rdfs:comment>Description:</rdfs:comment>
+<rdfs:comment>Type:http://www.w3.org/2002/07/owl#ObjectProperty</rdfs:comment>
+<rdfs:domain rdf:resource="http://data.ifs.tuwien.ac.at/aml/ontology#DocumentRoot"/>
+</owl:ObjectProperty>
+</rdf:RDF>

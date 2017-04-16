@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--Data From data_a.xml-->
+<employee>
+            <name>Christopher Abani</name>
+            <salary>3000</salary>
+        </employee><employee>
+            <name>Sait Faik Abasiyanik</name>
+            <salary>10000</salary>
+        </employee><employee>
+            <name>Christina Abbey</name>
+            <salary>2100</salary>
+        </employee><employee>
+            <name>Edward Abbey</name>
+            <salary>2300</salary>
+        </employee><employee>
+            <name>Lynn Abbey</name>
+            <salary>2000</salary>
+        </employee><employee>
+            <name>Edwin A. Abbott</name>
+            <salary>1000</salary>
+        </employee>
+<!--Data From data_b.xml-->
+<employee>
+            <name>Wille Wallaton</name>
+            <salary>666</salary>
+        </employee><employee>
+            <name>Rapu Ankka</name>
+            <salary>999</salary>
+        </employee>

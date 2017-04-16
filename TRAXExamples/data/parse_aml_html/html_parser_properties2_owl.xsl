@@ -35,10 +35,10 @@
 					<xsl:value-of select="./div/div/table/tbody/tr/td/span[@rel='rdfs:subClassOf']/@href"/>
 				</xsl:attribute>
 			</xsl:element-->
-			<xsl:element name="rdfs:label"><xsl:value-of select="./h3/span[@class='parrot-element-title parrot-class-title']"/></xsl:element>
+			<xsl:element name="rdfs:label"><xsl:value-of select="./h3/span[@class='parrot-element-title parrot-property-title']"/></xsl:element>
 			<xsl:element name="rdfs:comment">ID:<xsl:value-of select="@id"/></xsl:element>
 			<xsl:element name="rdfs:comment">Description:<xsl:value-of select="./p[@class='description']"/></xsl:element>
-			<xsl:element name="rdfs:comment">Type:<xsl:value-of select="./h3/span[@rel='rdf:type']"/></xsl:element>
+			<xsl:element name="rdfs:comment">Type:<xsl:value-of select="./h3/span[@rel='rdf:type']/@href"/></xsl:element>
 			<xsl:apply-templates select="./div/div/table/tbody/tr/td/span[@rel='rdfs:domain']"/>
 		</xsl:element>
 	</xsl:when>
@@ -47,10 +47,10 @@
 			<xsl:attribute name="rdf:about">
 				<xsl:value-of select="@about"/>
 			</xsl:attribute>
-			<xsl:element name="rdfs:label"><xsl:value-of select="./h3/span[@class='parrot-element-title parrot-class-title']"/></xsl:element>
+			<xsl:element name="rdfs:label"><xsl:value-of select="./h3/span[@class='parrot-element-title parrot-property-title']"/></xsl:element>
 			<xsl:element name="rdfs:comment">ID:<xsl:value-of select="@id"/></xsl:element>
 			<xsl:element name="rdfs:comment">Description:<xsl:value-of select="./p[@class='description']"/></xsl:element>
-			<xsl:element name="rdfs:comment">Type:<xsl:value-of select="./h3/span[@rel='rdf:type']"/></xsl:element>
+			<xsl:element name="rdfs:comment">Type:<xsl:value-of select="./h3/span[@rel='rdf:type']/@href"/></xsl:element>
 			<xsl:apply-templates select="./div/div/table/tbody/tr/td/span[@rel='rdfs:range']"/>
 		</xsl:element>
 	</xsl:when>
