@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+    <employees-list>    
+		<employee>
+            <name>Wille Wallaton</name>
+            <salary>666</salary>
+        </employee>
+        <employee>
+            <name>Rapu Ankka</name>
+            <salary>999</salary>
+        </employee>
+    </employees-list>
+	
