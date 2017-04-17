@@ -76,5 +76,8 @@ public class BookMain {
       System.out.println("Book: " + book.getName() + " from "
           + book.getAuthor());
     }
+    //vpa: get location
+    System.out.println("Bookstore location: " +bookstore2.getLocation());
+    
   }
 } 
