@@ -1,0 +1,10 @@
+
+
+CREATE c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 top
+CREATE c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 bottom
+
+CREATE 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 top
+CREATE 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 bottom
+
+
+CONNECT c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 bottom 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 top

@@ -1,0 +1,38 @@
+
+
+----------
+
+
+
+
+NAME:ExternalInterface = top
+CREATE c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 top
+
+
+NAME:ExternalInterface = bottom
+CREATE c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 bottom
+
+----------
+
+
+
+
+NAME:ExternalInterface = top
+CREATE 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 top
+
+
+NAME:ExternalInterface = bottom
+CREATE 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 bottom
+
+----------
+
+
+NAME:InternalLink = Square1 bottom Square2 top
+LINK:RefPartnerSideA = c8d64b63-7f37-4353-8e66-9ef1bc72336e:bottom
+GUID:InternalElement:RefPartnerSideA = c8d64b63-7f37-4353-8e66-9ef1bc72336e
+NAME:ExternalInterface:RefPartnerSideA = bottom
+NAME:InternalElement:RefPartnerSideA = Square1
+NAME:InternalElement:RefPartnerSideA = Square1
+c8d64b63-7f37-4353-8e66-9ef1bc72336e
+
+CONNECT c8d64b63-7f37-4353-8e66-9ef1bc72336e:Square1 bottom 81792d00-84f5-4776-ad8a-54167ffbdd47:Square2 top
