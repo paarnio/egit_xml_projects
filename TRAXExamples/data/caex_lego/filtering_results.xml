@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+MAIN-BRANCH: 1:leg1:true
+MAIN-BRANCH: 1:leg15:true
+MAIN-BRANCH: 2:leg2:true
+MAIN-BRANCH: 2:leg14:true
+MAIN-BRANCH: 3:leg3:true
+MAIN-BRANCH: 3:leg13:true
+MAIN-BRANCH: 4:leg4:true
+MAIN-BRANCH: 4:leg12:true
+MAIN-BRANCH: 5:leg5:true
+MAIN-BRANCH: 5:leg11:true
+MAIN-BRANCH: 6:leg8:true
+
+SUB-BRANCH: 3:leg7:false
+SUB-BRANCH: 4:leg6:false
+SUB-BRANCH: 4:leg10:false
+SUB-BRANCH: 5:leg9:false

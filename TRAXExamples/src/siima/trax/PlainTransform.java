@@ -32,14 +32,18 @@ public class PlainTransform {
 		  * data/caex_lego/Lego_example_mod1.aml
 		  * data/caex_lego/parse_results.xml
 		  * 
+		  * data/caex_lego/CAEXLego2monkey2.xsl
+		  * data/caex_lego/Lego_example_mod1.aml
+		  * data/caex_lego/CAEXLego2monkey2_results.xml
+		  * 
 		  */
 	        
-	        Source xsl = new StreamSource("data/caex_lego/CAEXLego2monkey2.xsl"); //
+	        Source xsl = new StreamSource("data/caex_lego/filtering_asp_models.xsl"); //
 	        Transformer transformer = factory.newTransformer(xsl);
 	        //Source xml 
-	        Source xml = new StreamSource("data/caex_lego/Lego_example_mod1.aml"); //
+	        Source xml = new StreamSource("data/caex_lego/legotower_asp_models.xml"); //
 	        
-	        Result result = new StreamResult("data/caex_lego/CAEXLego2monkey2_results.xml");
+	        Result result = new StreamResult("data/caex_lego/filtering_results.xml");
 	        
 	        transformer.transform(xml, result);
 	        System.out.println("PARSING: ---- Transformation done: See parse results folder-folder. ----");
