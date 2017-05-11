@@ -1,0 +1,438 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<aspmodels>
+<model num='1'>
+<literal predicate='topi' atom='topi(topA)' negative='false'>
+	<arg num='0'>topA</arg>
+</literal><literal predicate='topi' atom='topi(topC)' negative='false'>
+	<arg num='0'>topC</arg>
+</literal><literal predicate='level' atom='level(leg1, 1)' negative='false'>
+	<arg num='0'>leg1</arg>
+	<arg num='1'> 1</arg>
+</literal><literal predicate='level' atom='level(leg2, 2)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> 2</arg>
+</literal><literal predicate='level' atom='level(leg3, 3)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> 3</arg>
+</literal><literal predicate='level' atom='level(leg4, 4)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> 4</arg>
+</literal><literal predicate='level' atom='level(leg5, 5)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> 5</arg>
+</literal><literal predicate='level' atom='level(leg8, 6)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> 6</arg>
+</literal><literal predicate='level' atom='level(leg6, 4)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> 4</arg>
+</literal><literal predicate='level' atom='level(leg7, 3)' negative='false'>
+	<arg num='0'>leg7</arg>
+	<arg num='1'> 3</arg>
+</literal><literal predicate='level' atom='level(leg9, 5)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> 5</arg>
+</literal><literal predicate='level' atom='level(leg12, 4)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> 4</arg>
+</literal><literal predicate='level' atom='level(leg13, 3)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> 3</arg>
+</literal><literal predicate='level' atom='level(leg14, 2)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> 2</arg>
+</literal><literal predicate='level' atom='level(leg15, 1)' negative='false'>
+	<arg num='0'>leg15</arg>
+	<arg num='1'> 1</arg>
+</literal><literal predicate='level' atom='level(leg10, 4)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> 4</arg>
+</literal><literal predicate='level' atom='level(leg11, 5)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> 5</arg>
+</literal><literal predicate='link' atom='link(leg1, topA, leg2, botA)' negative='false'>
+	<arg num='0'>leg1</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg2</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg2, topA, leg3, botA)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg3</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg3, topA, leg4, botA)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg4</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg4, topA, leg5, botA)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg5</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg5, topA, leg8, botC)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg8</arg>
+	<arg num='3'> botC</arg>
+</literal><literal predicate='link' atom='link(leg6, topA, leg5, botC)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg5</arg>
+	<arg num='3'> botC</arg>
+</literal><literal predicate='link' atom='link(leg7, topA, leg6, botA)' negative='false'>
+	<arg num='0'>leg7</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg6</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg9, topA, leg8, botA)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg8</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg12, topA, leg11, botA)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg11</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg13, topA, leg12, botA)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg12</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg14, topA, leg13, botA)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg13</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg15, topA, leg14, botA)' negative='false'>
+	<arg num='0'>leg15</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg14</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='link' atom='link(leg10, topA, leg11, botC)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> topA</arg>
+	<arg num='2'> leg11</arg>
+	<arg num='3'> botC</arg>
+</literal><literal predicate='link' atom='link(leg10, topC, leg9, botA)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> topC</arg>
+	<arg num='2'> leg9</arg>
+	<arg num='3'> botA</arg>
+</literal><literal predicate='interface' atom='interface(botA)' negative='false'>
+	<arg num='0'>botA</arg>
+</literal><literal predicate='interface' atom='interface(botC)' negative='false'>
+	<arg num='0'>botC</arg>
+</literal><literal predicate='interface' atom='interface(topA)' negative='false'>
+	<arg num='0'>topA</arg>
+</literal><literal predicate='interface' atom='interface(topC)' negative='false'>
+	<arg num='0'>topC</arg>
+</literal><literal predicate='subbranchinterface' atom='subbranchinterface(leg6, topA)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='subbranchinterface' atom='subbranchinterface(leg9, topA)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='subbranchinterface' atom='subbranchinterface(leg10, topA)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='connected' atom='connected(leg1, leg2)' negative='false'>
+	<arg num='0'>leg1</arg>
+	<arg num='1'> leg2</arg>
+</literal><literal predicate='connected' atom='connected(leg2, leg1)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> leg1</arg>
+</literal><literal predicate='connected' atom='connected(leg2, leg3)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> leg3</arg>
+</literal><literal predicate='connected' atom='connected(leg3, leg2)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> leg2</arg>
+</literal><literal predicate='connected' atom='connected(leg3, leg4)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> leg4</arg>
+</literal><literal predicate='connected' atom='connected(leg4, leg3)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> leg3</arg>
+</literal><literal predicate='connected' atom='connected(leg4, leg5)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> leg5</arg>
+</literal><literal predicate='connected' atom='connected(leg5, leg4)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> leg4</arg>
+</literal><literal predicate='connected' atom='connected(leg5, leg8)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> leg8</arg>
+</literal><literal predicate='connected' atom='connected(leg5, leg6)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> leg6</arg>
+</literal><literal predicate='connected' atom='connected(leg8, leg5)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> leg5</arg>
+</literal><literal predicate='connected' atom='connected(leg8, leg9)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> leg9</arg>
+</literal><literal predicate='connected' atom='connected(leg6, leg5)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> leg5</arg>
+</literal><literal predicate='connected' atom='connected(leg6, leg7)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> leg7</arg>
+</literal><literal predicate='connected' atom='connected(leg7, leg6)' negative='false'>
+	<arg num='0'>leg7</arg>
+	<arg num='1'> leg6</arg>
+</literal><literal predicate='connected' atom='connected(leg9, leg8)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> leg8</arg>
+</literal><literal predicate='connected' atom='connected(leg9, leg10)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> leg10</arg>
+</literal><literal predicate='connected' atom='connected(leg12, leg13)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> leg13</arg>
+</literal><literal predicate='connected' atom='connected(leg12, leg11)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> leg11</arg>
+</literal><literal predicate='connected' atom='connected(leg13, leg12)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> leg12</arg>
+</literal><literal predicate='connected' atom='connected(leg13, leg14)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> leg14</arg>
+</literal><literal predicate='connected' atom='connected(leg14, leg13)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> leg13</arg>
+</literal><literal predicate='connected' atom='connected(leg14, leg15)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> leg15</arg>
+</literal><literal predicate='connected' atom='connected(leg15, leg14)' negative='false'>
+	<arg num='0'>leg15</arg>
+	<arg num='1'> leg14</arg>
+</literal><literal predicate='connected' atom='connected(leg10, leg9)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> leg9</arg>
+</literal><literal predicate='connected' atom='connected(leg10, leg11)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> leg11</arg>
+</literal><literal predicate='connected' atom='connected(leg11, leg12)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> leg12</arg>
+</literal><literal predicate='connected' atom='connected(leg11, leg10)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> leg10</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg1)' negative='false'>
+	<arg num='0'>leg1</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg2)' negative='false'>
+	<arg num='0'>leg2</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg3)' negative='false'>
+	<arg num='0'>leg3</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg4)' negative='false'>
+	<arg num='0'>leg4</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg5)' negative='false'>
+	<arg num='0'>leg5</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg8)' negative='false'>
+	<arg num='0'>leg8</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg12)' negative='false'>
+	<arg num='0'>leg12</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg13)' negative='false'>
+	<arg num='0'>leg13</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg14)' negative='false'>
+	<arg num='0'>leg14</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg15)' negative='false'>
+	<arg num='0'>leg15</arg>
+</literal><literal predicate='mainbranch' atom='mainbranch(leg11)' negative='false'>
+	<arg num='0'>leg11</arg>
+</literal><literal predicate='square' atom='square(leg1)' negative='false'>
+	<arg num='0'>leg1</arg>
+</literal><literal predicate='square' atom='square(leg2)' negative='false'>
+	<arg num='0'>leg2</arg>
+</literal><literal predicate='square' atom='square(leg3)' negative='false'>
+	<arg num='0'>leg3</arg>
+</literal><literal predicate='square' atom='square(leg4)' negative='false'>
+	<arg num='0'>leg4</arg>
+</literal><literal predicate='square' atom='square(leg6)' negative='false'>
+	<arg num='0'>leg6</arg>
+</literal><literal predicate='square' atom='square(leg7)' negative='false'>
+	<arg num='0'>leg7</arg>
+</literal><literal predicate='square' atom='square(leg9)' negative='false'>
+	<arg num='0'>leg9</arg>
+</literal><literal predicate='square' atom='square(leg12)' negative='false'>
+	<arg num='0'>leg12</arg>
+</literal><literal predicate='square' atom='square(leg13)' negative='false'>
+	<arg num='0'>leg13</arg>
+</literal><literal predicate='square' atom='square(leg14)' negative='false'>
+	<arg num='0'>leg14</arg>
+</literal><literal predicate='square' atom='square(leg15)' negative='false'>
+	<arg num='0'>leg15</arg>
+</literal><literal predicate='hasint' atom='hasint(leg1, botA)' negative='false'>
+	<arg num='0'>leg1</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg1, topA)' negative='false'>
+	<arg num='0'>leg1</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg2, botA)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg2, topA)' negative='false'>
+	<arg num='0'>leg2</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg3, botA)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg3, topA)' negative='false'>
+	<arg num='0'>leg3</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg4, botA)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg4, topA)' negative='false'>
+	<arg num='0'>leg4</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg5, botA)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg5, botC)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> botC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg5, topA)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg5, topC)' negative='false'>
+	<arg num='0'>leg5</arg>
+	<arg num='1'> topC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg8, botA)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg8, botC)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> botC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg8, topA)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg8, topC)' negative='false'>
+	<arg num='0'>leg8</arg>
+	<arg num='1'> topC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg6, botA)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg6, topA)' negative='false'>
+	<arg num='0'>leg6</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg7, botA)' negative='false'>
+	<arg num='0'>leg7</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg7, topA)' negative='false'>
+	<arg num='0'>leg7</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg9, botA)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg9, topA)' negative='false'>
+	<arg num='0'>leg9</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg12, botA)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg12, topA)' negative='false'>
+	<arg num='0'>leg12</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg13, botA)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg13, topA)' negative='false'>
+	<arg num='0'>leg13</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg14, botA)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg14, topA)' negative='false'>
+	<arg num='0'>leg14</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg15, botA)' negative='false'>
+	<arg num='0'>leg15</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg15, topA)' negative='false'>
+	<arg num='0'>leg15</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg10, botA)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg10, botC)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> botC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg10, topA)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg10, topC)' negative='false'>
+	<arg num='0'>leg10</arg>
+	<arg num='1'> topC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg11, botA)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> botA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg11, botC)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> botC</arg>
+</literal><literal predicate='hasint' atom='hasint(leg11, topA)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> topA</arg>
+</literal><literal predicate='hasint' atom='hasint(leg11, topC)' negative='false'>
+	<arg num='0'>leg11</arg>
+	<arg num='1'> topC</arg>
+</literal><literal predicate='lego' atom='lego(leg1)' negative='false'>
+	<arg num='0'>leg1</arg>
+</literal><literal predicate='lego' atom='lego(leg2)' negative='false'>
+	<arg num='0'>leg2</arg>
+</literal><literal predicate='lego' atom='lego(leg3)' negative='false'>
+	<arg num='0'>leg3</arg>
+</literal><literal predicate='lego' atom='lego(leg4)' negative='false'>
+	<arg num='0'>leg4</arg>
+</literal><literal predicate='lego' atom='lego(leg5)' negative='false'>
+	<arg num='0'>leg5</arg>
+</literal><literal predicate='lego' atom='lego(leg8)' negative='false'>
+	<arg num='0'>leg8</arg>
+</literal><literal predicate='lego' atom='lego(leg6)' negative='false'>
+	<arg num='0'>leg6</arg>
+</literal><literal predicate='lego' atom='lego(leg7)' negative='false'>
+	<arg num='0'>leg7</arg>
+</literal><literal predicate='lego' atom='lego(leg9)' negative='false'>
+	<arg num='0'>leg9</arg>
+</literal><literal predicate='lego' atom='lego(leg12)' negative='false'>
+	<arg num='0'>leg12</arg>
+</literal><literal predicate='lego' atom='lego(leg13)' negative='false'>
+	<arg num='0'>leg13</arg>
+</literal><literal predicate='lego' atom='lego(leg14)' negative='false'>
+	<arg num='0'>leg14</arg>
+</literal><literal predicate='lego' atom='lego(leg15)' negative='false'>
+	<arg num='0'>leg15</arg>
+</literal><literal predicate='lego' atom='lego(leg10)' negative='false'>
+	<arg num='0'>leg10</arg>
+</literal><literal predicate='lego' atom='lego(leg11)' negative='false'>
+	<arg num='0'>leg11</arg>
+</literal><literal predicate='rectangle' atom='rectangle(leg5)' negative='false'>
+	<arg num='0'>leg5</arg>
+</literal><literal predicate='rectangle' atom='rectangle(leg8)' negative='false'>
+	<arg num='0'>leg8</arg>
+</literal><literal predicate='rectangle' atom='rectangle(leg10)' negative='false'>
+	<arg num='0'>leg10</arg>
+</literal><literal predicate='rectangle' atom='rectangle(leg11)' negative='false'>
+	<arg num='0'>leg11</arg>
+</literal><literal predicate='bottomi' atom='bottomi(botA)' negative='false'>
+	<arg num='0'>botA</arg>
+</literal><literal predicate='bottomi' atom='bottomi(botC)' negative='false'>
+	<arg num='0'>botC</arg>
+</literal><literal predicate='subbranch' atom='subbranch(leg6)' negative='false'>
+	<arg num='0'>leg6</arg>
+</literal><literal predicate='subbranch' atom='subbranch(leg7)' negative='false'>
+	<arg num='0'>leg7</arg>
+</literal><literal predicate='subbranch' atom='subbranch(leg9)' negative='false'>
+	<arg num='0'>leg9</arg>
+</literal><literal predicate='subbranch' atom='subbranch(leg10)' negative='false'>
+	<arg num='0'>leg10</arg>
+</literal><literal predicate='base' atom='base(leg1)' negative='false'>
+	<arg num='0'>leg1</arg>
+</literal><literal predicate='base' atom='base(leg15)' negative='false'>
+	<arg num='0'>leg15</arg>
+</literal>
+</model>
+</aspmodels>
