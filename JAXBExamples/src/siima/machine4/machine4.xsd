@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VPA: 2017-05-16 machine3.xsd -->
+<!-- See: http://stackoverflow.com/questions/36901915/jax-ws-jaxb-and-unmarshalling-mixed-xsanytype -->
+<!-- VPA: 2017-05-16 how to bind xs:anyType-->
+<!-- VPA: 2017-05-16 NOW a named complexType -->
+<!-- VPA: 2017-05-16 NOW Part is mixed type -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:element name="Machine" type="MachineType"/>
+<!-- Type has name -->
+<xs:complexType name="MachineType">
+	<xs:sequence>
+	<xs:element name="Controller" type="xs:string" minOccurs="0"/>
+	<xs:element name="Series" type="xs:int" minOccurs="0"/>
+	<xs:element name="Part" minOccurs="0"><!-- type="xs:anyType" -->
+		<xs:complexType>
+			<!-- mixed content -->
+			<xs:complexContent mixed="true">
+			<xs:extension base="xs:anyType">
+				<xs:attribute name="type" type="xs:string"/>
+            </xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	</xs:sequence>
+</xs:complexType>
+
+<!--
+<xs:complexType name="PartType">
+	<xs:complexContent mixed="true">
+	<xs:sequence>
+	<xs:element name="Controller" type="xs:string" minOccurs="0"/>
+	<xs:element name="Series" type="xs:int" minOccurs="0"/>
+	<xs:element name="Part" type="xs:anyType" minOccurs="0"/>
+	</xs:sequence>
+	</xs:complexContent>
+</xs:complexType>
+-->
+</xs:schema>
