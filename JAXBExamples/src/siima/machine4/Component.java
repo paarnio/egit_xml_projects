@@ -12,20 +12,18 @@ import javax.xml.bind.annotation.XmlType;
 
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "", propOrder = { "content" })
+@XmlType(name = "", propOrder = { "data" })
 @XmlRootElement(name = "Component")
 public class Component {
 
-	@XmlMixed
-    @XmlAnyElement
-    protected String content;
+    protected String data;
 
-	public String getContent() {
-		return content;
+	public String getData() {
+		return data;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setData(String value) {
+		this.data = value;
 	}
 	
 	

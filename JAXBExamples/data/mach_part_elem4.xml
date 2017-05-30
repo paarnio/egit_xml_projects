@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Machine>
+  <Controller>PLC</Controller>
+  <Series>1</Series>
+  <Part type="Component">
+	<data>DATA</data>
+  </Part>
+</Machine>

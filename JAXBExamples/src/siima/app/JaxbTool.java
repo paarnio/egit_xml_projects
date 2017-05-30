@@ -9,6 +9,8 @@
  * The jaxb classes are genereted using xjc tool in:
  * C:\D-PA\programs\java\2016\JAXB_ri\jaxb-ri-2.2.11\jaxb-ri\vpa_work\anytype_test
  * 
+ * 
+ * 
  */
 
 package siima.app;
@@ -26,6 +28,8 @@ import javax.xml.bind.Unmarshaller;
 
 import primer.po1.PurchaseOrderType;
 import primer.po1.USAddress;
+//import siima.foobar.Bar;
+import siima.foobar.FooBarAnyTypeReader;
 import siima.machine4.Component;
 //import siima.machine.Machine;
 //import siima.machine2.MachineType; //OPTION 2
@@ -40,10 +44,11 @@ public class JaxbTool {
 			// create a JAXBContext capable of handling classes generated into
 			// the siima.machine package OR siima.machine2
 
+			//EI TOIMI machine4 paketissa. Ks. Main4.java toimiva ratkaisu
 			JAXBContext jc = JAXBContext.newInstance("siima.machine4"); // "siima.machine"
 																		// "siima.machine2"
 																		// "siima.machine3"
-																		// "siima.machine4"
+																		// "siima.machine4" (ei toimi tässä)
 
 			// create an Unmarshaller
 			Unmarshaller u = jc.createUnmarshaller();
@@ -58,7 +63,7 @@ public class JaxbTool {
 
 			/* OPTION 2 genereted by machine2.xsd TOIMII with String content */
 
-			JAXBElement jelem = (JAXBElement) u.unmarshal(new FileInputStream("data/mach_part_elem.xml")); // "data/mach_part.xml"
+			JAXBElement jelem = (JAXBElement) u.unmarshal(new FileInputStream("data/mach_part_elem4.xml")); // "data/mach_part.xml"
 																										// data/mach_part_elem.xml
 			MachineType mach = (MachineType) jelem.getValue();
 
@@ -97,11 +102,23 @@ public class JaxbTool {
 				}
 
 			}
-
+						
 			// create a Marshaller and marshal to a file
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 			// m.marshal( jelem, System.out );
+			
+			/* **** NEW SOLUTION TRY **** */
+			
+			FooBarAnyTypeReader anysolver = new FooBarAnyTypeReader();
+			
+			//EI TOIMI
+			//newfoo.content = anysolver.marshal(newbar);
+			
+			Component compContent = anysolver.unmarshal(part.content, null, Component.class);
+			
+			System.out.println("CONTENT: " + compContent.getData());
+			
 
 		} catch (JAXBException je) {
 			je.printStackTrace();
