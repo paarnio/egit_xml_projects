@@ -1,6 +1,7 @@
 /* FooBarAnyTypeReader.java
  * 
- * unmarshalling xs:anyType content TOIMII!!
+ * unmarshall xs:anyType content TOIMII!!
+ * marshal method modified TOIMII!! (See Main4B.java ja JaxbTool.java)
  * 
  * TESTING SOLUTION IN:
  * https://stackoverflow.com/questions/36901915/jax-ws-jaxb-and-unmarshalling-mixed-xsanytype
@@ -33,21 +34,32 @@ import org.w3c.dom.NodeList;
 public class FooBarAnyTypeReader {
 	
 	/* SOLUTION method*/
-	public static List<Object> marshal(Object value) { //EI TOIMI???
+	public static List<Object> marshal(Object value, int child_item_nr) { 
+		/* If value itself is the anyType object, set child_item_nr = 0
+		 * TOIMII (ks. Main4B.java)
+		 */
 	    try {
 	        Class<?> type = value.getClass();
-	        //System.out.println("Type before: " + type.getName());
+	        System.out.println("Type before: " + type.getName());
 	        if (type.isAnonymousClass())
 	            type = type.getSuperclass();
-	        ///System.out.println("Type after: " + type.getName());
+	        System.out.println("Type after: " + type.getName());
 	        
 	        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 	        Marshaller marshaller = JAXBContext.newInstance(type).createMarshaller(); //orig.
 	        //VPA TEST: Marshaller marshaller = JAXBContext.newInstance(Foo.class, type).createMarshaller();
 	        marshaller.marshal(new JAXBElement<>(QName.valueOf("root"), Object.class, value), document); // orig
 	        
-
-	        NodeList nodes = document.getDocumentElement().getChildNodes();
+	        //TEMP TEST WITH Main4B
+	        //NodeList nodes = document.getDocumentElement().getChildNodes(); //orig	        
+	        NodeList nods = document.getDocumentElement().getChildNodes();
+	        for (int i =0; i< nods.getLength(); i++){
+	        	Node node = nods.item(i);
+	        	System.out.println("marshal() Child node nr(" + (i+1) + ") is " + node.getNodeName());	        	
+	        }
+	        Node anytypenode = nods.item(child_item_nr-1);
+	        NodeList nodes = anytypenode.getChildNodes();
+	        		
 	        return IntStream.range(0, nodes.getLength()).mapToObj(nodes::item).collect(Collectors.toList());
 	    } catch (Exception e) {
 	        throw new RuntimeException(e);

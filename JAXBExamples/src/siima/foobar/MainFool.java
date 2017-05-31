@@ -1,3 +1,9 @@
+/* MainFool.java
+ * TOIMII!!!!
+ * 
+ * See. MainFool.java TOIMII
+ * 
+ */
 package siima.foobar;
 
 import java.io.File;

@@ -9,7 +9,7 @@
  * The jaxb classes are genereted using xjc tool in:
  * C:\D-PA\programs\java\2016\JAXB_ri\jaxb-ri-2.2.11\jaxb-ri\vpa_work\anytype_test
  * 
- * 
+ * TOIMII!!!!
  * 
  */
 
@@ -48,7 +48,7 @@ public class JaxbTool {
 			JAXBContext jc = JAXBContext.newInstance("siima.machine4"); // "siima.machine"
 																		// "siima.machine2"
 																		// "siima.machine3"
-																		// "siima.machine4" (ei toimi t‰ss‰)
+																		// "siima.machine4" 
 
 			// create an Unmarshaller
 			Unmarshaller u = jc.createUnmarshaller();
@@ -79,24 +79,30 @@ public class JaxbTool {
 			int snum = mach.getSeries();
 			// Object part = mach.getPart();
 			// OPTION 3 String part= (String) mach.getPart();
-			// OPTION 4:
+			
+			/* *************************************************
+			 *  OPTION 4: TOIMII JAXB paketin siima.machine4 kanssa 
+			 *  (See also Main4B.java)
+			 *  
+			 * *******************************/
 			Part part = mach.getPart();
+			
 			List<Object> cons = part.getContent();
-			Object content = null;
+			Object cont = null;
 			if (cons != null)
-				content = cons.get(0);
-
+				cont = cons.get(0);
+			
 			System.out.println("JaxbTool: machine contains: (" + ctrl + ":" + snum + ":" + part.toString() + ")");
 			System.out.println("JaxbTool: part class name: (" + part.getClass().getName() + ")");
-			if (content != null) {
-				System.out.println("JaxbTool: content class name: (" + content.getClass().getName() + ")");
+			if (cont != null) {
+				System.out.println("JaxbTool: content class name: (" + cont.getClass().getName() + ")");
 
-				if ("String".equals(content.getClass().getSimpleName())) {
+				if ("String".equals(cont.getClass().getSimpleName())) {
 					// IF: data/mach_part.xml														
-					System.out.println("JaxbTool: content string value: (" + ((String) content) + ")");
+					System.out.println("JaxbTool: content string value: (" + ((String) cont) + ")");
 
 				} else { // IF: data/mach_part_elem.xml (<Part><Component>COMPONENT</Component></Part>)
-					System.out.println("JaxbTool: content value?: (" + content.toString()+ ")" + content ); //[Component: null]
+					System.out.println("JaxbTool: content value?: (" + cont.toString()+ ")" + cont ); //[Component: null]
 					//Component comp = (Component)content; //com.sun.org.apache.xerces.internal.dom.ElementNSImpl cannot be cast to siima.machine4.Component
 					//System.out.println("JaxbTool: Component value?: (" + comp.getContent() + ")" + content );
 				}
@@ -106,17 +112,18 @@ public class JaxbTool {
 			// create a Marshaller and marshal to a file
 			Marshaller m = jc.createMarshaller();
 			m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
-			// m.marshal( jelem, System.out );
+			m.marshal( jelem, System.out );
 			
 			/* **** NEW SOLUTION TRY **** */
 			
 			FooBarAnyTypeReader anysolver = new FooBarAnyTypeReader();
 			
-			//EI TOIMI
-			//newfoo.content = anysolver.marshal(newbar);
+			//part.content on protected joten voi k‰ytt‰‰ vain samassa package of MachineType.
+			Part newpart = new Part();
+			List<Object> newcontent = newpart.getContent();
+			newcontent = anysolver.marshal(mach, 3);
 			
-			Component compContent = anysolver.unmarshal(part.content, null, Component.class);
-			
+			Component compContent = anysolver.unmarshal(newcontent, null, Component.class);
 			System.out.println("CONTENT: " + compContent.getData());
 			
 
