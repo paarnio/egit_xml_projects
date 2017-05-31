@@ -37,14 +37,14 @@ public class Main4B {
 			if (cons != null)
 				cont = cons.get(0);
 
-			System.out.println("JaxbTool: machine contains: (" + ctrl + ":" + snum + ":" + part.toString() + ")");
-			System.out.println("JaxbTool: part class name: (" + part.getClass().getName() + ")");
+			System.out.println("Main4B: machine contains: (" + ctrl + ":" + snum + ":" + part.toString() + ")");
+			System.out.println("Main4B: part class name: (" + part.getClass().getName() + ")");
 			if (cont != null) {
-				System.out.println("JaxbTool: content class name: (" + cont.getClass().getName() + ")");
+				System.out.println("Main4B: content class name: (" + cont.getClass().getName() + ")");
 
 				if ("String".equals(cont.getClass().getSimpleName())) {
 
-					System.out.println("JaxbTool: content string value: (" + ((String) cont) + ")");
+					System.out.println("Main4B: content string value: (" + ((String) cont) + ")");
 
 				} else {
 					System.out.println("JaxbTool: content value?: (" + cont.toString() + ")" + cont);

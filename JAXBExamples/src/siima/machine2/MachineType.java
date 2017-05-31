@@ -48,10 +48,7 @@ public class MachineType {
     @XmlElement(name = "Series")
     protected Integer series;
     @XmlElement(name = "Part")
-    //VPA: =========== MODIFICATION
-    // ORIG: protected Object part;
-    protected String part;
-
+    protected Object part; 
     /**
      * Gets the value of the controller property.
      * 
@@ -100,7 +97,7 @@ public class MachineType {
         this.series = value;
     }
 
-  //===========VPA: MODIFICATION
+  
     /**
      * Gets the value of the part property.
      * 
@@ -108,12 +105,12 @@ public class MachineType {
      *     possible object is
      *     {@link Object }
      *     
-    
+     */
     public Object getPart() {
         return part;
     }
 
- */
+
     /**
      * Sets the value of the part property.
      * 
@@ -121,17 +118,10 @@ public class MachineType {
      *     allowed object is
      *     {@link Object }
      *     
-     
+     */
+    
     public void setPart(Object value) {
         this.part = value;
     }
-*/
-    
-    public String getPart() {
-        return part;
-    }
 
-    public void setPart(String value) {
-        this.part = value;
-    }
 }

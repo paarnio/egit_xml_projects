@@ -1,0 +1,220 @@
+HOW TO UNMARSHAL XML ELEMENT CONTENT DEFINED AS xs:anyType IN SCHEMA
+====================================================================
+THE PROBLEM: Element content of xs:anyType elements can not be unmarshalled by using JAXB.
+SOLUTION:
+[1] From: Ronald Rosendahl [ronald.rosendahl@ovgu.de]
+Sent: Tuesday, May 23, 2017 12:15 PM
+"The xs:any type is not possible to be  mapped to a runtime type. Depending
+on schema compiler or lifter engine it usually is kind of xml stream
+or dom type. Cast check the object for info. Eclipse will provide
+xerxes xml dom. Then explore the content and parse/convert value from
+string to given type."
+
+From stackowerflow:
+The original idea for this solution: 
+[2] https://stackoverflow.com/questions/36901915/jax-ws-jaxb-and-unmarshalling-mixed-xsanytype
+The solution was tested in my egit project: (egit-meta-xml) JAXBExamples (siima).
+The special marshal and unmarshal methods declared in [2] have been implemented in
+an example class called 'siima.foobar.FooBarAnyTypeReader'
+
+The basic IDEA is that:
+---------------------
+1) XML document is first normally UNMARSHALLED using Jaxb.
+2) The jaxb object (of some named class) containing the anyType Object needs to be first MARSHALLED
+into a DOM document.
+3) From this DOM document the content of the anyType object can be UNMARSHALLED into an object
+of an approbriate class.
+
+----------------------------
+1) FIRST EXAMPLE PART A(simple string content):
+Main2B.java
+==============================
+
+(package: siima.machine2) 
+The following schema defines an element Machine with type MachineType
+Third child element 'Part' is type xs:anyType. Jaxb (using compiler tool xjc)
+generetes a java class MachineType, which has an Object type property 'part' (protected Object part;)
+In this first example the source XML document's 'Part' element contains only a string value 'MAIN_PART',
+which we need to obtain.
+   
+--------SCHEMA:
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VPA: 2017-05-16 machine2.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:element name="Machine" type="MachineType"/>
+<!-- Type has name -->
+<xs:complexType name="MachineType">
+<xs:sequence>
+<xs:element name="Controller" type="xs:string" minOccurs="0"/>
+<xs:element name="Series" type="xs:int" minOccurs="0"/>
+<xs:element name="Part" type="xs:anyType" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+</xs:schema>
+
+-------- JAXB CLASS
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "MachineType", propOrder = {
+    "controller",
+    "series",
+    "part"
+})
+public class MachineType {
+
+    @XmlElement(name = "Controller")
+    protected String controller;
+    @XmlElement(name = "Series")
+    protected Integer series;
+    @XmlElement(name = "Part")
+    protected Object part; 
+...
+---------XML DOC:mach_part.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- mach_part.xml based on schema machine2.xsd
+ Part is xs:anyType -->
+<Machine>
+  <Controller>PLC</Controller>
+  <Series>1</Series>
+  <Part>MAIN_PART</Part>
+</Machine>
+-------------------------
+
+Main2B.java
+----------
+Jaxb context is defined and mach_part.xml unmarshalled in a normal way.
+The root object 'mach' type MachineType is marshalled into DOM document by
+calling a special marshal-method of class FooBarAnyTypeReader (from [2]). 
+Also, the order number of the wanted child node (Part) of the root element (Machine) is given 
+as an argument to the method. This method returns the third child node 
+(i.e. Part element) of the root node as an java Object named 'newpart'.
+
+Converting this object to String returns (in case: mach_part.xml):
+newpart object as a string: [[#text: MAIN_PART]]
+from which the actual content string can be directly parsed.
+Main2B: object has string value: MAIN_PART
+========================
+PART B(content with child elements):
+Main2B.java
+HOWEVER WITH A SOURCE XML DOC: 
+---------XML DOC:mach_part_elem2.xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  mach_part_elem2.xml based on schema machine2.xsd
+ Part is xs:anyType -->
+<Machine>
+  <Controller>PLC</Controller>
+  <Series>1</Series>
+  <Part><data>EXAMPLE_2</data></Part>
+</Machine>
+
+PRODUCES:
+newpart object as a string: [[data: null]]
+from which we know that there is an element <data> FROM WITCH 
+the actual content string of this element CANNOT be directly parsed.
+
+From the [[data: information we can assume that the XML Part element contains
+the same structure as 'Component' element.
+So we need to UNMARSHAL the newpart object by calling FooBarAnyTypeReader's 
+unmarshal() method, which returns Component object.
+
+
+========================================
+2) SECOND EXAMPLE (the Part element contains child elements
+AND element 'Part' has complex content type 'mixed'):
+Main4B.java
+-------------
+(package: siima.machine4) 
+The schema and the genereted java classes are almost the same as in the first example,
+except that the third child element 'Part' has complex content type 'mixed' and 
+its type extended xs:anyType. Now, Jaxb compiler generetes an inner class 'Part'
+for the MachineType class:
+the main element content will now be in a List of Objects with name 'content':
+protected List<Object> content; This content needs to be unmarshalled 
+
+
+Now the source XML document's 'Part' element contains child elements with a structure
+complying with that of Component element (and java class)
+which we need to obtain.
+
+-----------
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- VPA: 2017-05-16 machine4.xsd -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:element name="Machine" type="MachineType"/>
+<!-- Type has name -->
+<xs:complexType name="MachineType">
+	<xs:sequence>
+	<xs:element name="Controller" type="xs:string" minOccurs="0"/>
+	<xs:element name="Series" type="xs:int" minOccurs="0"/>
+	<xs:element name="Part" minOccurs="0"><!-- type="xs:anyType" -->
+		<xs:complexType>
+			<!-- mixed content -->
+			<xs:complexContent mixed="true">
+			<xs:extension base="xs:anyType">
+				<xs:attribute name="type" type="xs:string"/>
+            </xs:extension>
+			</xs:complexContent>
+		</xs:complexType>
+	</xs:element>
+	</xs:sequence>
+</xs:complexType>
+
+-------- JAXB CLASS
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "MachineType", propOrder = {
+    "controller",
+    "series",
+    "part"
+})
+public class MachineType {
+
+    @XmlElement(name = "Controller")
+    protected String controller;
+    @XmlElement(name = "Series")
+    protected Integer series;
+    @XmlElement(name = "Part")
+    protected MachineType.Part part;
+	...
+// AND THE INNER CLASS Part
+ @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "content"
+    })
+    public static class Part {
+
+        @XmlMixed
+        @XmlAnyElement
+        protected List<Object> content;
+        @XmlAttribute(name = "type")
+        protected String type;
+        @XmlAnyAttribute
+        private Map<QName, String> otherAttributes = new HashMap<QName, String>();
+
+---------XML DOC:
+<?xml version="1.0" encoding="UTF-8"?>
+<Machine>
+  <Controller>PLC</Controller>
+  <Series>1</Series>
+  <Part type="Component">
+	<data>DATA</data>
+  </Part>
+</Machine>
+
+-------- JAXB CLASS Component
+COMPLYING WITH Parts inner structure
+@XmlAccessorType(XmlAccessType.FIELD)
+@XmlType(name = "", propOrder = { "data" })
+@XmlRootElement(name = "Component")
+public class Component {
+
+    protected String data;
+
+	public String getData() {
+		return data;
+	}
+
+	public void setData(String value) {
+		this.data = value;
+	}
+}
+----------------------------
+

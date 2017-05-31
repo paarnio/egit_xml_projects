@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <!--
- mach_part.xml based on schema machine.xsd
+ mach_part_elem2.xml based on schema machine.xsd
  Part is xs:anyType
 -->
 <Machine>
   <Controller>PLC</Controller>
   <Series>1</Series>
-  <!--Part>MAIN_PART</Part-->
-  <Part><Component>COMPONENT</Component></Part>
+  <Part><data>EXAMPLE_2</data></Part>
 </Machine>
