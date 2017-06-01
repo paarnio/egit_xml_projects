@@ -1,5 +1,6 @@
 /* Main4B.java
  * TOIMII!!!!
+ * Kutsuu myös anysolver.marshal(mach,3) metodia!!
  * 
  * See also Main4.java
  * See. MainFool.java TOIMII

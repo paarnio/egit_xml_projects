@@ -23,6 +23,7 @@ import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.bind.annotation.XmlType;
 import javax.xml.namespace.QName;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -35,11 +36,15 @@ public class FooBarAnyTypeReader {
 	
 	/* SOLUTION method*/
 	public static List<Object> marshal(Object value, int child_item_nr) { 
-		/* If value itself is the anyType object, set child_item_nr = 0
-		 * TOIMII (ks. Main4B.java)
+		/* @Param Object value contains the xs:anyType object as it's child item.
+		 * (e.g. if the order child_item_ord = 3, the third child is the anyType item).
+		 * If the Object value itself is the anyType object, set child_item_nr = 0 
+		 * (is the last option possible? Not tested)
+		 * TOIMII kun child_item_nr>0  (ks. Main2B.java Main4B.java)
 		 */
 	    try {
-	        Class<?> type = value.getClass();
+	    	Node anytypenode = null;
+	    	Class<?> type = value.getClass();
 	        System.out.println("Type before: " + type.getName());
 	        if (type.isAnonymousClass())
 	            type = type.getSuperclass();
@@ -47,9 +52,9 @@ public class FooBarAnyTypeReader {
 	        
 	        Document document = DocumentBuilderFactory.newInstance().newDocumentBuilder().newDocument();
 	        Marshaller marshaller = JAXBContext.newInstance(type).createMarshaller(); //orig.
-	        //VPA TEST: Marshaller marshaller = JAXBContext.newInstance(Foo.class, type).createMarshaller();
+	        //Marshaller marshaller = JAXBContext.newInstance(Foo.class, Bar.class).createMarshaller(); //VPA TEST: 
 	        marshaller.marshal(new JAXBElement<>(QName.valueOf("root"), Object.class, value), document); // orig
-	        
+	        System.out.println("After marshal: ");
 	        //TEMP TEST WITH Main4B
 	        //NodeList nodes = document.getDocumentElement().getChildNodes(); //orig	        
 	        NodeList nods = document.getDocumentElement().getChildNodes();
@@ -57,9 +62,14 @@ public class FooBarAnyTypeReader {
 	        	Node node = nods.item(i);
 	        	System.out.println("marshal() Child node nr(" + (i+1) + ") is " + node.getNodeName());	        	
 	        }
-	        Node anytypenode = nods.item(child_item_nr-1);
+	        if(child_item_nr>0){ //One of the children is the anyType object
+	        	anytypenode = nods.item(child_item_nr-1);
+	        } else { //the value object is the anyType object itself
+	        	anytypenode = document.getDocumentElement();
+	        }
+	        
 	        NodeList nodes = anytypenode.getChildNodes();
-	        		
+	        System.out.println("Before return: ");		
 	        return IntStream.range(0, nodes.getLength()).mapToObj(nodes::item).collect(Collectors.toList());
 	    } catch (Exception e) {
 	        throw new RuntimeException(e);
@@ -124,17 +134,19 @@ public class FooBarAnyTypeReader {
 		    */
 			
 		/* ******* BY SOLUTION PROVIDER ***** */
-			/*Foo newfoo = new Foo();
+			Foo newfoo = new Foo();
 		    newfoo.type = "Bar";
-
+		    /*
 		    Bar newbar = new Bar();
 		    newbar.id = 456;*/
 	
 			FooBarAnyTypeReader anysolver = new FooBarAnyTypeReader();
 			
-			//EI TOIMI
-			//newfoo.content = anysolver.marshal(newbar);
+			//EI TOIMI? "siima.foobar.Foo" is bound to an anonymous type 
+			//(NIIN ON XML annotoinneissa: @XmlType(name = "",)
+			//newfoo.content = anysolver.marshal(foo,0);
 			
+			//Bar contentbar = anysolver.unmarshal(newfoo.content, null, Bar.class);
 			Bar contentbar = anysolver.unmarshal(foo.content, null, Bar.class);
 			
 			System.out.println("CONTENT: " + contentbar.getId());
