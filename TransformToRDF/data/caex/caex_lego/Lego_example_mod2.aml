@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="Lego_example_mod2.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>AutomationML Editor</WriterName>
+			<WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+			<WriterVendor>AutomationML e.V.</WriterVendor>
+			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+			<WriterVersion>4.4.3.0</WriterVersion>
+			<WriterRelease>4.4.3.0</WriterRelease>
+			<LastWritingDateTime>2017-04-26T17:51:03.2950719+03:00</LastWritingDateTime>
+			<WriterProjectTitle>unspecified</WriterProjectTitle>
+			<WriterProjectID>unspecified</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<InstanceHierarchy Name="InstanceHierarchy1">
+		<Version>1.0.0</Version>
+		<!-- CONTAINER InternalElement added -->
+		<InternalElement Name="LegoPlatform" RefBaseSystemUnitPath="SystemUnitClassLib1/LegoPlatform" ID="GUID6666">
+			<InternalElement Name="Square1" RefBaseSystemUnitPath="SystemUnitClassLib1/SquareLego" ID="c8d64b63-7f37-4353-8e66-9ef1bc72336e">
+				<Attribute Name="Color" AttributeDataType="xs:string">
+					<Description>color</Description>
+					<Value>green</Value>
+				</Attribute>
+				<ExternalInterface Name="top" ID="d79eae07-695e-4a17-b771-8402f2642945" RefBaseClassPath="InterfaceClassLib1/ILego" />
+				<ExternalInterface Name="bottom" ID="d390f44a-c5a4-4df5-89bd-501810b6ffda" RefBaseClassPath="InterfaceClassLib1/ILego" />
+				<!-- MOVED <InternalLink Name="Square1 bottom Square2 top" /> -->
+			</InternalElement>
+			<InternalElement Name="Square2" RefBaseSystemUnitPath="SystemUnitClassLib1/SquareLego" ID="81792d00-84f5-4776-ad8a-54167ffbdd47">
+				<Attribute Name="Color" AttributeDataType="xs:string">
+					<Description>color</Description>
+					<Value>red</Value>
+				</Attribute>
+				<ExternalInterface Name="top" ID="8655182c-17e0-4fbe-b91a-c8d8ad5a605a" RefBaseClassPath="InterfaceClassLib1/ILego" />
+				<ExternalInterface Name="bottom" ID="b7d4f7e4-2b83-4715-bb16-1482b77402e0" RefBaseClassPath="InterfaceClassLib1/ILego" />
+			</InternalElement>
+			<InternalElement Name="Rectangle1" ID="4f063b8e-70c0-4d72-bf4b-42bbd932eec8" RefBaseSystemUnitPath="SystemUnitClassLib1/RectangleLego">
+				<Attribute Name="Color" AttributeDataType="xs:string">
+					<Description>color</Description>
+					<Value>red</Value>
+				</Attribute>
+				<Attribute Name="Orientation" AttributeDataType="xs:string">
+					<Description>orientation</Description>
+					<Value>east</Value>
+				</Attribute>
+				<ExternalInterface Name="topA" ID="9318c67c-c399-4c88-924e-ab7a9b48cbdd" />
+				<ExternalInterface Name="topB" ID="1b247abe-eb07-45e1-a54d-f999a52498d8" />
+				<ExternalInterface Name="topC" ID="fc7406cd-184e-487e-88f3-c15e8acdc8ed" />
+				<ExternalInterface Name="bottomA" ID="3fe85adf-82a4-456f-88a7-ac8aabe617be" />
+				<ExternalInterface Name="bottomB" ID="3997a0b3-d007-4ad0-be70-cc499c717bec" />
+				<ExternalInterface Name="bottomC" ID="dee2ad20-4b0b-4203-a8ec-0680d22cb61d" />
+			</InternalElement>
+			<!-- MOVED HERE AND RefPartnerSideA-B added -->
+			<InternalLink Name="Square1 bottom Square2 top" RefPartnerSideA="c8d64b63-7f37-4353-8e66-9ef1bc72336e:bottom" RefPartnerSideB="81792d00-84f5-4776-ad8a-54167ffbdd47:top" />
+			<InternalLink Name="InternalLink1" RefPartnerSideA="4f063b8e-70c0-4d72-bf4b-42bbd932eec8:bottomA" RefPartnerSideB="c8d64b63-7f37-4353-8e66-9ef1bc72336e:top" />
+		</InternalElement>
+	</InstanceHierarchy>
+	<InterfaceClassLib Name="InterfaceClassLib1">
+		<Version>1.0.0</Version>
+		<InterfaceClass Name="ILego" />
+	</InterfaceClassLib>
+	<SystemUnitClassLib Name="SystemUnitClassLib1">
+		<Version>1.0.0</Version>
+		<SystemUnitClass Name="SquareLego">
+			<Attribute Name="Color" AttributeDataType="xs:string">
+				<Description>color</Description>
+			</Attribute>
+			<ExternalInterface Name="top" ID="1828ae73-60d5-42a9-b4dc-a05598769470" RefBaseClassPath="InterfaceClassLib1/ILego" />
+			<ExternalInterface Name="bottom" ID="9c24496a-84a1-4bab-99b0-b33d5dcf551f" RefBaseClassPath="InterfaceClassLib1/ILego" />
+		</SystemUnitClass>
+		<SystemUnitClass Name="RectangleLego">
+			<Attribute Name="Color" AttributeDataType="xs:string">
+				<Description>color</Description>
+			</Attribute>
+			<Attribute Name="Orientation" AttributeDataType="xs:string" />
+			<ExternalInterface Name="topA" ID="1c9fd49d-6062-4eaa-9993-40e15fd5dc45" />
+			<ExternalInterface Name="topB" ID="da5d3a65-8e39-4bb0-adcc-2fddff5641a2" />
+			<ExternalInterface Name="topC" ID="c246b609-7191-4b35-9816-3685d6f7af1c" />
+			<ExternalInterface Name="bottomA" ID="13b57e12-58e2-462d-8107-fc8c934bfb82" />
+			<ExternalInterface Name="bottomB" ID="38b06eab-47c0-4711-9421-9ad22f8b11e6" />
+			<ExternalInterface Name="bottomC" ID="46e7efb9-f1f2-4406-a58b-0981d455ad26" />
+		</SystemUnitClass>
+	</SystemUnitClassLib>
+</CAEXFile>

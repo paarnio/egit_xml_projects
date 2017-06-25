@@ -56,7 +56,7 @@ public class WeatherJavaObjectsToRdf
 
          //unmarshal the information from xml
          JAXBContext jaxbContext = 
-            JAXBContext.newInstance("net.semwebprogramming.chapter9.weather");
+            JAXBContext.newInstance("net.semwebprogramming.chapter9.weather"); 
          Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
          CurrentObservation currentObservation = 
             (CurrentObservation)unmarshaller.unmarshal(xmlFileInputStream);
