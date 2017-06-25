@@ -1,0 +1,70 @@
+@prefix xsd:     <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dOnt:    <http://www.weather.gov/ontology#> .
+
+dOnt:ImageType
+      a       owl:Class .
+
+<http://www.weather.gov/weather#1431467659>
+      a       dOnt:ImageType ;
+      dOnt:Link "http://weather.gov"^^xsd:string ;
+      dOnt:Title "NOAA's National Weather Service"^^xsd:string ;
+      dOnt:Url "http://weather.gov/images/xml_logo.gif"^^xsd:string .
+
+<http://www.weather.gov/weather#525968792>
+      a       dOnt:CurrentObservation ;
+      dOnt:CopyrightUrl "http://weather.gov/disclaimer.html"^^xsd:string ;
+      dOnt:Credit "NOAA's National Weather Service"^^xsd:string ;
+      dOnt:CreditURL "http://weather.gov/"^^xsd:string ;
+      dOnt:DewpointC "-3.0"^^xsd:double ;
+      dOnt:DewpointF "27.0"^^xsd:double ;
+      dOnt:DewpointString "27 F (-3 C)"^^xsd:string ;
+      dOnt:DisclaimerUrl "http://weather.gov/disclaimer.html"^^xsd:string ;
+      dOnt:HeatIndexString
+              "NA"^^xsd:string ;
+      dOnt:IconUrlBase "http://weather.gov/weather/images/fcicons/"^^xsd:string ;
+      dOnt:IconUrlName "sct.jpg"^^xsd:string ;
+      dOnt:Image <http://www.weather.gov/weather#1431467659> ;
+      dOnt:Latitude "39.19"^^xsd:string ;
+      dOnt:Location "Baltimore-Washington International Airport, MD"^^xsd:string ;
+      dOnt:Longitude "-76.67"^^xsd:string ;
+      dOnt:ObUrl "http://www.nws.noaa.gov/data/METAR/KBWI.1.txt"^^xsd:string ;
+      dOnt:ObservationTime
+              "Last Updated on Oct 19, 2:54 pm EDT"^^xsd:string ;
+      dOnt:ObservationTimeRfc822
+              "Sun, 19 Oct 2008 14:54:00 -0400 EDT"^^xsd:string ;
+      dOnt:PressureIn "30.33"^^xsd:double ;
+      dOnt:PressureMb "1027.0"^^xsd:double ;
+      dOnt:PressureString "30.33\" (1027.0 mb)"^^xsd:string ;
+      dOnt:PrivacyPolicyUrl
+              "http://weather.gov/notice.html"^^xsd:string ;
+      dOnt:RelativeHumidity
+              "32"^^xsd:long ;
+      dOnt:StationId "KBWI"^^xsd:string ;
+      dOnt:SuggestedPickup
+              "15 minutes after the hour"^^xsd:string ;
+      dOnt:SuggestedPickupPeriod
+              "60"^^xsd:long ;
+      dOnt:TempC "14.0"^^xsd:double ;
+      dOnt:TempF "57.0"^^xsd:double ;
+      dOnt:TemperatureString
+              "57 F (14 C)"^^xsd:string ;
+      dOnt:TwoDayHistoryUrl
+              "http://www.weather.gov/data/obhistory/KBWI.html"^^xsd:string ;
+      dOnt:Version "1.0"^^xsd:string ;
+      dOnt:VisibilityMi "10.0"^^xsd:double ;
+      dOnt:Weather "Partly Cloudy"^^xsd:string ;
+      dOnt:WindDegrees "50"^^xsd:long ;
+      dOnt:WindDir "Northeast"^^xsd:string ;
+      dOnt:WindGustMph "22.0"^^xsd:double ;
+      dOnt:WindMph "10.35"^^xsd:double ;
+      dOnt:WindString "From the Northeast at 10 Gusting to 22 MPH"^^xsd:string ;
+      dOnt:WindchillC "13"^^xsd:long ;
+      dOnt:WindchillF "55"^^xsd:long ;
+      dOnt:WindchillString
+              "55 F (13 C)"^^xsd:string .
+
+dOnt:CurrentObservation
+      a       owl:Class .
