@@ -10,11 +10,11 @@ dOnt:ChangeMode
 dOnt:CAEXFile
       a       owl:Class .
 
-<http://siima.org/caex/individuals#1380806038>
+<http://siima.org/caex/individuals#1151844284>
       a       dOnt:CAEXFile ;
-      dOnt:ChangeMode <http://siima.org/caex/individuals#38262958> ;
+      dOnt:ChangeMode <http://siima.org/caex/individuals#1787079037> ;
       dOnt:FileName "Lego_example_mod2.aml"^^xsd:string ;
       dOnt:SchemaVersion "2.15"^^xsd:string .
 
-<http://siima.org/caex/individuals#38262958>
+<http://siima.org/caex/individuals#1787079037>
       a       dOnt:ChangeMode .
