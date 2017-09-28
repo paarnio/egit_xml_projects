@@ -22,34 +22,54 @@ public class ZipFileReader {
 
 	public StringBuffer textcontents = new StringBuffer();
 
-	public void readXmlStreamFromZipFile(String filename, String dir, ZipFile zip) { // orig. readZipFile
+	public InputStream getInputStreamFromZipFile(String fullPathInZip, ZipFile zip) {
+		/* Simple way to do it */		
+		InputStream inputstream = null;
 		try {
+			inputstream = zip.getInputStream(zip.getEntry(fullPathInZip));			
+		} catch (IOException e) {			
+			e.printStackTrace();
+		}
+		return inputstream;
+	}
+	
+	public InputStream readXmlStreamFromZipFile(String filename, String dir, ZipFile zip) {
+		Boolean dirOK = false;
+		try {
+			/* TEST: this Simple way to do it
+			String filepath = dir + filename;
+			InputStream inputstream = zip.getInputStream(zip.getEntry(filepath));
+			*/
 			for (Enumeration e = zip.entries(); e.hasMoreElements();) {
 				ZipEntry entry = (ZipEntry) e.nextElement();
-				if (!entry.isDirectory()) {
-					if (entry.getName().endsWith("png")) {
 
-						byte[] image = getImage(zip.getInputStream(entry));
-						System.out.println("PNG image " + entry.getName() + " byte length:\n" + image.length);
-						// do your thing
-					} else if (entry.getName().endsWith("txt")) {
-						StringBuilder out = getTxtFiles(zip.getInputStream(entry));
-						// do your thing
-						textcontents.append(out.toString());
-						System.out.println("TXT FILE " + entry.getName() +" CONTENTS:\n" + out);
+				if (entry.isDirectory()) { // Directory search
+					if (entry.getName().equals(dir)) {
+						dirOK = true;
+						System.out.println("--+ Directory found: " + entry.getName());
+					} else {
+						dirOK = false;
 					}
-				} else { //Check directory
-					
-					System.out.println("--+ Directory: " + entry.getName());
+
+				} else if ((!entry.isDirectory()) && (dirOK)) { // File search
+																// from the
+																// correct
+																// Directory
+					if (entry.getName().endsWith(filename)) {
+
+						System.out.println("--+ FOUND FILE " + entry.getName());
+						InputStream inputstream = zip.getInputStream(entry);
+						return inputstream;
+					}
 				}
 			}
+
 		} catch (IOException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		return null;
 	}
-	
-	
 	
 	public void readAndCheckZipFileContent(ZipFile zip) { // orig. readZipFile
 		try {
@@ -66,6 +86,16 @@ public class ZipFileReader {
 						// do your thing
 						textcontents.append(out.toString());
 						System.out.println("TXT FILE " + entry.getName() +" CONTENTS:\n" + out);
+					} else if (entry.getName().endsWith("xml")) {
+						StringBuilder out = getTxtFiles(zip.getInputStream(entry));
+						// do your thing
+						textcontents.append(out.toString());
+						System.out.println("XML FILE " + entry.getName() +" CONTENTS:\n" + out);
+					} else if (entry.getName().endsWith("xsl")) {
+						StringBuilder out = getTxtFiles(zip.getInputStream(entry));
+						// do your thing
+						textcontents.append(out.toString());
+						System.out.println("XSL FILE " + entry.getName() +" CONTENTS:\n" + out);
 					}
 				}
 			}
@@ -75,7 +105,7 @@ public class ZipFileReader {
 		}
 	}
 
-	private StringBuilder getTxtFiles(InputStream in) {
+	public StringBuilder getTxtFiles(InputStream in) {
 		StringBuilder out = new StringBuilder();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 		String line;
@@ -106,16 +136,28 @@ public class ZipFileReader {
 	}
 
 	public static void main(String[] args) {
-		 try {
-			ZipFile zip = new ZipFile("./data/zips/test.zip");
-			
+		
+			/*ZipFile zip = new ZipFile("./data/zips/test.zip");			
 			ZipFileReader zipper = new ZipFileReader();
 			zipper.readAndCheckZipFileContent(zip);
+			*/
 			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			try {
+			 
+			 String zipFilePath = "./data/zips/RoundU1_sub2_123000.zip";
+			 String directoryInZip = "RoundU1_sub2_123000/exU1E1_1/src/";
+			 String fileInZip = "plant_catalog.xml";
+			 String fullPathInZip = directoryInZip + fileInZip;
+			 
+			ZipFile zip = new ZipFile("./data/zips/RoundU1_sub2_123000.zip");			
+			ZipFileReader zipper = new ZipFileReader();
+			InputStream inputstream = zipper.getInputStreamFromZipFile(fullPathInZip, zip);
+			StringBuilder strb = zipper.getTxtFiles(inputstream);
+			System.out.println("FILE CONTENTS:\n" + strb.toString());
+			} catch (IOException e) {
 			e.printStackTrace();
-		}
+			}
+			
 
 	}
 
