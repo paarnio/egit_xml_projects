@@ -9,12 +9,19 @@
  * 
  * javax.xml.transform.Source
  * javax.xml.transform.stax.StAXSource
+ * ----------
+ * Note: Streams are normally read only one time.
+ * But they can be saved in a byte array to avoid reading from file
+ * all the time: See
+ * https://stackoverflow.com/questions/9501237/read-stream-twice
  * 
  */
 package siima.app;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
@@ -36,15 +43,44 @@ public class SerialXSLTransformer {
 	
 	private Source xml;	
 	private Source xsl;
+	//Saving the contents of the xsl InputStream to a byte array
+	private byte[] xslinputbytes; 
 	
 	private Templates template;	
 	private Transformer transformer;
 	
-	public SerialXSLTransformer(){
-		
-		factory = TransformerFactory.newInstance();
+	
+	
+	/* Constructor */
+	public SerialXSLTransformer(){		
+		factory = TransformerFactory.newInstance();		
+	}
+	
+	public void getSavedXslInputStream(){
+		/*
+		 * TODO: https://stackoverflow.com/questions/9501237/read-stream-twice
+		 * EPÄVARMAA TOIMIIKO	
+		 */
 		
 	}
+	
+	/* Saving xsl InputStream into byte array */
+	public void saveXslInputStreamAsByteArray(InputStream xslinput){
+	/*
+	 * TODO: https://stackoverflow.com/questions/9501237/read-stream-twice
+	 * EPÄVARMAA TOIMIIKO	
+	 */
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			org.apache.commons.io.IOUtils.copy(xslinput, baos);
+			this.xslinputbytes = baos.toByteArray();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+	
 	
 	public boolean invokeXSLTransform(OutputStream outputstream, List<String> params, List<String> values) {
 

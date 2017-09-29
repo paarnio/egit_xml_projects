@@ -36,9 +36,8 @@ public class ZipFileReader {
 	public InputStream readXmlStreamFromZipFile(String filename, String dir, ZipFile zip) {
 		Boolean dirOK = false;
 		try {
-			/* TEST: this Simple way to do it
-			String filepath = dir + filename;
-			InputStream inputstream = zip.getInputStream(zip.getEntry(filepath));
+			/* 
+			 * If dir == null searches the file from every directory
 			*/
 			for (Enumeration e = zip.entries(); e.hasMoreElements();) {
 				ZipEntry entry = (ZipEntry) e.nextElement();
@@ -51,7 +50,7 @@ public class ZipFileReader {
 						dirOK = false;
 					}
 
-				} else if ((!entry.isDirectory()) && (dirOK)) { // File search
+				} else if ((dir==null)|| (dirOK)) { // File search
 																// from the
 																// correct
 																// Directory
@@ -65,7 +64,7 @@ public class ZipFileReader {
 			}
 
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
+			
 			e1.printStackTrace();
 		}
 		return null;

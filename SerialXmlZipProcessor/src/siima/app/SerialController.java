@@ -1,3 +1,12 @@
+/* SerialController.java
+ * 
+ * TODO:
+ * Note: Streams are normally read only one time.
+ * But they can be saved in a byte array to avoid reading from file
+ * all the time: See
+ * https://stackoverflow.com/questions/9501237/read-stream-twice
+ * 
+ */
 package siima.app;
 
 import java.io.FileNotFoundException;
@@ -16,12 +25,12 @@ public class SerialController {
 	private SerialXSLTransformer xslTransformer;
 	private boolean prepared = false;
 	
+	/* Constructor */
 	public SerialController(){
 		xslTransformer = new SerialXSLTransformer();
 	}
 
 	public boolean runTransform(String resultFilePath,  List<String> params, List<String> values ) {
-		//TODO: params delivery
 		boolean ok = false;
 		OutputStream outputstream;
 		try {
@@ -41,9 +50,16 @@ public class SerialController {
 		 try {
 			ZipFile zip = new ZipFile(zipFilePath);
 			InputStream xslInputstream = zipper.getInputStreamFromZipFile(fullXSLPathInZip, zip);
+			if(xslInputstream==null){ //Let's try to find the file from every directory in zip
+				xslInputstream = zipper.readXmlStreamFromZipFile(xslfileInZip, null, zip);
+			}
 			InputStream xmlInputstream = zipper.getInputStreamFromZipFile(fullXMLPathInZip, zip);
-			
+			if(xmlInputstream==null){ //Let's try to find the file from every directory in zip
+				xmlInputstream = zipper.readXmlStreamFromZipFile(xmlfileInZip, null, zip);
+			}
+			if((xslInputstream!=null)&&(xmlInputstream!=null)){
 			ok = prepareXSLTransform(xslInputstream, xmlInputstream);
+			}
 			
 		} catch (IOException e) {
 			e.printStackTrace();
