@@ -222,7 +222,8 @@ public class SerialController {
 			 //ctrl.loadXmlStreamFromZipUseStoredXslAndPrepare(zipFilePath, directoryInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(null, null, zipFilePath, fullXMLPathInZip);
 			 ctrl.runTransform(resultFilePath22,  null,null);
-			 
+			
+			 /*
 			 String resultFilePath23 = "./data/zips/result23.xml";
 			 //ctrl.loadXmlStreamFromZipUseStoredXslAndPrepare(zipFilePath, directoryInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(null, null, zipFilePath, fullXMLPathInZip);
@@ -232,7 +233,7 @@ public class SerialController {
 			 //ctrl.loadXmlStreamFromZipUseStoredXslAndPrepare(zipFilePath, directoryInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(null, null, zipFilePath, fullXMLPathInZip);
 			 ctrl.runTransform(resultFilePath24,  null,null);
-
+			*/
 	}
 	/*
 	 * REPLACED OLD METHODS

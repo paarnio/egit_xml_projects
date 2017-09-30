@@ -136,27 +136,6 @@ public class SerialXSLTransformer {
 	}
 	
 	
-	
-	/* XSL SPECIFIC METHOD
-	 * Saving XSL InputStream into byte array 
-	 * */
-	public void saveXslInputStreamAsByteArray(InputStream xslinput){
-	/* See also method:saveInputStreamAsByteArray()
-	 * https://stackoverflow.com/questions/9501237/read-stream-twice
-	 * TOIMII	
-	 */
-		try {
-			ByteArrayOutputStream baos = new ByteArrayOutputStream();
-			org.apache.commons.io.IOUtils.copy(xslinput, baos);
-			this.xslInputBytes = baos.toByteArray();
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-	}
-	
-	
 	public boolean invokeXSLTransform(OutputStream outputstream, List<String> params, List<String> values) {
 
 		/* Note: params and values can be null
@@ -285,4 +264,24 @@ public class SerialXSLTransformer {
 		  serTrans.invokeXSLTransform(resultoutput, params, values);
 		  
 	  }
+	  
+		/* REMOVED XSL SPECIFIC METHOD
+		 * Saving XSL InputStream into byte array 
+		 * */
+		public void wwwwsaveXslInputStreamAsByteArray(InputStream xslinput){
+		/* Replaced by: method:saveInputStreamAsByteArray()
+		 * https://stackoverflow.com/questions/9501237/read-stream-twice
+		 * TOIMII	
+		 */
+			try {
+				ByteArrayOutputStream baos = new ByteArrayOutputStream();
+				org.apache.commons.io.IOUtils.copy(xslinput, baos);
+				this.xslInputBytes = baos.toByteArray();
+				
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+		
 }
