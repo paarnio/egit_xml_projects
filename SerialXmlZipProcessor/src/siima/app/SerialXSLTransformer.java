@@ -5,19 +5,22 @@
  * FROM: http://stackoverflow.com/questions/23864828/provide-trax-parser-example-in-java-xml-to-xml-xslt-transformation
  * JAVADOC: http://docs.oracle.com/javase/6/docs/api/javax/xml/transform/package-summary.html
  * ------------------------
- * TODO: Which of these Sources to use: 
- * 
+ * TODO: Which of these Sources to use:  
  * javax.xml.transform.Source
  * javax.xml.transform.stax.StAXSource
  * ----------
  * Note: Streams are normally read only one time.
- * But they can be saved in a byte array to avoid reading from file
- * all the time: See
- * https://stackoverflow.com/questions/9501237/read-stream-twice
+ * But they can be saved in a byte array to avoid reading 
+ * again from the same file
+ * See: https://stackoverflow.com/questions/9501237/read-stream-twice
+ * ---
+ * Javadoc  NOTE:Note: Due to their internal use of either a Reader or InputStream instance, 
+ * StreamSource instances may only be used once!!!
  * 
  */
 package siima.app;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -41,10 +44,15 @@ public class SerialXSLTransformer {
 	
 	private TransformerFactory factory;
 	
-	private Source xml;	
-	private Source xsl;
-	//Saving the contents of the xsl InputStream to a byte array
-	private byte[] xslinputbytes; 
+	private Source xmlSource;	
+	private Source xslSource;
+	//XSL InputStream saved to a Byte Array and ByteArrayInputStream
+	private byte[] xslInputBytes;	
+	private ByteArrayInputStream xslBAInputStream;
+	
+	//XML InputStream saved to a Byte Array and ByteArrayInputStream
+	private byte[] xmlInputBytes;	
+	private ByteArrayInputStream xmlBAInputStream;
 	
 	private Templates template;	
 	private Transformer transformer;
@@ -56,24 +64,91 @@ public class SerialXSLTransformer {
 		factory = TransformerFactory.newInstance();		
 	}
 	
-	public void getSavedXslInputStream(){
-		/*
-		 * TODO: https://stackoverflow.com/questions/9501237/read-stream-twice
-		 * EPÄVARMAA TOIMIIKO	
+	public InputStream getSavedBAInputStream(String XSL_or_XML){
+		/* Param xsl_or_xml allowed values: "XSL" OR "XML"
+		 * Resets the existing saved xslBAInputStream.reset(); and returns it.
+		 * https://stackoverflow.com/questions/9501237/read-stream-twice
+		 * 
+		 * // either TOIMII
+			while (needToReadAgain) {
+    		ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+    		yourReadMethodHere(bais);
+			}
+
+			// or TOIMII
+			ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
+			while (needToReadAgain) {
+    		bais.reset();
+    		yourReadMethodHere(bais);
+			}
+		 * 	
 		 */
+		InputStream requestedInputStream = null;
 		
+		if ("XSL".equalsIgnoreCase(XSL_or_XML)) {
+			// XML InputStream requested
+			if (this.xslBAInputStream == null) {
+				// Option 1
+				this.xslBAInputStream = new ByteArrayInputStream(this.xslInputBytes);
+			} else {
+				// Option 2
+				this.xslBAInputStream.reset();
+			}
+			requestedInputStream = this.xslBAInputStream;
+
+		} else if ("XML".equalsIgnoreCase(XSL_or_XML)) {
+			// XML InputStream requested
+			if (this.xmlBAInputStream == null) {
+				// Option 1
+				this.xmlBAInputStream = new ByteArrayInputStream(this.xmlInputBytes);
+			} else {
+				// Option 2
+				this.xmlBAInputStream.reset();
+			}
+			requestedInputStream = this.xslBAInputStream;
+		}
+	 return requestedInputStream;
 	}
 	
-	/* Saving xsl InputStream into byte array */
+	/* Saving XSL OR XML InputStream into byte array */
+	public boolean saveInputStreamAsByteArray(InputStream xslinput, String XSL_or_XML){
+	/* Param xsl_or_xml allowed values: "XSL" OR "XML"
+	 * https://stackoverflow.com/questions/9501237/read-stream-twice
+	 * TOIMII	
+	 */
+		boolean ok = false;
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			org.apache.commons.io.IOUtils.copy(xslinput, baos);
+		
+			if("XSL".equalsIgnoreCase(XSL_or_XML)){
+				this.xslInputBytes = baos.toByteArray();
+				ok = true;
+			} else if("XML".equalsIgnoreCase(XSL_or_XML)){
+				this.xmlInputBytes = baos.toByteArray();
+				ok = true;
+			}
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return ok;
+	}
+	
+	
+	
+	/* XSL SPECIFIC METHOD
+	 * Saving XSL InputStream into byte array 
+	 * */
 	public void saveXslInputStreamAsByteArray(InputStream xslinput){
-	/*
-	 * TODO: https://stackoverflow.com/questions/9501237/read-stream-twice
-	 * EPÄVARMAA TOIMIIKO	
+	/* See also method:saveInputStreamAsByteArray()
+	 * https://stackoverflow.com/questions/9501237/read-stream-twice
+	 * TOIMII	
 	 */
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
 			org.apache.commons.io.IOUtils.copy(xslinput, baos);
-			this.xslinputbytes = baos.toByteArray();
+			this.xslInputBytes = baos.toByteArray();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -101,7 +176,7 @@ public class SerialXSLTransformer {
 				}							
 			}
 			Result result = new StreamResult(outputstream); // ("data/out2.xml");
-			transformer.transform(xml, result);
+			transformer.transform(xmlSource, result);
 		} catch (TransformerConfigurationException e) {
 			e.printStackTrace();
 		} catch (TransformerException e) {
@@ -121,7 +196,7 @@ public class SerialXSLTransformer {
 		try {
 			
 			setXSLSource(xslinput, xsluri);
-			template = factory.newTemplates(xsl);
+			template = factory.newTemplates(xslSource);
 			if(template!=null)ok = true;
 		} catch (TransformerConfigurationException e) {
 
@@ -131,7 +206,14 @@ public class SerialXSLTransformer {
 		return ok;
 	}
 	
-	public boolean setXMLSource(InputStream xmlinput, String xmluri){
+	/* XML SPECIFIC METHOD */
+	public boolean setTransformerXMLSource(InputStream xmlinput, String xmluri){
+		
+		return setXMLSource(xmlinput, xmluri);
+	}
+	
+	/* XML SPECIFIC METHOD */
+	private boolean setXMLSource(InputStream xmlinput, String xmluri){
 		/* IF xmluri==null OPT1
 		 * OPT1: StreamSource(xmlinput)
 		 * 
@@ -140,17 +222,22 @@ public class SerialXSLTransformer {
 		 * which allows relative URIs to be processed. 
 		 * Parameters:inputStream - A valid InputStream reference to an XML stream.
 		 * systemId - Must be a String that conforms to the URI syntax.
+		 * 
+		 * NOTE:Note: Due to their internal use of either a Reader or InputStream instance, 
+		 * StreamSource instances may only be used once!!! 
+		 * 
 		 */
 		boolean ok = false;
 		if(xmluri!=null){
-			xml = new StreamSource(xmlinput, xmluri);
+			xmlSource = new StreamSource(xmlinput, xmluri);
 		} else {
-			xml = new StreamSource(xmlinput);
+			xmlSource = new StreamSource(xmlinput);
 		}
-		if(xml!=null) ok = true;
+		if(xmlSource!=null) ok = true;
 		return ok;
 	}
 	
+	/* XSL SPECIFIC METHOD */
 	private boolean setXSLSource(InputStream xslinput, String xsluri){
 		/* NOTE: Private
 		 * IF xsluri==null OPT1
@@ -164,11 +251,11 @@ public class SerialXSLTransformer {
 		 */
 		boolean ok = false;
 		if(xsluri!=null){
-			xsl = new StreamSource(xslinput, xsluri);
+			xslSource = new StreamSource(xslinput, xsluri);
 		} else {
-			xsl = new StreamSource(xslinput);
+			xslSource = new StreamSource(xslinput);
 		}
-		if(xsl!=null) ok = true;
+		if(xslSource!=null) ok = true;
 		return ok;
 	}
 

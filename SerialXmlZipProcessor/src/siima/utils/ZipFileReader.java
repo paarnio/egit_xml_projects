@@ -1,4 +1,4 @@
-/*
+/* ZipFileReader.java
  * See project: MiscAndZips ZipFileReader.java
  * from:https://stackoverflow.com/questions/36548755/read-zip-file-content-without-extracting-in-java
  */
@@ -22,18 +22,26 @@ public class ZipFileReader {
 
 	public StringBuffer textcontents = new StringBuffer();
 
-	public InputStream getInputStreamFromZipFile(String fullPathInZip, ZipFile zip) {
-		/* Simple way to do it */		
+	public InputStream readInputStreamFromZipFile(String fullPathInZip, ZipFile zip, String fileExt) {
+		/* Simple way to do it (Searching only the specified path)
+		 * Param: fileExt. If not null, checks the file extension 
+		 * (e.g.fileExt = "xsl" or "xml") 
+		 * (See also: readStreamFromZipFile())
+		 **/		
 		InputStream inputstream = null;
 		try {
-			inputstream = zip.getInputStream(zip.getEntry(fullPathInZip));			
+			ZipEntry entry = zip.getEntry(fullPathInZip);
+			if((fileExt==null)||(entry.getName().endsWith(fileExt))) {
+				inputstream = zip.getInputStream(zip.getEntry(fullPathInZip));
+			}
 		} catch (IOException e) {			
 			e.printStackTrace();
 		}
 		return inputstream;
 	}
 	
-	public InputStream readXmlStreamFromZipFile(String filename, String dir, ZipFile zip) {
+	public InputStream readInputStreamFromZipFile(String filename, String dir, ZipFile zip) {
+		// Reading stream (e.g textual). Searching everywhere if needed
 		Boolean dirOK = false;
 		try {
 			/* 
@@ -50,10 +58,8 @@ public class ZipFileReader {
 						dirOK = false;
 					}
 
-				} else if ((dir==null)|| (dirOK)) { // File search
-																// from the
-																// correct
-																// Directory
+				} else if ((dir==null)|| (dirOK)) { 
+					// File search from the correct Directory
 					if (entry.getName().endsWith(filename)) {
 
 						System.out.println("--+ FOUND FILE " + entry.getName());
@@ -71,6 +77,9 @@ public class ZipFileReader {
 	}
 	
 	public void readAndCheckZipFileContent(ZipFile zip) { // orig. readZipFile
+		/* Goes through all directories and files
+		 * Text files and image files
+		 * */
 		try {
 			for (Enumeration e = zip.entries(); e.hasMoreElements();) {
 				ZipEntry entry = (ZipEntry) e.nextElement();
@@ -150,7 +159,7 @@ public class ZipFileReader {
 			 
 			ZipFile zip = new ZipFile("./data/zips/RoundU1_sub2_123000.zip");			
 			ZipFileReader zipper = new ZipFileReader();
-			InputStream inputstream = zipper.getInputStreamFromZipFile(fullPathInZip, zip);
+			InputStream inputstream = zipper.readInputStreamFromZipFile(fullPathInZip, zip, null);
 			StringBuilder strb = zipper.getTxtFiles(inputstream);
 			System.out.println("FILE CONTENTS:\n" + strb.toString());
 			} catch (IOException e) {
