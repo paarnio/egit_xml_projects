@@ -32,39 +32,27 @@ public class ExcelMng {
 		this.doubleperiodevents = new ArrayList<String>();
 	}
 
-	public String[] readPredefinedSchedulesFromExcel(String season, int runnumber, String sheetname, int firstcolind,
-			int lastcolind, int firstrowind, int lastrowind) {
-		String[] fixedscheds;
-		String[] periods;
-		List<String> predefinedslots = new ArrayList<String>();
-		int readrows = lastrowind - firstrowind + 1;
-		
-		this.ex2s.setSheetind(this.ex2s.getSheetIndex(sheetname)); // ("Configure"));
+	public List<String> readSubmitZipNames(String sheetname, int firstcolind,
+			int lastcolind, int firstrowind, int lastrowind){
+		List<String> zips=null;
+		this.ex2s.setSheetind(this.ex2s.getSheetIndex(sheetname));
 		this.ex2s.setCellArea(firstcolind, lastcolind, firstrowind, lastrowind); //
-		fixedscheds = this.ex2s.toStringArray(); //NOTE: Lukee vain ekan sarakkeen
+		zips = this.ex2s.toStringList(false);
 		
-		/* --- Mapping property values --- */
-		
-		//this.ex2s.setCellArea(firstcolind + 1, lastcolind + 1, firstrowind,	lastrowind); //
-		//periods = this.ex2s.toStringArray();
-		
-		for (int i = 0; i < readrows; i++) { 
-			if ((!"null".equalsIgnoreCase(fixedscheds[i]))
-					&& (!"null".equalsIgnoreCase(fixedscheds[i])) && fixedscheds[i]!=null && fixedscheds[i]!=null) {
-				predefinedslots.add(fixedscheds[i]);
-			}
-		}	
-		
-		
-		return predefinedslots.toArray(new String[predefinedslots.size()]);
+		return zips;
 	}
+	
 	
 	public static void main(String[] args) {
 		
 		ExcelMng mng = new ExcelMng("data/excel/test.xlsx");
-		String[] sched = mng.readPredefinedSchedulesFromExcel("season", 1, "Sheet1", 1, 6, 10, 19);
+		/*String[] sched = mng.readPredefinedSchedulesFromExcel("season", 1, "Sheet1", 1, 6, 10, 19);
 		for(int i=0; i<sched.length ; i++)
-		System.out.println("OUT" + sched[i]);
+		System.out.println("OUT" + sched[i]);*/
+		
+		List<String> zips = mng.readSubmitZipNames("Sheet1", 4, 5, 10, 13);
+		for(String zip : zips) System.out.println("OUT" + zip);
+		
 	}
 	
 }

@@ -17,6 +17,40 @@ public class TaskCycleProcessor {
 		excel_mng = new ExcelMng("data/excel/students.xlsx");
 	}
 	
+	public void runTaskCycles(){
+		String taskFlowXmlFile = "data/taskflow/taskflow1.xml";
+		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
+		
+		List<String> zips = readSubmitZipNames();
+		/* --- Task Loop --- */
+		for(TestCaseType tcase : testcases){
+			
+			/* --- Submit Loop --- */	
+			
+			
+		}
+		
+		
+	}
+	
+	public List<String> readSubmitZipNames(){
+		String sheetname = "Sheet1";
+		List<String> zips;
+		ExcelMng mng = getExcel_mng();
+		//zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
+		zips = mng.readSubmitZipNames(sheetname, 4, 5, 10, 13);
+		return zips;
+	}
+	
+	public List<TestCaseType> readTestCases(String taskFlowXmlFile){
+		List<TestCaseType> cases = null;
+		// Testcase Info by unmarshalling taskflow1.xml
+		TestCaseContainer tcc = getTest_cc();
+		CheckerTaskFlowType taskflow = tcc.loadCheckerTaskFlowModel(taskFlowXmlFile);
+		cases = taskflow.getTestCase();
+		return cases;
+	}
+	
 	public static void main(String[] args) {
 		String studentsExcel = "data/excel/students.xlsx";
 		String taskFlowXmlFile = "data/taskflow/taskflow1.xml";
@@ -27,9 +61,12 @@ public class TaskCycleProcessor {
 		
 		//Submit zip file names from excel
 		ExcelMng mng = cycle_pros.getExcel_mng();
-		String[] zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
+		/*String[] zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
 		for(int i=0; i<zips.length ; i++)
 		System.out.println("STUDENT SUBMITS: " + zips[i]);
+		*/
+		List<String> zips = cycle_pros.readSubmitZipNames();
+		for ( String zip : zips) System.out.println("STUDENT SUBMIT: " + zip);
 		
 		// Testcase Info by unmarshalling taskflow1.xml
 		TestCaseContainer tcc = cycle_pros.getTest_cc();
@@ -54,7 +91,7 @@ public class TaskCycleProcessor {
 		System.out.println("STUDENT XSLFILE: " + fullXSLPathInZip);
 		//Prepare and run transform
 		TransformController ctrl = cycle_pros.getTrans_ctrl();
-		String zippath = "data/zips/Round1/" + zips[0];
+		String zippath = "data/zips/Round1/" + zips.get(0);
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
 		ctrl.runTransform(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);

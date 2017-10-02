@@ -55,7 +55,7 @@ public class TestCaseContainer {
 		System.out.println("TestCaseContainer StuZip: " + szip);
 		
 		List<TestCaseType> cases = taskflow.getTestCase();
-		cases.get(0).getPoints();
+		System.out.println("POINTS: " + cases.get(0).getPoints());
 
 	}
 
