@@ -1,4 +1,4 @@
-/* SerialController.java
+/* TransformController.java
  * 
  * 
  * Note: Streams are normally read only one time.
@@ -19,15 +19,15 @@ import java.util.zip.ZipFile;
 
 import siima.utils.ZipFileReader;
 
-public class SerialController {
+public class TransformController {
 	
 	private ZipFileReader zipper = new ZipFileReader();
-	private SerialXSLTransformer xslTransformer;
+	private XSLTransformer xslTransformer;
 	private boolean prepared = false;
 	
 	/* Constructor */
-	public SerialController(){
-		xslTransformer = new SerialXSLTransformer();
+	public TransformController(){
+		xslTransformer = new XSLTransformer();
 	}
 
 	/***
@@ -203,7 +203,7 @@ public class SerialController {
 			 String resultFilePath2 = "./data/zips/result2.xml";
 			 
 			 
-			 SerialController ctrl = new SerialController();
+			 TransformController ctrl = new TransformController();
 			 /* OPT1: Loading XML & XSL from Zip every time */
 			 //ctrl.loadStreamsFromZipAndPrepare(zipFilePath, directoryInZip, xslfileInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(zipFilePath, fullXSLPathInZip, zipFilePath, fullXMLPathInZip);

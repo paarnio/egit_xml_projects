@@ -3,6 +3,7 @@ package siima.app;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBElement;
@@ -11,6 +12,7 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 import siima.model.checker.taskflow.CheckerTaskFlowType;
+import siima.model.checker.taskflow.TestCaseType;
 
 
 public class TestCaseContainer {
@@ -51,6 +53,9 @@ public class TestCaseContainer {
 		
 		String szip = taskflow.getStuZip();
 		System.out.println("TestCaseContainer StuZip: " + szip);
+		
+		List<TestCaseType> cases = taskflow.getTestCase();
+		cases.get(0).getPoints();
 
 	}
 

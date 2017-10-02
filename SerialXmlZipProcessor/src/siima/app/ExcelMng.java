@@ -25,9 +25,9 @@ public class ExcelMng {
 	private List<String> firstperiodevents = null;
 	private List<String> doubleperiodevents = null;
 	
-	public ExcelMng(){
+	public ExcelMng(String excelfile){
 		
-		this.ex2s = new ExcelToStringArray("data/excel/test.xlsx");
+		this.ex2s = new ExcelToStringArray(excelfile);
 		this.firstperiodevents = new ArrayList<String>();
 		this.doubleperiodevents = new ArrayList<String>();
 	}
@@ -61,7 +61,7 @@ public class ExcelMng {
 	
 	public static void main(String[] args) {
 		
-		ExcelMng mng = new ExcelMng();
+		ExcelMng mng = new ExcelMng("data/excel/test.xlsx");
 		String[] sched = mng.readPredefinedSchedulesFromExcel("season", 1, "Sheet1", 1, 6, 10, 19);
 		for(int i=0; i<sched.length ; i++)
 		System.out.println("OUT" + sched[i]);

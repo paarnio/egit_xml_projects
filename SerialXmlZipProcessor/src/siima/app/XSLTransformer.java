@@ -1,4 +1,4 @@
-/* Transformer.java
+/* XSLTransformer.java
  * 2017-09-29 TOIMII
  * (See orig idea VPA: XMLTransformExample.java in TRAXExamples project)
  * 
@@ -40,7 +40,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
-public class SerialXSLTransformer {
+public class XSLTransformer {
 	
 	private TransformerFactory factory;
 	
@@ -60,7 +60,7 @@ public class SerialXSLTransformer {
 	
 	
 	/* Constructor */
-	public SerialXSLTransformer(){		
+	public XSLTransformer(){		
 		factory = TransformerFactory.newInstance();		
 	}
 	
@@ -251,7 +251,7 @@ public class SerialXSLTransformer {
 		  InputStream xslinput = new FileInputStream("data/tmp/input.xsl");
 		  OutputStream resultoutput = new FileOutputStream("data/tmp/out.xml");
 		  
-		  SerialXSLTransformer serTrans = new SerialXSLTransformer();
+		  XSLTransformer serTrans = new XSLTransformer();
 		  serTrans.setXMLSource(xmlinput, null);
 		  serTrans.createNewTemplate(xslinput, null);
 		  
