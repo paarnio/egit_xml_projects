@@ -25,8 +25,13 @@ public class TaskCycleProcessor {
 		/* --- Task Loop --- */
 		for(TestCaseType tcase : testcases){
 			
-			/* --- Submit Loop --- */	
+			System.out.println("--- Task Loop --- ");
 			
+			/* --- Submit Loop --- */	
+			for(String zip : zips){
+				
+				System.out.println("--- Submit Loop --- ");
+			}
 			
 		}
 		
@@ -95,6 +100,9 @@ public class TaskCycleProcessor {
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
 		ctrl.runTransform(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);
+		
+		//Run Cycles
+		cycle_pros.runTaskCycles();
 		 
 	}
 
