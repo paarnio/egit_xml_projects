@@ -8,6 +8,8 @@
 
 package siima.model.checker.taskflow;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,20 +17,20 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for operationType complex type.
+ * <p>Java class for flowType complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="operationType"&gt;
+ * &lt;complexType name="flowType"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
  *         &lt;element name="type" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="par1" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="par2" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
- *         &lt;element name="return" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="inChannel" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="2" minOccurs="0"/&gt;
+ *         &lt;element name="outChannel" type="{http://www.w3.org/2001/XMLSchema}string"/&gt;
+ *         &lt;element name="operation" type="{}operationType" maxOccurs="unbounded" minOccurs="0"/&gt;
  *         &lt;element ref="{}comment" minOccurs="0"/&gt;
  *       &lt;/sequence&gt;
  *     &lt;/restriction&gt;
@@ -39,26 +41,24 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "operationType", propOrder = {
+@XmlType(name = "flowType", propOrder = {
     "type",
     "name",
-    "par1",
-    "par2",
-    "_return",
+    "inChannel",
+    "outChannel",
+    "operation",
     "comment"
 })
-public class OperationType {
+public class FlowType {
 
     @XmlElement(required = true)
     protected String type;
     @XmlElement(required = true)
     protected String name;
+    protected List<String> inChannel;
     @XmlElement(required = true)
-    protected String par1;
-    @XmlElement(required = true)
-    protected String par2;
-    @XmlElement(name = "return", required = true)
-    protected String _return;
+    protected String outChannel;
+    protected List<OperationType> operation;
     protected String comment;
 
     /**
@@ -110,75 +110,85 @@ public class OperationType {
     }
 
     /**
-     * Gets the value of the par1 property.
+     * Gets the value of the inChannel property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the inChannel property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getInChannel().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link String }
+     * 
+     * 
+     */
+    public List<String> getInChannel() {
+        if (inChannel == null) {
+            inChannel = new ArrayList<String>();
+        }
+        return this.inChannel;
+    }
+
+    /**
+     * Gets the value of the outChannel property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getPar1() {
-        return par1;
+    public String getOutChannel() {
+        return outChannel;
     }
 
     /**
-     * Sets the value of the par1 property.
+     * Sets the value of the outChannel property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setPar1(String value) {
-        this.par1 = value;
+    public void setOutChannel(String value) {
+        this.outChannel = value;
     }
 
     /**
-     * Gets the value of the par2 property.
+     * Gets the value of the operation property.
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getPar2() {
-        return par2;
-    }
-
-    /**
-     * Sets the value of the par2 property.
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the operation property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
-    public void setPar2(String value) {
-        this.par2 = value;
-    }
-
-    /**
-     * Gets the value of the return property.
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOperation().add(newItem);
+     * </pre>
      * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
-     */
-    public String getReturn() {
-        return _return;
-    }
-
-    /**
-     * Sets the value of the return property.
      * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link OperationType }
+     * 
+     * 
      */
-    public void setReturn(String value) {
-        this._return = value;
+    public List<OperationType> getOperation() {
+        if (operation == null) {
+            operation = new ArrayList<OperationType>();
+        }
+        return this.operation;
     }
 
     /**

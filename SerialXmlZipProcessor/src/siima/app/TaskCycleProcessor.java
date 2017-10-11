@@ -4,6 +4,7 @@ import java.math.BigInteger;
 import java.util.List;
 
 import siima.model.checker.taskflow.CheckerTaskFlowType;
+import siima.model.checker.taskflow.FlowType;
 import siima.model.checker.taskflow.OperationType;
 import siima.model.checker.taskflow.TestCaseType;
 
@@ -17,25 +18,126 @@ public class TaskCycleProcessor {
 		excel_mng = new ExcelMng("data/excel/students.xlsx");
 	}
 	
-	public void runTaskCycles(){
-		String taskFlowXmlFile = "data/taskflow/taskflow1.xml";
-		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
+	public void runTaskCycles() {
+		/*
+		 *  
+		 */
+		String resultFileDir = "data/zips";
 		
+		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
 		List<String> zips = readSubmitZipNames();
-		/* --- Task Loop --- */
-		for(TestCaseType tcase : testcases){
+		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
+		System.out.println("\n********** runTaskCycles() ********\n");
+		
+		int submitcnt =0;
+		/* --- Student Submit Loop --- */
+		for (String zip : zips) {
+			submitcnt++;
+			System.out.println("+ Submit Loop #" + submitcnt);
+			System.out.println("  Submit zip: " + zip);
 			
-			System.out.println("--- Task Loop --- ");
-			
-			/* --- Submit Loop --- */	
-			for(String zip : zips){
+		
+		/* --- TestCase Loop --- */
+		for (TestCaseType tcase : testcases) {
+			System.out.println("--+ TestCase Loop --- ");
+			String rdir= tcase.getRefDir();
+			String rfile1= tcase.getRefFile1();
+			String rfile2= tcase.getRefFile2();
+			String sdir= tcase.getStuDir();
+			String sfile1= tcase.getStuFile1();
+			String sfile2= tcase.getStuFile2();
+
+			List<FlowType> flows = tcase.getFlow();
+			for (FlowType flow : flows) {
+				System.out.println("--+--+ Flow Loop --- ");
+				System.out.println("       Flow type: " + flow.getType());
+				System.out.println("       Flow name: " + flow.getName());
 				
-				System.out.println("--- Submit Loop --- ");
-			}
-			
-		}
+				List<OperationType> operations = flow.getOperation();
+				for (OperationType oper : operations) {
+					System.out.println("--+--+--+ Operation Loop --- ");
+					System.out.println("          Operation type: " + oper.getType());
+					System.out.println("          Operation name: " + oper.getName());
+					System.out.println("          Operation return channel: " + oper.getReturn());
+					
+					String par1 =oper.getPar1();
+					String par2 =oper.getPar2();
+					String returnChannel = oper.getReturn();
+
+						/* --- Flow Branch --- */						
+						String flowType = flow.getType();	
+						if("studentFlow".equals(flowType)){
+						
+						/* --- Operation Branch --- */
+							String operationType = oper.getType();
+							switch (operationType) {
+							case "XSLTransform": {
+								System.out.println("................ XSLTransform ");
+								//Student files
+								String fullXSLPathInZip = sdir + sfile1;
+								String fullXMLPathInZip = sdir + sfile2;
+									
+								System.out.println("                 XSL file: " + fullXSLPathInZip);
+								System.out.println("                 XML file: " + fullXMLPathInZip);
+								
+								String zippath = "data/zips/RoundU1/" + zip;
+								String[] splits = zip.split(".zip");
+								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
+								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
+								trans_ctrl.runTransform(resultFilePath,  null,null);
+								System.out.println("                 resultfile: " + resultFilePath);
+								
+							}
+								break;
+							case "XSDValidation": {
+								System.out.println("................ XSDValidation ");
+							}
+								break;
+							}
 		
-		
+						} else if("referenceFlow".equals(flowType)){
+							
+							/* --- Operation Branch --- */
+							String operationType = oper.getType();
+							switch (operationType) {
+							case "XSLTransform": {
+								System.out.println("................ XSLTransform ");
+								//Reference files
+								String fullXSLPathInZip = rdir + rfile1;
+								String fullXMLPathInZip = rdir + rfile2;
+									
+								System.out.println("                 XSL file: " + fullXSLPathInZip);
+								System.out.println("                 XML file: " + fullXMLPathInZip);
+								
+								String zippath = "data/zips/RoundU1/" + zip;
+								String[] splits = zip.split(".zip");
+								String resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
+								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
+								trans_ctrl.runTransform(resultFilePath,  null,null);
+								System.out.println("                 resultfile: " + resultFilePath);
+								
+							}
+								break;
+							case "XSDValidation": {
+								System.out.println("................ XSDValidation ");
+							}
+								break;
+							}
+
+							
+						} else if("mergeFlow".equals(flowType)){
+							//TODO:
+							System.out.println("\n==================================");
+							System.out.println(".............mergeFlow ...........");
+							System.out.println("==================================\n");
+							
+						}
+						
+					
+					}
+				}
+			}// TestCase Loop --- 
+		}//Student zip loop
 	}
 	
 	public List<String> readSubmitZipNames(){
@@ -58,8 +160,8 @@ public class TaskCycleProcessor {
 	
 	public static void main(String[] args) {
 		String studentsExcel = "data/excel/students.xlsx";
-		String taskFlowXmlFile = "data/taskflow/taskflow1.xml";
-		String resultFilePath1 = "./data/zips/result1.xml";
+		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
+		String resultFilePath1 = "./data/zips/result_test1.xml";
 		
 		String sheetname = "Sheet1";
 		TaskCycleProcessor cycle_pros = new TaskCycleProcessor(studentsExcel);
@@ -77,7 +179,7 @@ public class TaskCycleProcessor {
 		TestCaseContainer tcc = cycle_pros.getTest_cc();
 		CheckerTaskFlowType taskflow = tcc.loadCheckerTaskFlowModel(taskFlowXmlFile);
 		List<TestCaseType> cases = taskflow.getTestCase();
-		BigInteger points = cases.get(0).getPoints();
+		Integer points = cases.get(0).getPoints();
 		System.out.println("TEST CASE POINTS: " + points);
 		String rdir= cases.get(0).getRefDir();
 		String rfile1= cases.get(0).getRefFile1();
@@ -85,7 +187,9 @@ public class TaskCycleProcessor {
 		String sdir= cases.get(0).getStuDir();
 		String sfile1= cases.get(0).getStuFile1();
 		String sfile2= cases.get(0).getStuFile2();
-		OperationType oper = cases.get(0).getOperation();
+		List<FlowType> flows = cases.get(0).getFlow();
+		List<OperationType> operations = flows.get(0).getOperation();
+		OperationType oper = operations.get(0);
 		String name =oper.getName();
 		String par1 =oper.getPar1();
 		String par2 =oper.getPar2();
@@ -96,7 +200,7 @@ public class TaskCycleProcessor {
 		System.out.println("STUDENT XSLFILE: " + fullXSLPathInZip);
 		//Prepare and run transform
 		TransformController ctrl = cycle_pros.getTrans_ctrl();
-		String zippath = "data/zips/Round1/" + zips.get(0);
+		String zippath = "data/zips/RoundU1/" + zips.get(0);
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
 		ctrl.runTransform(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);

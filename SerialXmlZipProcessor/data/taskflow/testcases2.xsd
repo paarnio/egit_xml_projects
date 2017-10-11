@@ -1,0 +1,61 @@
+<!-- testcases.xsd version=0.1 2017-10-02-->
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+  <xsd:annotation>
+    <xsd:documentation xml:lang="en">
+	TODO: testcases2.xsd
+    VPA: XML checker test cases schema for siima.model.testcase  
+    </xsd:documentation>
+  </xsd:annotation>
+
+  <xsd:element name="checkerTaskFlow" type="checkerTaskFlowType"/>
+  <xsd:element name="comment" type="xsd:string"/>
+
+  <xsd:complexType name="checkerTaskFlowType">
+    <xsd:sequence>
+      <xsd:element name="stuZip" type="xsd:string"/>
+	  <xsd:element name="refZip" type="xsd:string"/>
+	  <xsd:element name="testCase" type="testCaseType" minOccurs="0" maxOccurs="unbounded"/>
+      <xsd:element ref="comment" minOccurs="0"/>
+    </xsd:sequence>
+    <!--xsd:attribute name="orderDate" type="xsd:date"/-->
+  </xsd:complexType>
+
+  <xsd:complexType name="testCaseType">
+    <xsd:sequence>
+	  <xsd:element name="points" type="xsd:int"/>
+      <xsd:element name="stuDir" type="xsd:string"/>
+      <xsd:element name="stuFile1" type="xsd:string"/>
+	  <xsd:element name="stuFile2" type="xsd:string"/>
+      <xsd:element name="refDir" type="xsd:string"/>
+      <xsd:element name="refFile1" type="xsd:string"/>
+	  <xsd:element name="refFile2" type="xsd:string"/>
+      <xsd:element name="flow" type="flowType" minOccurs="0" maxOccurs="unbounded"/>
+	  <xsd:element ref="comment" minOccurs="0"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  
+  <xsd:complexType name="flowType">
+    <xsd:sequence>
+	  <xsd:element name="type" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+	  <xsd:element name="inChannel" type="xsd:string" minOccurs="0" maxOccurs="2"/>
+	  <xsd:element name="outChannel" type="xsd:string"/>
+	  <xsd:element name="operation" type="operationType" minOccurs="0" maxOccurs="unbounded"/>
+	  <xsd:element ref="comment" minOccurs="0"/>
+	 </xsd:sequence>
+  </xsd:complexType>
+
+  <xsd:complexType name="operationType">
+    <xsd:sequence>
+	  <xsd:element name="type" type="xsd:string"/>
+      <xsd:element name="name" type="xsd:string"/>
+	  <xsd:element name="par1" type="xsd:string"/>
+	  <xsd:element name="par2" type="xsd:string"/>
+	  <xsd:element name="return" type="xsd:string"/>
+	  <xsd:element ref="comment" minOccurs="0"/>
+	 </xsd:sequence>
+  </xsd:complexType>
+
+</xsd:schema>
+
