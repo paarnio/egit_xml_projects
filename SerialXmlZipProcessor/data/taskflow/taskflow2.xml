@@ -18,13 +18,13 @@
 	  <type>studentFlow</type>
 	  <name>studentFlow1</name>
 	  <inChannel>inC001</inChannel>
-	  <outChannel>outC002</outChannel>
+	  <outChannel>stuC001</outChannel>
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
         <par1>${stuDir}/${stuFile1}</par1>
         <par2>${refDir}/${refFile2}</par2>
-		<return>xsltRetC003</return>
+		<return>stuC001</return>
 	    <comment>XSL Transform operation comment1</comment>
       </operation>
 	  <comment>Taskflow comment1</comment>
@@ -33,13 +33,13 @@
 	  <type>referenceFlow</type>
 	  <name>referenceFlow1</name>
 	  <inChannel>inC011</inChannel>
-	  <outChannel>outC012</outChannel>
+	  <outChannel>refC001</outChannel>
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
         <par1>${refDir}/${refFile1}</par1>
         <par2>${refDir}/${refFile2}</par2>
-		<return>xsltRetC013</return>
+		<return>refC001</return>
 	    <comment>XSL Transform operation comment2</comment>
       </operation>
 	  <comment>Taskflow comment2</comment>
@@ -49,13 +49,13 @@
 	  <name>mergeFlow1</name>
 	  <inChannel>outC002</inChannel>
 	  <inChannel>outC012</inChannel>
-	  <outChannel>outC022</outChannel>
+	  <outChannel>merC001</outChannel>
 	  <operation>
 	    <type>StringCompare</type>
         <name>StringCompare1</name>
-        <par1>outC002</par1>
-        <par2>outC012</par2>
-		<return>outC022</return>
+        <par1>refC001</par1>
+        <par2>stuC001</par2>
+		<return>merC001</return>
 	    <comment>Comparing student and reference flow outputs</comment>
       </operation>
 	  <comment>Taskflow comment3</comment>

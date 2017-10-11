@@ -9,6 +9,7 @@
  */
 package siima.app;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,6 +31,28 @@ public class TransformController {
 		xslTransformer = new XSLTransformer();
 	}
 
+	/**
+	 * 
+	 * @param resultOutputStream
+	 * @param params
+	 * @param values
+	 * @return
+	 */
+	public String runTransformToString(ByteArrayOutputStream resultOutputStream,  List<String> params, List<String> values ) {
+		/*
+		 * 
+		 */
+		boolean ok = false;
+		String strResult = null;
+		OutputStream outputstream;
+		
+			invokeXSLTransform(resultOutputStream, params, values);			
+			strResult = resultOutputStream.toString();
+			//System.out.println("RESULT\n" + strresult);
+		
+		return strResult;
+	}
+	
 	/***
 	 * 
 	 * @param resultFilePath
@@ -37,12 +60,13 @@ public class TransformController {
 	 * @param values
 	 * @return
 	 */
-	public boolean runTransform(String resultFilePath,  List<String> params, List<String> values ) {
+	public boolean runTransformToFile(String resultFilePath,  List<String> params, List<String> values ) {
 		boolean ok = false;
 		OutputStream outputstream;
 		try {
 			outputstream = new FileOutputStream(resultFilePath);
-			invokeXSLTransform(outputstream, params, values); 
+			invokeXSLTransform(outputstream, params, values);
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -207,7 +231,7 @@ public class TransformController {
 			 /* OPT1: Loading XML & XSL from Zip every time */
 			 //ctrl.loadStreamsFromZipAndPrepare(zipFilePath, directoryInZip, xslfileInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(zipFilePath, fullXSLPathInZip, zipFilePath, fullXMLPathInZip);
-			 ctrl.runTransform(resultFilePath1,  null,null);
+			 ctrl.runTransformToFile(resultFilePath1,  null,null);
 			 System.out.println("Option 1: resultfile: " + resultFilePath1);
 			 
 			 /* OPT2: Using the same presaved XSL and Loading XML from Zip every time */
@@ -215,13 +239,13 @@ public class TransformController {
 			 //ctrl.loadXmlStreamFromZipUseStoredXslAndPrepare(zipFilePath, directoryInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(null, null, zipFilePath, fullXMLPathInZip);
 			 
-			 ctrl.runTransform(resultFilePath2,  null,null);
+			 ctrl.runTransformToFile(resultFilePath2,  null,null);
 			 System.out.println("Option 2: resultfile: " + resultFilePath2);
 			 
 			 String resultFilePath22 = "./data/zips/result22.xml";
 			 //ctrl.loadXmlStreamFromZipUseStoredXslAndPrepare(zipFilePath, directoryInZip, xmlfileInZip);
 			 ctrl.prepareXSLTransformWithImputStreams(null, null, zipFilePath, fullXMLPathInZip);
-			 ctrl.runTransform(resultFilePath22,  null,null);
+			 ctrl.runTransformToFile(resultFilePath22,  null,null);
 			
 			 /*
 			 String resultFilePath23 = "./data/zips/result23.xml";

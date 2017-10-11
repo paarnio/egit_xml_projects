@@ -1,7 +1,10 @@
 package siima.app;
 
+import java.io.ByteArrayOutputStream;
 import java.math.BigInteger;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
@@ -46,6 +49,23 @@ public class TaskCycleProcessor {
 			String sdir= tcase.getStuDir();
 			String sfile1= tcase.getStuFile1();
 			String sfile2= tcase.getStuFile2();
+			
+			//Channels
+			String studentChannel001 = null;
+			String studentChannel002 = null;
+			String referenceChannel001 = null;
+			String referenceChannel002 = null;
+			String mergeChannel001 = null;
+			String mergeChannel002 = null;
+			
+			Map<String,String> channelMap = new HashMap<String,String>();
+			channelMap.put("stuC001", studentChannel001);
+			channelMap.put("stuC002", studentChannel002);
+			channelMap.put("refC001", referenceChannel001);
+			channelMap.put("refC002", referenceChannel002);
+			channelMap.put("merC001", mergeChannel001);
+			channelMap.put("merC002", mergeChannel002);
+			
 
 			List<FlowType> flows = tcase.getFlow();
 			for (FlowType flow : flows) {
@@ -84,8 +104,22 @@ public class TaskCycleProcessor {
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
 								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
-								trans_ctrl.runTransform(resultFilePath,  null,null);
-								System.out.println("                 resultfile: " + resultFilePath);
+								//OPTION File
+								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
+								//System.out.println("                 resultfile: " + resultFilePath);
+								
+								//OPTION String
+								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
+								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
+
+								switch (returnChannel) {
+								case "stuC001":
+									studentChannel001 = retStr;
+									break;
+								case "stuC002":
+									studentChannel002 = retStr;
+									break;
+								}
 								
 							}
 								break;
@@ -113,8 +147,22 @@ public class TaskCycleProcessor {
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
 								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
-								trans_ctrl.runTransform(resultFilePath,  null,null);
-								System.out.println("                 resultfile: " + resultFilePath);
+								//OPTION File
+								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
+								//System.out.println("                 resultfile: " + resultFilePath);
+								
+								//OPTION String
+								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
+								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
+								
+								switch (returnChannel) {
+								case "refC001":
+									referenceChannel001 = retStr;
+									break;
+								case "refC002":
+									referenceChannel002 = retStr;
+									break;
+								}
 								
 							}
 								break;
@@ -126,10 +174,80 @@ public class TaskCycleProcessor {
 
 							
 						} else if("mergeFlow".equals(flowType)){
-							//TODO:
+							//TODO: par1 & par2 Change switch case -> Map
 							System.out.println("\n==================================");
 							System.out.println(".............mergeFlow ...........");
-							System.out.println("==================================\n");
+							//System.out.println("==================================\n");
+							/* --- Operation Branch --- */
+							String operationType = oper.getType();
+							
+							switch (operationType) {
+							case "StringCompare": {
+								System.out.println("................ StringCompare ");
+								String arg1str = null;
+								String arg2str = null;
+							/*	*/
+								switch (par1) {
+								case "refC001":
+									arg1str = referenceChannel001;
+									break;
+								case "refC002":
+									arg1str = referenceChannel002;
+									break;
+								case "stuC001":
+									arg1str = studentChannel001;
+									break;
+								case "stuC002":
+									arg1str = studentChannel002;
+									break;
+								}
+							
+								//arg1str = channelMap.get(par1);
+								System.out.println("==??????" + channelMap.get(par1) + "?????");
+								
+								switch (par2) {
+								case "refC001":
+									arg2str = referenceChannel001;
+									break;
+								case "refC002":
+									arg2str = referenceChannel002;
+									break;
+								case "stuC001":
+									arg2str = studentChannel001;
+									break;
+								case "stuC002":
+									arg2str = studentChannel002;
+									break;
+								}
+								
+								//if (referenceChannel001.equals(studentChannel001))
+								String retStr = null;
+								if (arg1str.equals(arg2str)){
+									retStr = "EQUAL";
+									//System.out.println("=============== EQUAL =============\n");
+								} else {
+									retStr = "NOT_EQUAL";
+									//System.out.println("?????? NOT EQUAL ??????\n");
+								}
+								
+								System.out.println("===============" + retStr + "=============\n");
+								
+								switch (returnChannel) {
+								case "merC001":
+									mergeChannel001 = retStr;
+									break;
+								case "merC002":
+									mergeChannel002 = retStr;
+									break;
+								}
+								
+							}
+								break;
+							case "NA": {
+								System.out.println("................NA??? ");
+							}
+								break;
+							}
 							
 						}
 						
@@ -202,7 +320,7 @@ public class TaskCycleProcessor {
 		TransformController ctrl = cycle_pros.getTrans_ctrl();
 		String zippath = "data/zips/RoundU1/" + zips.get(0);
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
-		ctrl.runTransform(resultFilePath1,  null,null);
+		ctrl.runTransformToFile(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);
 		
 		//Run Cycles
