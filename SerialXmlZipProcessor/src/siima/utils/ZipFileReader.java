@@ -31,6 +31,7 @@ public class ZipFileReader {
 		InputStream inputstream = null;
 		try {
 			ZipEntry entry = zip.getEntry(fullPathInZip);
+			//System.out.println("ZFREADER(): fullPathInZip: " + fullPathInZip + " entry: " + entry);
 			if((fileExt==null)||(entry.getName().endsWith(fileExt))) {
 				inputstream = zip.getInputStream(zip.getEntry(fullPathInZip));
 			}

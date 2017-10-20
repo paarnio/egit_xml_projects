@@ -164,24 +164,6 @@ public class TaskCycleProcessor {
 			 fileList.add(rfile1);
 			 fileList.add(rfile2);
 			 
-			/*Channels
-			 studentChannel001 = "";
-			 studentChannel002 = "";
-			 referenceChannel001 = "";
-			 referenceChannel002 = "";
-			 mergeChannel001 = "";
-			 mergeChannel002 = "";
-			*/
-			 
-			/* impossible
-			Map<String,String> channelMap = new HashMap<String,String>();
-			channelMap.put("stuC001", studentChannel001);
-			channelMap.put("stuC002", studentChannel002);
-			channelMap.put("refC001", referenceChannel001);
-			channelMap.put("refC002", referenceChannel002);
-			channelMap.put("merC001", mergeChannel001);
-			channelMap.put("merC002", mergeChannel002);
-			*/
 
 			List<FlowType> flows = tcase.getFlow();
 			for (FlowType flow : flows) {
@@ -200,6 +182,17 @@ public class TaskCycleProcessor {
 					String par2 =oper.getPar2();
 					String returnChannel = oper.getReturn();
 					
+					String refzip = "RoundU1_reference.zip"; // reference Zip file
+					String studentZipFolder="data/zips/RoundU1/";
+					String referenceZipFolder="data/zips/RoundU1/";
+					String zippath1 = null;
+					String zippath2 = null;
+					
+					if(par1.startsWith("stuDir")) zippath1=studentZipFolder + zip; 
+					else if(par1.startsWith("refDir")) zippath1=referenceZipFolder + refzip;
+					if(par2.startsWith("stuDir")) zippath2=studentZipFolder + zip; 
+					else if(par2.startsWith("refDir")) zippath2=referenceZipFolder + refzip;
+					
 						/* --- Flow Branch --- */						
 						String flowType = flow.getType();	
 						if("studentFlow".equals(flowType)){
@@ -209,17 +202,18 @@ public class TaskCycleProcessor {
 							switch (operationType) {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
+								
+								
 								//Student files									
 								String fullXSLPathInZip = operParamFilePathValue(par1);
 								String fullXMLPathInZip = operParamFilePathValue(par2);
 								
 								System.out.println("                 XSL file: " + fullXSLPathInZip);
 								System.out.println("                 XML file: " + fullXMLPathInZip);
-								
-								String zippath = "data/zips/RoundU1/" + zip;
+					
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
-								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
+								trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
 								//OPTION File
 								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
 								//System.out.println("                 resultfile: " + resultFilePath);
@@ -227,20 +221,10 @@ public class TaskCycleProcessor {
 								//OPTION String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
-								/*
-								switch (returnChannel) {
-								case "stuC001":
-									studentChannel001 = retStr; //String.valueOf(retStr.toCharArray());
-									break;
-								case "stuC002":
-									studentChannel002 = retStr;
-									break;
-								}
-								*/
+								
 								setChannelStringValue(returnChannel, retStr);
 								
-								//System.out.println("????????MAP TEST stuC001: " + channelMap.get("stuC001"));
-								
+																
 							}
 								break;
 							case "XSDValidation": {
@@ -257,19 +241,16 @@ public class TaskCycleProcessor {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
 								//Reference files
-								//String fullXSLPathInZip = rdir + rfile1;
-								//String fullXMLPathInZip = rdir + rfile2;
-								
+															
 								String fullXSLPathInZip = operParamFilePathValue(par1);
 								String fullXMLPathInZip = operParamFilePathValue(par2);
 									
 								System.out.println("                 XSL file: " + fullXSLPathInZip);
 								System.out.println("                 XML file: " + fullXMLPathInZip);
 								
-								String zippath = "data/zips/RoundU1/" + zip;
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
-								trans_ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
+								trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
 								//OPTION File
 								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
 								//System.out.println("                 resultfile: " + resultFilePath);
@@ -277,15 +258,7 @@ public class TaskCycleProcessor {
 								//OPTION String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
-								/*
-								switch (returnChannel) {
-								case "refC001":
-									referenceChannel001 = retStr;
-									break;
-								case "refC002":
-									referenceChannel002 = retStr;
-									break;
-								} */
+							
 								setChannelStringValue(returnChannel, retStr);
 								
 							}
@@ -310,41 +283,8 @@ public class TaskCycleProcessor {
 								System.out.println("................ StringCompare ");
 								String arg1str = null;
 								String arg2str = null;
-							/*	
-								switch (par1) {
-								case "refC001":
-									arg1str = referenceChannel001;
-									break;
-								case "refC002":
-									arg1str = referenceChannel002;
-									break;
-								case "stuC001":
-									arg1str = studentChannel001;
-									break;
-								case "stuC002":
-									arg1str = studentChannel002;
-									break;
-								}
-							*/
+							
 								arg1str = getChannelStringValue(par1);
-								//arg1str = channelMap.get(par1);
-								//System.out.println("==??????" + channelMap.get(par1) + "?????");
-								/*
-								switch (par2) {
-								case "refC001":
-									arg2str = referenceChannel001;
-									break;
-								case "refC002":
-									arg2str = referenceChannel002;
-									break;
-								case "stuC001":
-									arg2str = studentChannel001;
-									break;
-								case "stuC002":
-									arg2str = studentChannel002;
-									break;
-								}
-								*/
 								arg2str = getChannelStringValue(par2);
 								
 								//if (referenceChannel001.equals(studentChannel001))
@@ -358,15 +298,7 @@ public class TaskCycleProcessor {
 								}
 								
 								System.out.println("===============" + retStr + "=============\n");
-								/*
-								switch (returnChannel) {
-								case "merC001":
-									mergeChannel001 = retStr;
-									break;
-								case "merC002":
-									mergeChannel002 = retStr;
-									break;
-								} */
+								
 								setChannelStringValue(returnChannel, retStr);
 							}
 								break;
@@ -443,9 +375,11 @@ public class TaskCycleProcessor {
 		String fullXSLPathInZip = sdir1 + sfile1;
 		String fullXMLPathInZip = sdir1 + sfile2;
 		System.out.println("STUDENT XSLFILE: " + fullXSLPathInZip);
+		System.out.println("STUDENT XMLFILE: " + fullXMLPathInZip);
 		//Prepare and run transform
 		TransformController ctrl = cycle_pros.getTrans_ctrl();
 		String zippath = "data/zips/RoundU1/" + zips.get(0);
+		System.out.println("STUDENT ZIPFILE PATH: " + zippath);
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
 		ctrl.runTransformToFile(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);

@@ -4,13 +4,13 @@
 -->
 <checkerTaskFlow>
   <stuZip>./data/zips/RoundU1_sub2_</stuZip>
-  <refZip>./data/zips/RoundU1_sub2_reference.zip</refZip>
+  <refZip>./data/zips/RoundU1_reference.zip</refZip>
   <testCase>
     <points>10</points>
-    <stuDir1>RoundU1_sub2_123000/exU1E1_1/src/</stuDir1>
+    <stuDir1>RoundU1/exU1E1_1/src/</stuDir1>
 	<stuFile1>plant_catalog.xsl</stuFile1>
 	<stuFile2>plant_catalog.xml</stuFile2>
-	<refDir1>RoundU1_sub2_123000/exU1E1_1/src/</refDir1>
+	<refDir1>RoundU1/exU1E1_1/src/</refDir1>
 	<refFile1>plant_catalog.xsl</refFile1>
 	<refFile2>plant_catalog.xml</refFile2>
 	<comment>Testcase comment</comment>
