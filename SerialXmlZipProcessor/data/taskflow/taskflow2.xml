@@ -22,8 +22,8 @@
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
-        <par1>${stuDir}/${stuFile1}</par1>
-        <par2>${refDir}/${refFile2}</par2>
+        <par1>stuDir/stuFile1</par1>
+        <par2>refDir/refFile2</par2>
 		<return>stuC001</return>
 	    <comment>XSL Transform operation comment1</comment>
       </operation>
@@ -37,8 +37,8 @@
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
-        <par1>${refDir}/${refFile1}</par1>
-        <par2>${refDir}/${refFile2}</par2>
+        <par1>refDir/refFile1</par1>
+        <par2>refDir/refFile2</par2>
 		<return>refC001</return>
 	    <comment>XSL Transform operation comment2</comment>
       </operation>
