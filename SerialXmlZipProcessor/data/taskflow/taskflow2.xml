@@ -7,10 +7,10 @@
   <refZip>./data/zips/RoundU1_sub2_reference.zip</refZip>
   <testCase>
     <points>10</points>
-    <stuDir>RoundU1_sub2_123000/exU1E1_1/src/</stuDir>
+    <stuDir1>RoundU1_sub2_123000/exU1E1_1/src/</stuDir1>
 	<stuFile1>plant_catalog.xsl</stuFile1>
 	<stuFile2>plant_catalog.xml</stuFile2>
-	<refDir>RoundU1_sub2_123000/exU1E1_1/src/</refDir>
+	<refDir1>RoundU1_sub2_123000/exU1E1_1/src/</refDir1>
 	<refFile1>plant_catalog.xsl</refFile1>
 	<refFile2>plant_catalog.xml</refFile2>
 	<comment>Testcase comment</comment>
@@ -22,8 +22,8 @@
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
-        <par1>stuDir/stuFile1</par1>
-        <par2>refDir/refFile2</par2>
+        <par1>stuDir1/stuFile1</par1>
+        <par2>refDir1/refFile2</par2>
 		<return>stuC001</return>
 	    <comment>XSL Transform operation comment1</comment>
       </operation>
@@ -37,8 +37,8 @@
 	  <operation>
 	    <type>XSLTransform</type>
         <name>XSLTransform1</name>
-        <par1>refDir/refFile1</par1>
-        <par2>refDir/refFile2</par2>
+        <par1>refDir1/refFile1</par1>
+        <par2>refDir1/refFile2</par2>
 		<return>refC001</return>
 	    <comment>XSL Transform operation comment2</comment>
       </operation>

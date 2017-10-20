@@ -48,9 +48,9 @@ public class TaskCycleProcessor {
 	public TaskCycleProcessor(String studentsExcel){
 		excel_mng = new ExcelMng("data/excel/students.xlsx");
 		
-		dirKeyIndexMap.put("stuDir", 0); // temp 
+		dirKeyIndexMap.put("stuDir1", 0); 
 		dirKeyIndexMap.put("stuDir2", 1);
-		dirKeyIndexMap.put("refDir", 2); // temp 
+		dirKeyIndexMap.put("refDir1", 2); 
 		dirKeyIndexMap.put("refDir2", 3);
 		
 		fileKeyIndexMap.put("stuFile1", 0);
@@ -90,9 +90,10 @@ public class TaskCycleProcessor {
 			
 	}
 	
-	public String operationParameterValue(String parameter){
-		/* TODO: Getting Operation parameter's target value
+	public String operParamFilePathValue(String parameter){
+		/* Getting Operation parameter's target value
 		 * now only filepath build
+		 * e.g. parameter= 'stuDir1/stuFile1'
 		 **/
 		String value = null;
 							
@@ -142,19 +143,21 @@ public class TaskCycleProcessor {
 		for (TestCaseType tcase : testcases) {
 			System.out.println("--+ TestCase Loop --- ");
 			
-			String sdir= tcase.getStuDir();
+			String sdir1= tcase.getStuDir1();
+			String sdir2= tcase.getStuDir2();
 			String sfile1= tcase.getStuFile1();
 			String sfile2= tcase.getStuFile2();
 			
-			String rdir= tcase.getRefDir();
+			String rdir1= tcase.getRefDir1();
+			String rdir2= tcase.getRefDir2();
 			String rfile1= tcase.getRefFile1();
 			String rfile2= tcase.getRefFile2();
 			 
 			
-			 dirList.add(sdir);
-			 dirList.add(""); //for stuDir2
-			 dirList.add(rdir);
-			 dirList.add(""); //for refDir2
+			 dirList.add(sdir1);
+			 dirList.add(sdir2); //for stuDir2
+			 dirList.add(rdir1);
+			 dirList.add(rdir2); //for refDir2
 			 
 			 fileList.add(sfile1);
 			 fileList.add(sfile2);
@@ -207,8 +210,8 @@ public class TaskCycleProcessor {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
 								//Student files									
-								String fullXSLPathInZip = operationParameterValue(par1);
-								String fullXMLPathInZip = operationParameterValue(par2);
+								String fullXSLPathInZip = operParamFilePathValue(par1);
+								String fullXMLPathInZip = operParamFilePathValue(par2);
 								
 								System.out.println("                 XSL file: " + fullXSLPathInZip);
 								System.out.println("                 XML file: " + fullXMLPathInZip);
@@ -257,8 +260,8 @@ public class TaskCycleProcessor {
 								//String fullXSLPathInZip = rdir + rfile1;
 								//String fullXMLPathInZip = rdir + rfile2;
 								
-								String fullXSLPathInZip = operationParameterValue(par1);
-								String fullXMLPathInZip = operationParameterValue(par2);
+								String fullXSLPathInZip = operParamFilePathValue(par1);
+								String fullXMLPathInZip = operParamFilePathValue(par2);
 									
 								System.out.println("                 XSL file: " + fullXSLPathInZip);
 								System.out.println("                 XML file: " + fullXMLPathInZip);
@@ -423,10 +426,10 @@ public class TaskCycleProcessor {
 		List<TestCaseType> cases = taskflow.getTestCase();
 		Integer points = cases.get(0).getPoints();
 		System.out.println("TEST CASE POINTS: " + points);
-		String rdir= cases.get(0).getRefDir();
+		String rdir1= cases.get(0).getRefDir1();
 		String rfile1= cases.get(0).getRefFile1();
 		String rfile2= cases.get(0).getRefFile2();
-		String sdir= cases.get(0).getStuDir();
+		String sdir1= cases.get(0).getStuDir1();
 		String sfile1= cases.get(0).getStuFile1();
 		String sfile2= cases.get(0).getStuFile2();
 		List<FlowType> flows = cases.get(0).getFlow();
@@ -437,8 +440,8 @@ public class TaskCycleProcessor {
 		String par2 =oper.getPar2();
 		System.out.println("TEST CASE OPERATION: " + name);		
 		//If operation name is 'XSLTransform' 
-		String fullXSLPathInZip = sdir + sfile1;
-		String fullXMLPathInZip = sdir + sfile2;
+		String fullXSLPathInZip = sdir1 + sfile1;
+		String fullXMLPathInZip = sdir1 + sfile2;
 		System.out.println("STUDENT XSLFILE: " + fullXSLPathInZip);
 		//Prepare and run transform
 		TransformController ctrl = cycle_pros.getTrans_ctrl();

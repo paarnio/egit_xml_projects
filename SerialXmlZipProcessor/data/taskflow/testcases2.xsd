@@ -24,12 +24,14 @@
   <xsd:complexType name="testCaseType">
     <xsd:sequence>
 	  <xsd:element name="points" type="xsd:int"/>
-      <xsd:element name="stuDir" type="xsd:string"/>
-      <xsd:element name="stuFile1" type="xsd:string"/>
-	  <xsd:element name="stuFile2" type="xsd:string"/>
-      <xsd:element name="refDir" type="xsd:string"/>
-      <xsd:element name="refFile1" type="xsd:string"/>
-	  <xsd:element name="refFile2" type="xsd:string"/>
+      <xsd:element name="stuDir1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="stuDir2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="stuFile1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="stuFile2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="refDir1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="refDir2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <xsd:element name="refFile1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="refFile2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
       <xsd:element name="flow" type="flowType" minOccurs="0" maxOccurs="unbounded"/>
 	  <xsd:element ref="comment" minOccurs="0"/>
     </xsd:sequence>
@@ -39,8 +41,8 @@
     <xsd:sequence>
 	  <xsd:element name="type" type="xsd:string"/>
       <xsd:element name="name" type="xsd:string"/>
-	  <xsd:element name="inChannel" type="xsd:string" minOccurs="0" maxOccurs="2"/>
-	  <xsd:element name="outChannel" type="xsd:string"/>
+	  <xsd:element name="inChannel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="outChannel" type="xsd:string"  minOccurs="0" maxOccurs="1"/>
 	  <xsd:element name="operation" type="operationType" minOccurs="0" maxOccurs="unbounded"/>
 	  <xsd:element ref="comment" minOccurs="0"/>
 	 </xsd:sequence>
@@ -50,8 +52,8 @@
     <xsd:sequence>
 	  <xsd:element name="type" type="xsd:string"/>
       <xsd:element name="name" type="xsd:string"/>
-	  <xsd:element name="par1" type="xsd:string"/>
-	  <xsd:element name="par2" type="xsd:string"/>
+	  <xsd:element name="par1" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+	  <xsd:element name="par2" type="xsd:string" minOccurs="0" maxOccurs="1"/>
 	  <xsd:element name="return" type="xsd:string"/>
 	  <xsd:element ref="comment" minOccurs="0"/>
 	 </xsd:sequence>
