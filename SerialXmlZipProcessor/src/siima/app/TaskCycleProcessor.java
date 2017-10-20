@@ -11,12 +11,15 @@ import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
 import siima.model.checker.taskflow.OperationType;
 import siima.model.checker.taskflow.TestCaseType;
+import siima.utils.Testing_diff_match_patch;
 
 public class TaskCycleProcessor {
 
 	private ExcelMng excel_mng = new ExcelMng("data/excel/students.xlsx");
 	private TestCaseContainer test_cc = new TestCaseContainer();
 	private TransformController trans_ctrl = new TransformController();
+	
+	private TextCompareController mydmp = new TextCompareController();
 	
 	/* Directory and File references 
 	String rdir;
@@ -297,7 +300,11 @@ public class TaskCycleProcessor {
 									//System.out.println("?????? NOT EQUAL ??????\n");
 								}
 								
-								System.out.println("===============" + retStr + "=============\n");
+								
+								mydmp.setUp();															
+								boolean isequal = mydmp.runDiffMain(arg1str, arg2str);
+								
+								System.out.println("===============" + retStr + "=====" + isequal + "========\n");
 								
 								setChannelStringValue(returnChannel, retStr);
 							}
