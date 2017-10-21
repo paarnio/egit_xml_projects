@@ -178,7 +178,8 @@ public class XSLTransformer {
 			template = factory.newTemplates(xslSource);
 			if(template!=null)ok = true;
 		} catch (TransformerConfigurationException e) {
-
+			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG:\n" + e.getMessage());
+			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG&LOC:\n" + e.getMessageAndLocation());
 			e.printStackTrace();
 		}
 
