@@ -645,4 +645,34 @@ public class ExcelToStringArray {
 		this.roundNumericalCells = roundNumericalCells;
 	}
 
+	/* 2017-10-22 NEW: WRITE TO CELL 
+	 * https://www.mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
+	 * */
+	public void writeToCell(int sheetidx, int rowidx, int colidx, String newValue){
+		//TOIMII
+		Sheet sheet1 = wb.getSheetAt(sheetidx);
+		Row row1 = sheet1.getRow(rowidx);
+		Cell cell1 = row1.getCell(colidx);
+		String value1 = cell1.getStringCellValue();
+		System.out.println("???????" + value1);
+		cell1.setCellValue((String) newValue);
+		
+		try {
+            FileOutputStream outputStream = new FileOutputStream("data/excel/test.xlsx");
+            wb.write(outputStream);
+            wb.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	
+	public static void main(String[] args) {
+		ExcelToStringArray ex2s = new ExcelToStringArray("data/excel/test.xlsx");
+		ex2s.writeToCell(0, 10, 5, "NEW");
+		
+	}
+		
 }
