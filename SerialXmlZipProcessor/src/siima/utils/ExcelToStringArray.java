@@ -648,14 +648,70 @@ public class ExcelToStringArray {
 	/* 2017-10-22 NEW: WRITE TO CELL 
 	 * https://www.mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
 	 * */
-	public void writeToCell(int sheetidx, int rowidx, int colidx, String newValue){
+	
+	public void writeStringListToColumnField(int sheetidx, int colidx, int rowidx, List<String> strList, boolean createCells){
+	/* IF createCells == true; creates new rows and cells if do not exist
+	 * Otherwise: stops writing when cell does not exist.	
+	 */
+		int total = strList.size();
+		Sheet sheet = wb.getSheetAt(sheetidx);
+		if (sheet != null) {
+			int rowbias = -1;
+			for (String str : strList) {
+				rowbias++;
+				Row row = sheet.getRow(rowidx + rowbias);
+				if ((row == null) && (createCells)) {
+					row = sheet.createRow(rowidx + rowbias);
+					Cell cell = row.getCell(colidx);
+					if ((cell == null) && (createCells)) {
+						cell = row.createCell(colidx);
+					}
+					cell.setCellValue((String) str);
+				} else if (row != null) {
+					Cell cell = row.getCell(colidx);
+					if ((cell == null) && (createCells)) {
+						cell = row.createCell(colidx);
+						cell.setCellValue((String) str);
+					} else if (cell != null) {
+						cell.setCellValue((String) str);
+					}
+				}
+
+			}
+		}
+
+	}
+	
+	public void saveWorkbook(String excelfile){
+		// e.g. "data/excel/test.xlsx"
+		
+		try {
+            FileOutputStream outputStream = new FileOutputStream("data/excel/test.xlsx");
+            wb.write(outputStream);
+            wb.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+	
+	
+	public void testWriteToCell(int sheetidx, int rowidx, int colidx, String newValue){
 		//TOIMII
 		Sheet sheet1 = wb.getSheetAt(sheetidx);
 		Row row1 = sheet1.getRow(rowidx);
+		if(row1==null) row1 = sheet1.createRow(rowidx);
 		Cell cell1 = row1.getCell(colidx);
+		if(cell1==null) cell1 = row1.createCell(colidx);
 		String value1 = cell1.getStringCellValue();
 		System.out.println("???????" + value1);
 		cell1.setCellValue((String) newValue);
+		
+		Row row0 = sheet1.getRow(rowidx-1);
+		Cell cell0 = row0.getCell(colidx);
+		String value0 = cell0.getStringCellValue();
+		System.out.println("???????" + value0);
 		
 		try {
             FileOutputStream outputStream = new FileOutputStream("data/excel/test.xlsx");
@@ -671,7 +727,15 @@ public class ExcelToStringArray {
 	
 	public static void main(String[] args) {
 		ExcelToStringArray ex2s = new ExcelToStringArray("data/excel/test.xlsx");
-		ex2s.writeToCell(0, 10, 5, "NEW");
+		//ex2s.testWriteToCell(0, 20, 5, "NEW");
+		List<String> strList = new ArrayList<String>();
+		strList.add("nitem101");
+		strList.add("nitem102");
+		strList.add("nitem103");
+		strList.add("nitem104");
+		// NOTE: writing requires that excel file is not in use by other program (open).	
+		ex2s.writeStringListToColumnField(0, 6, 21, strList, true);
+		ex2s.saveWorkbook("data/excel/test.xlsx");
 		
 	}
 		
