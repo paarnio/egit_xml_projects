@@ -44,11 +44,11 @@ public class ExcelMng {
 	public void writeCheckResults(List<String> results, String sheetname, int colind, int rowind){
 		int sheetidx = this.ex2s.getSheetIndex(sheetname);
 		this.ex2s.setSheetind(sheetidx);
-		this.ex2s.writeStringListToColumnField(sheetidx, colind, rowind, results, true);
-		
+		this.ex2s.writeStringListToColumnField(sheetidx, colind, rowind, results, true);		
 		
 	}
 	
+
 	public static void main(String[] args) {
 		
 		ExcelMng mng = new ExcelMng("data/excel/test.xlsx");

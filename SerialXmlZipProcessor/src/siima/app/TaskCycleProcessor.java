@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
 import siima.model.checker.taskflow.OperationType;
@@ -14,36 +17,18 @@ import siima.model.checker.taskflow.TestCaseType;
 import siima.utils.Testing_diff_match_patch;
 
 public class TaskCycleProcessor {
-
+	private static final Logger logger=Logger.getLogger(TaskCycleProcessor.class.getName());
 	private ExcelMng excel_mng = new ExcelMng("data/excel/students.xlsx");
 	private TestCaseContainer test_cc = new TestCaseContainer();
-	private TransformController trans_ctrl = new TransformController();
-	
+	private TransformController trans_ctrl = new TransformController();	
 	private TextCompareController mydmp = new TextCompareController();
 	
-	/* Directory and File references 
-	String rdir;
-	String rfile1;
-	String rfile2;
-	String sdir;
-	String sfile1;
-	String sfile2;
-	*/
-	
+	public StringBuffer checkResultBuffer;
+	public List<List<String>> testcasesResultsLists = new ArrayList<List<String>>();	
 	private List<String> dirList = new ArrayList<String>();
 	private List<String> fileList = new ArrayList<String>();
 	private Map<String,Integer> dirKeyIndexMap = new HashMap<String,Integer>();
 	private Map<String,Integer> fileKeyIndexMap = new HashMap<String,Integer>();
-	
-	/* Channels 
-	String studentChannel001 = "";
-	String studentChannel002 = "";
-	String referenceChannel001 = "";
-	String referenceChannel002 = "";
-	String mergeChannel001 = "";
-	String mergeChannel002 = "";
-	*/
-	
 	private List<String> channelList = new ArrayList<String>();
 	private Map<String,Integer> channelKeyIndexMap = new HashMap<String,Integer>();
 	
@@ -127,6 +112,8 @@ public class TaskCycleProcessor {
 		/*
 		 *  TODO: read reference files from a reference ZIP
 		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTaskCycles()");
+		
 		String resultFileDir = "data/zips";
 		
 		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
@@ -143,8 +130,11 @@ public class TaskCycleProcessor {
 			
 		
 		/* --- TestCase Loop --- */
+		int testcasecount=0;
 		for (TestCaseType tcase : testcases) {
-			System.out.println("--+ TestCase Loop --- ");
+			testcasecount++;
+			checkResultBuffer = new StringBuffer();
+			System.out.println("--+ TestCase Loop #" + testcasecount);
 			
 			String sdir1= tcase.getStuDir1();
 			String sdir2= tcase.getStuDir2();
@@ -307,6 +297,7 @@ public class TaskCycleProcessor {
 								System.out.println("===============" + retStr + "=====" + isequal + "========\n");
 								
 								setChannelStringValue(returnChannel, retStr);
+								checkResultBuffer.append("TESTCASE#" + testcasecount + ":" + retStr + "\n");
 							}
 								break;
 							case "NA": {
@@ -316,16 +307,25 @@ public class TaskCycleProcessor {
 							}
 							
 						}
-						
-					
+										
 					}
 				}
-			}// TestCase Loop --- 
-		}//Student zip loop
+			
+			saveSubmitTestCaseResult(submitcnt, testcasecount, checkResultBuffer);
+			}// TestCase Loop ---
+		
+		}//Student zip loop		
+		
 	}
 	
+	public void saveSubmitTestCaseResult(int submitcnt, int testcasecount, StringBuffer checkResultBuffer){
+	//TODO: testcasesResultsLists	
+		
+	}
+	
+	
 	public List<String> readSubmitZipNames(){
-		String sheetname = "Sheet1";
+		String sheetname = "ZipFiles";
 		List<String> zips;
 		ExcelMng mng = getExcel_mng();
 		//zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
@@ -393,7 +393,8 @@ public class TaskCycleProcessor {
 		
 		//Run Cycles
 		cycle_pros.runTaskCycles();
-		 
+		String result = cycle_pros.getChannelStringValue("merC001");
+		System.out.println("CHECKING RESULT: " + result);
 	}
 
 	public ExcelMng getExcel_mng() {
