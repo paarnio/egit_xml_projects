@@ -20,13 +20,14 @@ import siima.utils.ExcelToStringArray;
 
 public class ExcelMng {
 	private ExcelToStringArray ex2s;
+	private String studentDataExcel;
 	private Map<String, String> configuremap = null;
 	private Map<String, String> codeperiodmap = null;
 	private List<String> firstperiodevents = null;
 	private List<String> doubleperiodevents = null;
 	
 	public ExcelMng(String excelfile){
-		
+		this.studentDataExcel = excelfile;
 		this.ex2s = new ExcelToStringArray(excelfile);
 		this.firstperiodevents = new ArrayList<String>();
 		this.doubleperiodevents = new ArrayList<String>();
@@ -41,10 +42,18 @@ public class ExcelMng {
 		
 		return zips;
 	}
-	public void writeCheckResults(List<String> results, String sheetname, int colind, int rowind){
+	public void writeTestcaseResults(List<String> results, String sheetname, int colind, int rowind){
+		/* Writing all the testcase results of one student submit 
+		 * into the students row in excel file 
+		 */
 		int sheetidx = this.ex2s.getSheetIndex(sheetname);
 		this.ex2s.setSheetind(sheetidx);
-		this.ex2s.writeStringListToColumnField(sheetidx, colind, rowind, results, true);		
+		this.ex2s.writeStringListToColumnOrRowField(true,sheetidx, colind, rowind, results, true);		
+		
+	}
+	
+	public void saveAndCloseResultsExcel(){
+		this.ex2s.saveWorkbook(studentDataExcel);
 		
 	}
 	

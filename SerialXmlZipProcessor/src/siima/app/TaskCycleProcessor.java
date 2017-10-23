@@ -18,13 +18,14 @@ import siima.utils.Testing_diff_match_patch;
 
 public class TaskCycleProcessor {
 	private static final Logger logger=Logger.getLogger(TaskCycleProcessor.class.getName());
-	private ExcelMng excel_mng = new ExcelMng("data/excel/students.xlsx");
+	private String studentDataExcel = "data/excel/students.xlsx";
+	private ExcelMng excel_mng; // = new ExcelMng("data/excel/students.xlsx");
 	private TestCaseContainer test_cc = new TestCaseContainer();
 	private TransformController trans_ctrl = new TransformController();	
 	private TextCompareController mydmp = new TextCompareController();
 	
 	public StringBuffer checkResultBuffer;
-	public List<List<String>> testcasesResultsLists = new ArrayList<List<String>>();	
+	public List<String> testcaseResults; // = new ArrayList<String>();	
 	private List<String> dirList = new ArrayList<String>();
 	private List<String> fileList = new ArrayList<String>();
 	private Map<String,Integer> dirKeyIndexMap = new HashMap<String,Integer>();
@@ -34,7 +35,7 @@ public class TaskCycleProcessor {
 	
 	/* Constructor */
 	public TaskCycleProcessor(String studentsExcel){
-		excel_mng = new ExcelMng("data/excel/students.xlsx");
+		excel_mng = new ExcelMng(this.studentDataExcel);
 		
 		dirKeyIndexMap.put("stuDir1", 0); 
 		dirKeyIndexMap.put("stuDir2", 1);
@@ -127,7 +128,7 @@ public class TaskCycleProcessor {
 			submitcnt++;
 			System.out.println("+ Submit Loop #" + submitcnt);
 			System.out.println("  Submit zip: " + zip);
-			
+			testcaseResults = new ArrayList<String>();	
 		
 		/* --- TestCase Loop --- */
 		int testcasecount=0;
@@ -310,18 +311,27 @@ public class TaskCycleProcessor {
 										
 					}
 				}
+			//NOTE: DO NOT write [ ] into excel: problems occur
+			testcaseResults.add("SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") RESULT MSG:(" + checkResultBuffer.toString() + ")");
 			
-			saveSubmitTestCaseResult(submitcnt, testcasecount, checkResultBuffer);
 			}// TestCase Loop ---
-		
+		saveSubmitTestCaseResults(submitcnt, testcasecount);
 		}//Student zip loop		
-		
+	 saveAndCloseAllResults();
+	}
+	public void  saveAndCloseAllResults(){
+		excel_mng.saveAndCloseResultsExcel();
+	
+	}
+	public void saveSubmitTestCaseResults(int submitcnt, int testcasecount){
+	/* NOTE: DO NOT write [ ] into excel: problems occur
+	 * testcasesResultsLists	
+	 */
+		System.out.println("testcaseResults #" + testcaseResults.size());
+		//writeTestcaseResults(List<String> results, String sheetname, int colind, int rowind)
+		excel_mng.writeTestcaseResults(testcaseResults, "Results", 6, 9+submitcnt);
 	}
 	
-	public void saveSubmitTestCaseResult(int submitcnt, int testcasecount, StringBuffer checkResultBuffer){
-	//TODO: testcasesResultsLists	
-		
-	}
 	
 	
 	public List<String> readSubmitZipNames(){

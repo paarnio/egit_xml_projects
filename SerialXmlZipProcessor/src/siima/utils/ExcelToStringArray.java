@@ -648,9 +648,50 @@ public class ExcelToStringArray {
 	/* 2017-10-22 NEW: WRITE TO CELL 
 	 * https://www.mkyong.com/java/apache-poi-reading-and-writing-excel-file-in-java/
 	 * */
+	public void writeStringListToColumnOrRowField(boolean intoRow, int sheetidx, int colidx, int rowidx, List<String> strList, boolean createCells){
+	/* IF inRow == true; writes the strings into a row starting from cell (rowidx;colidx)
+	 * ELSE writes the strings into a column starting from cell (rowidx;colidx)
+	 * IF createCells == true; creates new rows and cells if do not exist
+	 * Otherwise: stops writing when cell does not exist.	
+	 */
+		int total = strList.size();
+		Sheet sheet = wb.getSheetAt(sheetidx);
+		if (sheet != null) {
+			int colbias = 0;
+			int rowbias = 0;
+			if(intoRow){colbias = -1;}
+			else {rowbias = -1; }
+			for (String str : strList) {
+				if(intoRow){colbias++;}
+				else {rowbias++; }
+				System.out.println("Writing to cell (row;col) (" + (rowidx + rowbias) + ";" + (colidx + colbias) + ")");
+				Row row = sheet.getRow(rowidx + rowbias);
+				if ((row == null) && (createCells)) {
+					row = sheet.createRow(rowidx + rowbias);
+					Cell cell = row.getCell(colidx + colbias);
+					if ((cell == null) && (createCells)) {
+						cell = row.createCell(colidx + colbias);
+					}
+					cell.setCellValue((String) str);
+				} else if (row != null) {
+					Cell cell = row.getCell(colidx + colbias);
+					if ((cell == null) && (createCells)) {
+						cell = row.createCell(colidx + colbias);
+						cell.setCellValue((String) str);
+					} else if (cell != null) {
+						cell.setCellValue((String) str);
+					}
+				}
+
+			}
+		}
+
+	}
+	
 	
 	public void writeStringListToColumnField(int sheetidx, int colidx, int rowidx, List<String> strList, boolean createCells){
-	/* IF createCells == true; creates new rows and cells if do not exist
+	/* Writes the strings in the List into a column starting from cell (rowidx;colidx)
+	 * IF createCells == true; creates new rows and cells if do not exist
 	 * Otherwise: stops writing when cell does not exist.	
 	 */
 		int total = strList.size();
@@ -686,7 +727,7 @@ public class ExcelToStringArray {
 		// e.g. "data/excel/test.xlsx"
 		
 		try {
-            FileOutputStream outputStream = new FileOutputStream("data/excel/test.xlsx");
+            FileOutputStream outputStream = new FileOutputStream(excelfile);
             wb.write(outputStream);
             wb.close();
         } catch (FileNotFoundException e) {
@@ -729,12 +770,13 @@ public class ExcelToStringArray {
 		ExcelToStringArray ex2s = new ExcelToStringArray("data/excel/test.xlsx");
 		//ex2s.testWriteToCell(0, 20, 5, "NEW");
 		List<String> strList = new ArrayList<String>();
-		strList.add("nitem101");
-		strList.add("nitem102");
-		strList.add("nitem103");
-		strList.add("nitem104");
+		strList.add("nitem101x");
+		strList.add("nitem102x");
+		strList.add("nitem103x");
+		strList.add("nitem104x");
 		// NOTE: writing requires that excel file is not in use by other program (open).	
-		ex2s.writeStringListToColumnField(0, 6, 21, strList, true);
+		//ex2s.writeStringListToColumnField(0, 6, 21, strList, true);
+		ex2s.writeStringListToColumnOrRowField(true, 0, 7, 21, strList, true);
 		ex2s.saveWorkbook("data/excel/test.xlsx");
 		
 	}
