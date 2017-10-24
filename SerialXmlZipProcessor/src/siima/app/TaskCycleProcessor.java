@@ -114,7 +114,7 @@ public class TaskCycleProcessor {
 		 *  TODO: read reference files from a reference ZIP
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTaskCycles()");
-		
+		boolean oper_ok = true;
 		String resultFileDir = "data/zips";
 		
 		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
@@ -196,7 +196,7 @@ public class TaskCycleProcessor {
 							switch (operationType) {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
-								
+								oper_ok = true;
 								
 								//Student files									
 								String fullXSLPathInZip = operParamFilePathValue(par1);
@@ -207,7 +207,8 @@ public class TaskCycleProcessor {
 					
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
-								trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
+								oper_ok = trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
+								if(oper_ok){
 								//OPTION File
 								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
 								//System.out.println("                 resultfile: " + resultFilePath);
@@ -217,12 +218,13 @@ public class TaskCycleProcessor {
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
 								
 								setChannelStringValue(returnChannel, retStr);
-								
+								}
 																
 							}
 								break;
 							case "XSDValidation": {
 								System.out.println("................ XSDValidation ");
+								oper_ok = true;
 							}
 								break;
 							}
@@ -234,6 +236,7 @@ public class TaskCycleProcessor {
 							switch (operationType) {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
+								oper_ok = true;
 								//Reference files
 															
 								String fullXSLPathInZip = operParamFilePathValue(par1);
@@ -244,7 +247,8 @@ public class TaskCycleProcessor {
 								
 								String[] splits = zip.split(".zip");
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
-								trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
+								oper_ok = trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
+								if(oper_ok){
 								//OPTION File
 								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
 								//System.out.println("                 resultfile: " + resultFilePath);
@@ -254,11 +258,13 @@ public class TaskCycleProcessor {
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
 							
 								setChannelStringValue(returnChannel, retStr);
+								}
 								
 							}
 								break;
 							case "XSDValidation": {
 								System.out.println("................ XSDValidation ");
+								oper_ok = true;
 							}
 								break;
 							}
@@ -269,6 +275,7 @@ public class TaskCycleProcessor {
 							System.out.println("\n==================================");
 							System.out.println(".............mergeFlow ...........");
 							//System.out.println("==================================\n");
+							oper_ok = true;
 							/* --- Operation Branch --- */
 							String operationType = oper.getType();
 							

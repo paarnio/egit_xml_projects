@@ -40,8 +40,11 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 public class XSLTransformer {
-	
+	private static final Logger logger=Logger.getLogger(XSLTransformer.class.getName());
 	private TransformerFactory factory;
 	
 	private Source xmlSource;	
@@ -83,6 +86,8 @@ public class XSLTransformer {
 			}
 		 * 	
 		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: getSavedBAInputStream()");
+
 		InputStream requestedInputStream = null;
 		
 		if ("XSL".equalsIgnoreCase(XSL_or_XML)) {
@@ -116,6 +121,8 @@ public class XSLTransformer {
 	 * https://stackoverflow.com/questions/9501237/read-stream-twice
 	 * TOIMII	
 	 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: saveInputStreamAsByteArray()");
+
 		boolean ok = false;
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -130,6 +137,7 @@ public class XSLTransformer {
 			}
 			
 		} catch (IOException e) {
+			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessage());
 			e.printStackTrace();
 		}
 		return ok;
@@ -143,6 +151,8 @@ public class XSLTransformer {
 		 * Transformer instance from the Templates instance
 		 * 
 		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
+
 		boolean ok = false;
 		try {
 			//Transformer transformer;
@@ -157,8 +167,10 @@ public class XSLTransformer {
 			Result result = new StreamResult(outputstream); // ("data/out2.xml");
 			transformer.transform(xmlSource, result);
 		} catch (TransformerConfigurationException e) {
+			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessageAndLocation());
 			e.printStackTrace();
 		} catch (TransformerException e) {
+			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessageAndLocation());
 			e.printStackTrace();
 		}
 		return ok;
@@ -171,6 +183,8 @@ public class XSLTransformer {
 		 * transformation, create // a new Transformer instance from the
 		 * Templates instance
 		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: createNewTemplate()");
+
 		boolean ok = false;
 		try {
 			
@@ -178,9 +192,11 @@ public class XSLTransformer {
 			template = factory.newTemplates(xslSource);
 			if(template!=null)ok = true;
 		} catch (TransformerConfigurationException e) {
+			logger.log(Level.FATAL, "MSG&LOC:\n" + e.getMessageAndLocation());
 			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG:\n" + e.getMessage());
 			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG&LOC:\n" + e.getMessageAndLocation());
 			e.printStackTrace();
+			ok=false;
 		}
 
 		return ok;

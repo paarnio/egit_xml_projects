@@ -18,10 +18,13 @@ import java.io.OutputStream;
 import java.util.List;
 import java.util.zip.ZipFile;
 
+import org.apache.log4j.Level;
+import org.apache.log4j.Logger;
+
 import siima.utils.ZipFileReader;
 
 public class TransformController {
-	
+	private static final Logger logger=Logger.getLogger(TransformController.class.getName());
 	private ZipFileReader zipper = new ZipFileReader();
 	private XSLTransformer xslTransformer;
 	private boolean prepared = false;
@@ -42,6 +45,8 @@ public class TransformController {
 		/*
 		 * 
 		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTransformToString()");
+		
 		boolean ok = false;
 		String strResult = null;
 		OutputStream outputstream;
@@ -61,6 +66,7 @@ public class TransformController {
 	 * @return
 	 */
 	public boolean runTransformToFile(String resultFilePath,  List<String> params, List<String> values ) {
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTransformToFile()");
 		boolean ok = false;
 		OutputStream outputstream;
 		try {
@@ -127,6 +133,7 @@ public class TransformController {
 		 * Else IF filepath == null, it's inputStream is loaded 
 		 * from previously saved BAInputStream 
 		 * */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: prepareXSLTransformWithImputStreams()");
 		boolean ok = false;
 		InputStream xslInputstream;
 		InputStream xmlInputstream;
@@ -157,12 +164,14 @@ public class TransformController {
 				xmlInputstream = xslTransformer.getSavedBAInputStream("XML");
 			}
 			if ((xslInputstream != null) && (xmlInputstream != null)) {
-				ok = prepareXSLTransform(xslInputstream, xmlInputstream);
+				ok = prepareXSLTransform(xslInputstream, xmlInputstream);				
 			}
 
 		} catch (IOException e) {
+			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			e.printStackTrace();
 		}
+		logger.log(Level.INFO, "method: prepareXSLTransformWithImputStreams() return ok=" + ok);
 		return ok;
 	}
 	
@@ -188,11 +197,12 @@ public class TransformController {
 	 * @return
 	 */
 	private boolean prepareXSLTransform(InputStream xslinput, InputStream xmlinput){
+		
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: prepareXSLTransform()");
 		boolean ok = false;
 		ok = xslTransformer.createNewTemplate(xslinput, null);
-		ok = xslTransformer.setTransformerXMLSource(xmlinput, null);
+		if(ok) ok = xslTransformer.setTransformerXMLSource(xmlinput, null);
 		if(ok) prepared = true;
-		
 		return ok;
 	}
 	
