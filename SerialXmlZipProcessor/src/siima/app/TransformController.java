@@ -25,6 +25,8 @@ import siima.utils.ZipFileReader;
 
 public class TransformController {
 	private static final Logger logger=Logger.getLogger(TransformController.class.getName());
+	private StringBuffer operErrorBuffer = new StringBuffer();
+	
 	private ZipFileReader zipper = new ZipFileReader();
 	private XSLTransformer xslTransformer;
 	private boolean prepared = false;
@@ -43,18 +45,22 @@ public class TransformController {
 	 */
 	public String runTransformToString(ByteArrayOutputStream resultOutputStream,  List<String> params, List<String> values ) {
 		/*
-		 * 
+		 * called by TaskCycleProcessor:runTaskCycles()
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTransformToString()");
-		
+		//operErrorBuffer = new StringBuffer();
 		boolean ok = false;
 		String strResult = null;
 		OutputStream outputstream;
 		
-			invokeXSLTransform(resultOutputStream, params, values);			
-			strResult = resultOutputStream.toString();
-			//System.out.println("RESULT\n" + strresult);
-		
+			ok = invokeXSLTransform(resultOutputStream, params, values);			
+			if(ok) {
+				strResult = resultOutputStream.toString();
+				//System.out.println("RESULT\n" + strresult);
+			} else {
+				operErrorBuffer.append("*");
+			}
+					
 		return strResult;
 	}
 	
@@ -66,6 +72,9 @@ public class TransformController {
 	 * @return
 	 */
 	public boolean runTransformToFile(String resultFilePath,  List<String> params, List<String> values ) {
+		/*
+		 * called by TaskCycleProcessor:runTaskCycles()
+		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTransformToFile()");
 		boolean ok = false;
 		OutputStream outputstream;
@@ -74,6 +83,7 @@ public class TransformController {
 			invokeXSLTransform(outputstream, params, values);
 			
 		} catch (FileNotFoundException e) {
+			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -94,6 +104,8 @@ public class TransformController {
 		 * 
 		 */
 		boolean ok = false;
+		xslTransformer.setOperErrorBuffer(new StringBuffer());
+		
 		String fullXSLPathInZip = directoryInZip + fileInZip;
 
 		try {
@@ -109,10 +121,13 @@ public class TransformController {
 				if (inputstream != null) {
 					// xslTransformer.saveXslInputStreamAsByteArray(xslInputstream);
 					ok = xslTransformer.saveInputStreamAsByteArray(inputstream, XSL_or_XML.toUpperCase()); // "XSL");
+					if(!ok) operErrorBuffer.append(xslTransformer.getOperErrorBuffer());
 				}
 			}
 		} catch (IOException e) {
+			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			e.printStackTrace();
+			ok = false;
 		}
 		return ok;
 	}
@@ -131,7 +146,9 @@ public class TransformController {
 		/* IF zipfile and file path in zip is defined, 
 		 * Stream (XSL and XML) is loaded from Zip file. 
 		 * Else IF filepath == null, it's inputStream is loaded 
-		 * from previously saved BAInputStream 
+		 * from previously saved BAInputStream
+		 * 
+		 * called by TaskCycleProcessor:runTaskCycles()
 		 * */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: prepareXSLTransformWithImputStreams()");
 		boolean ok = false;
@@ -170,6 +187,7 @@ public class TransformController {
 		} catch (IOException e) {
 			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			e.printStackTrace();
+			ok = false;
 		}
 		logger.log(Level.INFO, "method: prepareXSLTransformWithImputStreams() return ok=" + ok);
 		return ok;
@@ -184,9 +202,11 @@ public class TransformController {
 	 */
 	public boolean invokeXSLTransform(OutputStream outputstream, List<String> params, List<String> values) {
 		boolean ok = false;
+		xslTransformer.setOperErrorBuffer(new StringBuffer());
 		if(prepared){ 
 			ok = xslTransformer.invokeXSLTransform(outputstream, params, values);
 		}
+		if(!ok) operErrorBuffer.append(xslTransformer.getOperErrorBuffer());
 		return ok;
 	}
 	
@@ -200,14 +220,27 @@ public class TransformController {
 		
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: prepareXSLTransform()");
 		boolean ok = false;
+		xslTransformer.setOperErrorBuffer(new StringBuffer());
+		
 		ok = xslTransformer.createNewTemplate(xslinput, null);
-		if(ok) ok = xslTransformer.setTransformerXMLSource(xmlinput, null);
-		if(ok) prepared = true;
+		if(ok){ 
+			ok = xslTransformer.setTransformerXMLSource(xmlinput, null);
+			prepared = true;
+		} 
+		if(!ok) operErrorBuffer.append(xslTransformer.getOperErrorBuffer());	
 		return ok;
 	}
 	
-	
-	
+	/*
+	 * GETTERS AND SETTERS
+	 */
+	public StringBuffer getOperErrorBuffer() {
+		return operErrorBuffer;
+	}
+
+	public void setOperErrorBuffer(StringBuffer operErrorBuffer) {
+		this.operErrorBuffer = operErrorBuffer;
+	}
 	
 	public static void main(String[] args) {
 			/* try {
@@ -269,11 +302,13 @@ public class TransformController {
 			 ctrl.runTransform(resultFilePath24,  null,null);
 			*/
 	}
+
+
 	/*
 	 * REPLACED OLD METHODS
-	 */
+	 
 	public boolean wwwwloadAndSaveXslStream(String zipFilePath, String directoryInZip, String xslfileInZip) {
-		/* REPLACED by loadAndSaveInputStream() */
+		// REPLACED by loadAndSaveInputStream() 
 		boolean ok = false;
 		String fullXSLPathInZip = directoryInZip + xslfileInZip;
 		try {
@@ -291,23 +326,23 @@ public class TransformController {
 			e.printStackTrace();
 		}
 		return ok;
-	}
+	}*/
 	
 	
 	
-	public boolean wwwwloadXmlStreamFromZipUseStoredXslAndPrepare(String zipFilePath,  String directoryInZip,  String xmlfileInZip ) {
-		/* NOTE: replaced by prepareXSLTransformWithImputStreams()
+	/*public boolean wwwwloadXmlStreamFromZipUseStoredXslAndPrepare(String zipFilePath,  String directoryInZip,  String xmlfileInZip ) {
+		 NOTE: replaced by prepareXSLTransformWithImputStreams()
 		 * XSL Stream is read from stored ByteArray Stream
-		 * ONLY XML Stream is loaded from Zip file */
+		 * ONLY XML Stream is loaded from Zip file 
 		boolean ok = false;
 		 //String fullXSLPathInZip = directoryInZip + xslfileInZip;
 		 String fullXMLPathInZip = directoryInZip + xmlfileInZip;
 		 try {
 			ZipFile zip = new ZipFile(zipFilePath);
-			/*InputStream xslInputstream = zipper.getInputStreamFromZipFile(fullXSLPathInZip, zip);
-			if(xslInputstream==null){ //Let's try to find the file from every directory in zip
-				xslInputstream = zipper.readXmlStreamFromZipFile(xslfileInZip, null, zip);
-			}*/
+			//InputStream xslInputstream = zipper.getInputStreamFromZipFile(fullXSLPathInZip, zip);
+			//if(xslInputstream==null){ //Let's try to find the file from every directory in zip
+			//	xslInputstream = zipper.readXmlStreamFromZipFile(xslfileInZip, null, zip);
+			//}
 			//XSL
 			InputStream xslInputstream = xslTransformer.getSavedBAInputStream("XSL");
 			//XML
@@ -323,14 +358,14 @@ public class TransformController {
 			e.printStackTrace();
 		} 
 		return ok;
-	}
+	} */
 
 	
 	
-	public boolean wwwwloadStreamsFromZipAndPrepare(String zipFilePath,  String directoryInZip,  String xslfileInZip, String xmlfileInZip ) {
-		/* NOTE: replaced by prepareXSLTransformWithImputStreams()
+	/*public boolean wwwwloadStreamsFromZipAndPrepare(String zipFilePath,  String directoryInZip,  String xslfileInZip, String xmlfileInZip ) {
+		 NOTE: replaced by prepareXSLTransformWithImputStreams()
 		 * Both XSL and XML Streams are loaded from Zip files 
-		 **/
+		 *
 		boolean ok = false;
 		 String fullXSLPathInZip = directoryInZip + xslfileInZip;
 		 String fullXMLPathInZip = directoryInZip + xmlfileInZip;
@@ -355,4 +390,5 @@ public class TransformController {
 		} 
 		return ok;
 	}
+	*/
 }

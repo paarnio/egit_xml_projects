@@ -52,6 +52,15 @@ public class ExcelMng {
 		
 	}
 	
+	public void writeOperErrorMsgs(List<String> results, String sheetname, int colind, int rowind){
+		/* Writing all the operation error messages of one student submit 
+		 * into the students row in excel file 
+		 */
+		int sheetidx = this.ex2s.getSheetIndex(sheetname);
+		this.ex2s.setSheetind(sheetidx);
+		this.ex2s.writeStringListToColumnOrRowField(true,sheetidx, colind, rowind, results, true);				
+	}
+	
 	public void saveAndCloseResultsExcel(){
 		this.ex2s.saveWorkbook(studentDataExcel);
 		

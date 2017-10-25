@@ -45,8 +45,9 @@ import org.apache.log4j.Logger;
 
 public class XSLTransformer {
 	private static final Logger logger=Logger.getLogger(XSLTransformer.class.getName());
-	private TransformerFactory factory;
-	
+	private StringBuffer operErrorBuffer = new StringBuffer();
+
+	private TransformerFactory factory;	
 	private Source xmlSource;	
 	private Source xslSource;
 	//XSL InputStream saved to a Byte Array and ByteArrayInputStream
@@ -122,7 +123,7 @@ public class XSLTransformer {
 	 * TOIMII	
 	 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: saveInputStreamAsByteArray()");
-
+		//operErrorBuffer = new StringBuffer();
 		boolean ok = false;
 		try {
 			ByteArrayOutputStream baos = new ByteArrayOutputStream();
@@ -138,7 +139,9 @@ public class XSLTransformer {
 			
 		} catch (IOException e) {
 			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
+			ok = false;
 		}
 		return ok;
 	}
@@ -152,7 +155,7 @@ public class XSLTransformer {
 		 * 
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
-
+		//operErrorBuffer = new StringBuffer();
 		boolean ok = false;
 		try {
 			//Transformer transformer;
@@ -166,12 +169,17 @@ public class XSLTransformer {
 			}
 			Result result = new StreamResult(outputstream); // ("data/out2.xml");
 			transformer.transform(xmlSource, result);
+			ok = true;
 		} catch (TransformerConfigurationException e) {
 			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessageAndLocation());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessageAndLocation());
 			e.printStackTrace();
+			ok = false;
 		} catch (TransformerException e) {
 			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessageAndLocation());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessageAndLocation());
 			e.printStackTrace();
+			ok = false;
 		}
 		return ok;
 	}
@@ -184,7 +192,7 @@ public class XSLTransformer {
 		 * Templates instance
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: createNewTemplate()");
-
+		//operErrorBuffer = new StringBuffer();
 		boolean ok = false;
 		try {
 			
@@ -193,7 +201,7 @@ public class XSLTransformer {
 			if(template!=null)ok = true;
 		} catch (TransformerConfigurationException e) {
 			logger.log(Level.FATAL, "MSG&LOC:\n" + e.getMessageAndLocation());
-			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessageAndLocation());
 			System.out.println("MyLog ERROR: XSLTransformer: createNewTemplate() MSG&LOC:\n" + e.getMessageAndLocation());
 			e.printStackTrace();
 			ok=false;
@@ -255,7 +263,19 @@ public class XSLTransformer {
 		return ok;
 	}
 
-	  public static void main(String[] args) throws Exception {
+	/*
+	 * GETTERS AND SETTERS
+	 */
+	
+	public StringBuffer getOperErrorBuffer() {
+		return operErrorBuffer;
+	}
+
+	public void setOperErrorBuffer(StringBuffer operErrorBuffer) {
+		this.operErrorBuffer = operErrorBuffer;
+	}
+
+	public static void main(String[] args) throws Exception {
 		  
 		/*
 		 * Source xsl = new StreamSource("data/input.xsl"); Transformer
@@ -285,11 +305,11 @@ public class XSLTransformer {
 		/* REMOVED XSL SPECIFIC METHOD
 		 * Saving XSL InputStream into byte array 
 		 * */
-		public void wwwwsaveXslInputStreamAsByteArray(InputStream xslinput){
-		/* Replaced by: method:saveInputStreamAsByteArray()
+	/*public void wwwwsaveXslInputStreamAsByteArray(InputStream xslinput){
+		 Replaced by: method:saveInputStreamAsByteArray()
 		 * https://stackoverflow.com/questions/9501237/read-stream-twice
 		 * TOIMII	
-		 */
+		 
 			try {
 				ByteArrayOutputStream baos = new ByteArrayOutputStream();
 				org.apache.commons.io.IOUtils.copy(xslinput, baos);
@@ -299,6 +319,6 @@ public class XSLTransformer {
 				e.printStackTrace();
 			}
 			
-		}
+		}*/
 		
 }

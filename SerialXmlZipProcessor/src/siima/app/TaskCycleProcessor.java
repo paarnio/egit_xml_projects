@@ -25,7 +25,8 @@ public class TaskCycleProcessor {
 	private TextCompareController mydmp = new TextCompareController();
 	
 	public StringBuffer checkResultBuffer;
-	public List<String> testcaseResults; // = new ArrayList<String>();	
+	public List<String> testcaseResults; // = new ArrayList<String>();
+	public List<String> operationErrors;
 	private List<String> dirList = new ArrayList<String>();
 	private List<String> fileList = new ArrayList<String>();
 	private Map<String,Integer> dirKeyIndexMap = new HashMap<String,Integer>();
@@ -129,7 +130,7 @@ public class TaskCycleProcessor {
 			System.out.println("+ Submit Loop #" + submitcnt);
 			System.out.println("  Submit zip: " + zip);
 			testcaseResults = new ArrayList<String>();	
-		
+			operationErrors = new ArrayList<String>();	
 		/* --- TestCase Loop --- */
 		int testcasecount=0;
 		for (TestCaseType tcase : testcases) {
@@ -164,13 +165,14 @@ public class TaskCycleProcessor {
 				System.out.println("--+--+ Flow Loop --- ");
 				System.out.println("       Flow type: " + flow.getType());
 				System.out.println("       Flow name: " + flow.getName());
-				
+				StringBuffer operErrorBuffer;
 				List<OperationType> operations = flow.getOperation();
 				for (OperationType oper : operations) {
 					System.out.println("--+--+--+ Operation Loop --- ");
 					System.out.println("          Operation type: " + oper.getType());
 					System.out.println("          Operation name: " + oper.getName());
 					System.out.println("          Operation return channel: " + oper.getReturn());
+					operErrorBuffer = new StringBuffer();
 					
 					String par1 =oper.getPar1();
 					String par2 =oper.getPar2();
@@ -195,8 +197,9 @@ public class TaskCycleProcessor {
 							String operationType = oper.getType();
 							switch (operationType) {
 							case "XSLTransform": {
-								System.out.println("................ XSLTransform ");
+								System.out.println("................ XSLTransform ");		
 								oper_ok = true;
+								trans_ctrl.setOperErrorBuffer(new StringBuffer());
 								
 								//Student files									
 								String fullXSLPathInZip = operParamFilePathValue(par1);
@@ -215,11 +218,10 @@ public class TaskCycleProcessor {
 								
 								//OPTION String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
-								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
-								
+								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);			
 								setChannelStringValue(returnChannel, retStr);
 								}
-																
+								operErrorBuffer = trans_ctrl.getOperErrorBuffer();								
 							}
 								break;
 							case "XSDValidation": {
@@ -237,6 +239,7 @@ public class TaskCycleProcessor {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");
 								oper_ok = true;
+								trans_ctrl.setOperErrorBuffer(new StringBuffer());
 								//Reference files
 															
 								String fullXSLPathInZip = operParamFilePathValue(par1);
@@ -259,7 +262,7 @@ public class TaskCycleProcessor {
 							
 								setChannelStringValue(returnChannel, retStr);
 								}
-								
+								operErrorBuffer = trans_ctrl.getOperErrorBuffer();	
 							}
 								break;
 							case "XSDValidation": {
@@ -315,11 +318,12 @@ public class TaskCycleProcessor {
 							}
 							
 						}
-										
-					}
-				}
+						if(operErrorBuffer.length()>0)
+							operationErrors.add("ERROR: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + operErrorBuffer.toString() + ")");
+					} // Operation loop
+				} // Flow loop
 			//NOTE: DO NOT write [ ] into excel: problems occur
-			testcaseResults.add("SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") RESULT MSG:(" + checkResultBuffer.toString() + ")");
+			testcaseResults.add("RESULT: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + checkResultBuffer.toString() + ")");
 			
 			}// TestCase Loop ---
 		saveSubmitTestCaseResults(submitcnt, testcasecount);
@@ -334,9 +338,19 @@ public class TaskCycleProcessor {
 	/* NOTE: DO NOT write [ ] into excel: problems occur
 	 * testcasesResultsLists	
 	 */
+		//Testcase Results
 		System.out.println("testcaseResults #" + testcaseResults.size());
 		//writeTestcaseResults(List<String> results, String sheetname, int colind, int rowind)
 		excel_mng.writeTestcaseResults(testcaseResults, "Results", 6, 9+submitcnt);
+		
+		//Error messages
+		System.out.println("operationErrors #" + operationErrors.size());
+		if(operationErrors.size()>0){
+			System.out.println("operationErrors:" + operationErrors.get(0));
+			
+			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 6+testcasecount, 9+submitcnt);
+		}
+		
 	}
 	
 	
