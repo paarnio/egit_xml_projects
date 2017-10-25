@@ -118,7 +118,7 @@ public class TaskCycleProcessor {
 		boolean oper_ok = true;
 		String resultFileDir = "data/zips";
 		
-		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
+		String taskFlowXmlFile = "data/taskflow/taskflow2_2.xml";
 		List<String> zips = readSubmitZipNames();
 		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
 		System.out.println("\n********** runTaskCycles() ********\n");
@@ -348,7 +348,7 @@ public class TaskCycleProcessor {
 		if(operationErrors.size()>0){
 			System.out.println("operationErrors:" + operationErrors.get(0));
 			
-			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 6+testcasecount, 9+submitcnt);
+			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 9+testcasecount, 9+submitcnt);
 		}
 		
 	}
@@ -375,7 +375,7 @@ public class TaskCycleProcessor {
 	
 	public static void main(String[] args) {
 		String studentsExcel = "data/excel/students.xlsx";
-		String taskFlowXmlFile = "data/taskflow/taskflow2.xml";
+		String taskFlowXmlFile = "data/taskflow/taskflow2_2.xml";
 		String resultFilePath1 = "./data/zips/result_test1.xml";
 		
 		String sheetname = "Sheet1";

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ taskflow2.xml validated by testcases2.xsd
+-->
+<checkerTaskFlow>
+  <stuZip>./data/zips/RoundU1_sub2_</stuZip>
+  <refZip>./data/zips/RoundU1_reference.zip</refZip>
+  <testCase>
+    <points>10</points>
+    <stuDir1>RoundU1/exU1E1_1/src/</stuDir1>
+	<stuFile1>plant_catalog.xsl</stuFile1>
+	<stuFile2>plant_catalog.xml</stuFile2>
+	<refDir1>RoundU1/exU1E1_1/src/</refDir1>
+	<refFile1>plant_catalog.xsl</refFile1>
+	<refFile2>plant_catalog.xml</refFile2>
+	<comment>Testcase comment</comment>
+	<flow>
+	  <type>studentFlow</type>
+	  <name>studentFlow1</name>
+	  <inChannel>inC001</inChannel>
+	  <outChannel>stuC001</outChannel>
+	  <operation>
+	    <type>XSLTransform</type>
+        <name>XSLTransform1</name>
+        <par1>stuDir1/stuFile1</par1>
+        <par2>refDir1/refFile2</par2>
+		<return>stuC001</return>
+	    <comment>XSL Transform operation comment1</comment>
+      </operation>
+	  <comment>Taskflow comment1</comment>
+	</flow>
+	<flow>
+	  <type>referenceFlow</type>
+	  <name>referenceFlow1</name>
+	  <inChannel>inC011</inChannel>
+	  <outChannel>refC001</outChannel>
+	  <operation>
+	    <type>XSLTransform</type>
+        <name>XSLTransform1</name>
+        <par1>refDir1/refFile1</par1>
+        <par2>refDir1/refFile2</par2>
+		<return>refC001</return>
+	    <comment>XSL Transform operation comment2</comment>
+      </operation>
+	  <comment>Taskflow comment2</comment>
+	</flow>
+  	<flow>
+	  <type>mergeFlow</type>
+	  <name>mergeFlow1</name>
+	  <inChannel>outC002</inChannel>
+	  <inChannel>outC012</inChannel>
+	  <outChannel>merC001</outChannel>
+	  <operation>
+	    <type>StringCompare</type>
+        <name>StringCompare1</name>
+        <par1>refC001</par1>
+        <par2>stuC001</par2>
+		<return>merC001</return>
+	    <comment>Comparing student and reference flow outputs</comment>
+      </operation>
+	  <comment>Taskflow comment3</comment>
+	</flow>
+  </testCase>
+  <testCase>
+    <points>20</points>
+    <stuDir1>RoundU1/exU1E1_1/src/</stuDir1>
+	<stuFile1>plant_catalog.xsl</stuFile1>
+	<stuFile2>plant_catalog.xml</stuFile2>
+	<refDir1>RoundU1/exU1E1_1/src/</refDir1>
+	<refFile1>plant_catalog.xsl</refFile1>
+	<refFile2>plant_catalog.xml</refFile2>
+	<comment>Testcase comment</comment>
+	<flow>
+	  <type>studentFlow</type>
+	  <name>studentFlow1</name>
+	  <inChannel>inC001</inChannel>
+	  <outChannel>stuC001</outChannel>
+	  <operation>
+	    <type>XSLTransform</type>
+        <name>XSLTransform1</name>
+        <par1>stuDir1/stuFile1</par1>
+        <par2>refDir1/refFile2</par2>
+		<return>stuC001</return>
+	    <comment>XSL Transform operation comment1</comment>
+      </operation>
+	  <comment>Taskflow comment1</comment>
+	</flow>
+	<flow>
+	  <type>referenceFlow</type>
+	  <name>referenceFlow1</name>
+	  <inChannel>inC011</inChannel>
+	  <outChannel>refC001</outChannel>
+	  <operation>
+	    <type>XSLTransform</type>
+        <name>XSLTransform1</name>
+        <par1>refDir1/refFile1</par1>
+        <par2>refDir1/refFile2</par2>
+		<return>refC001</return>
+	    <comment>XSL Transform operation comment2</comment>
+      </operation>
+	  <comment>Taskflow comment2</comment>
+	</flow>
+  	<flow>
+	  <type>mergeFlow</type>
+	  <name>mergeFlow1</name>
+	  <inChannel>outC002</inChannel>
+	  <inChannel>outC012</inChannel>
+	  <outChannel>merC001</outChannel>
+	  <operation>
+	    <type>StringCompare</type>
+        <name>StringCompare1</name>
+        <par1>refC001</par1>
+        <par2>stuC001</par2>
+		<return>merC001</return>
+	    <comment>Comparing student and reference flow outputs</comment>
+      </operation>
+	  <comment>Taskflow comment3</comment>
+	</flow>
+  </testCase>
+</checkerTaskFlow>
