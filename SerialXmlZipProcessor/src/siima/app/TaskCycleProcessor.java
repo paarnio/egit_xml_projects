@@ -118,7 +118,7 @@ public class TaskCycleProcessor {
 		boolean oper_ok = true;
 		String resultFileDir = "data/zips";
 		
-		String taskFlowXmlFile = "data/taskflow/taskflow2_2.xml";
+		String taskFlowXmlFile = "data/taskflow/taskflow3.xml"; //"data/taskflow/taskflow2_2.xml";
 		List<String> zips = readSubmitZipNames();
 		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
 		System.out.println("\n********** runTaskCycles() ********\n");
@@ -375,7 +375,7 @@ public class TaskCycleProcessor {
 	
 	public static void main(String[] args) {
 		String studentsExcel = "data/excel/students.xlsx";
-		String taskFlowXmlFile = "data/taskflow/taskflow2_2.xml";
+		String taskFlowXmlFile = "data/taskflow/taskflow3.xml"; //"data/taskflow/taskflow2_2.xml";
 		String resultFilePath1 = "./data/zips/result_test1.xml";
 		
 		String sheetname = "Sheet1";
