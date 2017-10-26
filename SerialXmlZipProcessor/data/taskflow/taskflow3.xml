@@ -84,8 +84,8 @@
 	  <inChannel>inC001</inChannel>
 	  <outChannel>stuC001</outChannel>
 	  <operation>
-	    <type>XSLTransformWithXMLParams</type>
-        <name>XSLTransformWithXMLParams1</name>
+	    <type>XSLTransform</type>
+        <name>XSLTransform With XMLParams</name>
         <par1>stuDir1/stuFile1</par1>
         <par2>refDir1/refFile2</par2>
 		<!-- NEW -->
@@ -104,8 +104,8 @@
 	  <inChannel>inC011</inChannel>
 	  <outChannel>refC001</outChannel>
 	  <operation>
-	    <type>XSLTransformWithXMLParams</type>
-        <name>XSLTransformWithXMLParams1</name>
+	    <type>XSLTransform</type>
+        <name>XSLTransform With XMLParams</name>
         <par1>refDir1/refFile1</par1>
         <par2>refDir1/refFile2</par2>
 		<!-- NEW -->

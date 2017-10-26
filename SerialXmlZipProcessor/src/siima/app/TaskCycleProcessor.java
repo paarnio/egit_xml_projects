@@ -13,6 +13,7 @@ import org.apache.log4j.Logger;
 import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
 import siima.model.checker.taskflow.OperationType;
+import siima.model.checker.taskflow.ParamValueListType;
 import siima.model.checker.taskflow.TestCaseType;
 import siima.utils.Testing_diff_match_patch;
 
@@ -127,6 +128,7 @@ public class TaskCycleProcessor {
 		/* --- Student Submit Loop --- */
 		for (String zip : zips) {
 			submitcnt++;
+			System.out.println("\n-----------------------------------");
 			System.out.println("+ Submit Loop #" + submitcnt);
 			System.out.println("  Submit zip: " + zip);
 			testcaseResults = new ArrayList<String>();	
@@ -173,10 +175,18 @@ public class TaskCycleProcessor {
 					System.out.println("          Operation name: " + oper.getName());
 					System.out.println("          Operation return channel: " + oper.getReturn());
 					operErrorBuffer = new StringBuffer();
-					
+					List<String> paramlist = null;
+					List<String> valuelist = null;
 					String par1 =oper.getPar1();
 					String par2 =oper.getPar2();
 					String returnChannel = oper.getReturn();
+					//NEW
+					ParamValueListType parvallist = oper.getParamValueList();
+					if(parvallist!=null){
+						paramlist = parvallist.getParamList();
+						valuelist = parvallist.getValueList();
+						System.out.println("          Operation (Param:Value) (" + paramlist.get(0) + ":" + valuelist.get(0) + ")");
+					}
 					
 					String refzip = "RoundU1_reference.zip"; // reference Zip file
 					String studentZipFolder="data/zips/RoundU1/";
@@ -212,13 +222,15 @@ public class TaskCycleProcessor {
 								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
 								oper_ok = trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
 								if(oper_ok){
+									
+									
 								//OPTION File
 								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
 								//System.out.println("                 resultfile: " + resultFilePath);
 								
 								//OPTION String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
-								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);			
+								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  paramlist, valuelist);			
 								setChannelStringValue(returnChannel, retStr);
 								}
 								operErrorBuffer = trans_ctrl.getOperErrorBuffer();								
@@ -258,7 +270,7 @@ public class TaskCycleProcessor {
 								
 								//OPTION String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
-								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  null,null);
+								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  paramlist, valuelist);
 							
 								setChannelStringValue(returnChannel, retStr);
 								}
