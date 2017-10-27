@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import siima.app.operator.XMLWellFormedCheck;
 import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
 import siima.model.checker.taskflow.OperationType;
@@ -24,6 +25,7 @@ public class TaskCycleProcessor {
 	private TestCaseContainer test_cc = new TestCaseContainer();
 	private TransformController trans_ctrl = new TransformController();	
 	private TextCompareController mydmp = new TextCompareController();
+	private XMLWellFormedCheck wf_oper = new XMLWellFormedCheck();
 	
 	public StringBuffer checkResultBuffer;
 	public List<String> testcaseResults; // = new ArrayList<String>();
@@ -241,6 +243,17 @@ public class TaskCycleProcessor {
 								oper_ok = true;
 							}
 								break;
+							case "XMLWellFormed": { //TODO:
+								System.out.println("................ XMLWellFormed ");		
+								wf_oper.setOperErrorBuffer(new StringBuffer());
+								
+								String fullXMLPathInZip = operParamFilePathValue(par1);
+								System.out.println("                 XML file: " + fullXMLPathInZip);
+								
+								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
+								operErrorBuffer = trans_ctrl.getOperErrorBuffer();
+							}
+								break;
 							}
 		
 						} else if("referenceFlow".equals(flowType)){
@@ -280,6 +293,17 @@ public class TaskCycleProcessor {
 							case "XSDValidation": {
 								System.out.println("................ XSDValidation ");
 								oper_ok = true;
+							}
+								break;
+							case "XMLWellFormed": { //TODO:
+								System.out.println("................ XMLWellFormed ");		
+								wf_oper.setOperErrorBuffer(new StringBuffer());
+								
+								String fullXMLPathInZip = operParamFilePathValue(par1);
+								System.out.println("                 XML file: " + fullXMLPathInZip);
+								
+								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
+								operErrorBuffer = trans_ctrl.getOperErrorBuffer();
 							}
 								break;
 							}

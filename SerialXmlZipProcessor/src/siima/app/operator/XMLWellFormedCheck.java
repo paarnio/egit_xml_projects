@@ -11,6 +11,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.ZipFile;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -20,16 +22,53 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import siima.app.XSLTransformer;
+import siima.utils.ZipFileReader;
 
 public class XMLWellFormedCheck {
 	private static final Logger logger=Logger.getLogger(XMLWellFormedCheck.class.getName());
 	private StringBuffer operErrorBuffer = new StringBuffer();
+	private ZipFileReader zipper = new ZipFileReader();
 	//private XMLInputFactory factory;
 	
 	/* Constructor */
 	public XMLWellFormedCheck(){
 		//XMLInputFactory factory = XMLInputFactory.newInstance();
 	}
+	
+	public boolean checkWellFormedZipXML(String zippath, String fullXMLPathInZip){
+		//TODO:
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
+		boolean ok = false;
+		try {
+		XMLInputFactory factory = XMLInputFactory.newInstance();
+		ZipFile zip = new ZipFile(zippath);
+		InputStream inputStream= zipper.readInputStreamFromZipFile(fullXMLPathInZip, zip, "xml");		
+			// Instantiate a reader parsing:
+			XMLStreamReader reader = factory.createXMLStreamReader(inputStream);
+			while (reader.hasNext()) {
+				// check to be implemented??
+				reader.next();
+			}
+			inputStream.close();
+			ok = true;
+
+		} catch (FileNotFoundException e) {
+			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			e.printStackTrace();
+		} catch (XMLStreamException e) {			
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			ok = false;
+			// e.printStackTrace();		
+		} catch (IOException e) {
+			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		System.out.println("---checkWellFormedZipXML() ok=" + ok + ": " + operErrorBuffer.toString());
+		return ok;
+	}
+
 	
 	public void checkWellFormedness(String xmlFile){
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
