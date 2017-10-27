@@ -138,7 +138,7 @@ public class XSLTransformer {
 			}
 			
 		} catch (IOException e) {
-			logger.log(Level.ERROR, "MSG&LOC:\n" + e.getMessage());
+			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
 			ok = false;
