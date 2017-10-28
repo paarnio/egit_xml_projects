@@ -196,11 +196,14 @@ public class TaskCycleProcessor {
 					String zippath1 = null;
 					String zippath2 = null;
 					
-					if(par1.startsWith("stuDir")) zippath1=studentZipFolder + zip; 
-					else if(par1.startsWith("refDir")) zippath1=referenceZipFolder + refzip;
-					if(par2.startsWith("stuDir")) zippath2=studentZipFolder + zip; 
-					else if(par2.startsWith("refDir")) zippath2=referenceZipFolder + refzip;
-					
+					if(par1!=null){
+						if(par1.startsWith("stuDir")) zippath1=studentZipFolder + zip; 
+						else if(par1.startsWith("refDir")) zippath1=referenceZipFolder + refzip;
+					}
+					if(par2!=null){
+						if(par2.startsWith("stuDir")) zippath2=studentZipFolder + zip; 
+						else if(par2.startsWith("refDir")) zippath2=referenceZipFolder + refzip;
+					}
 						/* --- Flow Branch --- */						
 						String flowType = flow.getType();	
 						if("studentFlow".equals(flowType)){

@@ -36,7 +36,8 @@ public class XMLWellFormedCheck {
 	}
 	
 	public boolean checkWellFormedZipXML(String zippath, String fullXMLPathInZip){
-		//TODO:
+		//TODO:ERRROR: javax.xml.stream.XMLStreamException: java.net.MalformedURLException
+		//TODO: write the zipped xml file to temp file and use method: checkWellFormedness(String xmlFile){
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
 		boolean ok = false;
 		try {
@@ -59,7 +60,7 @@ public class XMLWellFormedCheck {
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			ok = false;
-			// e.printStackTrace();		
+			e.printStackTrace();		
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			e.printStackTrace();
@@ -92,7 +93,7 @@ public class XMLWellFormedCheck {
 		} catch (XMLStreamException e) {			
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
-			// e.printStackTrace();		
+			e.printStackTrace();		
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			e.printStackTrace();
