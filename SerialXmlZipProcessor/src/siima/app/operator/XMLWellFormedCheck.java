@@ -28,22 +28,20 @@ public class XMLWellFormedCheck {
 	private static final Logger logger=Logger.getLogger(XMLWellFormedCheck.class.getName());
 	private StringBuffer operErrorBuffer = new StringBuffer();
 	private ZipFileReader zipper = new ZipFileReader();
-	//private XMLInputFactory factory;
+	
 	
 	/* Constructor */
 	public XMLWellFormedCheck(){
-		//XMLInputFactory factory = XMLInputFactory.newInstance();
+		
 	}
 	
 	public boolean checkWellFormedZipXML(String zippath, String fullXMLPathInZip){
-		//TODO:ERRROR: javax.xml.stream.XMLStreamException: java.net.MalformedURLException
-		//TODO: write the zipped xml file to temp file and use method: checkWellFormedness(String xmlFile){
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
 		boolean ok = false;
 		try {
 		XMLInputFactory factory = XMLInputFactory.newInstance();
 		ZipFile zip = new ZipFile(zippath);
-		InputStream inputStream= zipper.readInputStreamFromZipFile(fullXMLPathInZip, zip, "xml");		
+		InputStream inputStream= zipper.readInputStreamFromZipFile(fullXMLPathInZip, zip, null);		
 			// Instantiate a reader parsing:
 			XMLStreamReader reader = factory.createXMLStreamReader(inputStream);
 			while (reader.hasNext()) {
@@ -55,14 +53,16 @@ public class XMLWellFormedCheck {
 
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
 		} catch (XMLStreamException e) {			
-			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			ok = false;
 			e.printStackTrace();		
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -89,13 +89,15 @@ public class XMLWellFormedCheck {
 
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
 		} catch (XMLStreamException e) {			
-			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();		
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
 			e.printStackTrace();
 		}
 		
@@ -114,8 +116,9 @@ public class XMLWellFormedCheck {
 	}
 
 	public static void main(String[] args) {
+		
 		XMLWellFormedCheck wfchecker = new XMLWellFormedCheck();
-		wfchecker.checkWellFormedness("data/tests/simple_not_wf.xml");
+		wfchecker.checkWellFormedness("data/tests/plant_catalog.xsl"); //"data/tests/simple_not_wf.xml");
 
 	}
 

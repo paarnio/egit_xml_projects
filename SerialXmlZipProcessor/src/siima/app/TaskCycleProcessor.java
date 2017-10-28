@@ -205,8 +205,9 @@ public class TaskCycleProcessor {
 						else if(par2.startsWith("refDir")) zippath2=referenceZipFolder + refzip;
 					}
 						/* --- Flow Branch --- */						
-						String flowType = flow.getType();	
-						if("studentFlow".equals(flowType)){
+						String flowType = flow.getType();
+						
+						if(("studentFlow".equals(flowType))||("referenceFlow".equals(flowType))){
 						
 						/* --- Operation Branch --- */
 							String operationType = oper.getType();
@@ -216,24 +217,29 @@ public class TaskCycleProcessor {
 								oper_ok = true;
 								trans_ctrl.setOperErrorBuffer(new StringBuffer());
 								
-								//Student files									
+								//Transformation source files									
 								String fullXSLPathInZip = operParamFilePathValue(par1);
 								String fullXMLPathInZip = operParamFilePathValue(par2);
 								
 								System.out.println("                 XSL file: " + fullXSLPathInZip);
 								System.out.println("                 XML file: " + fullXMLPathInZip);
 					
-								String[] splits = zip.split(".zip");
-								String resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
 								oper_ok = trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
 								if(oper_ok){
 									
 									
-								//OPTION File
-								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
-								//System.out.println("                 resultfile: " + resultFilePath);
-								
-								//OPTION String
+								/* OPTION Results to File 
+									String resultFilePath = null;
+									String[] splits = zip.split(".zip");
+									if("studentFlow".equals(flowType))
+										resultFilePath = resultFileDir + "/" + returnChannel + "_student_" + splits[0] + ".xml";
+									else if("referenceFlow".equals(flowType))
+										resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
+									trans_ctrl.runTransformToFile(resultFilePath,  null,null);
+									System.out.println("                 resultfile: " + resultFilePath);
+								*/
+									
+								//OPTION Results to String
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  paramlist, valuelist);			
 								setChannelStringValue(returnChannel, retStr);
@@ -246,7 +252,7 @@ public class TaskCycleProcessor {
 								oper_ok = true;
 							}
 								break;
-							case "XMLWellFormed": { //TODO:
+							case "XMLWellFormed": { 
 								System.out.println("................ XMLWellFormed ");		
 								wf_oper.setOperErrorBuffer(new StringBuffer());
 								
@@ -254,66 +260,16 @@ public class TaskCycleProcessor {
 								System.out.println("                 XML file: " + fullXMLPathInZip);
 								
 								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
-								operErrorBuffer = trans_ctrl.getOperErrorBuffer();
+								operErrorBuffer = wf_oper.getOperErrorBuffer();
 							}
 								break;
 							}
 		
-						} else if("referenceFlow".equals(flowType)){
-							
-							/* --- Operation Branch --- */
-							String operationType = oper.getType();
-							switch (operationType) {
-							case "XSLTransform": {
-								System.out.println("................ XSLTransform ");
-								oper_ok = true;
-								trans_ctrl.setOperErrorBuffer(new StringBuffer());
-								//Reference files
-															
-								String fullXSLPathInZip = operParamFilePathValue(par1);
-								String fullXMLPathInZip = operParamFilePathValue(par2);
-									
-								System.out.println("                 XSL file: " + fullXSLPathInZip);
-								System.out.println("                 XML file: " + fullXMLPathInZip);
-								
-								String[] splits = zip.split(".zip");
-								String resultFilePath = resultFileDir + "/" + returnChannel + "_reference_" + splits[0] + ".xml";
-								oper_ok = trans_ctrl.prepareXSLTransformWithImputStreams(zippath1, fullXSLPathInZip, zippath2, fullXMLPathInZip);		
-								if(oper_ok){
-								//OPTION File
-								//trans_ctrl.runTransformToFile(resultFilePath,  null,null);
-								//System.out.println("                 resultfile: " + resultFilePath);
-								
-								//OPTION String
-								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
-								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  paramlist, valuelist);
-							
-								setChannelStringValue(returnChannel, retStr);
-								}
-								operErrorBuffer = trans_ctrl.getOperErrorBuffer();	
-							}
-								break;
-							case "XSDValidation": {
-								System.out.println("................ XSDValidation ");
-								oper_ok = true;
-							}
-								break;
-							case "XMLWellFormed": { //TODO:
-								System.out.println("................ XMLWellFormed ");		
-								wf_oper.setOperErrorBuffer(new StringBuffer());
-								
-								String fullXMLPathInZip = operParamFilePathValue(par1);
-								System.out.println("                 XML file: " + fullXMLPathInZip);
-								
-								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
-								operErrorBuffer = trans_ctrl.getOperErrorBuffer();
-							}
-								break;
-							}
+						/*  */
 
 							
 						} else if("mergeFlow".equals(flowType)){
-							//TODO: par1 & par2 Change switch case -> Map
+							
 							System.out.println("\n==================================");
 							System.out.println(".............mergeFlow ...........");
 							//System.out.println("==================================\n");
@@ -361,9 +317,7 @@ public class TaskCycleProcessor {
 							operationErrors.add("ERROR: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + operErrorBuffer.toString() + ")");
 					} // Operation loop
 				} // Flow loop
-			//NOTE: DO NOT write [ ] into excel: problems occur
-			testcaseResults.add("RESULT: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + checkResultBuffer.toString() + ")");
-			
+			testcaseResults.add("RESULT: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + checkResultBuffer.toString() + ")");			
 			}// TestCase Loop ---
 		saveSubmitTestCaseResults(submitcnt, testcasecount);
 		}//Student zip loop		
@@ -387,7 +341,7 @@ public class TaskCycleProcessor {
 		if(operationErrors.size()>0){
 			System.out.println("operationErrors:" + operationErrors.get(0));
 			
-			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 9+testcasecount, 9+submitcnt);
+			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 11, 9+submitcnt);
 		}
 		
 	}
