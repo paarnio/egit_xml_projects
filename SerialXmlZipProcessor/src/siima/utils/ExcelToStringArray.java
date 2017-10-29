@@ -170,7 +170,9 @@ public class ExcelToStringArray {
 			case Cell.CELL_TYPE_FORMULA:				
 				//--- NEW
 				if(this.formula) value=cell2.getCellFormula();
-				else value=cell2.getRichStringCellValue().getString();
+				else { 				
+					value=cell2.getRichStringCellValue().getString(); //orig
+				}
 				//---
 				break;
 			default:
@@ -774,7 +776,7 @@ public class ExcelToStringArray {
 		int idx = -1;
 		boolean found = false;
 		int rowi = startRowIdx;
-		while ((!found) && (rowi < endRowIdx)) {
+		while ((!found) && (rowi <= endRowIdx)) {
 			String cellcontent = getCellValue(colIdx, rowi);
 			if (searchStr.equals(cellcontent)) {
 				found = true;

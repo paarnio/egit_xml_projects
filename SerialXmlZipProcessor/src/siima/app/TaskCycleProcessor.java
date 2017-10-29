@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import siima.app.operator.XMLValidationCheck;
 import siima.app.operator.XMLWellFormedCheck;
 import siima.model.checker.taskflow.CheckerTaskFlowType;
 import siima.model.checker.taskflow.FlowType;
@@ -26,6 +27,7 @@ public class TaskCycleProcessor {
 	private TransformController trans_ctrl = new TransformController();	
 	private TextCompareController mydmp = new TextCompareController();
 	private XMLWellFormedCheck wf_oper = new XMLWellFormedCheck();
+	private XMLValidationCheck valid_oper = new XMLValidationCheck();
 	
 	public StringBuffer checkResultBuffer;
 	public List<String> testcaseResults; // = new ArrayList<String>();
@@ -134,7 +136,7 @@ public class TaskCycleProcessor {
 		
 		//String resultFileDir = "data/zips";		
 		//String taskFlowXmlFile = "data/taskflow/taskflow3_U1E1_1_sub2.xml"; //"data/taskflow/taskflow2_2.xml";
-		List<String> zips = readSubmitZipNames(zipFilesSheet);
+		List<String> zips = readSubmitZipNames(); //zipFilesSheet);
 		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
 		
 		this.runTaskCycles(testcases, zips);
@@ -219,9 +221,9 @@ public class TaskCycleProcessor {
 						System.out.println("          Operation (Param:Value) (" + paramlist.get(0) + ":" + valuelist.get(0) + ")");
 					}
 					
-					String refzip = "RoundU1_reference.zip"; // reference Zip file
-					String studentZipFolder="data/zips/RoundU1/";
-					String referenceZipFolder="data/zips/RoundU1/";
+					String refzip = excel_mng.getReferenceZipFile(); // "RoundU1_sub2_reference.zip"; // reference Zip file
+					String studentZipFolder= excel_mng.getStudentZipFileFolder(); //"data/zips/RoundU1/";
+					String referenceZipFolder= excel_mng.getReferenceZipFileFolder(); //"data/zips/RoundU1/";
 					String zippath1 = null;
 					String zippath2 = null;
 					
@@ -276,9 +278,14 @@ public class TaskCycleProcessor {
 								operErrorBuffer = trans_ctrl.getOperErrorBuffer();								
 							}
 								break;
-							case "XSDValidation": {
+							case "XSDValidation": { //TODO: Test with other zipset
 								System.out.println("................ XSDValidation ");
-								oper_ok = true;
+								//oper_ok = true;
+								valid_oper.setOperErrorBuffer(new StringBuffer());
+								String fullXSDPathInZip = operParamFilePathValue(par1);
+								String fullXMLPathInZip = operParamFilePathValue(par1);
+								oper_ok = valid_oper.validateXMLSchema(fullXSDPathInZip, fullXMLPathInZip);
+								operErrorBuffer = valid_oper.getOperErrorBuffer();
 							}
 								break;
 							case "XMLWellFormed": { 
@@ -363,26 +370,26 @@ public class TaskCycleProcessor {
 		//Testcase Results
 		System.out.println("testcaseResults #" + testcaseResults.size());
 		//writeTestcaseResults(List<String> results, String sheetname, int colind, int rowind)
-		excel_mng.writeTestcaseResults(testcaseResults, "Results", 6, 9+submitcnt);
+		excel_mng.writeTestcaseResults(testcaseResults, submitcnt);
 		
 		//Error messages
 		System.out.println("operationErrors #" + operationErrors.size());
 		if(operationErrors.size()>0){
 			System.out.println("operationErrors:" + operationErrors.get(0));
 			
-			excel_mng.writeOperErrorMsgs(operationErrors, "Results", 11, 9+submitcnt);
+			excel_mng.writeOperErrorMsgs(operationErrors, submitcnt);
 		}
 		
 	}
 	
 	
 	
-	public List<String> readSubmitZipNames(String sheetname){
+	public List<String> readSubmitZipNames() { //String sheetname){
 		//String sheetname = "ZipFiles";
 		List<String> zips;
 		ExcelMng mng = getExcel_mng();
 		//zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
-		zips = mng.readSubmitZipNames(sheetname, 4, 5, 10, 13);
+		zips = mng.readSubmitZipNames(); //sheetname, 4, 5, 10, 13);
 		return zips;
 	}
 	
