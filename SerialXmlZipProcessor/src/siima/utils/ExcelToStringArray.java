@@ -765,6 +765,27 @@ public class ExcelToStringArray {
         }
 	}
 	
+	//NEW 2017-10-29
+	
+	public int searchString(String searchStr, int colIdx, int startRowIdx, int endRowIdx){
+		/* Returns the row index of the found string in column colIdx
+		 * Returns -1 if not found
+		 */
+		int idx = -1;
+		boolean found = false;
+		int rowi = startRowIdx;
+		while ((!found) && (rowi < endRowIdx)) {
+			String cellcontent = getCellValue(colIdx, rowi);
+			if (searchStr.equals(cellcontent)) {
+				found = true;
+				idx = rowi;
+			} else {
+				rowi++;
+			}
+		}
+		return idx;
+	}
+	
 	
 	public static void main(String[] args) {
 		ExcelToStringArray ex2s = new ExcelToStringArray("data/excel/test.xlsx");

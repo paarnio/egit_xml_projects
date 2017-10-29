@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ taskflow3_sub3.xml validated by testcases3.xsd
+-->
+<checkerTaskFlow>
+  <round>U1</round>
+  <exercise>U1E1_2</exercise>
+  <description>The first exercise of the first round</description>
+  <stuZip>./data/zips/RoundU1_sub3_</stuZip>
+  <refZip>./data/zips/RoundU1_sub3_reference.zip</refZip>
+   <testCase number="1">
+	<description>The Well Formed testcase</description>
+    <points>100</points>
+    <stuDir1>RoundU1/exU1E1_2/src/</stuDir1>
+	<stuFile1>Employee.xsd</stuFile1>
+	<stuFile2>employee.xml</stuFile2>
+	<refDir1>RoundU1/exU1E1_2/src/</refDir1>
+	<refFile1>Employee.xsd</refFile1>
+	<refFile2>employee.xml</refFile2>
+	<comment>Testcase comment</comment>
+	<flow>
+	  <description>The student flow</description>
+	  <type>studentFlow</type>
+	  <name>studentFlow1</name>
+	  <inChannel>inC001</inChannel>
+	  <outChannel>stuC002</outChannel>
+	  <operation>
+	    <type>XMLWellFormed</type>
+        <name>XMLWellFormed1</name>
+        <par1>stuDir1/stuFile2</par1>
+        <!--par2>refDir1/refFile2</par2-->
+		<return>stuC002</return>
+	    <comment>XMLWellFormed operation comment1</comment>
+      </operation>
+	  <comment>Taskflow comment1</comment>
+	</flow>
+	<flow>
+	  <description>The reference flow</description>
+	  <type>referenceFlow</type>
+	  <name>referenceFlow1</name>
+	  <inChannel>inC011</inChannel>
+	  <outChannel>refC002</outChannel>
+	  <operation>
+	    <type>XMLWellFormed</type>
+        <name>XMLWellFormed1</name>
+        <par1>refDir1/refFile2</par1>
+        <!--par2>refDir1/refFile2</par2-->
+		<return>refC002</return>
+	    <comment>XMLWellFormed operation comment2</comment>
+      </operation>
+	  <comment>Taskflow 3 comment2</comment>
+	</flow>
+  	<flow>
+	  <description>Merging student and reference flow</description>
+	  <type>mergeFlow</type>
+	  <name>mergeFlow2</name>
+	  <inChannel>outC002</inChannel>
+	  <inChannel>outC012</inChannel>
+	  <outChannel>merC002</outChannel>
+	  <operation>
+	    <type>StringCompare</type>
+        <name>StringCompare1</name>
+        <par1>refC002</par1>
+        <par2>stuC002</par2>
+		<return>merC002</return>
+	    <comment>Comparing student and reference flow outputs</comment>
+      </operation>
+	  <comment>Taskflow 3 comment3</comment>
+	</flow>
+  </testCase>
+  <testCase number="2">
+	<description>The first testcase</description>
+    <points>10</points>
+    <stuDir1>RoundU1/exU1E1_2/src/</stuDir1>
+	<stuFile1>Employee.xsd</stuFile1>
+	<stuFile2>employee.xml</stuFile2>
+	<refDir1>RoundU1/exU1E1_2/src/</refDir1>
+	<refFile1>Employee.xsd</refFile1>
+	<refFile2>employee.xml</refFile2>
+	<comment>Testcase comment</comment>
+	<flow>
+	  <description>The student flow</description>
+	  <type>studentFlow</type>
+	  <name>studentFlow1</name>
+	  <inChannel>inC001</inChannel>
+	  <outChannel>stuC001</outChannel>
+	  <operation>
+	    <type>XSDValidation</type>
+        <name>XSDValidation1</name>
+		<par1>refDir1/refFile1</par1>
+        <par2>stuDir1/stuFile2</par2>
+		<return>stuC001</return>
+	    <comment>XSDValidation</comment>
+      </operation>
+	  <comment>Taskflow comment1</comment>
+	</flow>
+	<flow>
+	  <description>The reference flow</description>
+	  <type>referenceFlow</type>
+	  <name>referenceFlow1</name>
+	  <inChannel>inC011</inChannel>
+	  <outChannel>refC001</outChannel>
+	  <operation>
+	    <type>XSDValidation</type>
+        <name>XSDValidation1</name>
+		<par1>refDir1/refFile1</par1>
+        <par2>refDir1/refFile2</par2>
+		<return>refC001</return>
+	    <comment>XSDValidation</comment>
+      </operation>
+	  <comment>Taskflow comment2</comment>
+	</flow>
+  	<flow>
+	  <description>Merging student and reference flow</description>
+	  <type>mergeFlow</type>
+	  <name>mergeFlow1</name>
+	  <inChannel>outC002</inChannel>
+	  <inChannel>outC012</inChannel>
+	  <outChannel>merC001</outChannel>
+	  <operation>
+	    <type>StringCompare</type>
+        <name>StringCompare1</name>
+        <par1>refC001</par1>
+        <par2>stuC001</par2>
+		<return>merC001</return>
+	    <comment>Comparing student and reference flow outputs</comment>
+      </operation>
+	  <comment>Taskflow comment3</comment>
+	</flow>
+  </testCase>
+</checkerTaskFlow>

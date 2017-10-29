@@ -1,0 +1,111 @@
+
+IN RoundU1_sub3 E1_2 (note _2)
+---------------------
+--------------------
+includes: employee files:
+Employee.xsd
+EmployeeRequest.xml
+EmployeeResponse.xml
+employee.xml (non valid)
+
+
+IN RoundU1_sub2 E1_1 (note _1)
+---------------------
+--------------------
+
+IN ORIGINAL 
+<xsl:param name="kysymys">all</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'6.60') and (Light='Sun')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+
+------------------------
+IN REFERENCE:
+<xsl:param name="kysymys">8</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'6.60') and (Light='Sun')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+-----------------------------	
+IN 100000 (SAME AS REFERENCE)
+<xsl:param name="kysymys">8</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'6.60') and (Light='Sun')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+--------------------------------
+IN 100001 (price changed (Price&gt;'9.00'))
+<xsl:param name="kysymys">8</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'9.00') and (Light='Sun')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+--------------------------------
+
+IN 100002 (muutettu (Light='Mostly Shady'))
+
+<xsl:param name="kysymys">8</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'6.60') and (Light='Mostly Shady')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+--------------------------------
+
+IN 100003 (XPATH error: select="/CATALOG/Plant[(Price&gt;'6.60')] and [(Light='Sun')]")
+extra (] and [)
+
+
+<xsl:param name="kysymys">8</xsl:param>
+
+<xsl:template match="/" mode="kysymys8">
+		<xsl:text>Kysymys 8 &#xA;</xsl:text>
+		<xsl:text>Valitsee kasvit, joiden hinta yli 6.60 ja jotka viihtyvät auringossa:&#xA;</xsl:text>
+		<!--  -->
+		<xsl:for-each select="/CATALOG/Plant[(Price&gt;'6.60')] and [(Light='Sun')]">
+			<xsl:value-of select="Common/text()"/>
+			<xsl:text>&#xA;</xsl:text>
+		</xsl:for-each>
+		<xsl:text>&#xA;</xsl:text>
+	</xsl:template>
+--------------------------------
+
+
+
+
+

@@ -25,6 +25,11 @@ public class ExcelMng {
 	private Map<String, String> codeperiodmap = null;
 	private List<String> firstperiodevents = null;
 	private List<String> doubleperiodevents = null;
+	//New
+	public static String mainInfoSheet = "MainInfo";
+	public String taskFlowXmlFile;
+	public String zipFilesSheet;
+	public String resultsSheet;
 	
 	public ExcelMng(String excelfile){
 		this.studentDataExcel = excelfile;
@@ -32,7 +37,32 @@ public class ExcelMng {
 		this.firstperiodevents = new ArrayList<String>();
 		this.doubleperiodevents = new ArrayList<String>();
 	}
-
+	
+	public void readMainInfo(){
+		String taskFlowXmlFile = null;
+		this.ex2s.setSheetind(this.ex2s.getSheetIndex(mainInfoSheet));
+		int colIdx = 1;
+		String searchKey = "TaskFlowXmlFile";
+		int rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 50);
+		if(rowIdx>=0){
+		 this.taskFlowXmlFile = this.ex2s.getCellValue(colIdx+1, rowIdx);
+		}
+		
+		searchKey = "ZipFilesSheet";
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 50);
+		if(rowIdx>=0){
+		 this.zipFilesSheet = this.ex2s.getCellValue(colIdx+1, rowIdx);
+		}
+		
+		searchKey = "ResultsSheet";
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 50);
+		if(rowIdx>=0){
+		 this.resultsSheet = this.ex2s.getCellValue(colIdx+1, rowIdx);
+		}
+		
+	}
+	
+	
 	public List<String> readSubmitZipNames(String sheetname, int firstcolind,
 			int lastcolind, int firstrowind, int lastrowind){
 		List<String> zips=null;
@@ -66,6 +96,21 @@ public class ExcelMng {
 		
 	}
 	
+	/*
+	 * GETTERS SETTERS
+	 */
+	
+	public String getTaskFlowXmlFile() {
+		return taskFlowXmlFile;
+	}
+	
+	public String getZipFilesSheet() {
+		return zipFilesSheet;
+	}
+
+	public String getResultsSheet() {
+		return resultsSheet;
+	}
 
 	public static void main(String[] args) {
 		
@@ -77,6 +122,12 @@ public class ExcelMng {
 		List<String> zips = mng.readSubmitZipNames("Sheet1", 4, 5, 10, 13);
 		for(String zip : zips) System.out.println("OUT" + zip);
 		
+		mng = new ExcelMng("data/excel/students.xlsx");
+		mng.readMainInfo();
+		System.out.println("MAININFO TaskFlowXmlFile: " + mng.getTaskFlowXmlFile());
+		
 	}
+
+	
 	
 }

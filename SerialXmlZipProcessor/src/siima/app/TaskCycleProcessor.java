@@ -112,18 +112,47 @@ public class TaskCycleProcessor {
 		return value;
 	}
 	
+	public void initProcessor() {
+		
+		excel_mng.readMainInfo();
+		/*String taskFlowXmlFile = excel_mng.getTaskFlowXmlFile();
+		String zipFilesSheet = excel_mng.getZipFilesSheet();
+		String resultsSheet = excel_mng.getResultsSheet();*/
+		
+	}
 	
 	public void runTaskCycles() {
+		/*
+		 * 
+		 */
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTaskCycles()");
+		boolean oper_ok = true;
+		String taskFlowXmlFile = excel_mng.getTaskFlowXmlFile();
+		String zipFilesSheet = excel_mng.getZipFilesSheet();
+		String resultsSheet = excel_mng.getResultsSheet();
+		
+		
+		//String resultFileDir = "data/zips";		
+		//String taskFlowXmlFile = "data/taskflow/taskflow3_U1E1_1_sub2.xml"; //"data/taskflow/taskflow2_2.xml";
+		List<String> zips = readSubmitZipNames(zipFilesSheet);
+		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
+		
+		this.runTaskCycles(testcases, zips);
+		
+	}
+	
+	private void runTaskCycles(List<TestCaseType> testcases, List<String> zips) {
 		/*
 		 *  TODO: read reference files from a reference ZIP
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTaskCycles()");
 		boolean oper_ok = true;
-		String resultFileDir = "data/zips";
-		
-		String taskFlowXmlFile = "data/taskflow/taskflow3.xml"; //"data/taskflow/taskflow2_2.xml";
+		/*String resultFileDir = "data/zips";		
+		String taskFlowXmlFile = "data/taskflow/taskflow3_U1E1_1_sub2.xml"; //"data/taskflow/taskflow2_2.xml";
 		List<String> zips = readSubmitZipNames();
 		List<TestCaseType> testcases = readTestCases(taskFlowXmlFile);
+		*/
+		
 		System.out.println("\n********** runTaskCycles() ********\n");
 		
 		int submitcnt =0;
@@ -348,8 +377,8 @@ public class TaskCycleProcessor {
 	
 	
 	
-	public List<String> readSubmitZipNames(){
-		String sheetname = "ZipFiles";
+	public List<String> readSubmitZipNames(String sheetname){
+		//String sheetname = "ZipFiles";
 		List<String> zips;
 		ExcelMng mng = getExcel_mng();
 		//zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
@@ -368,18 +397,18 @@ public class TaskCycleProcessor {
 	
 	public static void main(String[] args) {
 		String studentsExcel = "data/excel/students.xlsx";
-		String taskFlowXmlFile = "data/taskflow/taskflow3.xml"; //"data/taskflow/taskflow2_2.xml";
-		String resultFilePath1 = "./data/zips/result_test1.xml";
-		
-		String sheetname = "Sheet1";
 		TaskCycleProcessor cycle_pros = new TaskCycleProcessor(studentsExcel);
-		
+		/*
+		String taskFlowXmlFile = "data/taskflow/taskflow3_U1E1_1_sub2.xml"; //"data/taskflow/taskflow2_2.xml";
+		String resultFilePath1 = "./data/zips/result_test1.xml";		
+		String sheetname = "Sheet1";
+				
 		//Submit zip file names from excel
 		ExcelMng mng = cycle_pros.getExcel_mng();
-		/*String[] zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
-		for(int i=0; i<zips.length ; i++)
-		System.out.println("STUDENT SUBMITS: " + zips[i]);
-		*/
+		//String[] zips = mng.readPredefinedSchedulesFromExcel("NA", 1, sheetname, 4, 5, 10, 13);
+		//for(int i=0; i<zips.length ; i++)
+		//System.out.println("STUDENT SUBMITS: " + zips[i]);
+		//
 		List<String> zips = cycle_pros.readSubmitZipNames();
 		for ( String zip : zips) System.out.println("STUDENT SUBMIT: " + zip);
 		
@@ -414,8 +443,9 @@ public class TaskCycleProcessor {
 		ctrl.prepareXSLTransformWithImputStreams(zippath, fullXSLPathInZip, zippath, fullXMLPathInZip);		
 		ctrl.runTransformToFile(resultFilePath1,  null,null);
 		System.out.println("Option 1: resultfile: " + resultFilePath1);
-		
+		*/
 		//Run Cycles
+		cycle_pros.initProcessor();
 		cycle_pros.runTaskCycles();
 		String result = cycle_pros.getChannelStringValue("merC001");
 		System.out.println("CHECKING RESULT: " + result);
