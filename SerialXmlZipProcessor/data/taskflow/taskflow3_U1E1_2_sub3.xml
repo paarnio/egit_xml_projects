@@ -73,10 +73,10 @@
     <points>10</points>
     <stuDir1>RoundU1/exU1E1_2/src/</stuDir1>
 	<stuFile1>Employee.xsd</stuFile1>
-	<stuFile2>employee.xml</stuFile2>
+	<stuFile2>EmployeeResponse.xml</stuFile2>
 	<refDir1>RoundU1/exU1E1_2/src/</refDir1>
 	<refFile1>Employee.xsd</refFile1>
-	<refFile2>employee.xml</refFile2>
+	<refFile2>EmployeeResponse.xml</refFile2>
 	<comment>Testcase comment</comment>
 	<flow>
 	  <description>The student flow</description>

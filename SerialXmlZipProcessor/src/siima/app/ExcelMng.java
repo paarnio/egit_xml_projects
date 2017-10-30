@@ -28,8 +28,8 @@ public class ExcelMng {
 	//New
 	public static String mainInfoSheet = "MainInfo";
 	public int mainInfoKeyCol = 1;
-	public int mainInfoKeyFirstRow = 10; //TODO
-	public int mainInfoKeyLastRow = 20; //TODO
+	public int mainInfoKeyFirstRow = 20; //TODO 10; 20
+	public int mainInfoKeyLastRow = 30; //TODO 20; 30
 	
 	public String taskFlowXmlFile;
 	public String zipFilesSheet;
@@ -61,42 +61,46 @@ public class ExcelMng {
 		this.ex2s.setSheetind(this.ex2s.getSheetIndex(mainInfoSheet));
 		int colIdx = 1;
 		String searchKey = "TaskFlowXmlFile";
-		int rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		int rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.taskFlowXmlFile = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
 		
 		searchKey = "ZipFilesSheet";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.zipFilesSheet = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
 		
 		searchKey = "ZipFileCount";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 String zipFileCountStr = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		 if(zipFileCountStr!=null) this.submitZipCount = Integer.parseInt(zipFileCountStr);
 		}
 		
 		searchKey = "StudentZipFileFolder";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.studentZipFileFolder = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
 		searchKey = "ReferenceZipFileFolder";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.referenceZipFileFolder = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
+		
+		System.out.println("???MAININFO referenceZipFileFolder: " + referenceZipFileFolder);
+		
 		searchKey = "ReferenceZipFile";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.referenceZipFile = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
-				
+		System.out.println("???MAININFO referenceZipFile: " + referenceZipFile);
+		
 		searchKey = "ResultsSheet";
-		rowIdx = this.ex2s.searchString(searchKey, colIdx, 10, 20);
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.resultsSheet = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}

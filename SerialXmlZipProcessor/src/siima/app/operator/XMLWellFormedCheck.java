@@ -36,7 +36,7 @@ public class XMLWellFormedCheck {
 	}
 	
 	public boolean checkWellFormedZipXML(String zippath, String fullXMLPathInZip){
-		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: checkWellFormedZipXML()");
 		boolean ok = false;
 		try {
 		XMLInputFactory factory = XMLInputFactory.newInstance();
@@ -72,7 +72,7 @@ public class XMLWellFormedCheck {
 
 	
 	public void checkWellFormedness(String xmlFile){
-		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: invokeXSLTransform()");
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: checkWellFormedness()");
 		XMLInputFactory factory = XMLInputFactory.newInstance();
 		File f = new File(xmlFile); //"data/tests/simple_not_wf.xml");
 		FileInputStream inputStream;

@@ -15,8 +15,11 @@ package siima.app.operator;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.ZipFile;
 
 import javax.xml.XMLConstants;
+import javax.xml.transform.Source;
 import javax.xml.transform.stream.StreamSource;
 import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
@@ -27,12 +30,67 @@ import org.apache.log4j.Logger;
 import org.xml.sax.SAXException;
 
 import siima.app.TaskCycleProcessor;
+import siima.utils.ZipFileReader;
 
 public class XMLValidationCheck {
 	private static final Logger logger=Logger.getLogger(XMLValidationCheck.class.getName());
 	private StringBuffer operErrorBuffer = new StringBuffer();
+	private ZipFileReader zipper = new ZipFileReader();
 	
-public boolean validateXMLSchema(String xsdPath, String xmlPath){ // orig. static
+	public boolean validateXMLSchema(String zippath1, String xsdPath, String zippath2, String xmlPath){ 
+		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: validateXMLSchema()");
+		boolean ok = false;
+		StreamSource xsdSource = null;
+		StreamSource xmlSource = null;
+		String xmluri = null; // Not available 
+		
+		System.out.println("?????? validateXMLSchema: zippath1:" + zippath1 + " xsdPath:" + xsdPath);
+		
+		try {
+			ZipFile zip1 = new ZipFile(zippath1);
+			ZipFile zip2 = new ZipFile(zippath2);
+			InputStream inputStreamXSD = zipper.readInputStreamFromZipFile(xsdPath, zip1, null);
+			InputStream inputStreamXML = zipper.readInputStreamFromZipFile(xmlPath, zip2, null);
+			
+			if (xmluri != null) {
+				xsdSource = new StreamSource(inputStreamXSD, xmluri);
+				xmlSource = new StreamSource(inputStreamXML, xmluri);
+			} else {
+				xsdSource = new StreamSource(inputStreamXSD);
+				xmlSource = new StreamSource(inputStreamXML);
+			}
+			
+			if((xsdSource!=null)&&(xmlSource!=null)){		
+				ok = validateXMLSchema(xsdSource, xmlSource);								
+			}
+		
+		} catch (IOException e) {
+			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			e.printStackTrace();
+			return false;
+		}
+		return ok;
+	}
+
+	private boolean validateXMLSchema(Source xsdSource, Source xmlSource){ 
+		
+        try {
+            SchemaFactory factory = 
+                    SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
+            Schema schema = factory.newSchema(xsdSource);
+            Validator validator = schema.newValidator();
+            validator.validate(xmlSource); //new StreamSource(new File(xmlPath)));
+        } catch (IOException | SAXException e) {
+        	logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
+			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+            System.out.println("Exception: "+e.getMessage());
+            return false;
+        }
+        return true;
+    }
+	
+	private boolean validateXMLSchema(String xsdPath, String xmlPath){ // orig. static
 	
         try {
             SchemaFactory factory = 

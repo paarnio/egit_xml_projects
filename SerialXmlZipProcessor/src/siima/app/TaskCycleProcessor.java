@@ -283,8 +283,8 @@ public class TaskCycleProcessor {
 								//oper_ok = true;
 								valid_oper.setOperErrorBuffer(new StringBuffer());
 								String fullXSDPathInZip = operParamFilePathValue(par1);
-								String fullXMLPathInZip = operParamFilePathValue(par1);
-								oper_ok = valid_oper.validateXMLSchema(fullXSDPathInZip, fullXMLPathInZip);
+								String fullXMLPathInZip = operParamFilePathValue(par2);
+								oper_ok = valid_oper.validateXMLSchema(zippath1, fullXSDPathInZip, zippath2, fullXMLPathInZip);
 								operErrorBuffer = valid_oper.getOperErrorBuffer();
 							}
 								break;
