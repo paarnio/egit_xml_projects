@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- taskflow3_sub3.xml validated by testcases3.xsd
+ taskflow3_U3E1_1_sub1.xml validated by testcases3.xsd
 -->
 <checkerTaskFlow>
   <round>U3</round>
   <exercise>U3E1_1</exercise>
   <description>Validation tests in RoundU3</description>
-  <stuZip>./data/zips/RoundU1_sub3_</stuZip>
-  <refZip>./data/zips/RoundU1_sub3_reference.zip</refZip>
+  <stuZip>./data/zips/Round_U3_tests/Round_U3_sub1_</stuZip>
+  <refZip>./data/zips/Round_U3_tests/Round_U3_sub1_reference.zip</refZip>
    <testCase number="1">
 	<description>NOTE: test-folder. The Well Formed testcase</description>
     <points>100</points>

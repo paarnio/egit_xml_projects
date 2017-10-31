@@ -28,8 +28,8 @@ public class ExcelMng {
 	//New
 	public static String mainInfoSheet = "MainInfo";
 	public int mainInfoKeyCol = 1;
-	public int mainInfoKeyFirstRow = 20; //TODO 10; 20
-	public int mainInfoKeyLastRow = 30; //TODO 20; 30
+	public int mainInfoKeyFirstRow = 20; //set in readMainInfo()
+	public int mainInfoKeyLastRow = 30; //set in readMainInfo()
 	
 	public String taskFlowXmlFile;
 	public String zipFilesSheet;
@@ -60,11 +60,31 @@ public class ExcelMng {
 		String taskFlowXmlFile = null;
 		this.ex2s.setSheetind(this.ex2s.getSheetIndex(mainInfoSheet));
 		int colIdx = 1;
-		String searchKey = "TaskFlowXmlFile";
-		int rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
+		/* SELECTED TASKFLOW BLOCK? 
+		 * Reading the selected TaskFlow Block row indexes
+		 */
+		String searchKey = "KeyFirstRow";
+		int rowIdx = this.ex2s.searchString(searchKey, colIdx, 4, 5);
+		if(rowIdx>=0){
+			String keyFirstRow = this.ex2s.getCellValue(colIdx+1, rowIdx);
+			this.mainInfoKeyFirstRow = Integer.parseInt(keyFirstRow);
+		}
+		searchKey = "KeyLastRow";
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, 4, 5);
+		if(rowIdx>=0){
+			String keyLastRow = this.ex2s.getCellValue(colIdx+1, rowIdx);
+			this.mainInfoKeyLastRow = Integer.parseInt(keyLastRow);
+		}
+		
+		/* TASKFLOW BLOCK's KEY VALUES
+		 * Reading Key Values
+		 */
+		searchKey = "TaskFlowXmlFile";
+		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
 		if(rowIdx>=0){
 		 this.taskFlowXmlFile = this.ex2s.getCellValue(colIdx+1, rowIdx);
 		}
+		System.out.println("???MAININFO taskFlowXmlFile: " + taskFlowXmlFile);
 		
 		searchKey = "ZipFilesSheet";
 		rowIdx = this.ex2s.searchString(searchKey, colIdx, this.mainInfoKeyFirstRow, this.mainInfoKeyLastRow);
