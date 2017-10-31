@@ -3,20 +3,20 @@
  taskflow3_sub3.xml validated by testcases3.xsd
 -->
 <checkerTaskFlow>
-  <round>U1</round>
-  <exercise>U1E1_2</exercise>
-  <description>The first exercise of the first round</description>
+  <round>U3</round>
+  <exercise>U3E1_1</exercise>
+  <description>Validation tests in RoundU3</description>
   <stuZip>./data/zips/RoundU1_sub3_</stuZip>
   <refZip>./data/zips/RoundU1_sub3_reference.zip</refZip>
    <testCase number="1">
-	<description>The Well Formed testcase</description>
+	<description>NOTE: test-folder. The Well Formed testcase</description>
     <points>100</points>
-    <stuDir1>RoundU1/exU1E1_2/src/</stuDir1>
-	<stuFile1>Employee.xsd</stuFile1>
-	<stuFile2>employee.xml</stuFile2>
-	<refDir1>RoundU1/exU1E1_2/src/</refDir1>
-	<refFile1>Employee.xsd</refFile1>
-	<refFile2>employee.xml</refFile2>
+    <stuDir1>Round_U3/U3E1_1/test/</stuDir1>
+	<stuFile1>books_schema_hidden.xsd</stuFile1>
+	<stuFile2>books_hidden.xml</stuFile2>
+	<refDir1>Round_U3/U3E1_1/test/</refDir1>
+	<refFile1>books_schema_hidden.xsd</refFile1>
+	<refFile2>books_hidden.xml</refFile2>
 	<comment>Testcase comment</comment>
 	<flow>
 	  <description>The student flow</description>
@@ -71,12 +71,12 @@
   <testCase number="2">
 	<description>The first testcase</description>
     <points>10</points>
-    <stuDir1>RoundU1/exU1E1_2/src/</stuDir1>
-	<stuFile1>Employee.xsd</stuFile1>
-	<stuFile2>EmployeeResponse.xml</stuFile2>
-	<refDir1>RoundU1/exU1E1_2/src/</refDir1>
-	<refFile1>Employee.xsd</refFile1>
-	<refFile2>EmployeeResponse.xml</refFile2>
+    <stuDir1>Round_U3/U3E1_1/test/</stuDir1>
+	<stuFile1>books_schema_hidden.xsd</stuFile1>
+	<stuFile2>books_hidden.xml</stuFile2>
+	<refDir1>RoundU3/exU3E1_1/test/</refDir1>
+	<refFile1>books_schema_hidden.xsd</refFile1>
+	<refFile2>books_hidden.xml</refFile2>
 	<comment>Testcase comment</comment>
 	<flow>
 	  <description>The student flow</description>
