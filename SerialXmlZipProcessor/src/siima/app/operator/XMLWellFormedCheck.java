@@ -54,6 +54,7 @@ public class XMLWellFormedCheck {
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			ok = false;
 			e.printStackTrace();
 		} catch (XMLStreamException e) {			
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
@@ -63,6 +64,7 @@ public class XMLWellFormedCheck {
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			ok = false;
 			e.printStackTrace();
 		}
 		
@@ -71,8 +73,9 @@ public class XMLWellFormedCheck {
 	}
 
 	
-	public void checkWellFormedness(String xmlFile){
+	public boolean checkWellFormedness(String xmlFile){
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: checkWellFormedness()");
+		boolean ok = false;
 		XMLInputFactory factory = XMLInputFactory.newInstance();
 		File f = new File(xmlFile); //"data/tests/simple_not_wf.xml");
 		FileInputStream inputStream;
@@ -84,24 +87,28 @@ public class XMLWellFormedCheck {
 				// check to be implemented??
 				reader.next();
 			}
-
 			inputStream.close();
+			ok = true;
 
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			ok = false;
 			e.printStackTrace();
 		} catch (XMLStreamException e) {			
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			ok = false;
 			e.printStackTrace();		
 		} catch (IOException e) {
 			logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
+			ok = false;
 			e.printStackTrace();
 		}
 		
 		System.out.println("END: " + operErrorBuffer.toString());
+		return ok;
 	}
 
 	

@@ -91,20 +91,21 @@ public class XMLValidationCheck {
     }
 	
 	private boolean validateXMLSchema(String xsdPath, String xmlPath){ // orig. static
-	
+		boolean ok = false;
         try {
             SchemaFactory factory = 
                     SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI);
             Schema schema = factory.newSchema(new File(xsdPath));
             Validator validator = schema.newValidator();
             validator.validate(new StreamSource(new File(xmlPath)));
+            ok = true;
         } catch (IOException | SAXException e) {
         	logger.log(Level.ERROR,  "MSG:\n" + e.getMessage());
 			operErrorBuffer.append("CLASS:" + getClass().getName() + " ERROR:" + e.getMessage());
             System.out.println("Exception: "+e.getMessage());
-            return false;
+            ok = false;
         }
-        return true;
+        return ok;
     }
 
 

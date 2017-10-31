@@ -32,6 +32,8 @@ public class TaskCycleProcessor {
 	public StringBuffer checkResultBuffer;
 	public List<String> testcaseResults; // = new ArrayList<String>();
 	public List<String> operationErrors;
+	public List<String> testcasePoints;
+	
 	private List<String> dirList = new ArrayList<String>();
 	private List<String> fileList = new ArrayList<String>();
 	private Map<String,Integer> dirKeyIndexMap = new HashMap<String,Integer>();
@@ -148,6 +150,10 @@ public class TaskCycleProcessor {
 		 *  TODO: read reference files from a reference ZIP
 		 */
 		logger.log(Level.INFO, "Entering: " + getClass().getName() + " method: runTaskCycles()");
+		boolean testcase_ok = true;
+		boolean stuFlow_ok = true;
+		boolean refFlow_ok = true;
+		boolean merFlow_ok = true;
 		boolean oper_ok = true;
 		/*String resultFileDir = "data/zips";		
 		String taskFlowXmlFile = "data/taskflow/taskflow3_U1E1_1_sub2.xml"; //"data/taskflow/taskflow2_2.xml";
@@ -165,8 +171,10 @@ public class TaskCycleProcessor {
 			System.out.println("+ Submit Loop #" + submitcnt);
 			System.out.println("  Submit zip: " + zip);
 			testcaseResults = new ArrayList<String>();	
-			operationErrors = new ArrayList<String>();	
+			operationErrors = new ArrayList<String>();
+			testcasePoints = new ArrayList<String>();
 		/* --- TestCase Loop --- */
+		testcase_ok = true;
 		int testcasecount=0;
 		for (TestCaseType tcase : testcases) {
 			testcasecount++;
@@ -194,13 +202,16 @@ public class TaskCycleProcessor {
 			 fileList.add(rfile1);
 			 fileList.add(rfile2);
 			 
-
+			stuFlow_ok = true;
+			refFlow_ok = true;
+			merFlow_ok = true;
 			List<FlowType> flows = tcase.getFlow();
 			for (FlowType flow : flows) {
 				System.out.println("--+--+ Flow Loop --- ");
 				System.out.println("       Flow type: " + flow.getType());
 				System.out.println("       Flow name: " + flow.getName());
 				StringBuffer operErrorBuffer;
+				oper_ok = true;
 				List<OperationType> operations = flow.getOperation();
 				for (OperationType oper : operations) {
 					System.out.println("--+--+--+ Operation Loop --- ");
@@ -245,7 +256,7 @@ public class TaskCycleProcessor {
 							switch (operationType) {
 							case "XSLTransform": {
 								System.out.println("................ XSLTransform ");		
-								oper_ok = true;
+								//oper_ok = true;
 								trans_ctrl.setOperErrorBuffer(new StringBuffer());
 								
 								//Transformation source files									
@@ -274,8 +285,9 @@ public class TaskCycleProcessor {
 								ByteArrayOutputStream resultOutputStream = new ByteArrayOutputStream();
 								String retStr = trans_ctrl.runTransformToString(resultOutputStream,  paramlist, valuelist);			
 								setChannelStringValue(returnChannel, retStr);
+								} else {
+								operErrorBuffer = trans_ctrl.getOperErrorBuffer();
 								}
-								operErrorBuffer = trans_ctrl.getOperErrorBuffer();								
 							}
 								break;
 							case "XSDValidation": { //TODO: Test with other zipset
@@ -285,7 +297,7 @@ public class TaskCycleProcessor {
 								String fullXSDPathInZip = operParamFilePathValue(par1);
 								String fullXMLPathInZip = operParamFilePathValue(par2);
 								oper_ok = valid_oper.validateXMLSchema(zippath1, fullXSDPathInZip, zippath2, fullXMLPathInZip);
-								operErrorBuffer = valid_oper.getOperErrorBuffer();
+								if(!oper_ok) operErrorBuffer = valid_oper.getOperErrorBuffer();
 							}
 								break;
 							case "XMLWellFormed": { 
@@ -296,25 +308,23 @@ public class TaskCycleProcessor {
 								System.out.println("                 XML file: " + fullXMLPathInZip);
 								
 								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
-								operErrorBuffer = wf_oper.getOperErrorBuffer();
+								if(!oper_ok) operErrorBuffer = wf_oper.getOperErrorBuffer();
 							}
 								break;
 							}
 		
-						/*  */
-
 							
 						} else if("mergeFlow".equals(flowType)){
 							
 							System.out.println("\n==================================");
 							System.out.println(".............mergeFlow ...........");
 							//System.out.println("==================================\n");
-							oper_ok = true;
+							//oper_ok = true;
 							/* --- Operation Branch --- */
 							String operationType = oper.getType();
 							
 							switch (operationType) {
-							case "StringCompare": {
+							case "StringCompare": { //TODO:
 								System.out.println("................ StringCompare ");
 								String arg1str = null;
 								String arg2str = null;
@@ -351,11 +361,20 @@ public class TaskCycleProcessor {
 						}
 						if(operErrorBuffer.length()>0)
 							operationErrors.add("ERROR: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + operErrorBuffer.toString() + ")");
+						/* Flow success ? */
+						if(!oper_ok){
+							if("studentFlow".equals(flowType)) stuFlow_ok = false;
+							if("referenceFlow".equals(flowType)) refFlow_ok = false;
+							if("mergeFlow".equals(flowType)) merFlow_ok = false;
+						}
 					} // Operation loop
 				} // Flow loop
-			testcaseResults.add("RESULT: SUBMIT(" + submitcnt + ") TESTCASE(" + testcasecount + ") MSG:(" + checkResultBuffer.toString() + ")");			
+			String points = tcase.getPoints();		
+			testcaseResults.add("RESULT(" + submitcnt + ") TCASE(" + testcasecount + ")  FLOW(" + stuFlow_ok + ") MSG(" + checkResultBuffer.toString() + ")");
+			if(stuFlow_ok) testcasePoints.add(points); //TODO points as string
+				else testcasePoints.add("0");
 			}// TestCase Loop ---
-		saveSubmitTestCaseResults(submitcnt, testcasecount);
+		saveSubmitTestCaseResults(submitcnt, testcasecount, testcaseResults, operationErrors, testcasePoints);
 		}//Student zip loop		
 	 saveAndCloseAllResults();
 	}
@@ -363,21 +382,21 @@ public class TaskCycleProcessor {
 		excel_mng.saveAndCloseResultsExcel();
 	
 	}
-	public void saveSubmitTestCaseResults(int submitcnt, int testcasecount){
+	public void saveSubmitTestCaseResults(int submitcnt, int testcasecount, List<String> tcResults, List<String> operErrors, List<String> tcPoints){
 	/* NOTE: DO NOT write [ ] into excel: problems occur
 	 * testcasesResultsLists	
 	 */
 		//Testcase Results
-		System.out.println("testcaseResults #" + testcaseResults.size());
+		System.out.println("testcaseResults #" + tcResults.size());
 		//writeTestcaseResults(List<String> results, String sheetname, int colind, int rowind)
-		excel_mng.writeTestcaseResults(testcaseResults, submitcnt);
+		excel_mng.writeTestcaseResults(tcResults, tcPoints, submitcnt);
 		
 		//Error messages
-		System.out.println("operationErrors #" + operationErrors.size());
-		if(operationErrors.size()>0){
-			System.out.println("operationErrors:" + operationErrors.get(0));
+		System.out.println("operationErrors #" + operErrors.size());
+		if(operErrors.size()>0){
+			System.out.println("operationErrors:" + operErrors.get(0));
 			
-			excel_mng.writeOperErrorMsgs(operationErrors, submitcnt);
+			excel_mng.writeOperErrorMsgs(operErrors, submitcnt);
 		}
 		
 	}

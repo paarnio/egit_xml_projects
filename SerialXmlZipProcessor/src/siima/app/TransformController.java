@@ -81,9 +81,10 @@ public class TransformController {
 		try {
 			outputstream = new FileOutputStream(resultFilePath);
 			invokeXSLTransform(outputstream, params, values);
-			
+			ok = true;
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
+			ok = false;
 			e.printStackTrace();
 		}
 		

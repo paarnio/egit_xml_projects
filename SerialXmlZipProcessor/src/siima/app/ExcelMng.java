@@ -44,7 +44,9 @@ public class ExcelMng {
 	private String resultsSheet;
 	private int resultFirstCol = 6;
 	private int resultFirstRow = 10;
-	private int errorMsgFirstCol = 11;
+	private int pointsFirstCol = 11; //+5
+	private int pointsFirstRow = 10;
+	private int errorMsgFirstCol = 16; //+5
 	private int errorMsgFirstRow = 10;
 	
 	
@@ -138,13 +140,14 @@ public class ExcelMng {
 		
 		return zips;
 	}
-	public void writeTestcaseResults(List<String> results, int submitCount){
+	public void writeTestcaseResults(List<String> results, List<String> tcPoints, int submitCount){
 		/* Writing all the testcase results of one student submit 
 		 * into the students row in excel file 
 		 */
 		int sheetidx = this.ex2s.getSheetIndex(this.getResultsSheet()); //sheetname);
 		this.ex2s.setSheetind(sheetidx);
-		this.ex2s.writeStringListToColumnOrRowField(true,sheetidx, this.resultFirstCol, this.resultFirstRow + submitCount -1, results, true);		
+		this.ex2s.writeStringListToColumnOrRowField(true,sheetidx, this.resultFirstCol, this.resultFirstRow + submitCount -1, results, true);
+		this.ex2s.writeStringListToColumnOrRowField(true,sheetidx, this.pointsFirstCol, this.pointsFirstRow + submitCount -1, tcPoints, true);		
 		
 	}
 	
