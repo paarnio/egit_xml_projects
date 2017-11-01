@@ -25,7 +25,7 @@ public class TaskCycleProcessor {
 	private ExcelMng excel_mng; // = new ExcelMng("data/excel/students.xlsx");
 	private TestCaseContainer test_cc = new TestCaseContainer();
 	private TransformController trans_ctrl = new TransformController();	
-	private TextCompareController mydmp = new TextCompareController();
+	private TextCompareController compare_ctrl = new TextCompareController();
 	private XMLWellFormedCheck wf_oper = new XMLWellFormedCheck();
 	private XMLValidationCheck valid_oper = new XMLValidationCheck();
 	
@@ -325,6 +325,8 @@ public class TaskCycleProcessor {
 							
 							switch (operationType) {
 							case "StringCompare": { //TODO:
+								
+								if(stuFlow_ok && refFlow_ok){
 								System.out.println("................ StringCompare ");
 								String arg1str = null;
 								String arg2str = null;
@@ -332,24 +334,20 @@ public class TaskCycleProcessor {
 								arg1str = getChannelStringValue(par1);
 								arg2str = getChannelStringValue(par2);
 								
-								//if (referenceChannel001.equals(studentChannel001))
-								String retStr = null;
-								if (arg1str.equals(arg2str)){
-									retStr = "EQUAL";
-									//System.out.println("=============== EQUAL =============\n");
-								} else {
-									retStr = "NOT_EQUAL";
-									//System.out.println("?????? NOT EQUAL ??????\n");
+								String result = "EQUAL";
+								compare_ctrl.setUp();															
+								boolean isequal = compare_ctrl.compareTextLines(arg1str, arg2str);
+								if(!isequal){
+									operErrorBuffer = compare_ctrl.getFilteredResults("DELETE", 0, 100); //minLength, cutLength
+									result = "NOT-EQUAL";
+									oper_ok = false;
+								} 
+								System.out.println("====== MERGE RESULT: " + result + "============\n");	
+								setChannelStringValue(returnChannel, result);
+								checkResultBuffer.append("TESTCASE(" + testcasecount + "):" + result + "\n");
+								} else { // stuFlow or refFlow not succesfull
+									checkResultBuffer.append("TESTCASE(" + testcasecount + "):" + "NOT-COMPARED" + "\n");
 								}
-								
-								
-								mydmp.setUp();															
-								boolean isequal = mydmp.runDiffMain(arg1str, arg2str);
-								
-								System.out.println("===============" + retStr + "=====" + isequal + "========\n");
-								
-								setChannelStringValue(returnChannel, retStr);
-								checkResultBuffer.append("TESTCASE#" + testcasecount + ":" + retStr + "\n");
 							}
 								break;
 							case "NA": {
