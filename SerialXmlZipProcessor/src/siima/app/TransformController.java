@@ -85,7 +85,7 @@ public class TransformController {
 		} catch (FileNotFoundException e) {
 			logger.log(Level.ERROR, "MSG:\n" + e.getMessage());
 			ok = false;
-			e.printStackTrace();
+			//e.printStackTrace();
 		}
 		
 		return ok;

@@ -21,7 +21,7 @@ import siima.utils.Testing_diff_match_patch;
 
 public class TaskCycleProcessor {
 	private static final Logger logger=Logger.getLogger(TaskCycleProcessor.class.getName());
-	private String studentDataExcel = "data/excel/students.xlsx";
+	private String studentDataExcel; // = "data/excel/students.xlsx";
 	private ExcelMng excel_mng; // = new ExcelMng("data/excel/students.xlsx");
 	private TestCaseContainer test_cc = new TestCaseContainer();
 	private TransformController trans_ctrl = new TransformController();	
@@ -43,6 +43,7 @@ public class TaskCycleProcessor {
 	
 	/* Constructor */
 	public TaskCycleProcessor(String studentsExcel){
+		this.studentDataExcel = studentsExcel;
 		excel_mng = new ExcelMng(this.studentDataExcel);
 		
 		dirKeyIndexMap.put("stuDir1", 0); 
@@ -324,9 +325,9 @@ public class TaskCycleProcessor {
 							String operationType = oper.getType();
 							
 							switch (operationType) {
-							case "StringCompare": { //TODO:
+							case "StringCompare": { 
 								
-								if(stuFlow_ok && refFlow_ok){
+								if(stuFlow_ok && refFlow_ok){//compare only successful flows
 								System.out.println("................ StringCompare ");
 								String arg1str = null;
 								String arg2str = null;
@@ -369,7 +370,7 @@ public class TaskCycleProcessor {
 				} // Flow loop
 			String points = tcase.getPoints();		
 			testcaseResults.add("RESULT(" + submitcnt + ") TCASE(" + testcasecount + ")  FLOW(" + stuFlow_ok + ") MSG(" + checkResultBuffer.toString() + ")");
-			if(stuFlow_ok) testcasePoints.add(points); //TODO points as string
+			if((stuFlow_ok)&&(merFlow_ok)) testcasePoints.add(points); //TODO points as string
 				else testcasePoints.add("0");
 			}// TestCase Loop ---
 		saveSubmitTestCaseResults(submitcnt, testcasecount, testcaseResults, operationErrors, testcasePoints);
