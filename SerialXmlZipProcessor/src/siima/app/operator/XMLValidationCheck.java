@@ -45,6 +45,7 @@ public class XMLValidationCheck {
 		String xmluri = null; // Not available 
 		
 		System.out.println("?????? validateXMLSchema: zippath1:" + zippath1 + " xsdPath:" + xsdPath);
+		System.out.println("?????? validateXMLSchema: zippath2:" + zippath2 + " xmlPath:" + xmlPath);
 		
 		try {
 			ZipFile zip1 = new ZipFile(zippath1);

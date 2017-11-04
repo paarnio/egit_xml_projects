@@ -180,17 +180,27 @@ public class TaskCycleProcessor {
 		for (TestCaseType tcase : testcases) {
 			testcasecount++;
 			checkResultBuffer = new StringBuffer();
+			dirList = new ArrayList<String>();
+			fileList = new ArrayList<String>();
 			System.out.println("--+ TestCase Loop #" + testcasecount);
 			
 			String sdir1= tcase.getStuDir1();
+				if(sdir1==null) sdir1 = "NA/";
 			String sdir2= tcase.getStuDir2();
+				if(sdir2==null) sdir2 = "NA/";
 			String sfile1= tcase.getStuFile1();
+				if(sfile1==null) sfile1 = "NA";
 			String sfile2= tcase.getStuFile2();
+				if(sfile2==null) sfile2 = "NA";
 			
 			String rdir1= tcase.getRefDir1();
+				if(rdir1==null) rdir1 = "NA/";
 			String rdir2= tcase.getRefDir2();
+				if(rdir2==null) rdir2 = "NA/";
 			String rfile1= tcase.getRefFile1();
+				if(rfile1==null) rfile1 = "NA";
 			String rfile2= tcase.getRefFile2();
+				if(rfile2==null) rfile2 = "NA";
 			 
 			
 			 dirList.add(sdir1);
