@@ -213,6 +213,10 @@ public class TaskCycleProcessor {
 			 fileList.add(rfile1);
 			 fileList.add(rfile2);
 			 
+			 for(int i=0;i<channelList.size();i++){
+				 channelList.set(i, ""); //clear channels
+			 }
+			 
 			stuFlow_ok = true;
 			refFlow_ok = true;
 			merFlow_ok = true;
@@ -232,6 +236,7 @@ public class TaskCycleProcessor {
 					operErrorBuffer = new StringBuffer();
 					List<String> paramlist = null;
 					List<String> valuelist = null;
+					
 					String par1 =oper.getPar1();
 					String par2 =oper.getPar2();
 					String returnChannel = oper.getReturn();
@@ -308,7 +313,13 @@ public class TaskCycleProcessor {
 								String fullXSDPathInZip = operParamFilePathValue(par1);
 								String fullXMLPathInZip = operParamFilePathValue(par2);
 								oper_ok = valid_oper.validateXMLSchema(zippath1, fullXSDPathInZip, zippath2, fullXMLPathInZip);
-								if(!oper_ok) operErrorBuffer = valid_oper.getOperErrorBuffer();
+								
+								if(!oper_ok) {
+									setChannelStringValue(returnChannel, "INVALID");
+									operErrorBuffer = valid_oper.getOperErrorBuffer();
+								} else {
+									setChannelStringValue(returnChannel, "VALID");
+								}
 							}
 								break;
 							case "XMLWellFormed": { 
@@ -319,7 +330,12 @@ public class TaskCycleProcessor {
 								System.out.println("                 XML file: " + fullXMLPathInZip);
 								
 								oper_ok = wf_oper.checkWellFormedZipXML(zippath1, fullXMLPathInZip);
-								if(!oper_ok) operErrorBuffer = wf_oper.getOperErrorBuffer();
+								if(!oper_ok){
+									setChannelStringValue(returnChannel, "NON-WELLFORMED");
+									operErrorBuffer = wf_oper.getOperErrorBuffer();
+								} else {
+									setChannelStringValue(returnChannel, "WELLFORMED");
+								}
 							}
 								break;
 							}

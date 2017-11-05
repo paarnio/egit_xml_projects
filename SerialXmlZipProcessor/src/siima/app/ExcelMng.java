@@ -44,9 +44,9 @@ public class ExcelMng {
 	private String resultsSheet;
 	private int resultFirstCol = 6;
 	private int resultFirstRow = 10;
-	private int pointsFirstCol = 11; //+5
+	private int pointsFirstCol = 16; //+10
 	private int pointsFirstRow = 10;
-	private int errorMsgFirstCol = 16; //+5
+	private int errorMsgFirstCol = 26; //+10
 	private int errorMsgFirstRow = 10;
 	
 	
