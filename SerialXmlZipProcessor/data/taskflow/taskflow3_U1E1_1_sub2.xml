@@ -195,4 +195,53 @@
 	  <comment>Taskflow 3 comment3</comment>
 	</flow>
   </testCase>
+  <testCase number="4"><!-- NEW -->
+	<description>Comparing file contents</description>
+    <points>555</points>
+    <stuDir1>RoundU1/exU1E1_1/src/</stuDir1>
+	<stuFile1>plant_catalog.xsl</stuFile1>
+	<stuFile2>plant_catalog.xml</stuFile2>
+	<refDir1>RoundU1/exU1E1_1/src/</refDir1>
+	<refFile1>plant_catalog.xsl</refFile1>
+	<refFile2>plant_catalog.xml</refFile2>
+	<comment>Testcase comment</comment>
+	<flow>
+	  <description>The student flow</description>
+	  <type>studentFlow</type>
+	  <name>studentFlow1</name>
+	  <operation>
+	    <type>ReadTxtContent</type>
+        <name>ReadTxtContent1</name>
+        <par1>stuDir1/stuFile1</par1>
+		<return>stuC002</return>
+      </operation>
+	</flow>
+	<flow>
+	  <description>The reference flow</description>
+	  <type>referenceFlow</type>
+	  <name>referenceFlow1</name>
+	  <operation>
+	    <type>ReadTxtContent</type>
+        <name>ReadTxtContent1</name>
+        <par1>refDir1/refFile1</par1>
+		<return>refC002</return>
+      </operation>
+	</flow>
+  	<flow>
+	  <description>Merging student and reference flow</description>
+	  <type>mergeFlow</type>
+	  <name>mergeFlow2</name>
+	  <inChannel>outC002</inChannel>
+	  <inChannel>outC012</inChannel>
+	  <outChannel>merC002</outChannel>
+	  <operation>
+	    <type>StringCompare</type>
+        <name>StringCompare1</name>
+        <par1>refC002</par1>
+        <par2>stuC002</par2>
+		<return>merC002</return>
+	    <comment>Comparing student and reference flow outputs</comment>
+      </operation>
+	</flow>
+  </testCase>
 </checkerTaskFlow>

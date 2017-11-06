@@ -21,6 +21,26 @@ import javax.imageio.ImageIO;
 public class ZipFileReader {
 
 	public StringBuffer textcontents = new StringBuffer();
+	
+	/* NEW */
+	
+	public String readTxtFile(String zipFilePath, String txtFilePathInZip) {
+		//
+		String txt = null;
+		StringBuilder strbuilder;
+		ZipFile zip;
+		try {
+			zip = new ZipFile(zipFilePath);
+			InputStream instream = readInputStreamFromZipFile(txtFilePathInZip, zip, null);
+			if (instream != null) {
+				strbuilder = getTxtFiles(instream);
+				txt = strbuilder.toString();
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return txt;
+	}
 
 	public InputStream readInputStreamFromZipFile(String fullPathInZip, ZipFile zip, String fileExt) {
 		/* Simple way to do it (Searching only the specified path)
@@ -144,6 +164,7 @@ public class ZipFileReader {
 		return null;
 	}
 
+	
 	public static void main(String[] args) {
 		
 			/*ZipFile zip = new ZipFile("./data/zips/test.zip");			

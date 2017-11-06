@@ -10,6 +10,7 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
+import siima.app.operator.TxtFileReadOper;
 import siima.app.operator.XMLValidationCheck;
 import siima.app.operator.XMLWellFormedCheck;
 import siima.model.checker.taskflow.CheckerTaskFlowType;
@@ -28,6 +29,7 @@ public class TaskCycleProcessor {
 	private TextCompareController compare_ctrl = new TextCompareController();
 	private XMLWellFormedCheck wf_oper = new XMLWellFormedCheck();
 	private XMLValidationCheck valid_oper = new XMLValidationCheck();
+	private TxtFileReadOper read_oper = new TxtFileReadOper();
 	
 	public StringBuffer checkResultBuffer;
 	public List<String> testcaseResults; // = new ArrayList<String>();
@@ -338,6 +340,22 @@ public class TaskCycleProcessor {
 								}
 							}
 								break;
+							case "ReadTxtContent": { 
+								System.out.println("................ ReadTxtContent ");	
+								read_oper.setOperErrorBuffer(new StringBuffer());
+								
+								String fullTXTPathInZip = operParamFilePathValue(par1);
+								System.out.println("                 TXT file: " + fullTXTPathInZip);
+								String txtContent = read_oper.readTxtFile(zippath1, fullTXTPathInZip);
+								if(txtContent==null){
+									setChannelStringValue(returnChannel, "");
+									operErrorBuffer = read_oper.getOperErrorBuffer();
+								} else {
+									setChannelStringValue(returnChannel, txtContent);
+								}
+								
+							}
+							break;
 							}
 		
 							
@@ -345,7 +363,7 @@ public class TaskCycleProcessor {
 							
 							System.out.println("\n==================================");
 							System.out.println(".............mergeFlow ...........");
-							//System.out.println("==================================\n");
+							System.out.println("..................................\n");
 							//oper_ok = true;
 							/* --- Operation Branch --- */
 							String operationType = oper.getType();

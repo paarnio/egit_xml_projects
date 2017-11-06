@@ -8,7 +8,7 @@ import org.apache.log4j.Logger;
 
 public class AppMainController {
 	private static final Logger logger=Logger.getLogger(AppMainController.class.getName());
-	private String studentDataExcel = "data/excel/students_U1.xlsx"; //students.xlsx
+	private String studentDataExcel = "data/excel/students_U1.xlsx"; //students_U1.xlsx students.xlsx
 	private TaskCycleProcessor taskCycleProcessor;
 	
 	/*
