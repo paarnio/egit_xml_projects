@@ -11,9 +11,9 @@
    <testCase number="1">
 	<description>NOTE: test-folder. The Well Formed testcase</description>
     <points>100</points>
-    <stuDir1>Round_U3/U3E1_1/test/</stuDir1>
-	<stuFile1>books_schema_hidden.xsd</stuFile1>
-	<stuFile2>books_hidden.xml</stuFile2>
+    <stuDir1>Round_U3/U3E1_1/src/</stuDir1>
+	<stuFile1>books_schema.xsd</stuFile1>
+	<stuFile2>books.xml</stuFile2>
 	<refDir1>Round_U3/U3E1_1/test/</refDir1>
 	<refFile1>books_schema_hidden.xsd</refFile1>
 	<refFile2>books_hidden.xml</refFile2>
@@ -69,11 +69,11 @@
 	</flow>
   </testCase>
   <testCase number="2">
-	<description>The first testcase</description>
+	<description>testcase</description>
     <points>10</points>
-    <stuDir1>Round_U3/U3E1_1/test/</stuDir1>
-	<stuFile1>books_schema_hidden.xsd</stuFile1>
-	<stuFile2>books_hidden.xml</stuFile2>
+    <stuDir1>Round_U3/U3E1_1/src/</stuDir1>
+	<stuFile1>books_schema.xsd</stuFile1>
+	<stuFile2>books.xml</stuFile2>
 	<refDir1>RoundU3/exU3E1_1/test/</refDir1>
 	<refFile1>books_schema_hidden.xsd</refFile1>
 	<refFile2>books_hidden.xml</refFile2>
